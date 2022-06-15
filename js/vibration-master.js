@@ -284,7 +284,7 @@ class Gamepad {
     };
 };
 
-class GamepadMaster {
+class VibrationMaster {
     constructor() {
         this.init();
     };
@@ -388,5 +388,5 @@ class GamepadMaster {
 /* INITIALIZATION */
 /* -------------- */
 
-const GAMEPAD_MASTER = new GamepadMaster();
+const VIBRATION_MASTER = new VibrationMaster();
 
