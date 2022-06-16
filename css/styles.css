@@ -248,6 +248,10 @@ legend {
     color: var(--color-logo);
 }
 
+    .logo-wrapper__logo::selection {
+        background-color: var(--color-a);
+    }
+
 @media only screen and (min-width: 540px) {
     .logo-wrapper__logo {
         font-size: 64px;
