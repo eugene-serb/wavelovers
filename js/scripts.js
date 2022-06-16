@@ -199,18 +199,18 @@ class Gamepad {
     generateBox = () => {
         const $list_item = document.createElement('div');
         const $info_box = document.createElement('div');
-        /*const $button = document.createElement('button');*/
+        const $button = document.createElement('button');
 
         $list_item.classList.add('list-item');
         $info_box.classList.add('list-item__info');
-        /*$button.innerText = 'Select';*/
+        $button.innerText = 'Select';
 
-        /*$button.addEventListener('click', () => {
+        $button.addEventListener('click', () => {
             this.isSelected = !this.isSelected;
-        });*/
+        });
 
         $list_item.appendChild($info_box);
-        /*$list_item.appendChild($button);*/
+        $list_item.appendChild($button);
         this.$container.appendChild($list_item);
 
         this.$list_item = $list_item;
@@ -294,6 +294,10 @@ class Gamepad {
             this.cooldown = Date.now() + 500;
         };
     };
+    change = (index) => {
+        this.index = index;
+        this.pattern = this.library[this.index].pattern;
+    };
 };
 
 class VibrationMaster {
@@ -372,19 +376,42 @@ class VibrationMaster {
         };
     };
 
-    checkGamepadSupport = () => {
-        return 'getGamepads' in window.navigator;
+    print = (patterns) => {
+        patterns.forEach((pattern, index) => {
+            const $container = document.createElement('div');
+            const $icon = document.createElement('span');
+            const $name = document.createElement('span');
+
+            $container.classList.add('pattern-item');
+            $icon.classList.add('pattern-item__icon');
+            $name.classList.add('pattern-item__name');
+
+            $icon.innerHTML = pattern.icon;
+            $name.innerHTML = pattern.name;
+
+            $container.appendChild($icon);
+            $container.appendChild($name);
+
+            $container.addEventListener('click', () => this.change(index));
+
+            this.$PATTERN_LIST.appendChild($container);
+        });
+    };
+    change = (index) => {
+        if (this.gamepads.length > 0) {
+            this.gamepads.forEach(gamepad => {
+                if (gamepad.isSelected === true) {
+                    gamepad.change(index);
+                };
+            });
+        } else {
+            console.log('No connected devices...');
+            return;
+        };
     };
 
-    print = (patterns) => {
-        patterns.forEach(pattern => {
-            this.$PATTERN_LIST.innerHTML += `
-                <div class="pattern-item">
-                    <span class="pattern-item__icon">${pattern.icon}</span>
-                    <span class="pattern-item__name">${pattern.name}</span>
-                </div>
-            `;
-        });
+    checkGamepadSupport = () => {
+        return 'getGamepads' in window.navigator;
     };
 
     #DOMs = () => {
