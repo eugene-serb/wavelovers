@@ -9,6 +9,7 @@ const __PATTERNS = [
     {
         name: 'Constant Weak',
         type: 'Simple',
+        icon: '😏',
         pattern: [
             {
                 startDelay: 0,
@@ -21,6 +22,7 @@ const __PATTERNS = [
     {
         name: 'Constant Strong',
         type: 'Simple',
+        icon: '🤩',
         pattern: [
             {
                 startDelay: 0,
@@ -33,6 +35,7 @@ const __PATTERNS = [
     {
         name: 'Constant Max',
         type: 'Simple',
+        icon: '😍',
         pattern: [
             {
                 startDelay: 0,
@@ -46,6 +49,7 @@ const __PATTERNS = [
     {
         name: 'Dotted Weak',
         type: 'Simple',
+        icon: '😌',
         pattern: [
             {
                 startDelay: 100,
@@ -58,6 +62,7 @@ const __PATTERNS = [
     {
         name: 'Dotted Strong',
         type: 'Simple',
+        icon: '😉',
         pattern: [
             {
                 startDelay: 100,
@@ -70,6 +75,7 @@ const __PATTERNS = [
     {
         name: 'Dotted Max',
         type: 'Simple',
+        icon: '🙃',
         pattern: [
             {
                 startDelay: 0,
@@ -83,6 +89,7 @@ const __PATTERNS = [
     {
         name: 'Short Dashed Weak',
         type: 'Simple',
+        icon: '🙂',
         pattern: [
             {
                 startDelay: 100,
@@ -95,6 +102,7 @@ const __PATTERNS = [
     {
         name: 'Short Dashed Strong',
         type: 'Simple',
+        icon: '😇',
         pattern: [
             {
                 startDelay: 100,
@@ -107,6 +115,7 @@ const __PATTERNS = [
     {
         name: 'Short Dashed Max',
         type: 'Simple',
+        icon: '😊',
         pattern: [
             {
                 startDelay: 0,
@@ -120,6 +129,7 @@ const __PATTERNS = [
     {
         name: 'Long Dashed Weak',
         type: 'Simple',
+        icon: '😋',
         pattern: [
             {
                 startDelay: 100,
@@ -132,6 +142,7 @@ const __PATTERNS = [
     {
         name: 'Long Dashed Strong',
         type: 'Simple',
+        icon: '😜',
         pattern: [
             {
                 startDelay: 100,
@@ -144,6 +155,7 @@ const __PATTERNS = [
     {
         name: 'Long Dashed Max',
         type: 'Simple',
+        icon: '🤪',
         pattern: [
             {
                 startDelay: 0,
@@ -290,6 +302,7 @@ class VibrationMaster {
     };
     init = () => {
         this.#DOMs();
+        this.print(__PATTERNS);
 
         if (!this.checkGamepadSupport()) {
             console.log(`This browser does not support of gamepads.`);
@@ -363,11 +376,24 @@ class VibrationMaster {
         return 'getGamepads' in window.navigator;
     };
 
+    print = (patterns) => {
+        patterns.forEach(pattern => {
+            this.$PATTERN_LIST.innerHTML += `
+                <div class="pattern-item">
+                    <span class="pattern-item__icon">${pattern.icon}</span>
+                    <span class="pattern-item__name">${pattern.name}</span>
+                </div>
+            `;
+        });
+    };
+
     #DOMs = () => {
+        this.$MESSAGE_BOX = document.querySelector('#message-box');
         this.$MESSAGE = document.querySelector('#message');
-        this.$MESSAGE_BOX = document.querySelector('.message-box');
-        this.$DEVICE_LIST = document.querySelector('#device-list');
         this.$DEVICE_BOX = document.querySelector('#device-box');
+        this.$DEVICE_LIST = document.querySelector('#device-list');
+        this.$PATTERN_BOX = document.querySelector('#pattern-box');
+        this.$PATTERN_LIST = document.querySelector('#pattern-list');
     };
     #eventListeners = () => {
         window.addEventListener('gamepadconnected', (event) => {
