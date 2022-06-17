@@ -5,46 +5,6 @@
 'use strict';
 
 const __PATTERNS = [
-    /* Constant, 0s, 1s */
-    {
-        name: 'Constant Weak',
-        type: 'Simple',
-        icon: '😏',
-        pattern: [
-            {
-                startDelay: 0,
-                duration: 1000,
-                weakMagnitude: 1.0,
-                strongMagnitude: 0.0,
-            },
-        ],
-    },
-    {
-        name: 'Constant Strong',
-        type: 'Simple',
-        icon: '🤩',
-        pattern: [
-            {
-                startDelay: 0,
-                duration: 1000,
-                weakMagnitude: 0.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
-    {
-        name: 'Constant Max',
-        type: 'Simple',
-        icon: '😍',
-        pattern: [
-            {
-                startDelay: 0,
-                duration: 1000,
-                weakMagnitude: 1.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
     /* Dotted, 0.1s, 0.1s */
     {
         name: 'Dotted Weak',
@@ -160,6 +120,46 @@ const __PATTERNS = [
             {
                 startDelay: 0,
                 duration: 500,
+                weakMagnitude: 1.0,
+                strongMagnitude: 1.0,
+            },
+        ],
+    },
+    /* Constant, 0s, 1s */
+    {
+        name: 'Constant Weak',
+        type: 'Simple',
+        icon: '😏',
+        pattern: [
+            {
+                startDelay: 0,
+                duration: 1000,
+                weakMagnitude: 1.0,
+                strongMagnitude: 0.0,
+            },
+        ],
+    },
+    {
+        name: 'Constant Strong',
+        type: 'Simple',
+        icon: '🤩',
+        pattern: [
+            {
+                startDelay: 0,
+                duration: 1000,
+                weakMagnitude: 0.0,
+                strongMagnitude: 1.0,
+            },
+        ],
+    },
+    {
+        name: 'Constant Max',
+        type: 'Simple',
+        icon: '😍',
+        pattern: [
+            {
+                startDelay: 0,
+                duration: 1000,
                 weakMagnitude: 1.0,
                 strongMagnitude: 1.0,
             },
