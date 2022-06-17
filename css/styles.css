@@ -369,6 +369,10 @@ legend {
             font-size: 32px;
         }
 
+        .created-by > a:hover {
+            border: none;
+        }
+
 /* ----------- */
 /* WAVE MASTER */
 /* ----------- */
