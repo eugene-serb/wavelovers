@@ -200,18 +200,11 @@ class Gamepad {
     generateBox = () => {
         const $list_item = document.createElement('div');
         const $info_box = document.createElement('div');
-        /*const $button = document.createElement('button');*/
 
         $list_item.classList.add('list-item');
         $info_box.classList.add('list-item__info');
-        /*$button.innerText = 'Select';*/
-
-        /*$button.addEventListener('click', () => {
-            this.isSelected = !this.isSelected;
-        });*/
 
         $list_item.appendChild($info_box);
-        /*$list_item.appendChild($button);*/
         this.$container.appendChild($list_item);
 
         this.$list_item = $list_item;
@@ -283,6 +276,7 @@ class Gamepad {
             this.cooldown = Date.now() + 500;
         };
     };
+
     change = (index) => {
         this.index = index;
         this.pattern = this.library[this.index].pattern;
@@ -315,7 +309,6 @@ class VibrationMaster {
     eventLoop = () => {
         this.update();
         this.draw();
-        /*this.eventHandler();*/
     };
     update = () => {
         if (this.gamepads.length > 0) {
@@ -391,13 +384,11 @@ class VibrationMaster {
     change = (index) => {
         if (this.gamepads.length > 0) {
             this.gamepads.forEach(gamepad => {
-                /*if (gamepad.isSelected === true) {
-                    gamepad.change(index);
-                };*/
                 this.unselect();
                 if (gamepad.index === index &&
                     gamepad.isVibrating === true) {
                     gamepad.isVibrating = false;
+                    gamepad.reset();
                 } else {
                     gamepad.change(index);
                     gamepad.vibrate();
