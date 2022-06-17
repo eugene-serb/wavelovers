@@ -377,7 +377,13 @@ legend {
     gap: 16px;
 }
 
-.message-box {
+.controls-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.message {
     text-align: center;
     font-size: 18px;
 }
@@ -478,4 +484,42 @@ legend {
                 white-space: nowrap;
                 overflow: hidden;
             }
+
+.controls-box__item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.controls-box__item > span {
+    font-size: 24px;
+}
+
+.gamepad-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.gamepad-button {
+    width: 4ch;
+    height: 4ch;
+    border: 1px solid black;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: grey;
+    color: white;
+    text-align: center;
+}
+
+    .gamepad-button > span { color: var(--color-white); }
+
+    .gamepad-button_a { background: green; }
+    .gamepad-button_b { background: red; }
+    .gamepad-button_x { background: blue; }
+    .gamepad-button_y { background: orange; }
 

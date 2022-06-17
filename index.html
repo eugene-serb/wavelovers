@@ -99,16 +99,60 @@
     <main class="page container">
         <h1 class="visually-hidden">Wavelovers</h1>
         <div class="wavelovers">
-            <div id="message-box" class="content message-box">
-                <span id="message"></span>
-            </div>
-            <div id="device-box" class="content device-box">
-                <h2 class="content__header">Device List</h2>
-                <div id="device-list" class="device-list"></div>
-            </div>
             <div id="pattern-box" class="content pattern-box">
-                <h2 class="content__header">Patterns</h2>
                 <div id="pattern-list" class="pattern-list"></div>
+            </div>
+            <div class="content controls-box">
+                <div class="controls-box__item">
+                    <span>Start</span><br />
+                    <div class="gamepad-button-container">
+                        <div class="gamepad-button gamepad-button_a">
+                            <span>A</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="controls-box__item">
+                    <span>Stop</span><br />
+                    <div class="gamepad-button-container">
+                        <div class="gamepad-button gamepad-button_b">
+                            <span>B</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="controls-box__item">
+                    <span>Previous</span><br />
+                    <div class="gamepad-button-container">
+                        <div class="gamepad-button">
+                            <span>LB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="controls-box__item">
+                    <span>Next</span><br />
+                    <div class="gamepad-button-container">
+                        <div class="gamepad-button">
+                            <span>RB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="controls-box__item">
+                    <span>(Un-) lock</span><br />
+                    <div class="gamepad-button-container">
+                        <div class="gamepad-button gamepad-button_x">
+                            <span>X</span>
+                        </div>
+                        <span> + </span>
+                        <div class="gamepad-button gamepad-button_y">
+                            <span>Y</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="device-box" class="content">
+                <div class="message">
+                    <span id="message"></span>
+                </div>
+                <div id="device-list" class="device-list"></div>
             </div>
         </div>
     </main>

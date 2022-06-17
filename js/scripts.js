@@ -342,14 +342,14 @@ class VibrationMaster {
     };
     update = () => {
         if (this.gamepads.length > 0) {
-            this.$MESSAGE_BOX.classList.add('hidden');
-            this.$DEVICE_BOX.classList.remove('hidden');
+            this.$MESSAGE.classList.add('hidden');
+            this.$DEVICE_LIST.classList.remove('hidden');
             this.gamepads.forEach(gamepad => {
                 gamepad.update();
             });
         } else {
-            this.$MESSAGE_BOX.classList.remove('hidden');
-            this.$DEVICE_BOX.classList.add('hidden');
+            this.$MESSAGE.classList.remove('hidden');
+            this.$DEVICE_LIST.classList.add('hidden');
         };
     };
     draw = () => {
@@ -429,9 +429,8 @@ class VibrationMaster {
     };
 
     #DOMs = () => {
-        this.$MESSAGE_BOX = document.querySelector('#message-box');
-        this.$MESSAGE = document.querySelector('#message');
         this.$DEVICE_BOX = document.querySelector('#device-box');
+        this.$MESSAGE = document.querySelector('#message');
         this.$DEVICE_LIST = document.querySelector('#device-list');
         this.$PATTERN_BOX = document.querySelector('#pattern-box');
         this.$PATTERN_LIST = document.querySelector('#pattern-list');
