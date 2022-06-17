@@ -5,47 +5,11 @@
 'use strict';
 
 const __PATTERNS = [
-    /* Constant, 0s, 1s */
-    {
-        name: 'Constant Weak',
-        type: 'Simple',
-        pattern: [
-            {
-                startDelay: 0,
-                duration: 1000,
-                weakMagnitude: 1.0,
-                strongMagnitude: 0.0,
-            },
-        ],
-    },
-    {
-        name: 'Constant Strong',
-        type: 'Simple',
-        pattern: [
-            {
-                startDelay: 0,
-                duration: 1000,
-                weakMagnitude: 0.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
-    {
-        name: 'Constant Max',
-        type: 'Simple',
-        pattern: [
-            {
-                startDelay: 0,
-                duration: 1000,
-                weakMagnitude: 1.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
     /* Dotted, 0.1s, 0.1s */
     {
         name: 'Dotted Weak',
         type: 'Simple',
+        icon: '😌',
         pattern: [
             {
                 startDelay: 100,
@@ -58,6 +22,7 @@ const __PATTERNS = [
     {
         name: 'Dotted Strong',
         type: 'Simple',
+        icon: '😉',
         pattern: [
             {
                 startDelay: 100,
@@ -70,6 +35,7 @@ const __PATTERNS = [
     {
         name: 'Dotted Max',
         type: 'Simple',
+        icon: '🙃',
         pattern: [
             {
                 startDelay: 0,
@@ -83,6 +49,7 @@ const __PATTERNS = [
     {
         name: 'Short Dashed Weak',
         type: 'Simple',
+        icon: '🙂',
         pattern: [
             {
                 startDelay: 100,
@@ -95,6 +62,7 @@ const __PATTERNS = [
     {
         name: 'Short Dashed Strong',
         type: 'Simple',
+        icon: '😇',
         pattern: [
             {
                 startDelay: 100,
@@ -107,6 +75,7 @@ const __PATTERNS = [
     {
         name: 'Short Dashed Max',
         type: 'Simple',
+        icon: '😊',
         pattern: [
             {
                 startDelay: 0,
@@ -120,6 +89,7 @@ const __PATTERNS = [
     {
         name: 'Long Dashed Weak',
         type: 'Simple',
+        icon: '😋',
         pattern: [
             {
                 startDelay: 100,
@@ -132,6 +102,7 @@ const __PATTERNS = [
     {
         name: 'Long Dashed Strong',
         type: 'Simple',
+        icon: '😜',
         pattern: [
             {
                 startDelay: 100,
@@ -144,10 +115,51 @@ const __PATTERNS = [
     {
         name: 'Long Dashed Max',
         type: 'Simple',
+        icon: '🤪',
         pattern: [
             {
                 startDelay: 0,
                 duration: 500,
+                weakMagnitude: 1.0,
+                strongMagnitude: 1.0,
+            },
+        ],
+    },
+    /* Constant, 0s, 1s */
+    {
+        name: 'Constant Weak',
+        type: 'Simple',
+        icon: '😏',
+        pattern: [
+            {
+                startDelay: 0,
+                duration: 1000,
+                weakMagnitude: 1.0,
+                strongMagnitude: 0.0,
+            },
+        ],
+    },
+    {
+        name: 'Constant Strong',
+        type: 'Simple',
+        icon: '🤩',
+        pattern: [
+            {
+                startDelay: 0,
+                duration: 1000,
+                weakMagnitude: 0.0,
+                strongMagnitude: 1.0,
+            },
+        ],
+    },
+    {
+        name: 'Constant Max',
+        type: 'Simple',
+        icon: '😍',
+        pattern: [
+            {
+                startDelay: 0,
+                duration: 1000,
                 weakMagnitude: 1.0,
                 strongMagnitude: 1.0,
             },
@@ -165,6 +177,7 @@ class Gamepad {
 
     init = () => {
         this.id = Date.now();
+        this.canVibrate = (this.unit.vibrationActuator) ? true : false;
         this.isSelected = false;
         this.isVibrating = false;
         this.isLocked = false;
@@ -187,18 +200,11 @@ class Gamepad {
     generateBox = () => {
         const $list_item = document.createElement('div');
         const $info_box = document.createElement('div');
-        /*const $button = document.createElement('button');*/
 
         $list_item.classList.add('list-item');
         $info_box.classList.add('list-item__info');
-        /*$button.innerText = 'Select';*/
-
-        /*$button.addEventListener('click', () => {
-            this.isSelected = !this.isSelected;
-        });*/
 
         $list_item.appendChild($info_box);
-        /*$list_item.appendChild($button);*/
         this.$container.appendChild($list_item);
 
         this.$list_item = $list_item;
@@ -207,19 +213,7 @@ class Gamepad {
     };
     draw = () => {
         this.$info_box.innerHTML = `
-                    <h3>#${this.unit.index + 1}. ${this.unit.id}</h3>
-                    <span>Vibration Actuator: ${this.unit.vibrationActuator ? 'Available' : 'missing'}</span>
-                    <div>
-                        <span>Status: </span>
-                        <span>${this.isVibrating ? 'Vibrating' : 'Idle'}</span>
-                        <span>A / B</span>
-                        <span>Key locked: </span>
-                        <span>${this.isLocked ? 'Yes' : 'No'}</span>
-                        <span>X + Y</span>
-                        <span>Mode: </span>
-                        <span>${this.index + 1}. ${this.library[this.index].name}</span>
-                        <span>LB / RB</span>
-                    </div>`;
+            <span>Gamepad #${this.unit.index + 1}. ${this.unit.id}.</span>`;
         if (this.isSelected === true) {
             this.$list_item.classList.add('list-item_selected');
         } else {
@@ -282,6 +276,11 @@ class Gamepad {
             this.cooldown = Date.now() + 500;
         };
     };
+
+    change = (index) => {
+        this.index = index;
+        this.pattern = this.library[this.index].pattern;
+    };
 };
 
 class VibrationMaster {
@@ -290,6 +289,8 @@ class VibrationMaster {
     };
     init = () => {
         this.#DOMs();
+        this.patterns = __PATTERNS;
+        this.print(this.patterns);
 
         if (!this.checkGamepadSupport()) {
             console.log(`This browser does not support of gamepads.`);
@@ -302,25 +303,23 @@ class VibrationMaster {
 
         this.gamepads = [];
         this.#eventListeners();
-
         this.interval = setInterval(this.eventLoop, 1);
     };
 
     eventLoop = () => {
         this.update();
         this.draw();
-        this.eventHandler();
     };
     update = () => {
         if (this.gamepads.length > 0) {
-            this.$MESSAGE_BOX.classList.add('hidden');
-            this.$DEVICE_BOX.classList.remove('hidden');
+            this.$MESSAGE.classList.add('hidden');
+            this.$DEVICE_LIST.classList.remove('hidden');
             this.gamepads.forEach(gamepad => {
                 gamepad.update();
             });
         } else {
-            this.$MESSAGE_BOX.classList.remove('hidden');
-            this.$DEVICE_BOX.classList.add('hidden');
+            this.$MESSAGE.classList.remove('hidden');
+            this.$DEVICE_LIST.classList.add('hidden');
         };
     };
     draw = () => {
@@ -333,7 +332,7 @@ class VibrationMaster {
     eventHandler = () => {
         if (this.gamepads.length > 0) {
             this.gamepads.forEach(gamepad => {
-                if (gamepad.unit.vibrationActuator) {
+                if (gamepad.canVibrate === true) {
                     if (gamepad.unit.buttons[2].pressed === true &&
                         gamepad.unit.buttons[3].pressed === true) {
                         gamepad.lock();
@@ -359,19 +358,76 @@ class VibrationMaster {
         };
     };
 
+    print = (patterns) => {
+        this.$PATTERN_LIST.innerHTML = '';
+        patterns.forEach((pattern, index) => {
+            const $container = document.createElement('div');
+            const $icon = document.createElement('span');
+            const $name = document.createElement('span');
+
+            $container.classList.add('pattern-item');
+            $icon.classList.add('pattern-item__icon');
+            $name.classList.add('pattern-item__name');
+
+            $icon.innerHTML = pattern.icon;
+            $name.innerHTML = pattern.name;
+
+            $container.appendChild($icon);
+            $container.appendChild($name);
+
+            $container.addEventListener('click', () => this.change(index));
+
+            this.$PATTERN_LIST.appendChild($container);
+            pattern['container'] = $container;
+        });
+    };
+    change = (index) => {
+        if (this.gamepads.length > 0) {
+            this.gamepads.forEach(gamepad => {
+                this.unselect();
+                if (gamepad.index === index &&
+                    gamepad.isVibrating === true) {
+                    gamepad.isVibrating = false;
+                    gamepad.reset();
+                } else {
+                    gamepad.change(index);
+                    gamepad.vibrate();
+                    this.select(index);
+                };
+            });
+        } else {
+            console.log('No connected devices...');
+            return;
+        };
+    };
+
+    unselect = () => {
+        this.patterns.forEach(pattern => {
+            pattern['container'].classList.remove('pattern-item__selected');
+        });
+    };
+    select = (index) => {
+        this.patterns[index]['container'].classList.add('pattern-item__selected');
+    };
+
     checkGamepadSupport = () => {
         return 'getGamepads' in window.navigator;
     };
 
     #DOMs = () => {
-        this.$MESSAGE = document.querySelector('#message');
-        this.$MESSAGE_BOX = document.querySelector('.message-box');
-        this.$DEVICE_LIST = document.querySelector('#device-list');
         this.$DEVICE_BOX = document.querySelector('#device-box');
+        this.$MESSAGE = document.querySelector('#message');
+        this.$DEVICE_LIST = document.querySelector('#device-list');
+        this.$PATTERN_BOX = document.querySelector('#pattern-box');
+        this.$PATTERN_LIST = document.querySelector('#pattern-list');
     };
     #eventListeners = () => {
         window.addEventListener('gamepadconnected', (event) => {
-            this.gamepads.push(new Gamepad(event.gamepad, this.$DEVICE_LIST, __PATTERNS));
+            if (this.gamepads.length > 1) {
+                return;
+            } else {
+                this.gamepads.push(new Gamepad(event.gamepad, this.$DEVICE_LIST, this.patterns));
+            };
         });
         window.addEventListener('gamepaddisconnected', (event) => {
             this.gamepads.forEach((gamepad, index) => {
