@@ -330,16 +330,32 @@ legend {
 .footer-wrapper {
     padding-top: 32px;
     padding-bottom: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 32px;
 }
 
     .annotation__text {
         color: var(--color-anotation);
     }
 
+    .created-by {
+        align-self: end;
+    }
+
+        .created-by > span {
+            padding-right: 8px;
+        }
+
+        .created-by > a {
+            font-size: 32px;
+        }
+
 /* ----------- */
 /* WAVE MASTER */
 /* ----------- */
-
 .wavelovers {
     display: flex;
     flex-direction: column;
