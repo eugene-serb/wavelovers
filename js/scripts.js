@@ -192,6 +192,7 @@ class Gamepad {
             }
         ];
         this.generateBox();
+        this.select(this.index, this.index);
     };
 
     delete = () => {
@@ -269,6 +270,7 @@ class Gamepad {
     };
     previous = () => {
         if (Date.now() >= this.cooldown) {
+            const previousIndex = this.index;
             if (this.index === 0) {
                 this.index = this.library.length - 1;
             } else {
@@ -276,10 +278,12 @@ class Gamepad {
             };
             this.pattern = this.library[this.index].pattern;
             this.cooldown = Date.now() + 500;
+            this.select(previousIndex, this.index);
         };
     };
     next = () => {
         if (Date.now() >= this.cooldown) {
+            const previousIndex = this.index;
             if (this.index === this.library.length - 1) {
                 this.index = 0;
             } else {
@@ -287,6 +291,7 @@ class Gamepad {
             };
             this.pattern = this.library[this.index].pattern;
             this.cooldown = Date.now() + 500;
+            this.select(previousIndex, this.index);
         };
     };
     lock = () => {
@@ -296,8 +301,14 @@ class Gamepad {
         };
     };
     change = (index) => {
+        this.select(this.index, index);
         this.index = index;
         this.pattern = this.library[this.index].pattern;
+    };
+
+    select = (previous, next) => {
+        this.library[previous]['container'].classList.remove('pattern-item__selected');
+        this.library[next]['container'].classList.add('pattern-item__selected');
     };
 };
 
@@ -307,7 +318,8 @@ class VibrationMaster {
     };
     init = () => {
         this.#DOMs();
-        this.print(__PATTERNS);
+        this.patterns = __PATTERNS;
+        this.print(this.patterns);
 
         if (!this.checkGamepadSupport()) {
             console.log(`This browser does not support of gamepads.`);
@@ -320,7 +332,6 @@ class VibrationMaster {
 
         this.gamepads = [];
         this.#eventListeners();
-
         this.interval = setInterval(this.eventLoop, 1);
     };
 
@@ -378,6 +389,7 @@ class VibrationMaster {
     };
 
     print = (patterns) => {
+        this.$PATTERN_LIST.innerHTML = '';
         patterns.forEach((pattern, index) => {
             const $container = document.createElement('div');
             const $icon = document.createElement('span');
@@ -396,6 +408,7 @@ class VibrationMaster {
             $container.addEventListener('click', () => this.change(index));
 
             this.$PATTERN_LIST.appendChild($container);
+            pattern['container'] = $container;
         });
     };
     change = (index) => {
@@ -425,7 +438,7 @@ class VibrationMaster {
     };
     #eventListeners = () => {
         window.addEventListener('gamepadconnected', (event) => {
-            this.gamepads.push(new Gamepad(event.gamepad, this.$DEVICE_LIST, __PATTERNS));
+            this.gamepads.push(new Gamepad(event.gamepad, this.$DEVICE_LIST, this.patterns));
         });
         window.addEventListener('gamepaddisconnected', (event) => {
             this.gamepads.forEach((gamepad, index) => {

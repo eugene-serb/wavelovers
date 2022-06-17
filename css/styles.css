@@ -277,6 +277,19 @@ legend {
     text-transform: uppercase;
 }
 
+    .navigation__item a {
+        color: var(--color-logo);
+    }
+
+        .navigation__item a:hover {
+            color: var(--color-logo);
+            border-color: var(--color-logo);
+        }
+
+        .navigation__item a::selection {
+            background: var(--color-a);
+        }
+
 @media only screen and (min-width: 720px) {
     .header-wrapper {
         display: grid;
@@ -294,6 +307,7 @@ legend {
         margin-top: 0px;
         grid-column: 2 / 3;
         grid-row: 1 / 2;
+        align-self: flex-end;
     }
 }
 
@@ -448,6 +462,11 @@ legend {
             align-items: center;
             text-align: center;
             overflow: hidden;
+            cursor: default;
+        }
+
+        .pattern-item__selected {
+            background: var(--color-b);
         }
 
             .pattern-item__icon{
