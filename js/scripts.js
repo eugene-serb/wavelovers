@@ -177,6 +177,7 @@ class Gamepad {
 
     init = () => {
         this.id = Date.now();
+        this.canVibrate = (this.unit.vibrationActuator) ? true : false;
         this.isSelected = false;
         this.isVibrating = false;
         this.isLocked = false;
@@ -350,7 +351,7 @@ class VibrationMaster {
     eventHandler = () => {
         if (this.gamepads.length > 0) {
             this.gamepads.forEach(gamepad => {
-                if (gamepad.unit.vibrationActuator) {
+                if (gamepad.canVibrate === true) {
                     if (gamepad.unit.buttons[2].pressed === true &&
                         gamepad.unit.buttons[3].pressed === true) {
                         gamepad.lock();
