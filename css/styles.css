@@ -42,6 +42,7 @@
         --color-table-item: transparent;
         --color-anotation: var(--color-coal);
         --color-pattern-button: var(--color-c);
+        --color-pattern-text: var(--color-white);
     }
 }
 
@@ -61,6 +62,7 @@
         --color-table-item: transparent;
         --color-anotation: var(--color-milk);
         --color-pattern-button: var(--color-milk);
+        --color-pattern-text: var(--color-black);
     }
 }
 
@@ -377,15 +379,9 @@ legend {
     gap: 16px;
 }
 
-.controls-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
 .message {
     text-align: center;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .device-box {
@@ -411,13 +407,6 @@ legend {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            gap: 16px;
-        }
-
-        @media only screen and (min-width: 540px) {
-            .list-item {
-                max-width: 50%;
-            }
         }
 
         .list-item_selected {
@@ -430,16 +419,21 @@ legend {
         }
 
             .list-item__info {
-                padding: 16px;
                 display: flex;
                 flex-direction: column;
                 gap: 16px;
             }
 
             .list-item__info > div {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
             }
+
+        .list-item_selected .list-item__info span,
+        .list-item_selected .list-item__info h4 {
+            color: var(--color-white);
+        }
 
 .pattern-box {
     display: flex;
@@ -480,20 +474,30 @@ legend {
             }
 
             .pattern-item__name {
-                font-size: 16px;
+                font-size: 18px;
                 white-space: nowrap;
                 overflow: hidden;
+                color: var(--color-pattern-text);
             }
 
-.controls-box__item {
+.controls-box {
     display: flex;
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 32px;
 }
 
-.controls-box__item > span {
-    font-size: 24px;
-}
+    .controls-box__item {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .controls-box__item > span {
+        font-size: 24px;
+    }
 
 .gamepad-button-container {
     display: flex;
@@ -503,23 +507,23 @@ legend {
     gap: 8px;
 }
 
-.gamepad-button {
-    width: 4ch;
-    height: 4ch;
-    border: 1px solid black;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: grey;
-    color: white;
-    text-align: center;
-}
+    .gamepad-button {
+        width: 4ch;
+        height: 4ch;
+        border: 1px solid black;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: grey;
+        color: white;
+        text-align: center;
+    }
 
-    .gamepad-button > span { color: var(--color-white); }
+        .gamepad-button > span { color: var(--color-white); }
 
-    .gamepad-button_a { background: green; }
-    .gamepad-button_b { background: red; }
-    .gamepad-button_x { background: blue; }
-    .gamepad-button_y { background: orange; }
+        .gamepad-button_a { background: green; }
+        .gamepad-button_b { background: red; }
+        .gamepad-button_x { background: blue; }
+        .gamepad-button_y { background: orange; }
 

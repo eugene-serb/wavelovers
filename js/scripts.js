@@ -192,7 +192,6 @@ class Gamepad {
             }
         ];
         this.generateBox();
-        this.select(this.index, this.index);
     };
 
     delete = () => {
@@ -201,18 +200,18 @@ class Gamepad {
     generateBox = () => {
         const $list_item = document.createElement('div');
         const $info_box = document.createElement('div');
-        const $button = document.createElement('button');
+        /*const $button = document.createElement('button');*/
 
         $list_item.classList.add('list-item');
         $info_box.classList.add('list-item__info');
-        $button.innerText = 'Select';
+        /*$button.innerText = 'Select';*/
 
-        $button.addEventListener('click', () => {
+        /*$button.addEventListener('click', () => {
             this.isSelected = !this.isSelected;
-        });
+        });*/
 
         $list_item.appendChild($info_box);
-        $list_item.appendChild($button);
+        /*$list_item.appendChild($button);*/
         this.$container.appendChild($list_item);
 
         this.$list_item = $list_item;
@@ -221,19 +220,7 @@ class Gamepad {
     };
     draw = () => {
         this.$info_box.innerHTML = `
-                    <h3>#${this.unit.index + 1}. ${this.unit.id}</h3>
-                    <span>Vibration Actuator: ${this.unit.vibrationActuator ? 'Available' : 'missing'}</span>
-                    <div>
-                        <span>Status: </span>
-                        <span>${this.isVibrating ? 'Vibrating' : 'Idle'}</span>
-                        <span>A / B</span>
-                        <span>Key locked: </span>
-                        <span>${this.isLocked ? 'Yes' : 'No'}</span>
-                        <span>X + Y</span>
-                        <span>Mode: </span>
-                        <span>${this.index + 1}. ${this.library[this.index].name}</span>
-                        <span>LB / RB</span>
-                    </div>`;
+            <span>Gamepad #${this.unit.index + 1}. ${this.unit.id}.</span>`;
         if (this.isSelected === true) {
             this.$list_item.classList.add('list-item_selected');
         } else {
@@ -270,7 +257,6 @@ class Gamepad {
     };
     previous = () => {
         if (Date.now() >= this.cooldown) {
-            const previousIndex = this.index;
             if (this.index === 0) {
                 this.index = this.library.length - 1;
             } else {
@@ -278,12 +264,10 @@ class Gamepad {
             };
             this.pattern = this.library[this.index].pattern;
             this.cooldown = Date.now() + 500;
-            this.select(previousIndex, this.index);
         };
     };
     next = () => {
         if (Date.now() >= this.cooldown) {
-            const previousIndex = this.index;
             if (this.index === this.library.length - 1) {
                 this.index = 0;
             } else {
@@ -291,7 +275,6 @@ class Gamepad {
             };
             this.pattern = this.library[this.index].pattern;
             this.cooldown = Date.now() + 500;
-            this.select(previousIndex, this.index);
         };
     };
     lock = () => {
@@ -301,14 +284,8 @@ class Gamepad {
         };
     };
     change = (index) => {
-        this.select(this.index, index);
         this.index = index;
         this.pattern = this.library[this.index].pattern;
-    };
-
-    select = (previous, next) => {
-        this.library[previous]['container'].classList.remove('pattern-item__selected');
-        this.library[next]['container'].classList.add('pattern-item__selected');
     };
 };
 
@@ -338,7 +315,7 @@ class VibrationMaster {
     eventLoop = () => {
         this.update();
         this.draw();
-        this.eventHandler();
+        /*this.eventHandler();*/
     };
     update = () => {
         if (this.gamepads.length > 0) {
@@ -414,14 +391,32 @@ class VibrationMaster {
     change = (index) => {
         if (this.gamepads.length > 0) {
             this.gamepads.forEach(gamepad => {
-                if (gamepad.isSelected === true) {
+                /*if (gamepad.isSelected === true) {
                     gamepad.change(index);
+                };*/
+                this.unselect();
+                if (gamepad.index === index &&
+                    gamepad.isVibrating === true) {
+                    gamepad.isVibrating = false;
+                } else {
+                    gamepad.change(index);
+                    gamepad.vibrate();
+                    this.select(index);
                 };
             });
         } else {
             console.log('No connected devices...');
             return;
         };
+    };
+
+    unselect = () => {
+        this.patterns.forEach(pattern => {
+            pattern['container'].classList.remove('pattern-item__selected');
+        });
+    };
+    select = (index) => {
+        this.patterns[index]['container'].classList.add('pattern-item__selected');
     };
 
     checkGamepadSupport = () => {
@@ -437,7 +432,11 @@ class VibrationMaster {
     };
     #eventListeners = () => {
         window.addEventListener('gamepadconnected', (event) => {
-            this.gamepads.push(new Gamepad(event.gamepad, this.$DEVICE_LIST, this.patterns));
+            if (this.gamepads.length > 1) {
+                return;
+            } else {
+                this.gamepads.push(new Gamepad(event.gamepad, this.$DEVICE_LIST, this.patterns));
+            };
         });
         window.addEventListener('gamepaddisconnected', (event) => {
             this.gamepads.forEach((gamepad, index) => {
