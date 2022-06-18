@@ -419,6 +419,9 @@ table, th, td {
 }
 
 .message {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     text-align: center;
     font-size: 24px;
 }

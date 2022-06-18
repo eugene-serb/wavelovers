@@ -5,166 +5,45 @@
 'use strict';
 
 const __PATTERNS = [
-    /* Dotted, 0.1s, 0.1s */
     {
-        name: 'Dotted Weak',
-        type: 'Simple',
-        icon: '😌',
-        pattern: [
+        "name": "Constant Weak",
+        "type": "Simple",
+        "icon": "😏",
+        "pattern": [
             {
-                startDelay: 100,
-                duration: 100,
-                weakMagnitude: 1.0,
-                strongMagnitude: 0.0,
-            },
-        ],
+                "startDelay": 0,
+                "duration": 1000,
+                "weakMagnitude": 1.0,
+                "strongMagnitude": 0.0
+            }
+        ]
     },
     {
-        name: 'Dotted Strong',
-        type: 'Simple',
-        icon: '😉',
-        pattern: [
+        "name": "Constant Strong",
+        "type": "Simple",
+        "icon": "🤩",
+        "pattern": [
             {
-                startDelay: 100,
-                duration: 100,
-                weakMagnitude: 0.0,
-                strongMagnitude: 1.0,
-            },
-        ],
+                "startDelay": 0,
+                "duration": 1000,
+                "weakMagnitude": 0.0,
+                "strongMagnitude": 1.0
+            }
+        ]
     },
     {
-        name: 'Dotted Max',
-        type: 'Simple',
-        icon: '🙃',
-        pattern: [
+        "name": "Constant Max",
+        "type": "Simple",
+        "icon": "😍",
+        "pattern": [
             {
-                startDelay: 100,
-                duration: 100,
-                weakMagnitude: 1.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
-    /* Short Dashed, 0.1s, 0.25s */
-    {
-        name: 'Short Dashed Weak',
-        type: 'Simple',
-        icon: '🙂',
-        pattern: [
-            {
-                startDelay: 100,
-                duration: 250,
-                weakMagnitude: 1.0,
-                strongMagnitude: 0.0,
-            },
-        ],
-    },
-    {
-        name: 'Short Dashed Strong',
-        type: 'Simple',
-        icon: '😇',
-        pattern: [
-            {
-                startDelay: 100,
-                duration: 250,
-                weakMagnitude: 0.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
-    {
-        name: 'Short Dashed Max',
-        type: 'Simple',
-        icon: '😊',
-        pattern: [
-            {
-                startDelay: 100,
-                duration: 250,
-                weakMagnitude: 1.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
-    /* Long Dashed, 0.1s, 0.5s */
-    {
-        name: 'Long Dashed Weak',
-        type: 'Simple',
-        icon: '😋',
-        pattern: [
-            {
-                startDelay: 100,
-                duration: 500,
-                weakMagnitude: 1.0,
-                strongMagnitude: 0.0,
-            },
-        ],
-    },
-    {
-        name: 'Long Dashed Strong',
-        type: 'Simple',
-        icon: '😜',
-        pattern: [
-            {
-                startDelay: 100,
-                duration: 500,
-                weakMagnitude: 0.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
-    {
-        name: 'Long Dashed Max',
-        type: 'Simple',
-        icon: '🤪',
-        pattern: [
-            {
-                startDelay: 100,
-                duration: 500,
-                weakMagnitude: 1.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
-    /* Constant, 0s, 1s */
-    {
-        name: 'Constant Weak',
-        type: 'Simple',
-        icon: '😏',
-        pattern: [
-            {
-                startDelay: 0,
-                duration: 1000,
-                weakMagnitude: 1.0,
-                strongMagnitude: 0.0,
-            },
-        ],
-    },
-    {
-        name: 'Constant Strong',
-        type: 'Simple',
-        icon: '🤩',
-        pattern: [
-            {
-                startDelay: 0,
-                duration: 1000,
-                weakMagnitude: 0.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
-    {
-        name: 'Constant Max',
-        type: 'Simple',
-        icon: '😍',
-        pattern: [
-            {
-                startDelay: 0,
-                duration: 1000,
-                weakMagnitude: 1.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
+                "startDelay": 0,
+                "duration": 1000,
+                "weakMagnitude": 1.0,
+                "strongMagnitude": 1.0
+            }
+        ]
+    }
 ];
 
 class Gamepad {
@@ -289,9 +168,6 @@ class VibrationMaster {
     };
     init = () => {
         this.#DOMs();
-        this.patterns = __PATTERNS;
-        this.print(this.patterns);
-
         this.load();
 
         if (!this.checkGamepadSupport()) {
@@ -360,9 +236,19 @@ class VibrationMaster {
         };
     };
 
-    load = () => {
-        const response = fetch('./json/patterns.json');
-        console.log(response);
+    load = async () => {
+        const url = './json/patterns.json';
+
+        const response = await fetch(url);
+
+        if (response.ok) {
+            let json = await response.json();
+            this.pattern = json;
+            this.print(this.pattern);
+        } else {
+            this.pattern = __PATTERNS;
+            this.print(this.pattern);
+        };
     };
     print = (patterns) => {
         this.$PATTERN_LIST.innerHTML = '';
