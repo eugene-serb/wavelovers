@@ -4,53 +4,184 @@
 
 'use strict';
 
-const __PATTERNS = [
-    {
-        "name": "Constant Weak",
-        "type": "Simple",
-        "icon": "😏",
-        "pattern": [
+class Library {
+    constructor() {
+        if (typeof Library.instance === 'object') {
+            return Library.instance;
+        };
+        this.init();
+        Library.instance = this;
+        return this;
+    };
+    init = () => {
+        this.patterns = this.getBase();
+    };
+    getBase = () => {
+        return [
             {
-                "startDelay": 0,
-                "duration": 1000,
-                "weakMagnitude": 1.0,
-                "strongMagnitude": 0.0
-            }
-        ]
-    },
-    {
-        "name": "Constant Strong",
-        "type": "Simple",
-        "icon": "🤩",
-        "pattern": [
+                "name": "Dotted Weak",
+                "type": "Simple",
+                "icon": "😌",
+                "pattern": [
+                    {
+                        "startDelay": 100,
+                        "duration": 100,
+                        "weakMagnitude": 1.0,
+                        "strongMagnitude": 0.0
+                    }
+                ]
+            },
             {
-                "startDelay": 0,
-                "duration": 1000,
-                "weakMagnitude": 0.0,
-                "strongMagnitude": 1.0
-            }
-        ]
-    },
-    {
-        "name": "Constant Max",
-        "type": "Simple",
-        "icon": "😍",
-        "pattern": [
+                "name": "Dotted Strong",
+                "type": "Simple",
+                "icon": "😉",
+                "pattern": [
+                    {
+                        "startDelay": 100,
+                        "duration": 100,
+                        "weakMagnitude": 0.0,
+                        "strongMagnitude": 1.0
+                    }
+                ]
+            },
             {
-                "startDelay": 0,
-                "duration": 1000,
-                "weakMagnitude": 1.0,
-                "strongMagnitude": 1.0
+                "name": "Dotted Max",
+                "type": "Simple",
+                "icon": "🙃",
+                "pattern": [
+                    {
+                        "startDelay": 100,
+                        "duration": 100,
+                        "weakMagnitude": 1.0,
+                        "strongMagnitude": 1.0
+                    }
+                ]
+            },
+            {
+                "name": "Short Dashed Weak",
+                "type": "Simple",
+                "icon": "🙂",
+                "pattern": [
+                    {
+                        "startDelay": 100,
+                        "duration": 250,
+                        "weakMagnitude": 1.0,
+                        "strongMagnitude": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "Short Dashed Strong",
+                "type": "Simple",
+                "icon": "😇",
+                "pattern": [
+                    {
+                        "startDelay": 100,
+                        "duration": 250,
+                        "weakMagnitude": 0.0,
+                        "strongMagnitude": 1.0
+                    }
+                ]
+            },
+            {
+                "name": "Short Dashed Max",
+                "type": "Simple",
+                "icon": "😊",
+                "pattern": [
+                    {
+                        "startDelay": 100,
+                        "duration": 250,
+                        "weakMagnitude": 1.0,
+                        "strongMagnitude": 1.0
+                    }
+                ]
+            },
+            {
+                "name": "Long Dashed Weak",
+                "type": "Simple",
+                "icon": "😋",
+                "pattern": [
+                    {
+                        "startDelay": 100,
+                        "duration": 500,
+                        "weakMagnitude": 1.0,
+                        "strongMagnitude": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "Long Dashed Strong",
+                "type": "Simple",
+                "icon": "😜",
+                "pattern": [
+                    {
+                        "startDelay": 100,
+                        "duration": 500,
+                        "weakMagnitude": 0.0,
+                        "strongMagnitude": 1.0
+                    }
+                ]
+            },
+            {
+                "name": "Long Dashed Max",
+                "type": "Simple",
+                "icon": "🤪",
+                "pattern": [
+                    {
+                        "startDelay": 100,
+                        "duration": 500,
+                        "weakMagnitude": 1.0,
+                        "strongMagnitude": 1.0
+                    }
+                ]
+            },
+            {
+                "name": "Constant Weak",
+                "type": "Simple",
+                "icon": "😏",
+                "pattern": [
+                    {
+                        "startDelay": 0,
+                        "duration": 1000,
+                        "weakMagnitude": 1.0,
+                        "strongMagnitude": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "Constant Strong",
+                "type": "Simple",
+                "icon": "🤩",
+                "pattern": [
+                    {
+                        "startDelay": 0,
+                        "duration": 1000,
+                        "weakMagnitude": 0.0,
+                        "strongMagnitude": 1.0
+                    }
+                ]
+            },
+            {
+                "name": "Constant Max",
+                "type": "Simple",
+                "icon": "😍",
+                "pattern": [
+                    {
+                        "startDelay": 0,
+                        "duration": 1000,
+                        "weakMagnitude": 1.0,
+                        "strongMagnitude": 1.0
+                    }
+                ]
             }
-        ]
-    }
-];
+        ];
+    };
+};
 
 class Gamepad {
-    constructor(gamepad, $container, library) {
+    constructor(gamepad, $container) {
         this.unit = gamepad;
         this.$container = $container;
-        this.library = library;
         this.init();
     };
 
@@ -60,16 +191,13 @@ class Gamepad {
         this.isSelected = false;
         this.isVibrating = false;
         this.isLocked = false;
+
+        this.library = new Library;
+
         this.cooldown = 0;
         this.index = 0;
-        this.pattern = [
-            {
-                startDelay: 0,
-                duration: 1000,
-                weakMagnitude: 1.0,
-                strongMagnitude: 1.0,
-            }
-        ];
+        this.pattern = this.library.patterns[this.index].pattern;
+
         this.generateBox();
     };
 
@@ -111,7 +239,7 @@ class Gamepad {
     };
     vibrate = async () => {
         this.isVibrating = true;
-        this.pattern = this.library[this.index].pattern;
+        this.pattern = this.library.patterns[this.index].pattern;
 
         while (this.isVibrating) {
             for (let i = 0; i < this.pattern.length; i++) {
@@ -130,22 +258,22 @@ class Gamepad {
     previous = () => {
         if (Date.now() >= this.cooldown) {
             if (this.index === 0) {
-                this.index = this.library.length - 1;
+                this.index = this.library.patterns.length - 1;
             } else {
                 this.index--;
             };
-            this.pattern = this.library[this.index].pattern;
+            this.pattern = this.library.patterns[this.index].pattern;
             this.cooldown = Date.now() + 500;
         };
     };
     next = () => {
         if (Date.now() >= this.cooldown) {
-            if (this.index === this.library.length - 1) {
+            if (this.index === this.library.patterns.length - 1) {
                 this.index = 0;
             } else {
                 this.index++;
             };
-            this.pattern = this.library[this.index].pattern;
+            this.pattern = this.library.patterns[this.index].pattern;
             this.cooldown = Date.now() + 500;
         };
     };
@@ -158,7 +286,7 @@ class Gamepad {
 
     change = (index) => {
         this.index = index;
-        this.pattern = this.library[this.index].pattern;
+        this.pattern = this.library.patterns[this.index].pattern;
     };
 };
 
@@ -168,7 +296,9 @@ class VibrationMaster {
     };
     init = () => {
         this.#DOMs();
-        this.load();
+
+        this.library = new Library();
+        this.print(this.library.patterns);
 
         if (!this.checkGamepadSupport()) {
             console.log(`This browser does not support of gamepads.`);
@@ -237,17 +367,18 @@ class VibrationMaster {
     };
 
     load = async () => {
-        const url = './json/patterns.json';
-
-        const response = await fetch(url);
-
-        if (response.ok) {
-            let json = await response.json();
-            this.pattern = json;
-            this.print(this.pattern);
-        } else {
-            this.pattern = __PATTERNS;
-            this.print(this.pattern);
+        const url = 'https://eugene-serb.github.io/wavelovers/json/patterns.json';
+        try {
+            const response = await fetch(url);
+            if (response.ok) {
+                let json = await response.json();
+                this.library.patterns = json;
+                this.print(this.library.patterns);
+            } else {
+                console.log('Connect to the Internet for download more patterns...');
+            };
+        } catch (error) {
+            console.log('[error]', error);
         };
     };
     print = (patterns) => {
@@ -277,7 +408,7 @@ class VibrationMaster {
         if (this.gamepads.length > 0) {
             this.gamepads.forEach(gamepad => {
                 if (gamepad.canVibrate === true) {
-                    this.unselect();
+                    this.unselect(this.library.patterns);
                     if (gamepad.index === index &&
                         gamepad.isVibrating === true) {
                         gamepad.reset();
@@ -285,7 +416,7 @@ class VibrationMaster {
                         gamepad.reset()
                         gamepad.change(index);
                         gamepad.vibrate();
-                        this.select(index);
+                        this.select(this.library.patterns, index);
                     };
                 };
             });
@@ -295,13 +426,13 @@ class VibrationMaster {
         };
     };
 
-    unselect = () => {
-        this.patterns.forEach(pattern => {
+    unselect = (patterns) => {
+        patterns.forEach(pattern => {
             pattern['container'].classList.remove('pattern-item__selected');
         });
     };
-    select = (index) => {
-        this.patterns[index]['container'].classList.add('pattern-item__selected');
+    select = (patterns, index) => {
+        patterns[index]['container'].classList.add('pattern-item__selected');
     };
 
     checkGamepadSupport = () => {
@@ -320,7 +451,7 @@ class VibrationMaster {
             if (this.gamepads.length > 1) {
                 return;
             } else {
-                this.gamepads.push(new Gamepad(event.gamepad, this.$DEVICE_LIST, this.patterns));
+                this.gamepads.push(new Gamepad(event.gamepad, this.$DEVICE_LIST));
             };
         });
         window.addEventListener('gamepaddisconnected', (event) => {
