@@ -292,6 +292,8 @@ class VibrationMaster {
         this.patterns = __PATTERNS;
         this.print(this.patterns);
 
+        this.load();
+
         if (!this.checkGamepadSupport()) {
             console.log(`This browser does not support of gamepads.`);
             this.$MESSAGE.innerText = `This browser does not support of gamepads.`;
@@ -358,6 +360,10 @@ class VibrationMaster {
         };
     };
 
+    load = () => {
+        const response = fetch('./json/patterns.json');
+        console.log(response);
+    };
     print = (patterns) => {
         this.$PATTERN_LIST.innerHTML = '';
         patterns.forEach((pattern, index) => {
