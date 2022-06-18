@@ -38,7 +38,7 @@ const __PATTERNS = [
         icon: '🙃',
         pattern: [
             {
-                startDelay: 0,
+                startDelay: 100,
                 duration: 100,
                 weakMagnitude: 1.0,
                 strongMagnitude: 1.0,
@@ -78,7 +78,7 @@ const __PATTERNS = [
         icon: '😊',
         pattern: [
             {
-                startDelay: 0,
+                startDelay: 100,
                 duration: 250,
                 weakMagnitude: 1.0,
                 strongMagnitude: 1.0,
@@ -118,7 +118,7 @@ const __PATTERNS = [
         icon: '🤪',
         pattern: [
             {
-                startDelay: 0,
+                startDelay: 100,
                 duration: 500,
                 weakMagnitude: 1.0,
                 strongMagnitude: 1.0,
@@ -384,15 +384,17 @@ class VibrationMaster {
     change = (index) => {
         if (this.gamepads.length > 0) {
             this.gamepads.forEach(gamepad => {
-                this.unselect();
-                if (gamepad.index === index &&
-                    gamepad.isVibrating === true) {
-                    gamepad.isVibrating = false;
-                    gamepad.reset();
-                } else {
-                    gamepad.change(index);
-                    gamepad.vibrate();
-                    this.select(index);
+                if (gamepad.canVibrate === true) {
+                    this.unselect();
+                    if (gamepad.index === index &&
+                        gamepad.isVibrating === true) {
+                        gamepad.reset();
+                    } else {
+                        gamepad.reset()
+                        gamepad.change(index);
+                        gamepad.vibrate();
+                        this.select(index);
+                    };
                 };
             });
         } else {
@@ -436,6 +438,7 @@ class VibrationMaster {
                     this.gamepads.splice(index, 1);
                 };
             });
+            this.unselect();
         });
     };
 };
