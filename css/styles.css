@@ -37,9 +37,9 @@
         --color-link-hover: var(--color-a);
         --color-border: var(--color-a);
         --color-selection: var(--color-b);
-        --color-table-header-background: transparent;
-        --color-table-header-text: transparent;
-        --color-table-item: transparent;
+        --color-table-header-background: var(--color-b);
+        --color-table-header-text: var(--color-white);
+        --color-table-item: var(--color-c);
         --color-anotation: var(--color-coal);
         --color-pattern-button: var(--color-c);
         --color-pattern-text: var(--color-white);
@@ -57,9 +57,9 @@
         --color-link-hover: var(--color-a);
         --color-border: var(--color-a);
         --color-selection: var(--color-b);
-        --color-table-header-background: transparent;
-        --color-table-header-text: transparent;
-        --color-table-item: transparent;
+        --color-table-header-background: var(--color-b);
+        --color-table-header-text: var(--color-white);
+        --color-table-item: var(--color-c);
         --color-anotation: var(--color-milk);
         --color-pattern-button: var(--color-milk);
         --color-pattern-text: var(--color-black);
@@ -177,6 +177,40 @@ fieldset {
 legend {
     padding: 2px 4px;
     text-align: left;
+}
+
+/* ------ */
+/* TABLES */
+/* ------ */
+
+table, th, td {
+    width: 100%;
+    padding: 8px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-weight: 400;
+}
+
+.table_pink thead {
+    border-bottom: 4px solid var(--color-table-item);
+}
+
+    .table_pink thead > tr {
+        background-color: var(--color-table-header-background);
+        color: var(--color-table-header-text);
+    }
+
+        .table_pink thead > tr > th {
+            font-weight: 500;
+        }
+
+.table_pink tbody > tr:nth-child(even) {
+    background-color: var(--color-table-item);
+    color: var(--color-white);
+}
+
+.table_pink tfoot {
+    border-top: 4px solid var(--color-table-header-background);
 }
 
 /* ------------- */
@@ -468,51 +502,4 @@ legend {
         .list-item_selected .list-item__info span {
             color: var(--color-white);
         }
-
-.controls-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 32px;
-}
-
-    .controls-box__item {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        gap: 8px;
-    }
-
-    .controls-box__item > span {
-        font-size: 24px;
-    }
-
-.gamepad-button-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-}
-
-    .gamepad-button {
-        width: 4ch;
-        height: 4ch;
-        border: 1px solid black;
-        border-radius: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: grey;
-        color: white;
-        text-align: center;
-    }
-
-        .gamepad-button > span { color: var(--color-white); }
-
-        .gamepad-button_a { background: green; }
-        .gamepad-button_b { background: red; }
-        .gamepad-button_x { background: blue; }
-        .gamepad-button_y { background: orange; }
 
