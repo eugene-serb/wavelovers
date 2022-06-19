@@ -506,3 +506,7 @@ table, th, td {
             color: var(--color-white);
         }
 
+.link_hash {
+    word-break: break-all;
+}
+
