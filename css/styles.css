@@ -34,6 +34,7 @@
 
 @media (prefers-color-scheme: light) {
     :root {
+        /* Base colors */
         --color-border: var(--color-a);
         --color-background: var(--color-white);
         --color-text: var(--color-coal);
@@ -45,15 +46,16 @@
         --color-table-header-background: var(--color-b);
         --color-table-header-text: var(--color-white);
         --color-table-item: var(--color-c);
-        /**/
+        /* Components colors */
         --color-header-background: var(--color-b);
         --color-header-borderline: var(--color-a);
         --color-header-selection: var(--color-a);
         --color-header-logo: var(--color-white);
         --color-header-navigation-link: var(--color-white);
         --color-header-navigation-link-hover: var(--color-white);
+        --color-footer-borderline: var(--color-a);
+        --color-content-item-background: var(--color-milk);
         /**/
-        --color-content-background: var(--color-milk);
         --color-logo: var(--color-white);
         --color-header: var(--color-coal);
         --color-anotation: var(--color-coal);
@@ -64,6 +66,7 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
+        /* Base colors */
         --color-border: var(--color-a);
         --color-background: var(--color-coal);
         --color-text: var(--color-coal);
@@ -75,15 +78,16 @@
         --color-table-header-background: var(--color-b);
         --color-table-header-text: var(--color-white);
         --color-table-item: var(--color-c);
-        /**/
-        --color-header-background: var(--color-a);
-        --color-header-borderline: var(--color-b);
+        /* Components colors */
+        --color-header-background: var(--color-b);
+        --color-header-borderline: var(--color-a);
         --color-header-selection: var(--color-b);
         --color-header-logo: var(--color-white);
         --color-header-navigation-link: var(--color-white);
         --color-header-navigation-link-hover: var(--color-white);
+        --color-footer-borderline: var(--color-a);
+        --color-content-item-background: var(--color-c);
         /**/
-        --color-content-background: var(--color-c);
         --color-logo: var(--color-white);
         --color-header: var(--color-coal);
         --color-anotation: var(--color-milk);
@@ -373,34 +377,12 @@ table, th, td {
     }
 }
 
-/* ----------------------------------- */
-/* MAIN, PAGE FLOW AND CONTENT SECTION */
-/* ----------------------------------- */
-
-.page {
-    flex-grow: 1;
-    margin-top: 64px;
-    margin-bottom: 64px;
-}
-
-.content {
-    margin-bottom: 16px;
-    padding: 32px;
-    border-radius: 8px;
-    background: var(--color-content-background);
-}
-
-.content__header {
-    text-align: center;
-}
-
 /* ------ */
 /* FOOTER */
 /* ------ */
 
 .footer {
-    border-top: 4px solid var(--color-a);
-    background: var(--color-background);
+    border-top: 4px solid var(--color-footer-borderline);
 }
 
 .footer-wrapper {
@@ -408,33 +390,79 @@ table, th, td {
     padding-bottom: 32px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 32px;
 }
 
-    .annotation__text {
-        color: var(--color-anotation);
+.created-by {
+    align-self: flex-end;
+}
+
+    .created-by > span {
+        padding-right: 8px;
     }
 
-    .created-by {
-        align-self: end;
+    .created-by > a {
+        font-size: 32px;
     }
 
-        .created-by > span {
-            padding-right: 8px;
-        }
+/* ---- */
+/* PAGE */
+/* ---- */
 
-        .created-by > a {
-            font-size: 32px;
-        }
+.page {
+    flex-grow: 1;
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
 
-        .created-by > a:hover {
-            border: none;
-        }
+/* ---- */
+/* POST */
+/* ---- */
+
+.post {
+    margin: 0 auto;
+}
+
+.post__header {
+    text-align: center;
+    margin-block-end: 32px;
+}
+
+/* ------- */
+/* CONTENT */
+/* ------- */
+
+
+.content {
+    margin-bottom: 64px;
+}
+
+.content__header {
+    margin-top: 0;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border: 2px solid var(--color-content-borderline);
+    border-radius: var(--number-border-radius);
+    color: var(--color-text-header);
+    font-size: 1.8em;
+}
+
+.content-item {
+    margin-bottom: 16px;
+    padding: 32px;
+    border-radius: var(--number-border-radius);
+    background: var(--color-content-item-background);
+}
+
+    .content-item__header {
+        margin-bottom: 16px;
+        text-align: center;
+    }
 
 /* ----------- */
-/* WAVE MASTER */
+/* WAVELOVERS */
 /* ----------- */
 
 .wavelovers {
