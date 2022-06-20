@@ -54,6 +54,7 @@
         --color-header-navigation-link: var(--color-white);
         --color-header-navigation-link-hover: var(--color-white);
         --color-footer-borderline: var(--color-a);
+        --color-footer-text: var(--color-coal);
         --color-content-item-background: var(--color-milk);
         --color-pattern-button: var(--color-c);
         --color-pattern-text: var(--color-white);
@@ -82,6 +83,7 @@
         --color-header-navigation-link: var(--color-white);
         --color-header-navigation-link-hover: var(--color-white);
         --color-footer-borderline: var(--color-a);
+        --color-footer-text: var(--color-milk);
         --color-content-item-background: var(--color-c);
         --color-pattern-button: var(--color-milk);
         --color-pattern-text: var(--color-black);
@@ -376,6 +378,10 @@ table, th, td {
 .footer {
     border-top: 4px solid var(--color-footer-borderline);
 }
+
+    .footer span {
+        color: var(--color-footer-text);
+    }
 
 .footer-wrapper {
     padding-top: 32px;
