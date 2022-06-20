@@ -310,7 +310,7 @@ table, th, td {
 .logo-wrapper__logo {
     font-size: 48px;
     font-weight: 500;
-    color: var(--color-logo);
+    color: var(--color-header-logo);
     cursor: default;
 }
 
