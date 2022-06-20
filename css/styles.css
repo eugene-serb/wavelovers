@@ -55,10 +55,6 @@
         --color-header-navigation-link-hover: var(--color-white);
         --color-footer-borderline: var(--color-a);
         --color-content-item-background: var(--color-milk);
-        /**/
-        --color-logo: var(--color-white);
-        --color-header: var(--color-coal);
-        --color-anotation: var(--color-coal);
         --color-pattern-button: var(--color-c);
         --color-pattern-text: var(--color-white);
     }
@@ -87,10 +83,6 @@
         --color-header-navigation-link-hover: var(--color-white);
         --color-footer-borderline: var(--color-a);
         --color-content-item-background: var(--color-c);
-        /**/
-        --color-logo: var(--color-white);
-        --color-header: var(--color-coal);
-        --color-anotation: var(--color-milk);
         --color-pattern-button: var(--color-milk);
         --color-pattern-text: var(--color-black);
     }
