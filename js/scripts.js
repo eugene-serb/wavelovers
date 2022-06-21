@@ -188,13 +188,10 @@ class Gamepad {
     init = () => {
         this.id = Date.now();
         this.canVibrate = (this.unit.vibrationActuator) ? true : false;
-        this.isSelected = false;
         this.isVibrating = false;
-        this.isLocked = false;
 
         this.library = new Library;
 
-        this.cooldown = 0;
         this.index = 0;
         this.pattern = this.library.patterns[this.index].pattern;
 
@@ -255,35 +252,6 @@ class Gamepad {
     sleep = (ms) => {
         return new Promise(resolve => setTimeout(resolve, ms));
     };
-    previous = () => {
-        if (Date.now() >= this.cooldown) {
-            if (this.index === 0) {
-                this.index = this.library.patterns.length - 1;
-            } else {
-                this.index--;
-            };
-            this.pattern = this.library.patterns[this.index].pattern;
-            this.cooldown = Date.now() + 500;
-        };
-    };
-    next = () => {
-        if (Date.now() >= this.cooldown) {
-            if (this.index === this.library.patterns.length - 1) {
-                this.index = 0;
-            } else {
-                this.index++;
-            };
-            this.pattern = this.library.patterns[this.index].pattern;
-            this.cooldown = Date.now() + 500;
-        };
-    };
-    lock = () => {
-        if (Date.now() >= this.cooldown) {
-            this.isLocked = !this.isLocked;
-            this.cooldown = Date.now() + 500;
-        };
-    };
-
     change = (index) => {
         this.index = index;
         this.pattern = this.library.patterns[this.index].pattern;
@@ -337,50 +305,7 @@ class Wavelovers {
             });
         };
     };
-    eventHandler = () => {
-        if (this.gamepads.length > 0) {
-            this.gamepads.forEach(gamepad => {
-                if (gamepad.canVibrate === true) {
-                    if (gamepad.unit.buttons[2].pressed === true &&
-                        gamepad.unit.buttons[3].pressed === true) {
-                        gamepad.lock();
-                    };
-                    if (gamepad.isLocked === false) {
-                        if (gamepad.unit.buttons[0].pressed === true) {
-                            if (gamepad.isVibrating === false) {
-                                gamepad.vibrate();
-                            };
-                        };
-                        if (gamepad.unit.buttons[1].pressed === true) {
-                            gamepad.reset();
-                        };
-                        if (gamepad.unit.buttons[4].pressed === true) {
-                            gamepad.previous();
-                        };
-                        if (gamepad.unit.buttons[5].pressed === true) {
-                            gamepad.next();
-                        };
-                    };
-                };
-            });
-        };
-    };
 
-    load = async () => {
-        const url = 'https://eugene-serb.github.io/wavelovers/json/patterns.json';
-        try {
-            const response = await fetch(url);
-            if (response.ok) {
-                let json = await response.json();
-                this.library.patterns = json;
-                this.print(this.library.patterns);
-            } else {
-                console.log('Connect to the Internet for download more patterns...');
-            };
-        } catch (error) {
-            console.log('[error]', error);
-        };
-    };
     print = (patterns) => {
         this.$PATTERN_LIST.innerHTML = '';
         patterns.forEach((pattern, index) => {
