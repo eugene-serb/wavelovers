@@ -290,7 +290,7 @@ class Gamepad {
     };
 };
 
-class VibrationMaster {
+class Wavelovers {
     constructor() {
         this.init();
     };
@@ -470,5 +470,5 @@ class VibrationMaster {
 /* INITIALIZATION */
 /* -------------- */
 
-const VIBRATION_MASTER = new VibrationMaster();
+const WAVELOVERS = new Wavelovers();
 
