@@ -45,6 +45,25 @@ class Library {
                 ]
             },
             {
+                "name": "Dotted AC",
+                "type": "Simple",
+                "icon": "🤨",
+                "pattern": [
+                    {
+                        "startDelay": 100,
+                        "duration": 100,
+                        "weakMagnitude": 1.0,
+                        "strongMagnitude": 0.0
+                    },
+                    {
+                        "startDelay": 100,
+                        "duration": 100,
+                        "weakMagnitude": 0.0,
+                        "strongMagnitude": 1.0
+                    }
+                ]
+            },
+            {
                 "name": "Dotted Max",
                 "type": "Simple",
                 "icon": "🙃",
@@ -75,6 +94,25 @@ class Library {
                 "type": "Simple",
                 "icon": "😇",
                 "pattern": [
+                    {
+                        "startDelay": 100,
+                        "duration": 250,
+                        "weakMagnitude": 0.0,
+                        "strongMagnitude": 1.0
+                    }
+                ]
+            },
+            {
+                "name": "Short Dashed AC",
+                "type": "Simple",
+                "icon": "🤤",
+                "pattern": [
+                    {
+                        "startDelay": 100,
+                        "duration": 250,
+                        "weakMagnitude": 1.0,
+                        "strongMagnitude": 0.0
+                    },
                     {
                         "startDelay": 100,
                         "duration": 250,
@@ -123,6 +161,25 @@ class Library {
                 ]
             },
             {
+                "name": "Long Dashed AC",
+                "type": "Simple",
+                "icon": "😝",
+                "pattern": [
+                    {
+                        "startDelay": 100,
+                        "duration": 500,
+                        "weakMagnitude": 1.0,
+                        "strongMagnitude": 0.0
+                    },
+                    {
+                        "startDelay": 100,
+                        "duration": 500,
+                        "weakMagnitude": 0.0,
+                        "strongMagnitude": 1.0
+                    }
+                ]
+            },
+            {
                 "name": "Long Dashed Max",
                 "type": "Simple",
                 "icon": "🤪",
@@ -153,6 +210,25 @@ class Library {
                 "type": "Simple",
                 "icon": "🤩",
                 "pattern": [
+                    {
+                        "startDelay": 0,
+                        "duration": 1000,
+                        "weakMagnitude": 0.0,
+                        "strongMagnitude": 1.0
+                    }
+                ]
+            },
+            {
+                "name": "Constant AC",
+                "type": "Simple",
+                "icon": "😵",
+                "pattern": [
+                    {
+                        "startDelay": 0,
+                        "duration": 1000,
+                        "weakMagnitude": 1.0,
+                        "strongMagnitude": 0.0
+                    },
                     {
                         "startDelay": 0,
                         "duration": 1000,

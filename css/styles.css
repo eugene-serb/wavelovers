@@ -493,15 +493,15 @@ table, th, td {
     }
 
         .pattern-item {
-            width: 300px;
-            height: 64px;
-            padding: 16px;
-            border-radius: 8px;
+            width: 200px;
+            height: 48px;
+            padding: 8px;
+            border-radius: var(--number-border-radius);
             background: var(--color-pattern-button);
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
-            gap: 32px;
+            gap: 16px;
             align-items: center;
             text-align: center;
             overflow: hidden;
@@ -513,11 +513,11 @@ table, th, td {
         }
 
             .pattern-item__icon{
-                font-size: 32px;
+                font-size: 24px;
             }
 
             .pattern-item__name {
-                font-size: 18px;
+                font-size: 14px;
                 white-space: nowrap;
                 overflow: hidden;
                 color: var(--color-pattern-text);
