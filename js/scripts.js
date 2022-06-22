@@ -14,243 +14,24 @@ class Library {
         return this;
     };
     init = () => {
-        this.patterns = this.getBase();
+        this.state = 'load';
+        this.patterns = this.update();
     };
-    getBase = () => {
-        return [
-            {
-                "name": "Dotted Weak",
-                "type": "Simple",
-                "icon": "😌",
-                "pattern": [
-                    {
-                        "startDelay": 100,
-                        "duration": 100,
-                        "weakMagnitude": 1.0,
-                        "strongMagnitude": 0.0
-                    }
-                ]
-            },
-            {
-                "name": "Dotted Strong",
-                "type": "Simple",
-                "icon": "😉",
-                "pattern": [
-                    {
-                        "startDelay": 100,
-                        "duration": 100,
-                        "weakMagnitude": 0.0,
-                        "strongMagnitude": 1.0
-                    }
-                ]
-            },
-            {
-                "name": "Dotted AC",
-                "type": "Simple",
-                "icon": "🤨",
-                "pattern": [
-                    {
-                        "startDelay": 100,
-                        "duration": 100,
-                        "weakMagnitude": 1.0,
-                        "strongMagnitude": 0.0
-                    },
-                    {
-                        "startDelay": 100,
-                        "duration": 100,
-                        "weakMagnitude": 0.0,
-                        "strongMagnitude": 1.0
-                    }
-                ]
-            },
-            {
-                "name": "Dotted Max",
-                "type": "Simple",
-                "icon": "🙃",
-                "pattern": [
-                    {
-                        "startDelay": 100,
-                        "duration": 100,
-                        "weakMagnitude": 1.0,
-                        "strongMagnitude": 1.0
-                    }
-                ]
-            },
-            {
-                "name": "Short Dashed Weak",
-                "type": "Simple",
-                "icon": "🙂",
-                "pattern": [
-                    {
-                        "startDelay": 100,
-                        "duration": 250,
-                        "weakMagnitude": 1.0,
-                        "strongMagnitude": 0.0
-                    }
-                ]
-            },
-            {
-                "name": "Short Dashed Strong",
-                "type": "Simple",
-                "icon": "😇",
-                "pattern": [
-                    {
-                        "startDelay": 100,
-                        "duration": 250,
-                        "weakMagnitude": 0.0,
-                        "strongMagnitude": 1.0
-                    }
-                ]
-            },
-            {
-                "name": "Short Dashed AC",
-                "type": "Simple",
-                "icon": "🤤",
-                "pattern": [
-                    {
-                        "startDelay": 100,
-                        "duration": 250,
-                        "weakMagnitude": 1.0,
-                        "strongMagnitude": 0.0
-                    },
-                    {
-                        "startDelay": 100,
-                        "duration": 250,
-                        "weakMagnitude": 0.0,
-                        "strongMagnitude": 1.0
-                    }
-                ]
-            },
-            {
-                "name": "Short Dashed Max",
-                "type": "Simple",
-                "icon": "😊",
-                "pattern": [
-                    {
-                        "startDelay": 100,
-                        "duration": 250,
-                        "weakMagnitude": 1.0,
-                        "strongMagnitude": 1.0
-                    }
-                ]
-            },
-            {
-                "name": "Long Dashed Weak",
-                "type": "Simple",
-                "icon": "😋",
-                "pattern": [
-                    {
-                        "startDelay": 100,
-                        "duration": 500,
-                        "weakMagnitude": 1.0,
-                        "strongMagnitude": 0.0
-                    }
-                ]
-            },
-            {
-                "name": "Long Dashed Strong",
-                "type": "Simple",
-                "icon": "😜",
-                "pattern": [
-                    {
-                        "startDelay": 100,
-                        "duration": 500,
-                        "weakMagnitude": 0.0,
-                        "strongMagnitude": 1.0
-                    }
-                ]
-            },
-            {
-                "name": "Long Dashed AC",
-                "type": "Simple",
-                "icon": "😝",
-                "pattern": [
-                    {
-                        "startDelay": 100,
-                        "duration": 500,
-                        "weakMagnitude": 1.0,
-                        "strongMagnitude": 0.0
-                    },
-                    {
-                        "startDelay": 100,
-                        "duration": 500,
-                        "weakMagnitude": 0.0,
-                        "strongMagnitude": 1.0
-                    }
-                ]
-            },
-            {
-                "name": "Long Dashed Max",
-                "type": "Simple",
-                "icon": "🤪",
-                "pattern": [
-                    {
-                        "startDelay": 100,
-                        "duration": 500,
-                        "weakMagnitude": 1.0,
-                        "strongMagnitude": 1.0
-                    }
-                ]
-            },
-            {
-                "name": "Constant Weak",
-                "type": "Simple",
-                "icon": "😏",
-                "pattern": [
-                    {
-                        "startDelay": 0,
-                        "duration": 1000,
-                        "weakMagnitude": 1.0,
-                        "strongMagnitude": 0.0
-                    }
-                ]
-            },
-            {
-                "name": "Constant Strong",
-                "type": "Simple",
-                "icon": "🤩",
-                "pattern": [
-                    {
-                        "startDelay": 0,
-                        "duration": 1000,
-                        "weakMagnitude": 0.0,
-                        "strongMagnitude": 1.0
-                    }
-                ]
-            },
-            {
-                "name": "Constant AC",
-                "type": "Simple",
-                "icon": "😵",
-                "pattern": [
-                    {
-                        "startDelay": 0,
-                        "duration": 1000,
-                        "weakMagnitude": 1.0,
-                        "strongMagnitude": 0.0
-                    },
-                    {
-                        "startDelay": 0,
-                        "duration": 1000,
-                        "weakMagnitude": 0.0,
-                        "strongMagnitude": 1.0
-                    }
-                ]
-            },
-            {
-                "name": "Constant Max",
-                "type": "Simple",
-                "icon": "😍",
-                "pattern": [
-                    {
-                        "startDelay": 0,
-                        "duration": 1000,
-                        "weakMagnitude": 1.0,
-                        "strongMagnitude": 1.0
-                    }
-                ]
-            }
-        ];
+    update = async () => {
+        const url = 'https://wavelovers.ru/assets/patterns.json';
+        try {
+            const response = await fetch(url);
+            if (response.ok) {
+                let json = await response.json();
+                this.patterns = json;
+                this.state = 'draw';
+            } else {
+                console.log('Connect to the Internet for download more patterns...');
+                this.state = 'fail';
+            };
+        } catch (error) {
+            console.log('[error]', error);
+        };
     };
 };
 
@@ -340,9 +121,7 @@ class Wavelovers {
     };
     init = () => {
         this.#DOMs();
-
         this.library = new Library();
-        this.print(this.library.patterns);
 
         if (!this.checkGamepadSupport()) {
             console.log(`This browser does not support of gamepads.`);
@@ -379,6 +158,16 @@ class Wavelovers {
             this.gamepads.forEach(gamepad => {
                 gamepad.draw();
             });
+        };
+        if (this.library.state === 'draw') {
+            this.print(this.library.patterns);
+            this.library.state = 'ready';
+        };
+        if (this.library.state === 'fail') {
+            this.$PATTERN_LIST.innerHTML = `
+                <div class="message">
+                    <span>Loading error...</span>
+                </div>`;
         };
     };
 
