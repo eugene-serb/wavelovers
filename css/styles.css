@@ -482,8 +482,14 @@ table, th, td {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    font-size: 24px;
+    font-size: 18px;
 }
+
+    @media only screen and (min-width: 540px) {
+        .message {
+            font-size: 24px;
+        }
+    }
 
 .pattern-box {
     display: flex;
