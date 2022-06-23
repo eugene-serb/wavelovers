@@ -482,7 +482,7 @@ table, th, td {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
 }
 
     @media only screen and (min-width: 540px) {
