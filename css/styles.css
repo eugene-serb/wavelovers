@@ -465,14 +465,21 @@ table, th, td {
 
 .wavelovers {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: flex-start;
     gap: 16px;
 }
 
+    @media only screen and (min-width: 540px) {
+        .wavelovers {
+            flex-direction: column;
+        }
+    }
+
 .message {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     text-align: center;
     font-size: 24px;
