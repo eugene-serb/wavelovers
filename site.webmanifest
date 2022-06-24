@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "Wavelovers",
+  "short_name": "Wavelovers",
   "icons": [
     {
       "src": "https://eugene-serb.github.io/wavelovers/img/android-chrome-192x192.png",
@@ -13,8 +13,8 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#EFCFE3",
+  "background_color": "#EFCFE3",
   "display": "standalone"
 }
 

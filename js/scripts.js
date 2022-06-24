@@ -4,193 +4,54 @@
 
 'use strict';
 
-const __PATTERNS = [
-    /* Dotted, 0.1s, 0.1s */
-    {
-        name: 'Dotted Weak',
-        type: 'Simple',
-        icon: '😌',
-        pattern: [
-            {
-                startDelay: 100,
-                duration: 100,
-                weakMagnitude: 1.0,
-                strongMagnitude: 0.0,
-            },
-        ],
-    },
-    {
-        name: 'Dotted Strong',
-        type: 'Simple',
-        icon: '😉',
-        pattern: [
-            {
-                startDelay: 100,
-                duration: 100,
-                weakMagnitude: 0.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
-    {
-        name: 'Dotted Max',
-        type: 'Simple',
-        icon: '🙃',
-        pattern: [
-            {
-                startDelay: 0,
-                duration: 100,
-                weakMagnitude: 1.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
-    /* Short Dashed, 0.1s, 0.25s */
-    {
-        name: 'Short Dashed Weak',
-        type: 'Simple',
-        icon: '🙂',
-        pattern: [
-            {
-                startDelay: 100,
-                duration: 250,
-                weakMagnitude: 1.0,
-                strongMagnitude: 0.0,
-            },
-        ],
-    },
-    {
-        name: 'Short Dashed Strong',
-        type: 'Simple',
-        icon: '😇',
-        pattern: [
-            {
-                startDelay: 100,
-                duration: 250,
-                weakMagnitude: 0.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
-    {
-        name: 'Short Dashed Max',
-        type: 'Simple',
-        icon: '😊',
-        pattern: [
-            {
-                startDelay: 0,
-                duration: 250,
-                weakMagnitude: 1.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
-    /* Long Dashed, 0.1s, 0.5s */
-    {
-        name: 'Long Dashed Weak',
-        type: 'Simple',
-        icon: '😋',
-        pattern: [
-            {
-                startDelay: 100,
-                duration: 500,
-                weakMagnitude: 1.0,
-                strongMagnitude: 0.0,
-            },
-        ],
-    },
-    {
-        name: 'Long Dashed Strong',
-        type: 'Simple',
-        icon: '😜',
-        pattern: [
-            {
-                startDelay: 100,
-                duration: 500,
-                weakMagnitude: 0.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
-    {
-        name: 'Long Dashed Max',
-        type: 'Simple',
-        icon: '🤪',
-        pattern: [
-            {
-                startDelay: 0,
-                duration: 500,
-                weakMagnitude: 1.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
-    /* Constant, 0s, 1s */
-    {
-        name: 'Constant Weak',
-        type: 'Simple',
-        icon: '😏',
-        pattern: [
-            {
-                startDelay: 0,
-                duration: 1000,
-                weakMagnitude: 1.0,
-                strongMagnitude: 0.0,
-            },
-        ],
-    },
-    {
-        name: 'Constant Strong',
-        type: 'Simple',
-        icon: '🤩',
-        pattern: [
-            {
-                startDelay: 0,
-                duration: 1000,
-                weakMagnitude: 0.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
-    {
-        name: 'Constant Max',
-        type: 'Simple',
-        icon: '😍',
-        pattern: [
-            {
-                startDelay: 0,
-                duration: 1000,
-                weakMagnitude: 1.0,
-                strongMagnitude: 1.0,
-            },
-        ],
-    },
-];
+class Library {
+    constructor() {
+        if (typeof Library.instance === 'object') {
+            return Library.instance;
+        };
+        this.init();
+        Library.instance = this;
+        return this;
+    };
+    init = () => {
+        this.state = 'load';
+        this.patterns = this.update();
+    };
+    update = async () => {
+        const url = 'https://wavelovers.ru/assets/patterns.json';
+        try {
+            const response = await fetch(url);
+            if (response.ok) {
+                let json = await response.json();
+                this.patterns = json;
+                this.state = 'draw';
+            } else {
+                console.log('Connect to the Internet for download more patterns...');
+                this.state = 'fail';
+            };
+        } catch (error) {
+            console.log('[error]', error);
+        };
+    };
+};
 
 class Gamepad {
-    constructor(gamepad, $container, library) {
+    constructor(gamepad, $container) {
         this.unit = gamepad;
         this.$container = $container;
-        this.library = library;
         this.init();
     };
 
     init = () => {
         this.id = Date.now();
         this.canVibrate = (this.unit.vibrationActuator) ? true : false;
-        this.isSelected = false;
         this.isVibrating = false;
-        this.isLocked = false;
-        this.cooldown = 0;
+
+        this.library = new Library;
+
         this.index = 0;
-        this.pattern = [
-            {
-                startDelay: 0,
-                duration: 1000,
-                weakMagnitude: 1.0,
-                strongMagnitude: 1.0,
-            }
-        ];
+        this.pattern = this.library.patterns[this.index].pattern;
+
         this.generateBox();
     };
 
@@ -232,7 +93,7 @@ class Gamepad {
     };
     vibrate = async () => {
         this.isVibrating = true;
-        this.pattern = this.library[this.index].pattern;
+        this.pattern = this.library.patterns[this.index].pattern;
 
         while (this.isVibrating) {
             for (let i = 0; i < this.pattern.length; i++) {
@@ -248,49 +109,19 @@ class Gamepad {
     sleep = (ms) => {
         return new Promise(resolve => setTimeout(resolve, ms));
     };
-    previous = () => {
-        if (Date.now() >= this.cooldown) {
-            if (this.index === 0) {
-                this.index = this.library.length - 1;
-            } else {
-                this.index--;
-            };
-            this.pattern = this.library[this.index].pattern;
-            this.cooldown = Date.now() + 500;
-        };
-    };
-    next = () => {
-        if (Date.now() >= this.cooldown) {
-            if (this.index === this.library.length - 1) {
-                this.index = 0;
-            } else {
-                this.index++;
-            };
-            this.pattern = this.library[this.index].pattern;
-            this.cooldown = Date.now() + 500;
-        };
-    };
-    lock = () => {
-        if (Date.now() >= this.cooldown) {
-            this.isLocked = !this.isLocked;
-            this.cooldown = Date.now() + 500;
-        };
-    };
-
     change = (index) => {
         this.index = index;
-        this.pattern = this.library[this.index].pattern;
+        this.pattern = this.library.patterns[this.index].pattern;
     };
 };
 
-class VibrationMaster {
+class Wavelovers {
     constructor() {
         this.init();
     };
     init = () => {
         this.#DOMs();
-        this.patterns = __PATTERNS;
-        this.print(this.patterns);
+        this.library = new Library();
 
         if (!this.checkGamepadSupport()) {
             console.log(`This browser does not support of gamepads.`);
@@ -328,33 +159,15 @@ class VibrationMaster {
                 gamepad.draw();
             });
         };
-    };
-    eventHandler = () => {
-        if (this.gamepads.length > 0) {
-            this.gamepads.forEach(gamepad => {
-                if (gamepad.canVibrate === true) {
-                    if (gamepad.unit.buttons[2].pressed === true &&
-                        gamepad.unit.buttons[3].pressed === true) {
-                        gamepad.lock();
-                    };
-                    if (gamepad.isLocked === false) {
-                        if (gamepad.unit.buttons[0].pressed === true) {
-                            if (gamepad.isVibrating === false) {
-                                gamepad.vibrate();
-                            };
-                        };
-                        if (gamepad.unit.buttons[1].pressed === true) {
-                            gamepad.reset();
-                        };
-                        if (gamepad.unit.buttons[4].pressed === true) {
-                            gamepad.previous();
-                        };
-                        if (gamepad.unit.buttons[5].pressed === true) {
-                            gamepad.next();
-                        };
-                    };
-                };
-            });
+        if (this.library.state === 'draw') {
+            this.print(this.library.patterns);
+            this.library.state = 'ready';
+        };
+        if (this.library.state === 'fail') {
+            this.$PATTERN_LIST.innerHTML = `
+                <div class="message">
+                    <span>Loading error...</span>
+                </div>`;
         };
     };
 
@@ -384,15 +197,17 @@ class VibrationMaster {
     change = (index) => {
         if (this.gamepads.length > 0) {
             this.gamepads.forEach(gamepad => {
-                this.unselect();
-                if (gamepad.index === index &&
-                    gamepad.isVibrating === true) {
-                    gamepad.isVibrating = false;
-                    gamepad.reset();
-                } else {
-                    gamepad.change(index);
-                    gamepad.vibrate();
-                    this.select(index);
+                if (gamepad.canVibrate === true) {
+                    this.unselect(this.library.patterns);
+                    if (gamepad.index === index &&
+                        gamepad.isVibrating === true) {
+                        gamepad.reset();
+                    } else {
+                        gamepad.reset()
+                        gamepad.change(index);
+                        gamepad.vibrate();
+                        this.select(this.library.patterns, index);
+                    };
                 };
             });
         } else {
@@ -401,13 +216,13 @@ class VibrationMaster {
         };
     };
 
-    unselect = () => {
-        this.patterns.forEach(pattern => {
+    unselect = (patterns) => {
+        patterns.forEach(pattern => {
             pattern['container'].classList.remove('pattern-item__selected');
         });
     };
-    select = (index) => {
-        this.patterns[index]['container'].classList.add('pattern-item__selected');
+    select = (patterns, index) => {
+        patterns[index]['container'].classList.add('pattern-item__selected');
     };
 
     checkGamepadSupport = () => {
@@ -426,7 +241,7 @@ class VibrationMaster {
             if (this.gamepads.length > 1) {
                 return;
             } else {
-                this.gamepads.push(new Gamepad(event.gamepad, this.$DEVICE_LIST, this.patterns));
+                this.gamepads.push(new Gamepad(event.gamepad, this.$DEVICE_LIST));
             };
         });
         window.addEventListener('gamepaddisconnected', (event) => {
@@ -436,6 +251,7 @@ class VibrationMaster {
                     this.gamepads.splice(index, 1);
                 };
             });
+            this.unselect();
         });
     };
 };
@@ -444,5 +260,5 @@ class VibrationMaster {
 /* INITIALIZATION */
 /* -------------- */
 
-const VIBRATION_MASTER = new VibrationMaster();
+const WAVELOVERS = new Wavelovers();
 
