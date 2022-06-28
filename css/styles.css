@@ -521,6 +521,10 @@ table, th, td {
             cursor: default;
         }
 
+        .pattern-item ::selection {
+            background-color: transparent;
+        }
+
         @media only screen and (min-width: 540px) {
             .pattern-item {
                 width: 200px;
