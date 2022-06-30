@@ -7,3 +7,25 @@ If you are interested in this or my other projects, or would like to suggest and
 
 Follow me on Twitter: *[@eugene_serb](https://twitter.com/eugene_serb)*
 
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

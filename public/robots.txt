@@ -1,0 +1,13 @@
+#
+# robots.txt at https://wavelovers.ru/
+# 
+# Follow me on Twitter: @eugene_serb
+# Author: https://eugene-serb.github.io/
+#
+
+# All Bots
+User-agent: *
+Allow: /
+
+Sitemap: https://wavelovers.ru/sitemap.xml
+

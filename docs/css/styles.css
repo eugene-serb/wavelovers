@@ -459,137 +459,6 @@ table, th, td {
         text-align: center;
     }
 
-/* ----------- */
-/* WAVELOVERS */
-/* ----------- */
-
-.wavelovers {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: flex-start;
-    gap: 16px;
-}
-
-    @media only screen and (min-width: 540px) {
-        .wavelovers {
-            flex-direction: column;
-        }
-    }
-
-.message {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    font-size: 16px;
-}
-
-    @media only screen and (min-width: 540px) {
-        .message {
-            font-size: 24px;
-        }
-    }
-
-.pattern-box {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-    .pattern-list {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        gap: 32px;
-    }
-
-        .pattern-item {
-            width: 100%;
-            height: 48px;
-            padding: 8px;
-            border-radius: var(--number-border-radius);
-            background: var(--color-pattern-button);
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            gap: 16px;
-            align-items: center;
-            text-align: center;
-            overflow: hidden;
-            cursor: default;
-        }
-
-        @media only screen and (min-width: 540px) {
-            .pattern-item {
-                width: 200px;
-            }
-        }
-
-        .pattern-item__selected {
-            background: var(--color-b);
-        }
-
-            .pattern-item__icon{
-                font-size: 24px;
-            }
-
-            .pattern-item__name {
-                font-size: 14px;
-                white-space: nowrap;
-                overflow: hidden;
-                color: var(--color-pattern-text);
-            }
-
-.device-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 16px;
-    text-align: center;
-}
-
-    .device-list {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        gap: 16px;
-    }
-
-        .list-item {
-            max-width: 100%;
-            padding: 16px;
-            border: 4px solid var(--color-b);
-            border-radius: 4px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-            .list-item__info {
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
-            }
-
-        .list-item_selected .list-item__info span {
-            color: var(--color-white);
-        }
-
-.link_hash {
-    word-break: break-all;
-}
-
-.faq__ask {
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.faq__reply {
-    padding-left: 16px;
-}
-
 /* ----- */
 /* PAGES */
 /* ----- */
@@ -606,5 +475,22 @@ table, th, td {
 .banner {
     margin: auto;
     padding: 16px;
+}
+
+/* ----------- */
+/* WAVELOVERS */
+/* ----------- */
+
+.link_hash {
+    word-break: break-all;
+}
+
+.faq__ask {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.faq__reply {
+    padding-left: 16px;
 }
 
