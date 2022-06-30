@@ -53,7 +53,7 @@
                 window.addEventListener('gamepaddisconnected', () => this.deleteGamepad(event));
             },
             addGamepad(event) {
-                if (this.gamepads.length > 1) {
+                if (this.gamepads.length >= 1) {
                     return;
                 } else {
                     this.gamepads.push(new Gamepad(event.gamepad));
