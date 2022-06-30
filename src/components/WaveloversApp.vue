@@ -1,22 +1,14 @@
 <template>
     <div class="wavelovers">
-        <div class="content-item">
-            <PatternList v-if="patterns.length > 0"
-                         :patterns="patterns"
-                         :mode="mode"
-                         :isActive="isActive"
-                         @change="change" />
-            <div class="message" v-else>
-                <span>Loading...</span>
-            </div>
-        </div>
-        <div class="content-item">
-            <GamepadList v-if="gamepads.length > 0"
-                         :gamepads="gamepads" />
-            <div class="message" v-else>
-                <span>Press any gamepad's button or connect new gamepad.</span>
-            </div>
-        </div>
+        <PatternList v-if="patterns.length > 0"
+                     :patterns="patterns"
+                     :mode="mode"
+                     :isActive="isActive"
+                     @change="change" />
+        <MessageItem v-else>Loading...</MessageItem>
+        <GamepadList v-if="gamepads.length > 0"
+                     :gamepads="gamepads" />
+        <MessageItem v-else>Press any gamepad's button or connect new gamepad.</MessageItem>
     </div>
 </template>
 
@@ -24,12 +16,14 @@
     import PatternList from '@/components/PatternList.vue';
     import GamepadList from '@/components/GamepadList.vue';
     import Gamepad from '@/components/Gamepad.js';
+    import MessageItem from '@/components/MessageItem.vue';
 
     export default {
         name: 'WaveloversApp',
         components: {
             PatternList: PatternList,
             GamepadList: GamepadList,
+            MessageItem: MessageItem,
         },
         data: () => {
             return {
@@ -114,21 +108,6 @@
     @media only screen and (min-width: 540px) {
         .wavelovers {
             flex-direction: column;
-        }
-    }
-
-    .message {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        font-size: 16px;
-    }
-
-    @media only screen and (min-width: 540px) {
-        .message {
-            font-size: 24px;
         }
     }
 </style>

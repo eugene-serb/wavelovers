@@ -24,6 +24,10 @@
 
 <style>
     .device-list {
+        margin-bottom: 16px;
+        padding: 32px;
+        border-radius: var(--number-border-radius);
+        background: var(--color-content-item-background);
         display: flex;
         flex-direction: row;
         justify-content: space-around;
