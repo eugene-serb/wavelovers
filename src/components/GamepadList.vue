@@ -6,10 +6,11 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+    import { defineComponent } from 'vue';
     import GamepadItem from '@/components/GamepadItem.vue';
 
-    export default {
+    export default defineComponent({
         name: 'GamepadList',
         props: {
             gamepads: {
@@ -19,8 +20,8 @@
         components: {
             GamepadItem: GamepadItem,
         },
-    };
-</script>
+    });
+    </script>
 
 <style>
     .device-list {
@@ -34,3 +35,4 @@
         gap: 16px;
     }
 </style>
+

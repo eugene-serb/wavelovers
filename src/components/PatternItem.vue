@@ -11,8 +11,10 @@
     </div>
 </template>
 
-<script>
-    export default {
+<script lang="ts">
+    import { defineComponent } from 'vue';
+
+    export default defineComponent({
         name: 'PatternItem',
         props: {
             pattern: {
@@ -28,13 +30,12 @@
                 type: Boolean,
             },
         },
-        components: {},
         methods: {
-            change(index) {
+            change(index: number): void {
                 this.$emit('change', index);
             },
         },
-    };
+    });
 </script>
 
 <style>
@@ -68,14 +69,15 @@
         background: var(--color-b);
     }
 
-        .pattern-item__icon {
-            font-size: 24px;
-        }
+    .pattern-item__icon {
+        font-size: 24px;
+    }
 
-        .pattern-item__name {
-            font-size: 14px;
-            white-space: nowrap;
-            overflow: hidden;
-            color: var(--color-pattern-text);
-        }
+    .pattern-item__name {
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        color: var(--color-pattern-text);
+    }
 </style>
+

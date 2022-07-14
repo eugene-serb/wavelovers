@@ -2,16 +2,17 @@
     <Wavelovers />
 </template>
 
-<script>
+<script lang="ts">
+    import { defineComponent } from 'vue';
     import WaveloversApp from '@/components/WaveloversApp.vue';
 
-    export default {
-        name: 'App',
-        components: {
-            Wavelovers: WaveloversApp,
-        },
-    };
+    export default defineComponent({
+      name: 'App',
+      components: {
+          Wavelovers: WaveloversApp,
+      },
+    });
 </script>
 
-<style>
-</style>
+<style></style>
+
