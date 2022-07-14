@@ -10,11 +10,12 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+    import { defineComponent } from 'vue';
     import PatternItem from '@/components/PatternItem.vue';
 
-    export default {
-        name: 'PatternList',
+    export default defineComponent({
+      name: 'PatternList',
         props: {
             patterns: {
                 type: Array,
@@ -30,15 +31,19 @@
             PatternItem: PatternItem,
         },
         methods: {
-            change(index) {
+            change(index: number): void {
                 this.$emit('change', index);
             },
         },
-    };
+    });
 </script>
 
 <style>
-    .pattern-list {
+.pattern-list {
+        margin-bottom: 16px;
+        padding: 32px;
+        border-radius: var(--number-border-radius);
+        background: var(--color-content-item-background);
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -46,3 +51,4 @@
         gap: 32px;
     }
 </style>
+

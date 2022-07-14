@@ -1,40 +1,71 @@
 <template>
     <div class="wavelovers">
-        <div class="content-item">
-            <PatternList v-if="patterns.length > 0"
-                         :patterns="patterns"
-                         :mode="mode"
-                         :isActive="isActive"
-                         @change="change" />
-            <div class="message" v-else>
-                <span>Loading...</span>
-            </div>
-        </div>
-        <div class="content-item">
-            <GamepadList v-if="gamepads.length > 0"
-                         :gamepads="gamepads" />
-            <div class="message" v-else>
-                <span>Press any gamepad's button or connect new gamepad.</span>
-            </div>
-        </div>
+        <PatternList v-if="patterns.length > 0"
+                     :patterns="patterns"
+                     :mode="mode"
+                     :isActive="isActive"
+                     @change="change" />
+        <MessageItem v-else>Loading...</MessageItem>
+        <GamepadList v-if="gamepads.length > 0"
+                     :gamepads="gamepads" />
+        <MessageItem v-else>Press any gamepad's button or connect new gamepad.</MessageItem>
     </div>
 </template>
 
-<script>
+<script lang="ts">
+    import { defineComponent } from 'vue';
     import PatternList from '@/components/PatternList.vue';
     import GamepadList from '@/components/GamepadList.vue';
-    import Gamepad from '@/components/Gamepad.js';
+    import MessageItem from '@/components/MessageItem.vue';
+    import Vibrator from '@/components/Vibrator';
 
-    export default {
+    interface IVibrationActuator {
+        type: string;
+        reset(): void;
+        playEffect(mode: string, pattern: IPatternUnit): void;
+    }
+
+    interface IGamepad {
+        id: string;
+        index: number;
+        timestamp: number;
+        connected: boolean;
+        vibrationActuator: IVibrationActuator;
+    }
+
+    interface Event {
+        gamepad: IGamepad | any;
+    }
+
+    interface IPattern {
+        pattern: IPatternUnit[];
+    }
+
+    interface IPatternUnit {
+        startDelay: number,
+        duration: number,
+        weakMagnitude: number,
+        strongMagnitude: number,
+    }
+
+    interface IVibrator {
+        unit: IGamepad;
+        update(): void;
+        reset(): void;
+        vibrate(pattern: IPatternUnit[]): void;
+    }
+
+    export default defineComponent({
         name: 'WaveloversApp',
         components: {
             PatternList: PatternList,
             GamepadList: GamepadList,
+            MessageItem: MessageItem,
         },
         data: () => {
             return {
-                gamepads: [],
-                patterns: [],
+                gamepads: [] as IVibrator[],
+                patterns: [] as IPattern[],
                 isActive: false,
                 mode: 0,
             };
@@ -54,25 +85,25 @@
                     console.log('[error]', error);
                 }
             },
-            addEventListeners() {
-                window.addEventListener('gamepadconnected', () => this.addGamepad(event));
-                window.addEventListener('gamepaddisconnected', () => this.deleteGamepad(event));
+            addEventListeners(): void {
+                window.addEventListener('gamepadconnected', (event: Event) => this.addGamepad(event));
+                window.addEventListener('gamepaddisconnected', (event: Event) => this.deleteGamepad(event));
             },
-            addGamepad(event) {
-                if (this.gamepads.length > 1) {
+            addGamepad(event: Event) {
+                if (this.gamepads.length >= 1) {
                     return;
                 } else {
-                    this.gamepads.push(new Gamepad(event.gamepad));
+                    this.gamepads.push(new Vibrator(event.gamepad));
                 }
             },
-            deleteGamepad(event) {
+            deleteGamepad(event: Event) {
                 this.gamepads.forEach((gamepad, index) => {
                     if (gamepad.unit.id === event.gamepad.id) {
                         this.gamepads.splice(index, 1);
                     }
                 });
             },
-            change(index) {
+            change(index: number) {
                 if (this.mode === index) {
                     this.isActive = !this.isActive;
                     this.reset();
@@ -100,7 +131,7 @@
             this.loadPatterns();
             this.addEventListeners();
         },
-    };
+    });
 </script>
 
 <style>
@@ -116,19 +147,5 @@
             flex-direction: column;
         }
     }
-
-    .message {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        font-size: 16px;
-    }
-
-    @media only screen and (min-width: 540px) {
-        .message {
-            font-size: 24px;
-        }
-    }
 </style>
+
