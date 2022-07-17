@@ -17,42 +17,10 @@
     import PatternList from '@/components/PatternList.vue';
     import GamepadList from '@/components/GamepadList.vue';
     import MessageItem from '@/components/MessageItem.vue';
-    import Vibrator from '@/components/Vibrator';
-
-    interface IVibrationActuator {
-        type: string;
-        reset(): void;
-        playEffect(mode: string, pattern: IPatternUnit): void;
-    }
-
-    interface IGamepad {
-        id: string;
-        index: number;
-        timestamp: number;
-        connected: boolean;
-        vibrationActuator: IVibrationActuator;
-    }
+    import { Vibrator, IGamepad, TPattern, TPatternUnit } from '@/components/Vibrator';
 
     interface Event {
         gamepad: IGamepad | any;
-    }
-
-    interface IPattern {
-        pattern: IPatternUnit[];
-    }
-
-    interface IPatternUnit {
-        startDelay: number,
-        duration: number,
-        weakMagnitude: number,
-        strongMagnitude: number,
-    }
-
-    interface IVibrator {
-        unit: IGamepad;
-        update(): void;
-        reset(): void;
-        vibrate(pattern: IPatternUnit[]): void;
     }
 
     export default defineComponent({
@@ -64,8 +32,8 @@
         },
         data: () => {
             return {
-                gamepads: [] as IVibrator[],
-                patterns: [] as IPattern[],
+                gamepads: [] as Vibrator[],
+                patterns: [] as TPattern[],
                 isActive: false,
                 mode: 0,
             };
@@ -96,14 +64,14 @@
                     this.gamepads.push(new Vibrator(event.gamepad));
                 }
             },
-            deleteGamepad(event: Event) {
+            deleteGamepad(event: Event): void {
                 this.gamepads.forEach((gamepad, index) => {
                     if (gamepad.unit.id === event.gamepad.id) {
                         this.gamepads.splice(index, 1);
                     }
                 });
             },
-            change(index: number) {
+            change(index: number): void {
                 if (this.mode === index) {
                     this.isActive = !this.isActive;
                     this.reset();
@@ -116,12 +84,12 @@
                     this.vibrate();
                 }
             },
-            vibrate() {
+            vibrate(): void {
                 this.gamepads.forEach(gamepad => {
-                    gamepad.vibrate(this.patterns[this.mode].pattern);
+                    gamepad.vibrate(this.patterns[this.mode].pattern as TPatternUnit[]);
                 });
             },
-            reset() {
+            reset(): void {
                 this.gamepads.forEach(gamepad => {
                     gamepad.reset();
                 });

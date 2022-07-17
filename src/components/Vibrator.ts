@@ -1,17 +1,21 @@
-interface IPatternUnit {
+export type TPattern = {
+    pattern: TPatternUnit[];
+}
+
+export type TPatternUnit = {
     startDelay: number,
     duration: number,
     weakMagnitude: number,
     strongMagnitude: number,
 }
 
-interface IVibrationActuator {
+export interface IVibrationActuator {
     type: string;
     reset(): void;
-    playEffect(mode: string, pattern: IPatternUnit): void;
+    playEffect(mode: string, pattern: TPatternUnit): void;
 }
 
-interface IGamepad {
+export interface IGamepad {
     id: string;
     index: number;
     timestamp: number;
@@ -19,24 +23,24 @@ interface IGamepad {
     vibrationActuator: IVibrationActuator;
 }
 
-interface IVibrator {
+export interface IVibrator {
     readonly id: number,
     readonly canVibrate: boolean;
     isVibrating: boolean;
     unit: IGamepad;
-    pattern: IPatternUnit[];
+    pattern: TPatternUnit[];
     update(): void;
     reset(): void;
-    vibrate(pattern: IPatternUnit[]): void;
+    vibrate(pattern: TPatternUnit[]): void;
     sleep(ms: number): Promise<number>;
 }
 
-export default class Vibrator implements IVibrator {
+export class Vibrator implements IVibrator {
     readonly id: number;
     readonly canVibrate: boolean;
     isVibrating: boolean;
     unit: IGamepad;
-    pattern: IPatternUnit[];
+    pattern: TPatternUnit[];
 
     constructor(unit: IGamepad) {
         this.unit = unit;
@@ -56,7 +60,7 @@ export default class Vibrator implements IVibrator {
         this.unit.vibrationActuator.reset();
     }
 
-    async vibrate(pattern: IPatternUnit[]) {
+    async vibrate(pattern: TPatternUnit[]) {
         this.isVibrating = true;
         this.pattern = pattern;
 
@@ -76,4 +80,3 @@ export default class Vibrator implements IVibrator {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 }
-
