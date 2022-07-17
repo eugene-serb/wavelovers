@@ -1,1 +1,1 @@
-declare module 'Vibrator'
+declare module 'Vibrator';

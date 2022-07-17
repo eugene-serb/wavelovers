@@ -76,8 +76,8 @@
         --color-table-header-text: var(--color-white);
         --color-table-item: var(--color-c);
         /* Components colors */
-        --color-header-background: var(--color-b);
-        --color-header-borderline: var(--color-a);
+        --color-header-background: var(--color-a);
+        --color-header-borderline: var(--color-b);
         --color-header-selection: var(--color-b);
         --color-header-logo: var(--color-white);
         --color-header-navigation-link: var(--color-white);

@@ -32,7 +32,7 @@
         },
         methods: {
             change(index: number): void {
-                this.$emit('change', index);
+                this.$emit('change', index as number);
             },
         },
     });
