@@ -17,12 +17,12 @@
     import PatternList from '@/components/PatternList.vue';
     import GamepadList from '@/components/GamepadList.vue';
     import MessageItem from '@/components/MessageItem.vue';
-    import { Vibrator, IGamepad, TPattern, TPatternUnit } from '@/components/Vibrator';
-
-    interface Event {
-        gamepad: IGamepad | any;
-    }
-
+    import { IGamepadEvent } from '@/models/IGamepadEvent';
+    import { IGamepad } from '@/models/IGamepad';
+    import { TPattern } from '@/models/TPattern';
+    import { TPatternUnit } from '@/models/TPatternUnit';
+    import { Vibrator } from '@/models/Vibrator';
+    
     export default defineComponent({
         name: 'WaveloversApp',
         components: {
@@ -50,21 +50,22 @@
                         console.log('Connect to the Internet for download more patterns...');
                     }
                 } catch (error) {
-                    console.log('[error]', error);
+                    console.log(error);
                 }
             },
             addEventListeners(): void {
-                window.addEventListener('gamepadconnected', (event: Event) => this.addGamepad(event));
-                window.addEventListener('gamepaddisconnected', (event: Event) => this.deleteGamepad(event));
+                window.addEventListener('gamepadconnected', (event: GamepadEvent) => this.addGamepad(event));
+                window.addEventListener('gamepaddisconnected', (event: GamepadEvent) => this.deleteGamepad(event));
             },
-            addGamepad(event: Event) {
+            addGamepad(event: GamepadEvent) {
+                const ievent: IGamepadEvent = event as unknown as IGamepadEvent;
                 if (this.gamepads.length >= 1) {
                     return;
                 } else {
-                    this.gamepads.push(new Vibrator(event.gamepad));
+                    this.gamepads.push(new Vibrator(ievent.gamepad as IGamepad));
                 }
             },
-            deleteGamepad(event: Event): void {
+            deleteGamepad(event: GamepadEvent): void {
                 this.gamepads.forEach((gamepad, index) => {
                     if (gamepad.unit.id === event.gamepad.id) {
                         this.gamepads.splice(index, 1);
