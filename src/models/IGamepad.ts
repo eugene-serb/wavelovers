@@ -1,6 +1,6 @@
-import { IVibrationActuator } from '@/models/IVibrationActuator';
+import IVibrationActuator from '@/models/IVibrationActuator';
 
-export interface IGamepad {
+export default interface IGamepad {
     id: string;
     index: number;
     timestamp: number;

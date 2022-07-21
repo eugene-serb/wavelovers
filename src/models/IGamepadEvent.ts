@@ -1,6 +1,6 @@
-import { IGamepad } from '@/models/IGamepad';
+import IGamepad from '@/models/IGamepad';
 
-export interface IGamepadEvent {
+export default interface IGamepadEvent {
     gamepad: IGamepad;
 }
 

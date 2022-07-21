@@ -1,4 +1,4 @@
-import { TPatternUnit } from '@/models/TPatternUnit';
+import TPatternUnit from '@/models/TPatternUnit';
 
 export type TPattern = {
     name: string;
@@ -6,4 +6,6 @@ export type TPattern = {
     icon: string;
     pattern: TPatternUnit[];
 }
+
+export default TPattern;
 

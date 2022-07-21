@@ -17,11 +17,11 @@
     import PatternList from '@/components/PatternList.vue';
     import GamepadList from '@/components/GamepadList.vue';
     import MessageItem from '@/components/MessageItem.vue';
-    import { IGamepadEvent } from '@/models/IGamepadEvent';
-    import { IGamepad } from '@/models/IGamepad';
-    import { TPattern } from '@/models/TPattern';
-    import { TPatternUnit } from '@/models/TPatternUnit';
-    import { Vibrator } from '@/models/Vibrator';
+    import IGamepadEvent from '@/models/IGamepadEvent';
+    import IGamepad from '@/models/IGamepad';
+    import TPattern from '@/models/TPattern';
+    import TPatternUnit from '@/models/TPatternUnit';
+    import Vibrator from '@/models/Vibrator';
     
     export default defineComponent({
         name: 'WaveloversApp',
