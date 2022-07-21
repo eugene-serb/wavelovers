@@ -14,7 +14,7 @@
     });
 </script>
 
-<style>
+<style lang="scss">
     .message {
         width: 100%;
         margin-bottom: 16px;

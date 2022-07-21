@@ -1,5 +1,5 @@
 <template>
-    <Wavelovers />
+    <WaveloversApp />
 </template>
 
 <script lang="ts">
@@ -7,12 +7,12 @@
     import WaveloversApp from '@/components/WaveloversApp.vue';
 
     export default defineComponent({
-      name: 'App',
-      components: {
-          Wavelovers: WaveloversApp,
-      },
+        name: 'App',
+        components: {
+            WaveloversApp: WaveloversApp,
+        },
     });
 </script>
 
-<style></style>
+<style lang="scss"></style>
 

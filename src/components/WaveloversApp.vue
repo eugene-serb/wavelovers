@@ -102,7 +102,7 @@
     });
 </script>
 
-<style>
+<style lang="scss">
     .wavelovers {
         display: flex;
         flex-direction: column-reverse;
