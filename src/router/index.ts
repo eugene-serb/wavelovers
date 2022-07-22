@@ -50,7 +50,7 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/about',
         name: 'about',
-        component: () => import('../views/AboutView.vue'),
+        component: () => import('@/views/AboutView.vue'),
         meta: {
             title: 'Wavelovers – About',
             metaTags: [
@@ -94,7 +94,7 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/faq',
         name: 'faq',
-        component: () => import('../views/FaqView.vue'),
+        component: () => import('@/views/FaqView.vue'),
         meta: {
             title: 'Wavelovers – FAQ',
             metaTags: [
@@ -138,7 +138,7 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/donate',
         name: 'donate',
-        component: () => import('../views/DonateView.vue'),
+        component: () => import('@/views/DonateView.vue'),
         meta: {
             title: 'Wavelovers – Donate',
             metaTags: [
@@ -182,7 +182,7 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/404',
         name: '404',
-        component: () => import('../views/NotFoundView.vue'),
+        component: () => import('@/views/NotFoundView.vue'),
         meta: {
             title: 'Wavelovers – 404 Page not found',
             metaTags: [
