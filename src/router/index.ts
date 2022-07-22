@@ -188,11 +188,11 @@ const routes: Array<RouteRecordRaw> = [
             metaTags: [
                 {
                     name: 'description',
-                    content: 'Wavelovers. Donate to the author.',
+                    content: 'Wavelovers. Page not found.',
                 },
                 {
                     name: 'keywords',
-                    content: 'Wavelovers, Wave Lovers, Wavemaster, Wave Master, Vibration Master, Vibration, Gamepad, Gamepad Vibration, Vibrate Gamepad, Phone Vibration, Gamepad Tester, Phone Vibration Tester, Vibration Tester, Massager, Vibrator, Satisfyer, Womanizer, Relax, Donate, Support, геймпад, джойстик, вибратор, вибромассажер, вибро, вибромассажёр из геймпада, тестер вибрации геймпада, тестер вибрации телефона, задонатить, пожертвовать, помочь, поблагодарить',
+                    content: 'Wavelovers, Wave Lovers, Wavemaster, Wave Master, Vibration Master, Vibration, Gamepad, Gamepad Vibration, Vibrate Gamepad, Phone Vibration, Gamepad Tester, Phone Vibration Tester, Vibration Tester, Massager, Vibrator, Satisfyer, Womanizer, 404, page not found, геймпад, джойстик, вибратор, вибромассажер, вибро, вибромассажёр из геймпада, тестер вибрации геймпада, тестер вибрации телефона, 404, страница не найдена',
                 },
                 {
                     name: 'og:title',
@@ -200,7 +200,7 @@ const routes: Array<RouteRecordRaw> = [
                 },
                 {
                     name: 'og:description',
-                    content: 'Wavelovers. Donate to the author.',
+                    content: 'Wavelovers. Page not found.',
                 },
                 {
                     name: 'og:url',
@@ -212,7 +212,7 @@ const routes: Array<RouteRecordRaw> = [
                 },
                 {
                     name: 'twitter:description',
-                    content: 'Wavelovers. Donate to the author.',
+                    content: 'Wavelovers. Page not found.',
                 },
             ],
             linkTags: [

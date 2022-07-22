@@ -1,10 +1,12 @@
 <template>
     <main class="page container">
-        <div class="banner">
-            <h1>404</h1>
-            <span>File not found. Please, go to the </span><a href="https://wavelovers.ru/" target="_self">homepage</a><br />
-            <span>Contact me </span><a href="https://t.me/eugene_serb/" target="_blank">@eugene_serb</a>
-        </div>
+        <section class="banner-container">
+            <div class="banner">
+                <h1>404</h1>
+                <span>File not found. Please, go to the </span><a href="https://wavelovers.ru/" target="_self">homepage</a><br />
+                <span>Contact me </span><a href="https://t.me/eugene_serb/" target="_blank">@eugene_serb</a>
+            </div>
+        </section>
     </main>
 </template>
 
@@ -15,4 +17,15 @@
         name: 'NotFoundView',
     });
 </script>
+
+<style lang="scss">
+    .banner-container {
+        display: flex;
+    }
+
+    .banner {
+        margin: auto;
+        padding: 16px;
+    }
+</style>
 
