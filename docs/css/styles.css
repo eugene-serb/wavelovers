@@ -463,20 +463,6 @@ table, th, td {
 /* PAGES */
 /* ----- */
 
-/* ------ */
-/* BANNER */
-/* ------ */
-
-.banner-container {
-    min-height: 100vh;
-    display: flex;
-}
-
-.banner {
-    margin: auto;
-    padding: 16px;
-}
-
 /* ----------- */
 /* WAVELOVERS */
 /* ----------- */

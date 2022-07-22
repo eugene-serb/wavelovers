@@ -10,7 +10,7 @@
     });
 </script>
 
-<style>
+<style lang="scss">
     .list-item {
         max-width: 100%;
         padding: 16px;

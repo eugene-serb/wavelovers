@@ -23,7 +23,7 @@
     });
     </script>
 
-<style>
+<style lang="scss">
     .device-list {
         margin-bottom: 16px;
         padding: 32px;

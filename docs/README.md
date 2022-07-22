@@ -1,5 +1,5 @@
 # Wavelovers
-Wavelovers in ***VueJS***, ***Typescript***, ***Javascript***, ***HTML*** and ***CSS*** **[[rep](https://github.com/eugene-serb/wavelovers/), [site](https://wavelovers.ru/)]**.
+Wavelovers in ***VueJS***, ***Typescript***, ***Javascript***, ***HTML***, ***CSS*** and ***SCSS*** **[[rep](https://github.com/eugene-serb/wavelovers/), [site](https://wavelovers.ru/)]**.
 
 This is Wavelovers, which can make a vibrating massager out of a gamepad. It has 16 free vibration patterns to play with.
 

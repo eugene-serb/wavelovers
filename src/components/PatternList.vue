@@ -38,8 +38,8 @@
     });
 </script>
 
-<style>
-.pattern-list {
+<style lang="scss">
+    .pattern-list {
         margin-bottom: 16px;
         padding: 32px;
         border-radius: var(--number-border-radius);

@@ -1,18 +1,22 @@
 <template>
-    <Wavelovers />
+    <AppHeader />
+    <router-view/>
+    <AppFooter />
 </template>
 
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import WaveloversApp from '@/components/WaveloversApp.vue';
+    import AppHeader from '@/components/AppHeader.vue';
+    import AppFooter from '@/components/AppFooter.vue';
 
     export default defineComponent({
-      name: 'App',
-      components: {
-          Wavelovers: WaveloversApp,
-      },
+        name: 'App',
+        components: {
+            AppHeader: AppHeader,
+            AppFooter: AppFooter,
+        },
     });
 </script>
 
-<style></style>
+<style lang="scss"></style>
 

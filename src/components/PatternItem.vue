@@ -38,7 +38,7 @@
     });
 </script>
 
-<style>
+<style lang="scss">
     .pattern-item {
         width: 100%;
         height: 48px;
