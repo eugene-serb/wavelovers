@@ -1,4 +1,10 @@
 /* ------------------------------ */
+/* Wavelovers styles              */
+/* version:     dated 2022.07.23  */
+/* author:      Eugene Serb       */
+/* ------------------------------ */
+
+/* ------------------------------ */
 /* RESET AND BASE STYLES' TUNE UP */
 /* ------------------------------ */
 
@@ -176,7 +182,7 @@ legend {
 
 fieldset {
     border: 2px solid var(--color-border-alpha);
-    border-radius: 4px;
+    border-radius: var(--number-border-radius);
     padding: 8px;
 }
 

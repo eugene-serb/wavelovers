@@ -1,10 +1,15 @@
 {
   "name": "wavelovers",
   "description": "Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad.",
+  "keywords": [ "wavelovers", "gamepad-vibrator", "gamepad-test-tool", "gamepad-vibration-test-tool" ],
   "version": "1.0.0",
-  "author": "Eugene Serb",
   "license": "GNU GPL v3",
-  "repository": "https://github.com/eugene-serb/wavelovers",
+  "author": "Eugene Serb <eugene.serb@gmail.com>",
+  "homepage": "https://wavelovers.ru/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eugene-serb/wavelovers"
+  },
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
