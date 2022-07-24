@@ -1,4 +1,4 @@
-export type TPatternUnit = {
+type TPatternUnit = {
     startDelay: number;
     duration: number;
     weakMagnitude: number;

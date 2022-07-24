@@ -2,7 +2,7 @@ import TPatternUnit from '@/models/TPatternUnit';
 import IGamepad from '@/models/IGamepad';
 import IVibrator from '@/models/IVibrator';
 
-export default class Vibrator implements IVibrator {
+class Vibrator implements IVibrator {
     readonly id: number;
     readonly canVibrate: boolean;
     isVibrating: boolean;
@@ -47,4 +47,6 @@ export default class Vibrator implements IVibrator {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 }
+
+export default Vibrator;
 

@@ -1,6 +1,6 @@
 import TPatternUnit from '@/models/TPatternUnit';
 
-export type TPattern = {
+type TPattern = {
     name: string;
     type: string;
     icon: string;

@@ -44,7 +44,7 @@ function updateMetatag(to: RouteLocationNormalized, from: RouteLocationNormalize
 }
 
 const VueRouterMetaTags = {
-    update: updateMetatag
+    update: updateMetatag,
 };
 
 export default VueRouterMetaTags;
