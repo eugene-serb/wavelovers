@@ -1,21 +1,15 @@
 /* ------------------------------ */
 /* Wavelovers styles              */
-/* version:     dated 2022.07.23  */
+/* version:     dated 2022.07.24  */
 /* author:      Eugene Serb       */
 /* ------------------------------ */
+
+@charset 'UTF-8';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
 /* ------------------------------ */
 /* RESET AND BASE STYLES' TUNE UP */
 /* ------------------------------ */
-
-@charset 'UTF-8';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
-
-*, ::after, ::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 :root {
     /* Simple colors */
@@ -96,6 +90,12 @@
     }
 }
 
+*, ::after, ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
     font-family: 'Roboto', sans-serif;
     direction: ltr;
@@ -143,7 +143,7 @@ small { font-size: smaller; }
 
 span, p, article, blockquote {
     color: var(--color-text);
-    font-weight: 400;
+    font-weight: 300;
 }
 
 ul {
