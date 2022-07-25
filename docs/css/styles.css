@@ -1,6 +1,6 @@
 /* ------------------------------ */
 /* Wavelovers styles              */
-/* version:     dated 2022.07.24  */
+/* version:     dated 2022.07.25  */
 /* author:      Eugene Serb       */
 /* ------------------------------ */
 
@@ -165,6 +165,25 @@ a {
         transition: all 0.5s ease;
         text-decoration: none;
     }
+
+dl dd:last-child {
+    margin-bottom: 0;
+}
+
+dt {
+    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: oblique;
+}
+
+dd {
+    margin-bottom: 16px;
+    padding-left: 16px;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+}
 
 /* ----- */
 /* FORMS */
@@ -468,25 +487,6 @@ table, th, td {
 /* ----- */
 /* PAGES */
 /* ----- */
-
-dl dd:last-child {
-    margin-bottom: 0;
-}
-
-dt {
-    margin-bottom: 4px;
-    font-size: 16px;
-    font-weight: 500;
-    font-style: oblique;
-}
-
-dd {
-    margin-bottom: 16px;
-    padding-left: 16px;
-    font-size: 14px;
-    font-weight: 300;
-    font-style: normal;
-}
 
 /* ----------- */
 /* WAVELOVERS */
