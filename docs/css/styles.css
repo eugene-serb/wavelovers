@@ -469,20 +469,30 @@ table, th, td {
 /* PAGES */
 /* ----- */
 
+dl dd:last-child {
+    margin-bottom: 0;
+}
+
+dt {
+    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: oblique;
+}
+
+dd {
+    margin-bottom: 16px;
+    padding-left: 16px;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+}
+
 /* ----------- */
 /* WAVELOVERS */
 /* ----------- */
 
 .link_hash {
     word-break: break-all;
-}
-
-.faq__ask {
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.faq__reply {
-    padding-left: 16px;
 }
 
