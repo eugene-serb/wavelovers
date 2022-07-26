@@ -4,11 +4,15 @@
   "keywords": [ "wavelovers", "gamepad-vibrator", "gamepad-test-tool", "gamepad-vibration-test-tool" ],
   "version": "1.0.0",
   "license": "GNU GPL v3",
-  "author": "Eugene Serb <eugene.serb@gmail.com>",
   "homepage": "https://wavelovers.ru/",
+  "author": {
+    "name": "Eugene Serb",
+    "email": "eugene.serb@gmail.com",
+    "url": "https://eugene-serb.github.io/"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/eugene-serb/wavelovers"
+    "url": "https://github.com/eugene-serb/wavelovers/"
   },
   "private": true,
   "scripts": {
