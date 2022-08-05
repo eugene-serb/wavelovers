@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <div class="wavelovers">
         <PatternList v-if="patterns.length > 0"
                      :patterns="patterns"
@@ -8,7 +8,7 @@
         <MessageItem v-else>Loading...</MessageItem>
         <GamepadList v-if="gamepads.length > 0"
                      :gamepads="gamepads" />
-        <MessageItem v-else>Press any gamepad's button or connect new gamepad.</MessageItem>
+        <MessageItem v-else>Press any gamepad button or connect a new gamepad to vibrate.</MessageItem>
     </div>
 </template>
 
