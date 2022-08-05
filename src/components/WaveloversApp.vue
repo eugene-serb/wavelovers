@@ -75,7 +75,6 @@
             change(index: number): void {
                 if (this.mode === index) {
                     this.isActive = !this.isActive;
-                    this.reset();
                 } else {
                     this.isActive = true;
                     this.mode = index;
@@ -83,6 +82,8 @@
                 if (this.isActive === true) {
                     this.reset();
                     this.vibrate();
+                } else {
+                    this.reset();
                 }
             },
             vibrate(): void {
