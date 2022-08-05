@@ -5,7 +5,7 @@
     "icon": "😌",
     "pattern": [
       {
-        "startDelay": 100,
+        "startDelay": 200,
         "duration": 100,
         "weakMagnitude": 1.0,
         "strongMagnitude": 0.0
@@ -18,7 +18,7 @@
     "icon": "😉",
     "pattern": [
       {
-        "startDelay": 100,
+        "startDelay": 200,
         "duration": 100,
         "weakMagnitude": 0.0,
         "strongMagnitude": 1.0
@@ -31,13 +31,13 @@
     "icon": "🤨",
     "pattern": [
       {
-        "startDelay": 100,
+        "startDelay": 200,
         "duration": 100,
         "weakMagnitude": 1.0,
         "strongMagnitude": 0.0
       },
       {
-        "startDelay": 100,
+        "startDelay": 200,
         "duration": 100,
         "weakMagnitude": 0.0,
         "strongMagnitude": 1.0
@@ -50,7 +50,7 @@
     "icon": "🙃",
     "pattern": [
       {
-        "startDelay": 100,
+        "startDelay": 200,
         "duration": 100,
         "weakMagnitude": 1.0,
         "strongMagnitude": 1.0
@@ -63,7 +63,7 @@
     "icon": "🙂",
     "pattern": [
       {
-        "startDelay": 100,
+        "startDelay": 200,
         "duration": 250,
         "weakMagnitude": 1.0,
         "strongMagnitude": 0.0
@@ -76,7 +76,7 @@
     "icon": "😇",
     "pattern": [
       {
-        "startDelay": 100,
+        "startDelay": 200,
         "duration": 250,
         "weakMagnitude": 0.0,
         "strongMagnitude": 1.0
@@ -89,13 +89,13 @@
     "icon": "🤤",
     "pattern": [
       {
-        "startDelay": 100,
+        "startDelay": 200,
         "duration": 250,
         "weakMagnitude": 1.0,
         "strongMagnitude": 0.0
       },
       {
-        "startDelay": 100,
+        "startDelay": 200,
         "duration": 250,
         "weakMagnitude": 0.0,
         "strongMagnitude": 1.0
@@ -108,7 +108,7 @@
     "icon": "😊",
     "pattern": [
       {
-        "startDelay": 100,
+        "startDelay": 200,
         "duration": 250,
         "weakMagnitude": 1.0,
         "strongMagnitude": 1.0
@@ -121,7 +121,7 @@
     "icon": "😋",
     "pattern": [
       {
-        "startDelay": 100,
+        "startDelay": 200,
         "duration": 500,
         "weakMagnitude": 1.0,
         "strongMagnitude": 0.0
@@ -147,13 +147,13 @@
     "icon": "😝",
     "pattern": [
       {
-        "startDelay": 100,
+        "startDelay": 200,
         "duration": 500,
         "weakMagnitude": 1.0,
         "strongMagnitude": 0.0
       },
       {
-        "startDelay": 100,
+        "startDelay": 200,
         "duration": 500,
         "weakMagnitude": 0.0,
         "strongMagnitude": 1.0
@@ -166,7 +166,7 @@
     "icon": "🤪",
     "pattern": [
       {
-        "startDelay": 100,
+        "startDelay": 200,
         "duration": 500,
         "weakMagnitude": 1.0,
         "strongMagnitude": 1.0

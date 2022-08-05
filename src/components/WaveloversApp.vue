@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <div class="wavelovers">
         <PatternList v-if="patterns.length > 0"
                      :patterns="patterns"
@@ -8,7 +8,7 @@
         <MessageItem v-else>Loading...</MessageItem>
         <GamepadList v-if="gamepads.length > 0"
                      :gamepads="gamepads" />
-        <MessageItem v-else>Press any gamepad's button or connect new gamepad.</MessageItem>
+        <MessageItem v-else>Press any gamepad button or connect a new gamepad to vibrate.</MessageItem>
     </div>
 </template>
 
@@ -17,12 +17,10 @@
     import PatternList from '@/components/PatternList.vue';
     import GamepadList from '@/components/GamepadList.vue';
     import MessageItem from '@/components/MessageItem.vue';
-    import IGamepadEvent from '@/models/IGamepadEvent';
-    import IGamepad from '@/models/IGamepad';
     import TPattern from '@/models/TPattern';
-    import TPatternUnit from '@/models/TPatternUnit';
     import Vibrator from '@/models/Vibrator';
-    
+    import store from '@/store/index';
+
     export default defineComponent({
         name: 'WaveloversApp',
         components: {
@@ -30,75 +28,39 @@
             GamepadList: GamepadList,
             MessageItem: MessageItem,
         },
-        data: () => {
-            return {
-                gamepads: [] as Vibrator[],
-                patterns: [] as TPattern[],
-                isActive: false,
-                mode: 0,
-            };
+        computed: {
+            gamepads: function (): Vibrator[] {
+                return store.getters.gamepads as Vibrator[];
+            },
+            patterns: function (): TPattern[] {
+                return store.getters.patterns as TPattern[];
+            },
+            mode: function (): number {
+                return store.getters.mode as number;
+            },
+            isActive: function (): boolean {
+                return store.getters.isActive as boolean;
+            },
         },
         methods: {
-            loadPatterns: async function () {
-                const url = 'https://wavelovers.ru/assets/patterns.json';
-                try {
-                    const response = await fetch(url);
-                    if (response.ok) {
-                        let json = await response.json();
-                        this.patterns = json;
-                    } else {
-                        console.log('Connect to the Internet for download more patterns...');
-                    }
-                } catch (error) {
-                    console.log(error);
-                }
-            },
             addEventListeners(): void {
-                window.addEventListener('gamepadconnected', (event: GamepadEvent) => this.addGamepad(event));
-                window.addEventListener('gamepaddisconnected', (event: GamepadEvent) => this.deleteGamepad(event));
+                window.addEventListener('gamepadconnected', (event: GamepadEvent) => store.dispatch('addGamepad', event));
+                window.addEventListener('gamepaddisconnected', (event: GamepadEvent) => store.dispatch('deleteGamepad', event));
             },
-            addGamepad(event: GamepadEvent) {
-                const ievent: IGamepadEvent = event as unknown as IGamepadEvent;
-                if (this.gamepads.length >= 1) {
-                    return;
-                } else {
-                    this.gamepads.push(new Vibrator(ievent.gamepad as IGamepad));
-                }
-            },
-            deleteGamepad(event: GamepadEvent): void {
-                this.gamepads.forEach((gamepad, index) => {
-                    if (gamepad.unit.id === event.gamepad.id) {
-                        this.gamepads.splice(index, 1);
-                    }
-                });
+            removeEventListeners(): void {
+                window.removeEventListener('gamepadconnected', (event: GamepadEvent) => store.dispatch('addGamepad', event));
+                window.removeEventListener('gamepaddisconnected', (event: GamepadEvent) => store.dispatch('deleteGamepad', event));
             },
             change(index: number): void {
-                if (this.mode === index) {
-                    this.isActive = !this.isActive;
-                    this.reset();
-                } else {
-                    this.isActive = true;
-                    this.mode = index;
-                }
-                if (this.isActive === true) {
-                    this.reset();
-                    this.vibrate();
-                }
-            },
-            vibrate(): void {
-                this.gamepads.forEach(gamepad => {
-                    gamepad.vibrate(this.patterns[this.mode].pattern as TPatternUnit[]);
-                });
-            },
-            reset(): void {
-                this.gamepads.forEach(gamepad => {
-                    gamepad.reset();
-                });
+                store.dispatch('change', index as number);
             },
         },
         mounted() {
-            this.loadPatterns();
+            store.dispatch('loadPatterns');
             this.addEventListeners();
+        },
+        unmounted() {
+            this.removeEventListeners();
         },
     });
 </script>

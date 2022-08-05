@@ -1,10 +1,19 @@
 {
   "name": "wavelovers",
   "description": "Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad.",
+  "keywords": [ "wavelovers", "gamepad-vibrator", "gamepad-test-tool", "gamepad-vibration-test-tool" ],
   "version": "1.0.0",
-  "author": "Eugene Serb",
   "license": "GNU GPL v3",
-  "repository": "https://github.com/eugene-serb/wavelovers",
+  "homepage": "https://wavelovers.ru/",
+  "author": {
+    "name": "Eugene Serb",
+    "email": "eugene.serb@gmail.com",
+    "url": "https://eugene-serb.github.io/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eugene-serb/wavelovers/"
+  },
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -14,15 +23,15 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
-    "vue-router": "^4.0.3"
+    "vuex": "^4.0.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-typescript": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-typescript": "^9.1.0",
     "eslint": "^7.32.0",

@@ -31,7 +31,7 @@
             PatternItem: PatternItem,
         },
         methods: {
-            change(index: number): void {
+            change: function (index: number): void {
                 this.$emit('change', index as number);
             },
         },
