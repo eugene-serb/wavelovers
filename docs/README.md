@@ -6,13 +6,13 @@ This is Wavelovers, which can make a vibrating massager out of a gamepad. It has
 Tech Stack:
 	***VueJS***, ***Vuex***, ***Vue Router***, ***Typescript***, ***Javascript***, ***HTML***, ***CSS***, ***SCSS***, ***ESLint***, ***Babel***.
 
-Commands:
-	1. npm install		–	Project setup.
-	2. npm run serve	–	Compiles and hot-reloads for development.
-	3. npm run build	–	Compiles and minifies for production.
-	4. npm run lint		–	Lints and fixes files.
+Commands:<br />
+	1. npm install		–	Project setup.<br />
+	2. npm run serve	–	Compiles and hot-reloads for development.<br />
+	3. npm run build	–	Compiles and minifies for production.<br />
+	4. npm run lint		–	Lints and fixes files.<br />
 
-Catalogs structure:
+Catalogs structure:<br />
 	***/docs/*** – production build. <br />
 	***/ (root)*** – dev files.
 
