@@ -1,10 +1,20 @@
 # Wavelovers
-Wavelovers in ***VueJS***, ***Typescript***, ***Javascript***, ***HTML***, ***CSS*** and ***SCSS*** **[[rep](https://github.com/eugene-serb/wavelovers/), [site](https://wavelovers.ru/)]**.
+Wavelovers **[[rep](https://github.com/eugene-serb/wavelovers/), [site](https://wavelovers.ru/)]**.
 
 This is Wavelovers, which can make a vibrating massager out of a gamepad. It has 16 free vibration patterns to play with.
 
-***/docs/*** – production build. <br />
-***/ (root)*** – dev files.
+Tech Stack:
+	***VueJS***, ***Vuex***, ***Vue Router***, ***Typescript***, ***Javascript***, ***HTML***, ***CSS***, ***SCSS***, ***ESLint***, ***Babel***.
+
+Commands:
+	1. npm install		–	Project setup.
+	2. npm run serve	–	Compiles and hot-reloads for development.
+	3. npm run build	–	Compiles and minifies for production.
+	4. npm run lint		–	Lints and fixes files.
+
+Catalogs structure:
+	***/docs/*** – production build. <br />
+	***/ (root)*** – dev files.
 
 If you are interested in this or my other projects, or would like to suggest and share ideas with me, or just talk to me, contact me: *[@eugene_serb](https://t.me/eugene_serb)*
 
