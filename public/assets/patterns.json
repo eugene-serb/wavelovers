@@ -26,8 +26,21 @@
     ]
   },
   {
-    "name": "Dotted AC",
+    "name": "Dotted Max",
     "type": "Simple",
+    "icon": "🙃",
+    "pattern": [
+      {
+        "startDelay": 200,
+        "duration": 100,
+        "weakMagnitude": 1.0,
+        "strongMagnitude": 1.0
+      }
+    ]
+  },
+  {
+    "name": "Dotted AC",
+    "type": "Combined",
     "icon": "🤨",
     "pattern": [
       {
@@ -40,19 +53,6 @@
         "startDelay": 200,
         "duration": 100,
         "weakMagnitude": 0.0,
-        "strongMagnitude": 1.0
-      }
-    ]
-  },
-  {
-    "name": "Dotted Max",
-    "type": "Simple",
-    "icon": "🙃",
-    "pattern": [
-      {
-        "startDelay": 200,
-        "duration": 100,
-        "weakMagnitude": 1.0,
         "strongMagnitude": 1.0
       }
     ]
@@ -84,8 +84,21 @@
     ]
   },
   {
-    "name": "Short Dashed AC",
+    "name": "Short Dashed Max",
     "type": "Simple",
+    "icon": "😊",
+    "pattern": [
+      {
+        "startDelay": 200,
+        "duration": 250,
+        "weakMagnitude": 1.0,
+        "strongMagnitude": 1.0
+      }
+    ]
+  },
+  {
+    "name": "Short Dashed AC",
+    "type": "Combined",
     "icon": "🤤",
     "pattern": [
       {
@@ -98,19 +111,6 @@
         "startDelay": 200,
         "duration": 250,
         "weakMagnitude": 0.0,
-        "strongMagnitude": 1.0
-      }
-    ]
-  },
-  {
-    "name": "Short Dashed Max",
-    "type": "Simple",
-    "icon": "😊",
-    "pattern": [
-      {
-        "startDelay": 200,
-        "duration": 250,
-        "weakMagnitude": 1.0,
         "strongMagnitude": 1.0
       }
     ]
@@ -142,8 +142,21 @@
     ]
   },
   {
-    "name": "Long Dashed AC",
+    "name": "Long Dashed Max",
     "type": "Simple",
+    "icon": "🤪",
+    "pattern": [
+      {
+        "startDelay": 200,
+        "duration": 500,
+        "weakMagnitude": 1.0,
+        "strongMagnitude": 1.0
+      }
+    ]
+  },
+  {
+    "name": "Long Dashed AC",
+    "type": "Combined",
     "icon": "😝",
     "pattern": [
       {
@@ -156,19 +169,6 @@
         "startDelay": 200,
         "duration": 500,
         "weakMagnitude": 0.0,
-        "strongMagnitude": 1.0
-      }
-    ]
-  },
-  {
-    "name": "Long Dashed Max",
-    "type": "Simple",
-    "icon": "🤪",
-    "pattern": [
-      {
-        "startDelay": 200,
-        "duration": 500,
-        "weakMagnitude": 1.0,
         "strongMagnitude": 1.0
       }
     ]
@@ -200,8 +200,21 @@
     ]
   },
   {
-    "name": "Constant AC",
+    "name": "Constant Max",
     "type": "Simple",
+    "icon": "😍",
+    "pattern": [
+      {
+        "startDelay": 0,
+        "duration": 1000,
+        "weakMagnitude": 1.0,
+        "strongMagnitude": 1.0
+      }
+    ]
+  },
+  {
+    "name": "Constant AC",
+    "type": "Combined",
     "icon": "😵",
     "pattern": [
       {
@@ -214,19 +227,6 @@
         "startDelay": 0,
         "duration": 1000,
         "weakMagnitude": 0.0,
-        "strongMagnitude": 1.0
-      }
-    ]
-  },
-  {
-    "name": "Constant Max",
-    "type": "Simple",
-    "icon": "😍",
-    "pattern": [
-      {
-        "startDelay": 0,
-        "duration": 1000,
-        "weakMagnitude": 1.0,
         "strongMagnitude": 1.0
       }
     ]

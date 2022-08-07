@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import PatternsView from '@/views/PatternsView.vue';
-import ManualView from '@/views/ManualView.vue';
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -11,7 +10,16 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/manual',
         name: 'manual-view',
-        component: ManualView,
+        component: () => import('@/views/ManualView.vue'),
+    },
+    {
+        path: '/404',
+        name: '404',
+        component: () => import('@/views/NotFoundView.vue'),
+    },
+    {
+        path: '/:catchAll(.*)',
+        redirect: '/404',
     },
 ];
 

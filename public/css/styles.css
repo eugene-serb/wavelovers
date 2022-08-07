@@ -236,14 +236,14 @@ option {
 input[type=range] {
     width: 100%;
     margin: 8px 0;
-    padding: 0;
+    padding: 4px 0;
     border: 0px solid var(--color-link);
     -webkit-appearance: none;
 }
 
     input[type=range]:hover {
         margin: 8px 0;
-        padding: 0;
+        padding: 4px 0;
         border: 0px solid var(--color-link-hover);
     }
 
