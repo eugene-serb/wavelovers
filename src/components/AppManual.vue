@@ -1,32 +1,34 @@
 ﻿<template>
     <div class="content-item app-manual">
         <fieldset class="manual-form">
-            <label class="manual-form__inputs">
+            <label class="manual-form__input">
                 <span>Start Delay (ms)</span>
                 <input v-model="startDelay"
                        type="number" placeholder="Start Delay"
                        min="0" max="1000" step="25" required />
             </label>
-            <label class="manual-form__inputs">
+            <label class="manual-form__input">
                 <span>Duration (ms)</span>
                 <input v-model="duration"
                        type="number" placeholder="Duration"
                        min="0" max="1000" step="25" required />
             </label>
-            <label class="manual-form__inputs">
+            <label class="manual-form__input">
                 <span>Weak Magnitude</span>
                 <input v-model="weakMagnitude"
                        type="range" placeholder="Weak Magnitude"
                        min="0.0" max="1.0" step="0.01" required />
             </label>
-            <label class="manual-form__inputs">
+            <label class="manual-form__input">
                 <span>Strong Magnitude</span>
                 <input v-model="strongMagnitude"
                        type="range" placeholder="Strong Magnitude"
                        min="0.0" max="1.0" step="0.01" required />
             </label>
-            <button @click="start">Start</button>
-            <button @click="stop">Stop</button>
+            <div class="manual-form__buttons">
+                <button @click="start">Start</button>
+                <button @click="stop">Stop</button>
+            </div>
         </fieldset>
     </div>
 </template>
@@ -70,16 +72,35 @@
 <style lang="scss">
     .manual-form {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         justify-content: space-between;
-        gap: 16px;
+        gap: 32px;
     }
 
-    .manual-form__inputs {
+    .manual-form__input {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
+        grid-template-columns: 1fr;
         align-items: center;
+    }
+
+    .manual-form__buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 32px;
+    }
+
+    @media only screen and (min-width: 540px) {
+        .manual-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .manual-form__input {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
     }
 </style>
 
