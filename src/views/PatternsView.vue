@@ -1,15 +1,15 @@
 <template>
-    <WaveloversApp />
+    <AppPatterns />
 </template>
 
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import WaveloversApp from '@/components/WaveloversApp.vue';
+    import AppPatterns from '@/components/AppPatterns.vue';
 
     export default defineComponent({
-        name: 'HomeView',
+        name: 'PatternsView',
         components: {
-            WaveloversApp: WaveloversApp,
+            AppPatterns: AppPatterns,
         },
     });
 </script>

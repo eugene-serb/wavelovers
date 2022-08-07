@@ -52,7 +52,7 @@
         align-items: center;
         text-align: center;
         overflow: hidden;
-        cursor: default;
+        cursor: pointer;
     }
 
     @media only screen and (min-width: 540px) {
