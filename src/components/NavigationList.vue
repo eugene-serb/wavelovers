@@ -2,6 +2,7 @@
     <div class="content-item navigation-list">
         <router-link to="/manual" class="navigation-item">Manual</router-link>
         <router-link to="/" class="navigation-item">Patterns</router-link>
+        <router-link to="/diagnostic" class="navigation-item">Diagnostic</router-link>
     </div>
 </template>
 

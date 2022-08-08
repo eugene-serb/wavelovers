@@ -13,6 +13,11 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/ManualView.vue'),
     },
     {
+        path: '/diagnostic',
+        name: 'diagnostic-view',
+        component: () => import('@/views/DiagnosticView.vue'),
+    },
+    {
         path: '/404',
         name: '404',
         component: () => import('@/views/NotFoundView.vue'),

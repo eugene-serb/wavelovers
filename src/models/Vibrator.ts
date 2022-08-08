@@ -8,6 +8,7 @@ class Vibrator implements IVibrator {
     isVibrating: boolean;
     unit: IGamepad;
     pattern: TPatternUnit[];
+    interval: number;
 
     constructor(unit: IGamepad) {
         this.unit = unit;
@@ -15,11 +16,14 @@ class Vibrator implements IVibrator {
         this.canVibrate = (this.unit.vibrationActuator) ? true : false;
         this.isVibrating = false;
         this.pattern = [];
+
+        this.update = this.update.bind(this);
+        this.interval = setInterval(this.update, 1);
     }
 
     update(): void {
         const gamepads = navigator.getGamepads();
-        this.unit = <IGamepad><unknown>gamepads[this.unit.index];
+        this.unit = gamepads[this.unit.index] as unknown as IGamepad;
     }
 
     reset(): void {
