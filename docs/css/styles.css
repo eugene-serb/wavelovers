@@ -413,7 +413,7 @@ table, th, td {
 /* ------ */
 
 .header {
-    border-bottom: 32px solid var(--color-header-borderline);
+    border-bottom: 8px solid var(--color-header-borderline);
     background: var(--color-header-background);
 }
 
@@ -431,7 +431,7 @@ table, th, td {
     }
 
 .header-wrapper {
-    padding-top: 64px;
+    padding-top: 32px;
     padding-bottom: 16px;
 }
 
@@ -447,7 +447,7 @@ table, th, td {
 }
 
 .menu-wrapper {
-    margin-top: 32px;
+    margin-top: 16px;
     align-self: center;
 }
 
@@ -475,6 +475,23 @@ table, th, td {
             border-color: var(--color-header-navigation-link-hover);
             color: var(--color-header-navigation-link-hover);
         }
+
+@media only screen and (min-width: 540px) {
+    .header {
+        border-bottom: 32px solid var(--color-header-borderline);
+        background: var(--color-header-background);
+    }
+
+    .header-wrapper {
+        padding-top: 64px;
+        padding-bottom: 16px;
+    }
+
+    .menu-wrapper {
+        margin-top: 32px;
+        align-self: center;
+    }
+}
 
 @media only screen and (min-width: 720px) {
     .header-wrapper {
@@ -543,8 +560,15 @@ table, th, td {
 
 .page {
     flex-grow: 1;
-    margin-top: 64px;
-    margin-bottom: 64px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+@media only screen and (min-width: 540px) {
+    .page {
+        margin-top: 64px;
+        margin-bottom: 64px;
+    }
 }
 
 /* ---- */
@@ -581,7 +605,7 @@ table, th, td {
 
 .content-item {
     margin-bottom: 16px;
-    padding: 32px;
+    padding: 16px;
     border-radius: var(--number-border-radius);
     background: var(--color-content-item-background);
 }
@@ -590,6 +614,12 @@ table, th, td {
         margin-bottom: 16px;
         text-align: center;
     }
+
+@media only screen and (min-width: 540px) {
+    .content-item {
+        padding: 32px;
+    }
+}
 
 /* ----- */
 /* PAGES */
