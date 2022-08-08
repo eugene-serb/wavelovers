@@ -40,7 +40,7 @@
   },
   {
     "name": "Dotted AC",
-    "type": "Combined",
+    "type": "Complex",
     "icon": "🤨",
     "pattern": [
       {
@@ -98,7 +98,7 @@
   },
   {
     "name": "Short Dashed AC",
-    "type": "Combined",
+    "type": "Complex",
     "icon": "🤤",
     "pattern": [
       {
@@ -156,7 +156,7 @@
   },
   {
     "name": "Long Dashed AC",
-    "type": "Combined",
+    "type": "Complex",
     "icon": "😝",
     "pattern": [
       {
@@ -214,7 +214,7 @@
   },
   {
     "name": "Constant AC",
-    "type": "Combined",
+    "type": "Complex",
     "icon": "😵",
     "pattern": [
       {

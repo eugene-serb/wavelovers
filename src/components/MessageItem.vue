@@ -1,5 +1,5 @@
 <template>
-    <div class="message">
+    <div class="content-item message">
         <span>
             <slot></slot>
         </span>
@@ -17,10 +17,6 @@
 <style lang="scss">
     .message {
         width: 100%;
-        margin-bottom: 16px;
-        padding: 32px;
-        border-radius: var(--number-border-radius);
-        background: var(--color-content-item-background);
         display: flex;
         flex-direction: column;
         justify-content: center;

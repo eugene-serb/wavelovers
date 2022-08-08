@@ -73,7 +73,7 @@
         display: flex;
         flex-direction: column-reverse;
         justify-content: space-between;
-        gap: 32px;
+        gap: 16px;
     }
 
     .manual-form__input {
@@ -84,7 +84,7 @@
 
     .manual-form__buttons {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-between;
         gap: 32px;
     }
@@ -97,17 +97,12 @@
         .manual-form {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 32px;
         }
 
         .manual-form__input {
             display: grid;
             grid-template-columns: 1fr 1fr;
-        }
-
-        .manual-form__buttons {
-            display: flex;
-            flex-direction: row;
         }
     }
 </style>
