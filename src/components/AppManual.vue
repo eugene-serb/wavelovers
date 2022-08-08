@@ -26,8 +26,8 @@
                        min="0.0" max="1.0" step="0.01" required />
             </label>
             <div class="manual-form__buttons">
-                <button @click="start">Start</button>
-                <button @click="stop">Stop</button>
+                <button @click="start" class="manual-form__button">Start</button>
+                <button @click="stop" class="manual-form__button">Stop</button>
             </div>
         </fieldset>
     </div>
@@ -51,12 +51,11 @@
         methods: {
             createPatternUnit: function (): TPatternUnit[] {
                 const patternUnit: TPatternUnit[] = [{
-                        startDelay: this.startDelay,
-                        duration: this.duration,
-                        weakMagnitude: this.weakMagnitude,
-                        strongMagnitude: this.strongMagnitude,
-                    },
-                ];
+                    startDelay: this.startDelay,
+                    duration: this.duration,
+                    weakMagnitude: this.weakMagnitude,
+                    strongMagnitude: this.strongMagnitude,
+                }];
                 return patternUnit as TPatternUnit[];
             },
             start: function (): void {
@@ -90,6 +89,10 @@
         gap: 32px;
     }
 
+    .manual-form__button {
+        width: 100%;
+    }
+
     @media only screen and (min-width: 540px) {
         .manual-form {
             display: flex;
@@ -100,6 +103,11 @@
         .manual-form__input {
             display: grid;
             grid-template-columns: 1fr 1fr;
+        }
+
+        .manual-form__buttons {
+            display: flex;
+            flex-direction: row;
         }
     }
 </style>

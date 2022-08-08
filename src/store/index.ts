@@ -26,16 +26,10 @@ const store: Store<IRootState> = createStore({
         },
     },
     actions: {
-        setMode: function (
-            context,
-            index: number
-        ): void {
+        setMode: function (context, index: number): void {
             context.commit('setMode', index as number);
         },
-        setIsActive: function (
-            context,
-            isActive: boolean
-        ): void {
+        setIsActive: function (context, isActive: boolean): void {
             context.commit('setIsActive', isActive as boolean);
         },
         change: function (context, index: number): void {

@@ -30,7 +30,6 @@ class Vibrator implements IVibrator {
     async vibrate(pattern: TPatternUnit[]) {
         this.isVibrating = true;
         this.pattern = pattern;
-
         while (this.isVibrating === true) {
             for (let i = 0; i < this.pattern.length; i++) {
                 if (this.isVibrating === true) {
