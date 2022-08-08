@@ -27,7 +27,11 @@
         computed: {
             gamepads: function (): Vibrator[] {
                 const timestamp: number = this.timestamp;
-                return store.getters.gamepads as Vibrator[];
+                const result: Vibrator[] = store.getters.gamepads as Vibrator[];
+                result.forEach((item) => {
+                    item.interval = timestamp;
+                })
+                return result;
             },
         },
         methods: {
