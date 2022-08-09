@@ -38,7 +38,7 @@ class Vibrator implements IVibrator {
             for (let i = 0; i < this.pattern.length; i++) {
                 if (this.isVibrating === true) {
                     this.unit.vibrationActuator.playEffect('dual-rumble', this.pattern[i]);
-                    await this.sleep(this.pattern[i].startDelay + this.pattern[i].duration);
+                    await this.sleep(this.pattern[i].startDelay + this.pattern[i].duration - 10);
                 } else {
                     return;
                 }
