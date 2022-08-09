@@ -1,10 +1,10 @@
 # Wavelovers
-Wavelovers **[[rep](https://github.com/eugene-serb/wavelovers/), [site](https://wavelovers.ru/)]**.
+Wavelovers links: **[[rep](https://github.com/eugene-serb/wavelovers/), [site](https://wavelovers.ru/)]**.
 
-This is Wavelovers, which can make a vibrating massager out of a gamepad. It has 16 free vibration patterns to play with.
+This is Wavelovers, a gamepad and gamepad vibration test tool that can also make a vibration massager out of a gamepad. It has 16 free vibration patterns to play with. 
 
 Tech Stack:
-	***VueJS***, ***Vuex***, ***Vue Router***, ***Typescript***, ***Javascript***, ***HTML***, ***CSS***, ***SCSS***, ***ESLint***, ***Babel***.
+	***Vue.js***, ***Vuex***, ***Vue Router***, ***Typescript***, ***Javascript***, ***HTML***, ***CSS***, ***SCSS***, ***ESLint***, ***Babel***.
 
 Commands:<br />
 	1. npm install		–	Project setup.<br />
