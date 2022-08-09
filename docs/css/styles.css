@@ -1,6 +1,6 @@
 /* ------------------------------ */
 /* Wavelovers styles              */
-/* version:     dated 2022.07.25  */
+/* version:     dated 2022.08.08  */
 /* author:      Eugene Serb       */
 /* ------------------------------ */
 
@@ -205,7 +205,7 @@ fieldset {
     padding: 8px;
 }
 
-button, input, textarea, select {
+button, textarea, select, input {
     padding: 4px 8px;
     border: 2px solid var(--color-link);
     border-radius: var(--number-border-radius);
@@ -215,7 +215,6 @@ button, input, textarea, select {
     line-height: 1.382em;
     white-space: nowrap;
 }
-
     button:hover, input:hover,
     textarea:hover, select:hover {
         border: 2px solid var(--color-link-hover);
@@ -232,6 +231,114 @@ option {
     option:hover {
         background-color: var(--color-selection);
         color: var(--color-white);
+    }
+
+input[type=range] {
+    width: 100%;
+    margin: 8px 0;
+    padding: 4px 0;
+    border: 0px solid var(--color-link);
+    -webkit-appearance: none;
+}
+
+    input[type=range]:hover {
+        margin: 8px 0;
+        padding: 4px 0;
+        border: 0px solid var(--color-link-hover);
+    }
+
+    input[type=range]:focus {
+        outline: none;
+    }
+
+    input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 8px;
+        cursor: pointer;
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+        background: var(--color-b);
+        border-radius: 8px;
+        border: 0px solid #000101;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+        border: 0px solid #000000;
+        height: 16px;
+        width: 16px;
+        border-radius: 8px;
+        background: var(--color-a);
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -4px;
+    }
+
+    input[type=range]:focus::-webkit-slider-runnable-track {
+        background: var(--color-b);
+    }
+
+    input[type=range]::-moz-range-track {
+        width: 100%;
+        height: 8px;
+        cursor: pointer;
+        animate: 0.2s;
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+        background: var(--color-b);
+        border-radius: 8px;
+        border: 0px solid #000101;
+    }
+
+    input[type=range]::-moz-range-thumb {
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+        border: 0px solid #000000;
+        height: 16px;
+        width: 16px;
+        border-radius: 8px;
+        background: var(--color-a);
+        cursor: pointer;
+    }
+
+    input[type=range]::-ms-track {
+        width: 100%;
+        height: 8px;
+        cursor: pointer;
+        animate: 0.2s;
+        background: transparent;
+        border-color: transparent;
+        border-width: 8px 0;
+        color: transparent;
+    }
+
+    input[type=range]::-ms-fill-lower {
+        background: var(--color-b);
+        border: 0px solid #000101;
+        border-radius: 8px;
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    }
+
+    input[type=range]::-ms-fill-upper {
+        background: var(--color-b);
+        border: 0px solid #000101;
+        border-radius: 8px;
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    }
+
+    input[type=range]::-ms-thumb {
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+        border: 0px solid #000000;
+        height: 16px;
+        width: 16px;
+        border-radius: 8px;
+        background: var(--color-a);
+        cursor: pointer;
+    }
+
+    input[type=range]:focus::-ms-fill-lower {
+        background: var(--color-b);
+    }
+
+    input[type=range]:focus::-ms-fill-upper {
+        background: var(--color-b);
     }
 
 /* ------ */
@@ -306,7 +413,7 @@ table, th, td {
 /* ------ */
 
 .header {
-    border-bottom: 32px solid var(--color-header-borderline);
+    border-bottom: 8px solid var(--color-header-borderline);
     background: var(--color-header-background);
 }
 
@@ -324,7 +431,7 @@ table, th, td {
     }
 
 .header-wrapper {
-    padding-top: 64px;
+    padding-top: 32px;
     padding-bottom: 16px;
 }
 
@@ -340,7 +447,7 @@ table, th, td {
 }
 
 .menu-wrapper {
-    margin-top: 32px;
+    margin-top: 16px;
     align-self: center;
 }
 
@@ -368,6 +475,23 @@ table, th, td {
             border-color: var(--color-header-navigation-link-hover);
             color: var(--color-header-navigation-link-hover);
         }
+
+@media only screen and (min-width: 540px) {
+    .header {
+        border-bottom: 32px solid var(--color-header-borderline);
+        background: var(--color-header-background);
+    }
+
+    .header-wrapper {
+        padding-top: 64px;
+        padding-bottom: 16px;
+    }
+
+    .menu-wrapper {
+        margin-top: 32px;
+        align-self: center;
+    }
+}
 
 @media only screen and (min-width: 720px) {
     .header-wrapper {
@@ -436,8 +560,15 @@ table, th, td {
 
 .page {
     flex-grow: 1;
-    margin-top: 64px;
-    margin-bottom: 64px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+@media only screen and (min-width: 540px) {
+    .page {
+        margin-top: 64px;
+        margin-bottom: 64px;
+    }
 }
 
 /* ---- */
@@ -474,7 +605,7 @@ table, th, td {
 
 .content-item {
     margin-bottom: 16px;
-    padding: 32px;
+    padding: 16px;
     border-radius: var(--number-border-radius);
     background: var(--color-content-item-background);
 }
@@ -483,6 +614,12 @@ table, th, td {
         margin-bottom: 16px;
         text-align: center;
     }
+
+@media only screen and (min-width: 540px) {
+    .content-item {
+        padding: 32px;
+    }
+}
 
 /* ----- */
 /* PAGES */

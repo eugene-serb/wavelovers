@@ -6,8 +6,12 @@
                  ]">
         <span class="pattern-item__icon"
               v-text="pattern.icon"></span>
-        <span class="pattern-item__name"
-              v-text="pattern.name"></span>
+        <div class="pattern-item__info-container">
+            <span class="pattern-item__name"
+                  v-text="pattern.name"></span>
+            <span class="pattern-item__type"
+                  v-text="pattern.type"></span>
+        </div>
     </div>
 </template>
 
@@ -41,18 +45,18 @@
 <style lang="scss">
     .pattern-item {
         width: 100%;
-        height: 48px;
+        height: 50px;
         padding: 8px;
         border-radius: var(--number-border-radius);
         background: var(--color-pattern-button);
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-        gap: 16px;
+        gap: 8px;
         align-items: center;
         text-align: center;
         overflow: hidden;
-        cursor: default;
+        cursor: pointer;
     }
 
     @media only screen and (min-width: 540px) {
@@ -73,11 +77,25 @@
         font-size: 24px;
     }
 
-    .pattern-item__name {
-        font-size: 14px;
-        white-space: nowrap;
-        overflow: hidden;
-        color: var(--color-pattern-text);
+    .pattern-item__info-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: left;
     }
+
+        .pattern-item__name {
+            font-size: 16px;
+            white-space: nowrap;
+            overflow: hidden;
+            color: var(--color-pattern-text);
+        }
+
+        .pattern-item__type {
+            font-size: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            color: var(--color-pattern-text);
+        }
 </style>
 

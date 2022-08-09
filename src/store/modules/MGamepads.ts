@@ -46,10 +46,11 @@ const MGamepads: Module<IGamepadsState, IRootState> = {
             });
         },
         vibrate: function (
-            context: ActionContext<IGamepadsState, IRootState>
+            context: ActionContext<IGamepadsState, IRootState>,
+            pattern: TPatternUnit[]
         ): void {
             context.getters.gamepads.forEach((gamepad: Vibrator) => {
-                gamepad.vibrate(context.getters.patterns[context.getters.mode].pattern as TPatternUnit[]);
+                gamepad.vibrate(pattern);
             });
         },
         reset: function (

@@ -1,5 +1,5 @@
 <template>
-    <div class="pattern-list">
+    <div class="content-item pattern-list">
         <PatternItem v-for="(pattern, index) in patterns"
                      :key="pattern.name"
                      :pattern="pattern"
@@ -40,15 +40,18 @@
 
 <style lang="scss">
     .pattern-list {
-        margin-bottom: 16px;
-        padding: 32px;
-        border-radius: var(--number-border-radius);
-        background: var(--color-content-item-background);
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         flex-wrap: wrap;
-        gap: 32px;
+        gap: 16px;
+    }
+
+    @media only screen and (min-width: 540px) {
+        .pattern-list {
+            display: flex;
+            gap: 32px;
+        }
     }
 </style>
 
