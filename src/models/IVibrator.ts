@@ -6,7 +6,6 @@ interface IVibrator {
     readonly canVibrate: boolean;
     isVibrating: boolean;
     unit: IGamepad;
-    pattern: TPatternUnit[];
     interval: number;
     update(): void;
     reset(): void;

@@ -1,7 +1,7 @@
 interface IGamepadButton {
-    pressed: boolean;
-    touched: boolean;
-    value: number;
+    readonly pressed: boolean;
+    readonly touched: boolean;
+    readonly value: number;
 }
 
 export default IGamepadButton;
