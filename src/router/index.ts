@@ -8,6 +8,11 @@ const routes: Array<RouteRecordRaw> = [
         component: PatternsView,
     },
     {
+        path: '/custom',
+        name: 'custom-view',
+        component: () => import('@/views/CustomView.vue'),
+    },
+    {
         path: '/manual',
         name: 'manual-view',
         component: () => import('@/views/ManualView.vue'),

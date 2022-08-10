@@ -30,17 +30,17 @@
                 const result: Vibrator[] = store.getters.gamepads as Vibrator[];
                 result.forEach((item) => {
                     item.interval = timestamp;
-                })
+                });
                 return result;
             },
         },
         methods: {
-            updateTimestamp: function (): void {
+            updateComputed: function (): void {
                 this.timestamp = Date.now();
             },
         },
         mounted() {
-            this.interval = setInterval(this.updateTimestamp, 1);
+            this.interval = setInterval(this.updateComputed, 1);
         },
         unmounted() {
             clearInterval(this.interval);
