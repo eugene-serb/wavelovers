@@ -9,7 +9,7 @@ interface IGamepad {
     readonly mapping: string;
     readonly axes: number[];
     readonly buttons: IGamepadButton[];
-    vibrationActuator: IVibrationActuator;
+    readonly vibrationActuator: IVibrationActuator;
 }
 
 export default IGamepad;
