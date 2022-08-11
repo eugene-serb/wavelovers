@@ -1,5 +1,5 @@
 import { createStore, Store } from 'vuex';
-import IRootState from './models/IRootState';
+import IRootState from '@/store/models/IRootState';
 import MGamepads from '@/store/modules/MGamepads';
 import MPatterns from '@/store/modules/MPatterns';
 import TPatternUnit from '@/models/TPatternUnit';
