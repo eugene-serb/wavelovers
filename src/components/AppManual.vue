@@ -42,19 +42,20 @@
     import store from '@/store/index';
     import Vibrator from '@/models/Vibrator';
     import TPatternUnit from '@/models/TPatternUnit';
+    import PatternUnit from '@/models/PatternUnit';
 
     export default defineComponent({
         name: 'AppCustom',
         data: () => {
             return {
-                startDelay: 0 as number,
-                duration: 260 as number,
-                weakMagnitude: 0 as number,
-                strongMagnitude: 0 as number,
                 timestamp: 0 as number,
                 interval: 0 as number,
                 mode: 0 as number,
                 lock: false as boolean,
+                startDelay: 0 as number,
+                duration: 260 as number,
+                weakMagnitude: 0 as number,
+                strongMagnitude: 0 as number,
             };
         },
         computed: {
@@ -68,17 +69,14 @@
             },
         },
         methods: {
-            createPatternUnit: function (): TPatternUnit {
-                const patternUnit: TPatternUnit = {
-                    startDelay: this.startDelay,
-                    duration: this.duration,
-                    weakMagnitude: this.weakMagnitude,
-                    strongMagnitude: this.strongMagnitude,
-                };
-                return patternUnit as TPatternUnit;
-            },
             start: function (): void {
-                store.dispatch('startCustom', this.createPatternUnit());
+                const pattern: TPatternUnit = new PatternUnit(
+                    this.startDelay,
+                    this.duration,
+                    this.weakMagnitude,
+                    this.strongMagnitude,
+                );
+                store.dispatch('vibrate', pattern);
             },
             stop: function (): void {
                 store.dispatch('setIsActive', false);
@@ -98,20 +96,16 @@
                 if (this.gamepads.length > 0) {
                     if (this.gamepads[0].unit.buttons[1].pressed === true) {
                         this.lock = !this.lock;
-                        console.log('B', this.lock);
                     }
                     if (this.lock === false) {
                         if (this.gamepads[0].unit.buttons[0].pressed === true) {
                             this.mode = 0;
-                            console.log('A', this.mode);
                         }
                         if (this.gamepads[0].unit.buttons[2].pressed === true) {
                             this.mode = 1;
-                            console.log('X', this.mode);
                         }
                         if (this.gamepads[0].unit.buttons[3].pressed === true) {
                             this.mode = 2;
-                            console.log('Y', this.mode);
                         }
                     }
                 }
@@ -137,9 +131,8 @@
             handle: function (): void {
                 if (this.gamepads.length > 0) {
                     this.gamepads.forEach((gamepad) => {
-                        if (gamepad.unit.buttons[7].value > 0
-                            || this.lock === true) {
-                            gamepad.unit.vibrationActuator.playEffect('dual-rumble', this.createPatternUnit());
+                        if (gamepad.unit.buttons[7].value > 0 || this.lock === true) {
+                            this.start();
                         } else {
                             this.stop();
                         }

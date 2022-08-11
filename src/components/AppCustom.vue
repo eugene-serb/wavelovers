@@ -37,6 +37,7 @@
     import { defineComponent } from 'vue';
     import store from '@/store/index';
     import TPatternUnit from '@/models/TPatternUnit';
+    import PatternUnit from '@/models/PatternUnit';
 
     export default defineComponent({
         name: 'AppCustom',
@@ -49,17 +50,14 @@
             };
         },
         methods: {
-            createPatternUnit: function (): TPatternUnit[] {
-                const patternUnit: TPatternUnit[] = [{
-                    startDelay: this.startDelay,
-                    duration: this.duration,
-                    weakMagnitude: this.weakMagnitude,
-                    strongMagnitude: this.strongMagnitude,
-                }];
-                return patternUnit as TPatternUnit[];
-            },
             start: function (): void {
-                store.dispatch('startCustom', this.createPatternUnit());
+                const patterns: TPatternUnit[] = [new PatternUnit(
+                    this.startDelay,
+                    this.duration,
+                    this.weakMagnitude,
+                    this.strongMagnitude,
+                )];
+                store.dispatch('startCustom', patterns);
             },
             stop: function (): void {
                 store.dispatch('reset');
