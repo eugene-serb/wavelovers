@@ -1,5 +1,5 @@
 import router from '@/router';
-import { NavigationGuardNext, RouteLocationNormalized, RouteRecordNormalized } from "vue-router";
+import { NavigationGuardNext, RouteLocationNormalized } from "vue-router";
 
 function updateRoute(
     to: RouteLocationNormalized,
@@ -20,9 +20,9 @@ function updateRoute(
     return next();
 }
 
-const VueRouterQueryRoutes = {
+const QueryRouter = {
     update: updateRoute,
 };
 
-export default VueRouterQueryRoutes;
+export default QueryRouter;
 

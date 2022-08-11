@@ -40,9 +40,9 @@ function updateMetatag(
     return next();
 }
 
-const VueRouterMetaTags = {
+const MetaTagUpdater = {
     update: updateMetatag,
 };
 
-export default VueRouterMetaTags;
+export default MetaTagUpdater;
 
