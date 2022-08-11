@@ -28,9 +28,11 @@ const MPatterns: Module<IPatternState, IRootState> = {
                     const json: TPattern[] = await response.json();
                     context.commit('setPatterns', json as TPattern[]);
                 } else {
+                    // eslint-disable-next-line
                     console.log('Connect to the Internet for download more patterns...');
                 }
             } catch (error) {
+                // eslint-disable-next-line
                 console.log(error);
             }
         },
