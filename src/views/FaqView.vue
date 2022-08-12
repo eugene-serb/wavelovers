@@ -17,7 +17,7 @@
         <div class="content-item">
             <h2 class="content-item__header">Troubleshooting</h2>
             <span>If you are having difficulty detecting a gamepad by the browser, you can use the utility </span>
-            <a href="https://wavelovers.ru/?diagnostic" target="_blank">Wavelovers Diagnostic</a><br /><br />
+            <a href="https://wavelovers.ru/diagnostic" target="_blank">Wavelovers Diagnostic</a><br /><br />
             <dl>
                 <dt>The app does not see my device.</dt>
                 <dd>Make sure you have a chromium-based browser, then update the app and reconnect your device.</dd>

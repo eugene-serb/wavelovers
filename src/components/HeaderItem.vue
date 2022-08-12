@@ -10,13 +10,13 @@
                         <a href="/" target="_self" class="navigation__link">Home</a>
                     </li>
                     <li class="navigation__item">
-                        <a href="/?faq" target="_self" class="navigation__link">FAQ</a>
+                        <a href="/faq" target="_self" class="navigation__link">FAQ</a>
                     </li>
                     <li class="navigation__item">
-                        <a href="/?about" target="_self" class="navigation__link">About</a>
+                        <a href="/about" target="_self" class="navigation__link">About</a>
                     </li>
                     <li class="navigation__item">
-                        <a href="/?donate" target="_self" class="navigation__link">Donate</a>
+                        <a href="/donate" target="_self" class="navigation__link">Donate</a>
                     </li>
                 </ul>
             </nav>
