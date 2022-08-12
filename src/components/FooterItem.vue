@@ -20,5 +20,35 @@
     });
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+    .footer {
+        border-top: 4px solid var(--color-footer-borderline);
+    }
+
+    .footer span {
+        color: var(--color-footer-text);
+    }
+
+    .footer-wrapper {
+        padding-top: 32px;
+        padding-bottom: 32px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 32px;
+    }
+
+    .created-by {
+        align-self: flex-end;
+    }
+
+    .created-by > span {
+        padding-right: 8px;
+    }
+
+    .created-by > a {
+        font-size: 32px;
+    }
+</style>
 

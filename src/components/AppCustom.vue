@@ -1,4 +1,5 @@
 ﻿<template>
+    <NavigationList />
     <div class="content-item app-custom">
         <fieldset class="custom-form">
             <label class="custom-form__input">
@@ -31,16 +32,28 @@
             </div>
         </fieldset>
     </div>
+    <GamepadList v-if="gamepads.length > 0"
+                 :gamepads="gamepads" />
+    <MessageItem v-else>Press any gamepad button or connect a new gamepad to vibrate.</MessageItem>
 </template>
 
 <script lang="ts">
     import { defineComponent } from 'vue';
     import store from '@/store/index';
+    import NavigationList from '@/components/NavigationList.vue';
+    import GamepadList from '@/components/GamepadList.vue';
+    import MessageItem from '@/components/MessageItem.vue';
+    import Vibrator from '@/models/Vibrator';
     import TPatternUnit from '@/models/TPatternUnit';
     import PatternUnit from '@/models/PatternUnit';
 
     export default defineComponent({
         name: 'AppCustom',
+        components: {
+            NavigationList: NavigationList,
+            GamepadList: GamepadList,
+            MessageItem: MessageItem,
+        },
         data: () => {
             return {
                 startDelay: 250 as number,
@@ -48,6 +61,11 @@
                 weakMagnitude: 1 as number,
                 strongMagnitude: 1 as number,
             };
+        },
+        computed: {
+            gamepads: function (): Vibrator[] {
+                return store.getters.gamepads as Vibrator[];
+            },
         },
         methods: {
             start: function (): void {
