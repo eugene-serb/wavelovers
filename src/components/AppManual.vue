@@ -32,7 +32,7 @@
             </div>
             <div>
                 <kbd>B</kbd>
-                <span> – Lock</span>
+                <span> – Lock Intensity</span>
             </div>
         </div>
     </div>

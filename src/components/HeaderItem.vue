@@ -7,16 +7,16 @@
             <nav class="menu-wrapper">
                 <ul class="navigation">
                     <li class="navigation__item">
-                        <a href="/" target="_self" class="navigation__link">Home</a>
+                        <router-link to="/" class="navigation-item">Home</router-link>
                     </li>
                     <li class="navigation__item">
-                        <a href="/faq" target="_self" class="navigation__link">FAQ</a>
+                        <router-link to="/faq" class="navigation-item">FAQ</router-link>
                     </li>
                     <li class="navigation__item">
-                        <a href="/about" target="_self" class="navigation__link">About</a>
+                        <router-link to="/about" class="navigation-item">About</router-link>
                     </li>
                     <li class="navigation__item">
-                        <a href="/donate" target="_self" class="navigation__link">Donate</a>
+                        <router-link to="/donate" class="navigation-item">Donate</router-link>
                     </li>
                 </ul>
             </nav>
