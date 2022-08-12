@@ -16,6 +16,15 @@ function updateRoute(
         case '/?diagnostic':
             router.push('/diagnostic');
             break;
+        case '/?faq':
+            router.push('/faq');
+            break;
+        case '/?about':
+            router.push('/about');
+            break;
+        case '/?donate':
+            router.push('/donate');
+            break;
     }
     return next();
 }

@@ -1,4 +1,5 @@
 <template>
+    <h1 class="visually-hidden">Wavelovers – Custom</h1>
     <AppCustom />
 </template>
 
