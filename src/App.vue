@@ -1,32 +1,24 @@
 <template>
-    <div class="wavelovers">
-        <NavigationList />
-        <router-view />
-        <GamepadList v-if="gamepads.length > 0"
-                     :gamepads="gamepads" />
-        <MessageItem v-else>Press any gamepad button or connect a new gamepad to vibrate.</MessageItem>
-    </div>
+    <HeaderItem />
+    <main class="page container">
+        <div class="wavelovers">
+            <router-view />
+        </div>
+    </main>
+    <FooterItem />
 </template>
 
 <script lang="ts">
     import { defineComponent } from 'vue';
     import store from '@/store/index';
-    import NavigationList from '@/components/NavigationList.vue';
-    import GamepadList from '@/components/GamepadList.vue';
-    import MessageItem from '@/components/MessageItem.vue';
-    import Vibrator from '@/models/Vibrator';
+    import HeaderItem from '@/components/HeaderItem.vue';
+    import FooterItem from '@/components/FooterItem.vue';
 
     export default defineComponent({
         name: 'App',
         components: {
-            NavigationList: NavigationList,
-            GamepadList: GamepadList,
-            MessageItem: MessageItem,
-        },
-        computed: {
-            gamepads: function (): Vibrator[] {
-                return store.getters.gamepads as Vibrator[];
-            },
+            HeaderItem: HeaderItem,
+            FooterItem: FooterItem,
         },
         methods: {
             addEventListeners(): void {

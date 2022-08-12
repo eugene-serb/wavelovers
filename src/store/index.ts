@@ -1,8 +1,8 @@
 import { createStore, Store } from 'vuex';
-import IRootState from './models/IRootState';
+import IRootState from '@/store/models/IRootState';
 import MGamepads from '@/store/modules/MGamepads';
 import MPatterns from '@/store/modules/MPatterns';
-import TPatternUnit from '../models/TPatternUnit';
+import TPatternUnit from '@/models/TPatternUnit';
 
 const store: Store<IRootState> = createStore({
     state: () => ({
@@ -41,10 +41,7 @@ const store: Store<IRootState> = createStore({
             }
             if (context.getters.isActive === true) {
                 context.dispatch('reset');
-                context.dispatch(
-                    'vibrate',
-                    context.getters.patterns[context.getters.mode].pattern
-                );
+                context.dispatch('loop', context.getters.patterns[context.getters.mode].pattern);
             } else {
                 context.dispatch('reset');
             }
@@ -53,7 +50,7 @@ const store: Store<IRootState> = createStore({
             context.dispatch('setIsActive', false);
             context.dispatch('setMode', 0);
             context.dispatch('reset');
-            context.dispatch('vibrate', pattern);
+            context.dispatch('loop', pattern);
         },
     },
     modules: {

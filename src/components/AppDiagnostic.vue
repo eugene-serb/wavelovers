@@ -1,22 +1,32 @@
 ﻿<template>
+    <NavigationList />
     <div v-if="gamepads.length > 0" class="content-item">
         <DiagnosticItem v-for="gamepad in gamepads"
                         :key="gamepad.id"
                         :gamepad="gamepad"
                         :timestamp="timestamp" />
     </div>
+    <GamepadList v-if="gamepads.length > 0"
+                 :gamepads="gamepads" />
+    <MessageItem v-else>Press any gamepad button or connect a new gamepad to vibrate.</MessageItem>
 </template>
 
 <script lang="ts">
     import { defineComponent } from 'vue';
     import store from '@/store/index';
-    import Vibrator from '@/models/Vibrator';
+    import NavigationList from '@/components/NavigationList.vue';
+    import GamepadList from '@/components/GamepadList.vue';
+    import MessageItem from '@/components/MessageItem.vue';
     import DiagnosticItem from '@/components/DiagnosticItem.vue';
+    import Vibrator from '@/models/Vibrator';
 
     export default defineComponent({
         name: 'AppDiagnostic',
         components: {
             DiagnosticItem: DiagnosticItem,
+            NavigationList: NavigationList,
+            GamepadList: GamepadList,
+            MessageItem: MessageItem,
         },
         data: () => {
             return {
@@ -30,17 +40,17 @@
                 const result: Vibrator[] = store.getters.gamepads as Vibrator[];
                 result.forEach((item) => {
                     item.interval = timestamp;
-                })
+                });
                 return result;
             },
         },
         methods: {
-            updateTimestamp: function (): void {
+            updateComputed: function (): void {
                 this.timestamp = Date.now();
             },
         },
         mounted() {
-            this.interval = setInterval(this.updateTimestamp, 1);
+            this.interval = setInterval(this.updateComputed, 1);
         },
         unmounted() {
             clearInterval(this.interval);

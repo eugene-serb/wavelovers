@@ -3,10 +3,11 @@ import IGamepad from '@/models/IGamepad';
 import IVibrator from '@/models/IVibrator';
 
 class Vibrator implements IVibrator {
+
+    unit: IGamepad;
     readonly id: number;
     readonly canVibrate: boolean;
     isVibrating: boolean;
-    unit: IGamepad;
     interval: number;
 
     constructor(unit: IGamepad) {
@@ -23,24 +24,28 @@ class Vibrator implements IVibrator {
         this.unit = gamepads[this.unit.index] as unknown as IGamepad;
     }
 
-    reset(): void {
-        this.isVibrating = false;
-        this.unit.vibrationActuator.reset();
-    }
-
-    async vibrate(pattern: TPatternUnit[]) {
+    async loop(pattern: TPatternUnit[]) {
         this.isVibrating = true;
         const offsetTime = 10;
         while (this.isVibrating === true) {
             for (let i = 0; i < pattern.length; i++) {
                 if (this.isVibrating === true) {
-                    this.unit.vibrationActuator.playEffect('dual-rumble', pattern[i]);
+                    this.vibrate(pattern[i]);
                     await this.sleep(pattern[i].startDelay + pattern[i].duration - offsetTime);
                 } else {
                     return;
                 }
             }
         }
+    }
+
+    vibrate(pattern: TPatternUnit): void {
+        this.unit.vibrationActuator.playEffect('dual-rumble', pattern);
+    }
+
+    reset(): void {
+        this.isVibrating = false;
+        this.unit.vibrationActuator.reset();
     }
 
     sleep(ms: number): Promise<number> {

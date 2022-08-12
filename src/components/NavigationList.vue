@@ -1,8 +1,9 @@
 ﻿<template>
     <div class="content-item navigation-list">
-        <router-link to="/manual" class="navigation-item">Manual</router-link>
-        <router-link to="/" class="navigation-item">Patterns</router-link>
-        <router-link to="/diagnostic" class="navigation-item">Diagnostic</router-link>
+        <router-link to="/" class="navigation-list__item">Patterns</router-link>
+        <router-link to="/custom" class="navigation-list__item">Custom</router-link>
+        <router-link to="/manual" class="navigation-list__item">Manual</router-link>
+        <router-link to="/diagnostic" class="navigation-list__item">Diagnostic</router-link>
     </div>
 </template>
 
@@ -22,8 +23,8 @@
         gap: 16px;
     }
 
-    .navigation-item.router-link-active,
-    .navigation-item.router-link-exact-active {
+    .navigation-list__item.router-link-active,
+    .navigation-list__item.router-link-exact-active {
         border-bottom: 2px solid var(--color-link-hover);
         color: var(--color-link-hover);
         transition: all 0.5s ease;
