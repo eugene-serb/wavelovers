@@ -20,15 +20,15 @@
             </div>
             <div>
                 <kbd>A</kbd>
-                <span> – Light Mode</span>
+                <span> – Combined Mode</span>
             </div>
             <div>
                 <kbd>X</kbd>
-                <span> – Heavy Mode</span>
+                <span> – Strong Mode</span>
             </div>
             <div>
                 <kbd>Y</kbd>
-                <span> – Combined Mode</span>
+                <span> – Light Mode</span>
             </div>
             <div>
                 <kbd>B</kbd>
