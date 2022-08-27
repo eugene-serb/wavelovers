@@ -21,13 +21,19 @@
       FooterItem: FooterItem,
     },
     methods: {
-      addEventListeners(): void {
-        window.addEventListener('gamepadconnected', (event: GamepadEvent) => store.dispatch('addGamepad', event));
-        window.addEventListener('gamepaddisconnected', (event: GamepadEvent) => store.dispatch('deleteGamepad', event));
+      addGamepad: function (event: GamepadEvent): void {
+        store.dispatch('addGamepad', event);
       },
-      removeEventListeners(): void {
-        window.removeEventListener('gamepadconnected', (event: GamepadEvent) => store.dispatch('addGamepad', event));
-        window.removeEventListener('gamepaddisconnected', (event: GamepadEvent) => store.dispatch('deleteGamepad', event));
+      deleteGamepad: function (event: GamepadEvent): void {
+        store.dispatch('deleteGamepad', event);
+      },
+      addEventListeners: function (): void {
+        window.addEventListener('gamepadconnected', this.addGamepad);
+        window.addEventListener('gamepaddisconnected', this.deleteGamepad);
+      },
+      removeEventListeners: function (): void {
+        window.removeEventListener('gamepadconnected', this.addGamepad);
+        window.removeEventListener('gamepaddisconnected', this.deleteGamepad);
       },
     },
     mounted() {
