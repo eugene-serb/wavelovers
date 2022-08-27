@@ -1,7 +1,7 @@
 import TPattern from '@/models/TPattern';
 
 interface IPatternState {
-    patterns: TPattern[];
+  patterns: TPattern[];
 }
 
 export default IPatternState;
