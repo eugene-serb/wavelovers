@@ -47,12 +47,14 @@
   import NavigationList from '@/components/NavigationList.vue';
   import GamepadList from '@/components/GamepadList.vue';
   import MessageItem from '@/components/MessageItem.vue';
+  import ComputedGamepads from '@/mixins/ComputedGamepads.vue';
   import Vibrator from '@/models/Vibrator';
   import TPatternUnit from '@/models/TPatternUnit';
   import PatternUnit from '@/models/PatternUnit';
 
   export default defineComponent({
     name: 'AppCustom',
+    mixins: [ComputedGamepads],
     components: {
       NavigationList: NavigationList,
       GamepadList: GamepadList,
@@ -60,8 +62,6 @@
     },
     data: () => {
       return {
-        timestamp: 0 as number,
-        interval: 0 as number,
         mode: 0 as number,
         lock: false as boolean,
         startDelay: 0 as number,
@@ -69,16 +69,6 @@
         weakMagnitude: 0 as number,
         strongMagnitude: 0 as number,
       };
-    },
-    computed: {
-      gamepads: function (): Vibrator[] {
-        const timestamp: number = this.timestamp;
-        const result: Vibrator[] = store.getters.gamepads as Vibrator[];
-        result.forEach((item) => {
-          item.interval = timestamp;
-        })
-        return result;
-      },
     },
     methods: {
       start: function (): void {
@@ -100,9 +90,6 @@
         this.updateMode();
         this.updatePattern();
         this.handle();
-      },
-      updateComputed: function (): void {
-        this.timestamp = Date.now();
       },
       updateMode: function (): void {
         if (this.gamepads.length > 0) {
@@ -142,7 +129,7 @@
       },
       handle: function (): void {
         if (this.gamepads.length > 0) {
-          this.gamepads.forEach((gamepad) => {
+          this.gamepads.forEach((gamepad: Vibrator) => {
             if (gamepad.unit.buttons[7].value > 0 || this.lock === true) {
               this.start();
             } else {
@@ -154,9 +141,6 @@
     },
     mounted() {
       this.interval = setInterval(this.eventLoop, 250);
-    },
-    unmounted() {
-      clearInterval(this.interval);
     },
   });
 </script>
