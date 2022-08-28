@@ -8,7 +8,7 @@ interface IVibrator {
   isVibrating: boolean;
   interval: number;
   update(): void;
-  loop(pattern: TPatternUnit[]): void;
+  loop(pattern: TPatternUnit[]): Promise<void>;
   vibrate(pattern: TPatternUnit): void;
   reset(): void;
   sleep(ms: number): Promise<number>;

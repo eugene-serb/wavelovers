@@ -24,7 +24,7 @@ class Vibrator implements IVibrator {
     this.unit = gamepads[this.unit.index] as unknown as IGamepad;
   }
 
-  async loop(pattern: TPatternUnit[]) {
+  async loop(pattern: TPatternUnit[]): Promise<void> {
     this.isVibrating = true;
     const offsetTime = 10;
     while (this.isVibrating === true) {
