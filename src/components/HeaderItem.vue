@@ -7,16 +7,16 @@
       <nav class="menu-wrapper">
         <ul class="navigation">
           <li class="navigation__item">
-            <router-link to="/" class="navigation-item">Home</router-link>
+            <router-link to="/">Home</router-link>
           </li>
           <li class="navigation__item">
-            <router-link to="/faq" class="navigation-item">FAQ</router-link>
+            <router-link to="/faq">FAQ</router-link>
           </li>
           <li class="navigation__item">
-            <router-link to="/about" class="navigation-item">About</router-link>
+            <router-link to="/about">About</router-link>
           </li>
           <li class="navigation__item">
-            <router-link to="/donate" class="navigation-item">Donate</router-link>
+            <router-link to="/donate">Donate</router-link>
           </li>
         </ul>
       </nav>
