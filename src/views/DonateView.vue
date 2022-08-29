@@ -1,7 +1,7 @@
 <template>
   <h1 class="visually-hidden">Wavelovers – Donate</h1>
   <div>
-    <div class="content-item">
+    <article class="content-item">
       <h2 class="content-item__header">Donate</h2>
       <span>If you like this app, you can thank me and donate to me.</span><br /><br />
       <span>Why should you donate to Wavelovers?</span><br /><br />
@@ -16,7 +16,7 @@
       </p><br />
       <span>Bitcoin: </span>
       <a href="bitcoin:bc1qspzgj7xrf099s2ej8f5zmm52xu0wkfurpezny5" target="_blank" class="link_hash">bc1qspzgj7xrf099s2ej8f5zmm52xu0wkfurpezny5</a><br />
-    </div>
+    </article>
   </div>
 </template>
 
@@ -33,3 +33,4 @@
     word-break: break-all;
   }
 </style>
+

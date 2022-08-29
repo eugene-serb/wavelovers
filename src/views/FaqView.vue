@@ -1,7 +1,7 @@
 <template>
   <h1 class="visually-hidden">Wavelovers – FAQ</h1>
   <div>
-    <div class="content-item">
+    <article class="content-item">
       <h2 class="content-item__header">FAQ</h2>
       <dl>
         <dt>What is the purpose of this software?</dt>
@@ -13,8 +13,8 @@
         <dt>I'm having problems with the app or connecting my device to the app?</dt>
         <dd>Go to Troubleshooting.</dd>
       </dl>
-    </div>
-    <div class="content-item">
+    </article>
+    <article class="content-item">
       <h2 class="content-item__header">Troubleshooting</h2>
       <span>If you are having difficulty detecting a gamepad by the browser, you can use the utility </span>
       <a href="https://wavelovers.ru/diagnostic" target="_blank">Wavelovers Diagnostic</a><br /><br />
@@ -26,8 +26,8 @@
         <dt>My question is not here.</dt>
         <dd>Write me <a href="mailto:eugene.serb@gmail.com" target="_blank">eugene.serb@gmail.com</a></dd>
       </dl>
-    </div>
-    <div class="content-item">
+    </article>
+    <article class="content-item">
       <h2 class="content-item__header">System Requirements</h2>
       <dl>
         <dt>Gamepad:</dt>
@@ -37,7 +37,7 @@
         <dt>Operating System:</dt>
         <dd>Windows 7 or higher recommended.</dd>
       </dl>
-    </div>
+    </article>
   </div>
 </template>
 

@@ -1,19 +1,20 @@
 <template>
   <h1 class="visually-hidden">Wavelovers – About</h1>
   <div>
-    <div class="content-item">
+    <article class="content-item">
       <h2 class="content-item__header">Wavelovers</h2>
       <p>
         Wavelovers is an assistant in relaxation, elimination of muscle pain and
         other relaxing, wellness procedures, or simply a tester of the performance
         of the gamepad, its buttons and vibration.
-      </p><br />
+      </p>
+      <br />
       <p>
         Wavelovers is free to use worldwide, in every corner of the planet,
         all you need is a gamepad with vibration.
       </p>
-    </div>
-    <div class="content-item">
+    </article>
+    <article class="content-item">
       <h2 class="content-item__header">About the effects of use</h2>
       <span>A dozen reasons to make friends with the Wavelovers vibration stimulator:</span>
       <ol class="list">
@@ -31,8 +32,8 @@
         <li>The ability to see the future and travel through time and to other galaxies.</li>
       </ol>
       <span>P.S. The list is based on reviews, has not been verified by experts, and may not reflect reality. Don't take it for granted.</span>
-    </div>
-    <div class="content-item">
+    </article>
+    <article class="content-item">
       <h2 class="content-item__header">Author</h2>
       <p>Hi! I am the author and developer of Wavelovers app and I want to thank you for using this app. If you have any ideas or wishes, you can write to me.</p>
       <br />
@@ -41,12 +42,12 @@
       <br />
       <span>Visit my homepage: </span>
       <a href="https://eugene-serb.github.io/" target="_blank">eugene-serb.github.io</a>
-    </div>
-    <div class="content-item">
+    </article>
+    <article class="content-item">
       <h2 class="content-item__header">Advertising</h2>
       <span>If you have advertising suggestions, please mail me: </span>
       <a href="mailto:eugene.serb@gmail.com" target="_blank">eugene.serb@gmail.com</a>
-    </div>
+    </article>
   </div>
 </template>
 
@@ -63,3 +64,4 @@
     margin-bottom: 4px;
   }
 </style>
+
