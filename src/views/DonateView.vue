@@ -28,3 +28,8 @@
   });
 </script>
 
+<style>
+  .link_hash {
+    word-break: break-all;
+  }
+</style>

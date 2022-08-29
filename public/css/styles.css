@@ -1,6 +1,6 @@
 /* ------------------------------ */
 /* Wavelovers styles              */
-/* version:     dated 2022.08.28  */
+/* version:     dated 2022.08.29  */
 /* author:      Eugene Serb       */
 /* ------------------------------ */
 
@@ -146,8 +146,11 @@ span, p, article, blockquote {
   font-weight: 300;
 }
 
-ul {
+ol, ul {
   padding: 16px;
+}
+
+ul {
   list-style-type: circle;
 }
 
@@ -485,12 +488,4 @@ table, th, td {
   .content-item {
     padding: 32px;
   }
-}
-
-/* ----- */
-/* PAGES */
-/* ----- */
-
-.link_hash {
-  word-break: break-all;
 }
