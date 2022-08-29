@@ -1,31 +1,18 @@
 import router from '@/router';
 import { NavigationGuardNext, RouteLocationNormalized } from "vue-router";
+import IQueryRoute from '@/router/models/IQueryRoute';
 
 function updateRoute(
   to: RouteLocationNormalized,
   from: RouteLocationNormalized,
-  next: NavigationGuardNext
+  next: NavigationGuardNext,
+  queryRoutes: Array<IQueryRoute>
 ) {
-  switch (to.fullPath) {
-    case '/?custom':
-      router.push('/custom');
-      break;
-    case '/?manual':
-      router.push('/manual');
-      break;
-    case '/?diagnostic':
-      router.push('/diagnostic');
-      break;
-    case '/?faq':
-      router.push('/faq');
-      break;
-    case '/?about':
-      router.push('/about');
-      break;
-    case '/?donate':
-      router.push('/donate');
-      break;
-  }
+  queryRoutes.forEach((route) => {
+    if (route.query === to.fullPath) {
+      router.push(route.to);
+    }
+  });
   return next();
 }
 

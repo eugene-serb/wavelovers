@@ -1,7 +1,11 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import {
+  createRouter, createWebHistory, RouteRecordRaw,
+  NavigationGuardNext, RouteLocationNormalized
+} from 'vue-router';
 import PatternsView from '@/views/PatternsView.vue';
 import QueryRouter from '@/router/modules/QueryRouter';
 import MetaTagUpdater from '@/router/modules/MetaTagUpdater';
+import queryRoutes from '@/router/assets/queryRoutes';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -347,8 +351,14 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach(QueryRouter.update);
-router.beforeEach(MetaTagUpdater.update);
+router.beforeEach((
+  to: RouteLocationNormalized,
+  from: RouteLocationNormalized,
+  next: NavigationGuardNext
+) => {
+  QueryRouter.update(to, from, next, queryRoutes);
+  MetaTagUpdater.update(to, from, next)
+});
 
 export default router;
 
