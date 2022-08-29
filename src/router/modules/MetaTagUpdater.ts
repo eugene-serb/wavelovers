@@ -1,4 +1,6 @@
-import { NavigationGuardNext, RouteLocationNormalized, RouteRecordNormalized } from "vue-router";
+import {
+  NavigationGuardNext, RouteLocationNormalized, RouteRecordNormalized
+} from "vue-router";
 
 function appendTags(tagsArray: object[], type: string) {
   tagsArray.map((meta: object) => {

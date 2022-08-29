@@ -8,9 +8,9 @@ function updateRoute(
   from: RouteLocationNormalized,
   next: NavigationGuardNext,
   router: Router,
-  queryRoutes: Array<IQueryRoute>
+  routes: Array<IQueryRoute>
 ): void {
-  queryRoutes.forEach((route) => {
+  routes.forEach((route) => {
     if (route.query === to.fullPath) {
       router.push(route.path);
     }
