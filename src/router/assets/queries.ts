@@ -1,30 +1,30 @@
 import IQueryRoute from '@/router/models/IQueryRoute';
 
-const queryRoutes: Array<IQueryRoute> = [
+const queries: Array<IQueryRoute> = [
   {
     query: '/?custom',
-    to: '/custom',
+    path: '/custom',
   },
   {
     query: '/?manual',
-    to: '/manual',
+    path: '/manual',
   },
   {
     query: '/?diagnostic',
-    to: '/diagnostic',
+    path: '/diagnostic',
   },
   {
     query: '/?faq',
-    to: '/faq',
+    path: '/faq',
   },
   {
     query: '/?about',
-    to: '/about',
+    path: '/about',
   },
   {
     query: '/?donate',
-    to: '/donate',
+    path: '/donate',
   }
 ];
 
-export default queryRoutes;
+export default queries;

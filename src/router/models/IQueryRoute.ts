@@ -1,6 +1,6 @@
 interface IQueryRoute {
   query: string;
-  to: string;
+  path: string;
 }
 
 export default IQueryRoute;

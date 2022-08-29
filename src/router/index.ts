@@ -5,7 +5,7 @@ import {
 import PatternsView from '@/views/PatternsView.vue';
 import QueryRouter from '@/router/modules/QueryRouter';
 import MetaTagUpdater from '@/router/modules/MetaTagUpdater';
-import queryRoutes from '@/router/assets/queryRoutes';
+import queries from '@/router/assets/queries';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -356,7 +356,7 @@ router.beforeEach((
   from: RouteLocationNormalized,
   next: NavigationGuardNext
 ) => {
-  QueryRouter.update(to, from, next, queryRoutes);
+  QueryRouter.update(to, from, next, router, queries);
   MetaTagUpdater.update(to, from, next)
 });
 
