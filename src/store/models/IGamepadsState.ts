@@ -1,7 +1,7 @@
 import Vibrator from '@/models/Vibrator';
 
 interface IGamepadsState {
-    gamepads: Vibrator[];
+  gamepads: Vibrator[];
 }
 
 export default IGamepadsState;
