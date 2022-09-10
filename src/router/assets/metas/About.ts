@@ -1,4 +1,6 @@
-const meta = {
+import IMeta from '@/router/models/IMeta';
+
+const meta: IMeta = {
   title: 'Wavelovers – About',
   metaTags: [
     {

@@ -1,6 +1,6 @@
-import {
-  NavigationGuardNext, RouteLocationNormalized, RouteRecordNormalized
-} from "vue-router";
+import { NavigationGuardNext, RouteLocationNormalized } from "vue-router";
+import IRouteMeta from "@/router/models/IRouteMeta";
+import ITag from '@/router/models/ITag';
 
 function appendTags(tagsArray: object[], type: string) {
   tagsArray.map(
@@ -21,7 +21,8 @@ function appendTags(tagsArray: object[], type: string) {
 function updateMetatag(
   to: RouteLocationNormalized,
   from: RouteLocationNormalized,
-  next: NavigationGuardNext
+  next: NavigationGuardNext,
+  metas: Array<IRouteMeta>
 ) {
   Array.from(document.querySelectorAll('[data-vue-router-controlled]'))
     .map(el => {
@@ -30,27 +31,23 @@ function updateMetatag(
       }
     });
 
-  const hasTitle: RouteRecordNormalized =
-    to.matched.slice().reverse()
-      .find(r => r.meta && r.meta.title) as RouteRecordNormalized;
-  const hasMetas: RouteRecordNormalized =
-    to.matched.slice().reverse()
-      .find(r => r.meta && r.meta.metaTags) as RouteRecordNormalized;
-  const hasLinks: RouteRecordNormalized =
-    to.matched.slice().reverse()
-      .find(r => r.meta && r.meta.linkTags) as RouteRecordNormalized;
+  let title: string = '' as string;
+  let metaTags: Array<ITag> = [] as Array<ITag>;
+  let linkTags: Array<ITag> = [] as Array<ITag>;
 
-  if (hasTitle) {
-    document.title = hasTitle.meta.title as string;
-  }
-  if (hasMetas) {
-    const metaTags: object[] = hasMetas.meta.metaTags as object[];
-    appendTags(metaTags, 'meta');
-  }
-  if (hasLinks) {
-    const linkTags: object[] = hasLinks.meta.linkTags as object[];
-    appendTags(linkTags, 'link');
-  }
+  metas.forEach((item) => {
+    if (item.route === to.fullPath) {
+      if (item.meta) {
+        title = item.meta.title;
+        metaTags = item.meta.metaTags;
+        linkTags = item.meta.linkTags;
+      }
+    }
+  });
+
+  if (title) document.title = title;
+  if (metaTags) appendTags(metaTags, 'meta');
+  if (linkTags) appendTags(linkTags, 'link');
 
   return next();
 }
