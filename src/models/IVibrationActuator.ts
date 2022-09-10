@@ -7,4 +7,3 @@ interface IVibrationActuator {
 }
 
 export default IVibrationActuator;
-

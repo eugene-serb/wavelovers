@@ -6,4 +6,3 @@ type TPatternUnit = {
 }
 
 export default TPatternUnit;
-

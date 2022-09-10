@@ -5,4 +5,3 @@ interface IGamepadEvent {
 }
 
 export default IGamepadEvent;
-

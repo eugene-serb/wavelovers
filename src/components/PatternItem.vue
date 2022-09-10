@@ -98,4 +98,3 @@
     color: var(--color-pattern-text);
   }
 </style>
-

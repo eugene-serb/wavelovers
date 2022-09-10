@@ -6,4 +6,3 @@ interface IPatternUnit {
 }
 
 export default IPatternUnit;
-

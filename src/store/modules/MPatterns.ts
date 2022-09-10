@@ -40,4 +40,3 @@ const MPatterns: Module<IPatternState, IRootState> = {
 };
 
 export default MPatterns;
-

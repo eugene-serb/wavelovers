@@ -60,4 +60,3 @@ const store: Store<IRootState> = createStore({
 });
 
 export default store;
-

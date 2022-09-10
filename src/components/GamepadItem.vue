@@ -31,4 +31,3 @@
     color: var(--color-white);
   }
 </style>
-

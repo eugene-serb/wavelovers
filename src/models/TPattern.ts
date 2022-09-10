@@ -8,4 +8,3 @@ type TPattern = {
 }
 
 export default TPattern;
-

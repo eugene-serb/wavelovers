@@ -72,4 +72,3 @@ const MGamepads: Module<IGamepadsState, IRootState> = {
 };
 
 export default MGamepads;
-

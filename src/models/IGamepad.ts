@@ -13,4 +13,3 @@ interface IGamepad {
 }
 
 export default IGamepad;
-

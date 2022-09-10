@@ -23,4 +23,3 @@ const QueryRouter = {
 };
 
 export default QueryRouter;
-

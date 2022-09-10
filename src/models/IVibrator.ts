@@ -15,4 +15,3 @@ interface IVibrator {
 }
 
 export default IVibrator;
-

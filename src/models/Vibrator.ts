@@ -54,4 +54,3 @@ class Vibrator implements IVibrator {
 }
 
 export default Vibrator;
-
