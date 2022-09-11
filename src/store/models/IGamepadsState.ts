@@ -5,4 +5,3 @@ interface IGamepadsState {
 }
 
 export default IGamepadsState;
-

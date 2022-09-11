@@ -5,4 +5,3 @@ interface IPatternState {
 }
 
 export default IPatternState;
-

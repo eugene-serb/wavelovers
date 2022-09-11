@@ -1,4 +1,4 @@
-import IQueryRoute from '@/router/models/IQueryRoute';
+import IQueryRoute from 'vue-query-router/src/types/IQueryRoute';
 
 const queries: Array<IQueryRoute> = [
   {

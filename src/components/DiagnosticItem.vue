@@ -82,4 +82,3 @@
     color: var(--color-background);
   }
 </style>
-

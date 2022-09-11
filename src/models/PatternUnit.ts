@@ -19,4 +19,3 @@ class PatternUnit implements IPatternUnit {
 }
 
 export default PatternUnit;
-

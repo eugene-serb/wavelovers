@@ -5,4 +5,3 @@ interface IGamepadButton {
 }
 
 export default IGamepadButton;
-

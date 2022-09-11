@@ -48,4 +48,3 @@
     name: 'FaqView',
   });
 </script>
-

@@ -1,4 +1,6 @@
-const meta = {
+import IMeta from 'vue-meta-tag-updater/src/types/IMeta';
+
+const meta: IMeta = {
   title: 'Wavelovers',
   metaTags: [
     {
