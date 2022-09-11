@@ -2,8 +2,8 @@ import {
   createRouter, createWebHistory,
   NavigationGuardNext, RouteLocationNormalized
 } from 'vue-router';
-import QueryRouter from '@/router/modules/QueryRouter';
-import MetaTagUpdater from '@/router/modules/MetaTagUpdater';
+import QueryRouter from 'vue-query-router';
+import MetaTagUpdater from 'vue-meta-tag-updater';
 import routes from '@/router/assets/routes';
 import queries from '@/router/assets/queries';
 import metas from '@/router/assets/metas';

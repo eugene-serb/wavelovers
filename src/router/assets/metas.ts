@@ -1,4 +1,4 @@
-import IRouteMeta from '@/router/models/IRouteMeta';
+import IRouteMeta from 'vue-meta-tag-updater/src/types/IRouteMeta';
 import metaPatterns from '@/router/assets/metas/Patterns';
 import metaCustom from '@/router/assets/metas/Custom';
 import metaManual from '@/router/assets/metas/Manual';
@@ -10,35 +10,35 @@ import meta404 from '@/router/assets/metas/404';
 
 const metas: Array<IRouteMeta> = [
   {
-    route: '/',
+    path: '/',
     meta: metaPatterns,
   },
   {
-    route: '/custom',
+    path: '/custom',
     meta: metaCustom,
   },
   {
-    route: '/manual',
+    path: '/manual',
     meta: metaManual,
   },
   {
-    route: '/diagnostic',
+    path: '/diagnostic',
     meta: metaDiagnostic,
   },
   {
-    route: '/faq',
+    path: '/faq',
     meta: metaFaq,
   },
   {
-    route: '/about',
+    path: '/about',
     meta: metaAbout,
   },
   {
-    route: '/donate',
+    path: '/donate',
     meta: metaDonate,
   },
   {
-    route: '/404',
+    path: '/404',
     meta: meta404,
   },
 ];

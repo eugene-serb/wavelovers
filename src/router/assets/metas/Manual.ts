@@ -1,4 +1,4 @@
-import IMeta from '@/router/models/IMeta';
+import IMeta from 'vue-meta-tag-updater/src/types/IMeta';
 
 const meta: IMeta = {
   title: 'Wavelovers – Manual',
