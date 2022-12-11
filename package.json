@@ -1,13 +1,13 @@
 {
   "name": "wavelovers",
-  "description": "Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad.",
+  "description": "Wavelovers is a tool that can turn your gamepad into a vibration massager or simply a gamepad vibration and buttons test tool.",
   "keywords": [
     "wavelovers",
     "gamepad-vibrator",
     "gamepad-test-tool",
     "gamepad-vibration-test-tool"
   ],
-  "version": "1.2.2",
+  "version": "1.3.0",
   "license": "GNU GPL v3",
   "homepage": "https://wavelovers.ru/",
   "author": {
@@ -31,8 +31,8 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
-    "vue-meta-tag-updater": "^1.0.2",
-    "vue-query-router": "^1.0.12",
+    "vue-meta-tag-updater": "^1.1.0",
+    "vue-query-router": "^1.1.0",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
   },
