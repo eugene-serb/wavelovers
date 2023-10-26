@@ -5,11 +5,13 @@ const meta: IMeta = {
   metaTags: [
     {
       name: 'keywords',
-      content: 'Wavelovers, Wave Lovers, Wavemaster, Wave Master, Vibration Master, Vibration, Gamepad, Gamepad Vibration, Gamepad Massager, Vibrate Gamepad, Phone Vibration, Gamepad Tester, Phone Vibration Tester, Vibration Tester, Massager, Vibrator, Satisfyer, Womanizer, Relax, геймпад, джойстик, вибратор, вибромассажер, вибро, вибромассажёр из геймпада, тестер вибрации геймпада, тестер вибрации телефона, Custom mode',
+      content:
+        'Wavelovers, Wave Lovers, Wavemaster, Wave Master, Vibration Master, Vibration, Gamepad, Gamepad Vibration, Gamepad Massager, Vibrate Gamepad, Phone Vibration, Gamepad Tester, Phone Vibration Tester, Vibration Tester, Massager, Vibrator, Satisfyer, Womanizer, Relax, геймпад, джойстик, вибратор, вибромассажер, вибро, вибромассажёр из геймпада, тестер вибрации геймпада, тестер вибрации телефона, Custom mode',
     },
     {
       name: 'description',
-      content: 'Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad. Custom mode.',
+      content:
+        'Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad. Custom mode.',
     },
     {
       name: 'og:title',
@@ -17,7 +19,8 @@ const meta: IMeta = {
     },
     {
       name: 'og:description',
-      content: 'Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad. Custom mode.',
+      content:
+        'Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad. Custom mode.',
     },
     {
       name: 'og:url',
@@ -29,7 +32,8 @@ const meta: IMeta = {
     },
     {
       name: 'twitter:description',
-      content: 'Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad. Custom mode.',
+      content:
+        'Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad. Custom mode.',
     },
   ],
   linkTags: [

@@ -19,7 +19,7 @@ const MPatterns: Module<IPatternState, IRootState> = {
   },
   actions: {
     loadPatterns: async function (
-      context: ActionContext<IPatternState, IRootState>
+      context: ActionContext<IPatternState, IRootState>,
     ): Promise<void> {
       const url = 'https://wavelovers.ru/assets/patterns.json';
       try {

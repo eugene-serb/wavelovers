@@ -24,7 +24,7 @@ const queries: Array<IQueryRoute> = [
   {
     query: '/?donate',
     path: '/donate',
-  }
+  },
 ];
 
 export default queries;

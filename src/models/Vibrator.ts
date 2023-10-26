@@ -3,7 +3,6 @@ import IGamepad from '@/models/IGamepad';
 import IVibrator from '@/models/IVibrator';
 
 class Vibrator implements IVibrator {
-
   unit: IGamepad;
   readonly id: number;
   readonly canVibrate: boolean;
@@ -13,7 +12,7 @@ class Vibrator implements IVibrator {
   constructor(unit: IGamepad) {
     this.unit = unit;
     this.id = Date.now();
-    this.canVibrate = (this.unit.vibrationActuator) ? true : false;
+    this.canVibrate = this.unit.vibrationActuator ? true : false;
     this.isVibrating = false;
     this.update = this.update.bind(this);
     this.interval = setInterval(this.update, 1);
@@ -49,7 +48,7 @@ class Vibrator implements IVibrator {
   }
 
   sleep(ms: number): Promise<number> {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 }
 

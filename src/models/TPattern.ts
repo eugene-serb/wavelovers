@@ -5,6 +5,6 @@ type TPattern = {
   type: string;
   icon: string;
   pattern: TPatternUnit[];
-}
+};
 
 export default TPattern;

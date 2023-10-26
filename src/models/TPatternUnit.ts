@@ -3,6 +3,6 @@ type TPatternUnit = {
   duration: number;
   weakMagnitude: number;
   strongMagnitude: number;
-}
+};
 
 export default TPatternUnit;

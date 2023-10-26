@@ -1,0 +1,9 @@
+# Ignore artifacts:
+
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+.vs
+.github
+docs
