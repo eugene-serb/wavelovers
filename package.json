@@ -30,6 +30,7 @@
     "lint": "vue-cli-service lint",
     "format": "npx prettier --check src",
     "format:fix": "npx prettier --write --ignore-unknown src",
+    "test": "npm run test:unit",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
