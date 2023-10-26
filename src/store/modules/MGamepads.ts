@@ -26,7 +26,7 @@ const MGamepads: Module<IGamepadsState, IRootState> = {
   actions: {
     addGamepad: function (
       context: ActionContext<IGamepadsState, IRootState>,
-      event: GamepadEvent
+      event: GamepadEvent,
     ): void {
       const iEvent: IGamepadEvent = event as unknown as IGamepadEvent;
       if (context.getters.gamepads.length >= 1) {
@@ -37,7 +37,7 @@ const MGamepads: Module<IGamepadsState, IRootState> = {
     },
     deleteGamepad: function (
       context: ActionContext<IGamepadsState, IRootState>,
-      event: GamepadEvent
+      event: GamepadEvent,
     ): void {
       context.getters.gamepads.forEach((gamepad: Vibrator, index: number) => {
         if (gamepad.unit.id === event.gamepad.id) {
@@ -47,7 +47,7 @@ const MGamepads: Module<IGamepadsState, IRootState> = {
     },
     loop: function (
       context: ActionContext<IGamepadsState, IRootState>,
-      pattern: TPatternUnit[]
+      pattern: TPatternUnit[],
     ): void {
       context.getters.gamepads.forEach((gamepad: Vibrator) => {
         gamepad.loop(pattern);
@@ -55,15 +55,13 @@ const MGamepads: Module<IGamepadsState, IRootState> = {
     },
     vibrate: function (
       context: ActionContext<IGamepadsState, IRootState>,
-      pattern: TPatternUnit
+      pattern: TPatternUnit,
     ): void {
       context.getters.gamepads.forEach((gamepad: Vibrator) => {
         gamepad.vibrate(pattern);
       });
     },
-    reset: function (
-      context: ActionContext<IGamepadsState, IRootState>
-    ): void {
+    reset: function (context: ActionContext<IGamepadsState, IRootState>): void {
       context.getters.gamepads.forEach((gamepad: Vibrator) => {
         gamepad.reset();
       });

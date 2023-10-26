@@ -1,33 +1,31 @@
 <template>
   <div class="content-item device-list">
-    <GamepadItem v-for="gamepad in gamepads"
-                 :key="gamepad.id"
-                 v-text="gamepad.unit.id" />
+    <GamepadItem v-for="gamepad in gamepads" :key="gamepad.id" v-text="gamepad.unit.id" />
   </div>
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
-  import GamepadItem from '@/components/GamepadItem.vue';
+import { defineComponent } from 'vue';
+import GamepadItem from '@/components/GamepadItem.vue';
 
-  export default defineComponent({
-    name: 'GamepadList',
-    props: {
-      gamepads: {
-        type: Array,
-      },
+export default defineComponent({
+  name: 'GamepadList',
+  props: {
+    gamepads: {
+      type: Array,
     },
-    components: {
-      GamepadItem: GamepadItem,
-    },
-  });
+  },
+  components: {
+    GamepadItem: GamepadItem,
+  },
+});
 </script>
 
 <style lang="scss">
-  .device-list {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 16px;
-  }
+.device-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 16px;
+}
 </style>

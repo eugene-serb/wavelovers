@@ -1,6 +1,8 @@
 import {
-  createRouter, createWebHistory,
-  NavigationGuardNext, RouteLocationNormalized
+  createRouter,
+  createWebHistory,
+  NavigationGuardNext,
+  RouteLocationNormalized,
 } from 'vue-router';
 import QueryRouter from 'vue-query-router';
 import MetaTagUpdater from 'vue-meta-tag-updater';
@@ -13,13 +15,11 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((
-  to: RouteLocationNormalized,
-  from: RouteLocationNormalized,
-  next: NavigationGuardNext
-) => {
-  QueryRouter.update(to, from, next, router, queries);
-  MetaTagUpdater.update(to, from, next, metas)
-});
+router.beforeEach(
+  (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
+    QueryRouter.update(to, from, next, router, queries);
+    MetaTagUpdater.update(to, from, next, metas);
+  },
+);
 
 export default router;

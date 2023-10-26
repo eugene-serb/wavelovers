@@ -1,5 +1,5 @@
 <template>
-  <h1 class="visually-hidden">Wavelovers – Donate</h1>
+  <h1 class="visually-hidden">Wavelovers ï¿½ Donate</h1>
   <div>
     <article class="content-item">
       <h2 class="content-item__header">Donate</h2>
@@ -13,23 +13,26 @@
         More features make you more happiness and productive <br />
         More happiness and productive so you earn more money <br />
         More money you earn more donation to me <br />
-      </p><br />
+      </p>
+      <br />
       <span>Bitcoin: </span>
-      <a href="bitcoin:bc1qspzgj7xrf099s2ej8f5zmm52xu0wkfurpezny5" target="_blank" class="link_hash">bc1qspzgj7xrf099s2ej8f5zmm52xu0wkfurpezny5</a><br />
+      <a href="bitcoin:bc1qspzgj7xrf099s2ej8f5zmm52xu0wkfurpezny5" target="_blank" class="link_hash"
+        >bc1qspzgj7xrf099s2ej8f5zmm52xu0wkfurpezny5</a
+      ><br />
     </article>
   </div>
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
+import { defineComponent } from 'vue';
 
-  export default defineComponent({
-    name: 'DonateView',
-  });
+export default defineComponent({
+  name: 'DonateView',
+});
 </script>
 
 <style>
-  .link_hash {
-    word-break: break-all;
-  }
+.link_hash {
+  word-break: break-all;
+}
 </style>
