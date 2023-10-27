@@ -28,23 +28,23 @@
     <div class="manual-controls">
       <div>
         <kbd>RT</kbd>
-        <span> – Vibrate</span>
+        <span> — Vibrate</span>
       </div>
       <div>
         <kbd>A</kbd>
-        <span> – Combined Mode</span>
+        <span> — Combined Mode</span>
       </div>
       <div>
         <kbd>X</kbd>
-        <span> – Strong Mode</span>
+        <span> — Strong Mode</span>
       </div>
       <div>
         <kbd>Y</kbd>
-        <span> – Light Mode</span>
+        <span> — Light Mode</span>
       </div>
       <div>
         <kbd>B</kbd>
-        <span> – Lock Intensity</span>
+        <span> — Lock Intensity</span>
       </div>
     </div>
   </div>

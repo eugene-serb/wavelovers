@@ -1,7 +1,7 @@
 import IMeta from 'vue-meta-tag-updater/src/types/IMeta';
 
 const meta: IMeta = {
-  title: 'Wavelovers – Diagnostic',
+  title: 'Wavelovers — Diagnostic',
   metaTags: [
     {
       name: 'keywords',
@@ -15,7 +15,7 @@ const meta: IMeta = {
     },
     {
       name: 'og:title',
-      content: 'Wavelovers – Diagnostic',
+      content: 'Wavelovers — Diagnostic',
     },
     {
       name: 'og:description',
@@ -28,7 +28,7 @@ const meta: IMeta = {
     },
     {
       name: 'twitter:title',
-      content: 'Wavelovers – Diagnostic',
+      content: 'Wavelovers — Diagnostic',
     },
     {
       name: 'twitter:description',
