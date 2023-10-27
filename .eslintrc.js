@@ -3,14 +3,14 @@
 module.exports = {
   root: true,
   env: {
-    es2022: true,
+    es2020: true,
     browser: true,
     node: true,
     jest: true,
   },
   extends: ['plugin:vue/vue3-essential', 'eslint:recommended', '@vue/typescript/recommended'],
   parserOptions: {
-    ecmaVersion: 2022,
+    ecmaVersion: 2020,
     sourceType: 'module',
   },
   rules: {
