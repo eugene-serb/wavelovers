@@ -1,7 +1,7 @@
 <template>
   <div class="content-item message">
     <span>
-      <slot></slot>
+      <slot />
     </span>
   </div>
 </template>

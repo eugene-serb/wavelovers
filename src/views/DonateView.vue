@@ -1,5 +1,5 @@
 <template>
-  <h1 class="visually-hidden">Wavelovers � Donate</h1>
+  <h1 class="visually-hidden">Wavelovers — Donate</h1>
   <div>
     <article class="content-item">
       <h2 class="content-item__header">Donate</h2>
@@ -16,9 +16,10 @@
       </p>
       <br />
       <span>Bitcoin: </span>
-      <a href="bitcoin:bc1qspzgj7xrf099s2ej8f5zmm52xu0wkfurpezny5" target="_blank" class="link_hash"
-        >bc1qspzgj7xrf099s2ej8f5zmm52xu0wkfurpezny5</a
-      ><br />
+      <a href="bitcoin:bc1qspzgj7xrf099s2ej8f5zmm52xu0wkfurpezny5" target="_blank" class="link_hash">
+        bc1qspzgj7xrf099s2ej8f5zmm52xu0wkfurpezny5
+      </a>
+      <br />
     </article>
   </div>
 </template>

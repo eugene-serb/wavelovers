@@ -1,5 +1,5 @@
 <template>
-  <h1 class="visually-hidden">Wavelovers � About</h1>
+  <h1 class="visually-hidden">Wavelovers — About</h1>
   <div>
     <article class="content-item">
       <h2 class="content-item__header">Wavelovers</h2>
@@ -33,10 +33,10 @@
         </li>
         <li> The ability to see the future and travel through time and to other galaxies. </li>
       </ol>
-      <span
-        >P.S. The list is based on reviews, has not been verified by experts, and may not reflect
-        reality. Don't take it for granted.</span
-      >
+      <span>
+        P.S. The list is based on reviews, has not been verified by experts, and may not reflect
+        reality. Don't take it for granted.
+      </span>
     </article>
     <article class="content-item">
       <h2 class="content-item__header">Author</h2>
