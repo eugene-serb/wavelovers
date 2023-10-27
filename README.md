@@ -1,6 +1,6 @@
 # Wavelovers
 
-Wavelovers links: **[[rep](https://github.com/eugene-serb/wavelovers/), [site](https://wavelovers.ru/)]**.
+Wavelovers: **[[rep](https://github.com/eugene-serb/wavelovers/)] [[site](https://wavelovers.ru/)]**
 
 This is Wavelovers, a gamepad vibration test tool that can also turn a gamepad into a vibrating massager. It has 16 free vibration patterns to play with, a pattern editor, and a manual mode.
 
@@ -30,12 +30,12 @@ This is Wavelovers, a gamepad vibration test tool that can also turn a gamepad i
 
 ## Commands:
 
-- npm run start — run with watcher
 - npm run serve — run dev server
 - npm run build — build in production mode,
-- npm run build:dev — build in development mode,
 - npm run lint — run lint check,
-- npm run lint:fix — run lint fix,
 - npm run format — run prettier check,
-- npm run format:fix — run prettier fix,
-- npm run test — run tests
+- npm run format:fix — run prettier fix all,
+- npm run format:fix:src — run prettier fix source folder,
+- npm run format:fix:public — run prettier fix public folder,
+- npm run test — run all tests
+- npm run test:unit — run unit tests

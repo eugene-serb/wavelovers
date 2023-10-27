@@ -3,10 +3,10 @@
     @click="change(index)"
     :class="['pattern-item', index === mode && isActive === true ? 'pattern-item_selected' : '']"
   >
-    <span class="pattern-item__icon" v-text="pattern.icon"></span>
+    <span class="pattern-item__icon" v-text="pattern.icon" />
     <div class="pattern-item__info-container">
-      <span class="pattern-item__name" v-text="pattern.name"></span>
-      <span class="pattern-item__type" v-text="pattern.type"></span>
+      <span class="pattern-item__name" v-text="pattern.name" />
+      <span class="pattern-item__type" v-text="pattern.type" />
     </div>
   </div>
 </template>

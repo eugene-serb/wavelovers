@@ -1,5 +1,5 @@
 <template>
-  <h1 class="visually-hidden">Wavelovers � Diagnostic</h1>
+  <h1 class="visually-hidden">Wavelovers — Diagnostic</h1>
   <AppDiagnostic />
 </template>
 

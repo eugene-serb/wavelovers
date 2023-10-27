@@ -1,5 +1,6 @@
 {
   "name": "wavelovers",
+  "version": "1.4.2",
   "description": "Wavelovers is a tool that can turn your gamepad into a vibration massager or simply a gamepad vibration and buttons test tool.",
   "keywords": [
     "wavelovers",
@@ -8,14 +9,13 @@
     "gamepad-tester",
     "gamepad-test-tool"
   ],
-  "version": "1.4.0",
   "license": "GNU GPL v3",
-  "homepage": "https://wavelovers.ru/",
   "author": {
     "name": "Eugene Serb",
     "email": "eugene.serb@gmail.com",
     "url": "https://eugene-serb.github.io/"
   },
+  "homepage": "https://wavelovers.ru/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eugene-serb/wavelovers.git"
@@ -29,7 +29,9 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "format": "npx prettier --check src",
-    "format:fix": "npx prettier --write --ignore-unknown src",
+    "format:fix": "npm run format:fix:src && npm run format:fix:public",
+    "format:fix:src": "npx prettier --write --ignore-unknown src",
+    "format:fix:public": "npx prettier --write --ignore-unknown public",
     "test": "npm run test:unit",
     "test:unit": "vue-cli-service test:unit"
   },

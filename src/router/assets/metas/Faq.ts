@@ -1,7 +1,7 @@
 import IMeta from 'vue-meta-tag-updater/src/types/IMeta';
 
 const meta: IMeta = {
-  title: 'Wavelovers – FAQ',
+  title: 'Wavelovers — FAQ',
   metaTags: [
     {
       name: 'keywords',
@@ -14,7 +14,7 @@ const meta: IMeta = {
     },
     {
       name: 'og:title',
-      content: 'Wavelovers – FAQ',
+      content: 'Wavelovers — FAQ',
     },
     {
       name: 'og:description',
@@ -26,7 +26,7 @@ const meta: IMeta = {
     },
     {
       name: 'twitter:title',
-      content: 'Wavelovers – FAQ',
+      content: 'Wavelovers — FAQ',
     },
     {
       name: 'twitter:description',

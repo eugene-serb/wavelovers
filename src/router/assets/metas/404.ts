@@ -1,11 +1,11 @@
 import IMeta from 'vue-meta-tag-updater/src/types/IMeta';
 
 const meta: IMeta = {
-  title: 'Wavelovers – Page not found',
+  title: 'Wavelovers — Page not found',
   metaTags: [
     {
       name: 'og:title',
-      content: 'Wavelovers – Page not found',
+      content: 'Wavelovers — Page not found',
     },
     {
       name: 'og:url',
