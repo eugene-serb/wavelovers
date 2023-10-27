@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="footer-wrapper container">
       <div class="annotation">
-        <span class="annotation__text">© 2022 Wavelovers. Content licensed under </span>
+        <span class="annotation__text">© 2023 Wavelovers. Content licensed under </span>
         <a href="https://wavelovers.ru/LICENSE.md" target="_blank">
           GNU General Public License v3.0
         </a>
