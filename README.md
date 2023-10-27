@@ -1,6 +1,6 @@
 # Wavelovers
 
-Wavelovers links: **[[rep](https://github.com/eugene-serb/wavelovers/), [site](https://wavelovers.ru/)]**.
+Wavelovers: **[[rep](https://github.com/eugene-serb/wavelovers/)] [[site](https://wavelovers.ru/)]**
 
 This is Wavelovers, a gamepad vibration test tool that can also turn a gamepad into a vibrating massager. It has 16 free vibration patterns to play with, a pattern editor, and a manual mode.
 
