@@ -43,7 +43,8 @@ export default defineComponent({
 }
 
 .header :focus {
-  border-bottom: var(--number-header-focus-border-size) solid var(--color-header-navigation-link-hover);
+  border-bottom: var(--number-header-focus-border-size) solid
+    var(--color-header-navigation-link-hover);
 }
 
 .header :focus-visible {
