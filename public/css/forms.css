@@ -11,8 +11,8 @@ legend {
 }
 
 fieldset {
-  border: 2px solid var(--color-border-alpha);
-  border-radius: var(--number-border-radius);
+  border: var(--number-form-border-size) solid var(--color-border-alpha);
+  border-radius: var(--number-form-border-radius);
   padding: 8px;
 }
 
@@ -21,8 +21,8 @@ textarea,
 select,
 input {
   padding: 4px 8px;
-  border: 2px solid var(--color-link);
-  border-radius: var(--number-border-radius);
+  border: var(--number-form-border-size) solid var(--color-link);
+  border-radius: var(--number-form-border-radius);
   background: var(--color-milk);
   color: var(--color-text);
   font-size: 16px;
@@ -34,7 +34,7 @@ button:hover,
 input:hover,
 textarea:hover,
 select:hover {
-  border: 2px solid var(--color-link-hover);
+  border: var(--number-form-border-size) solid var(--color-link-hover);
   transition: all 0.5s ease;
 }
 
@@ -51,11 +51,11 @@ option:hover {
 }
 
 input[type='range'] {
+  -webkit-appearance: none;
   width: 100%;
   margin: 8px 0;
   padding: 4px 0;
   border: 0px solid var(--color-link);
-  -webkit-appearance: none;
 }
 
 input[type='range']:hover {
@@ -71,11 +71,11 @@ input[type='range']:focus {
 input[type='range']::-webkit-slider-runnable-track {
   width: 100%;
   height: 8px;
-  border: 0px solid #000101;
-  border-radius: 8px;
+  cursor: pointer;
   box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
   background: var(--color-b);
-  cursor: pointer;
+  border: 0px solid #000101;
+  border-radius: var(--number-form-border-radius);
 }
 
 input[type='range']::-webkit-slider-thumb {
@@ -84,9 +84,9 @@ input[type='range']::-webkit-slider-thumb {
   height: 16px;
   margin-top: -4px;
   border: 0px solid #000000;
-  border-radius: 8px;
-  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border-radius: var(--number-form-border-radius);
   background: var(--color-a);
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
   cursor: pointer;
 }
 
@@ -98,9 +98,9 @@ input[type='range']::-moz-range-track {
   width: 100%;
   height: 8px;
   border: 0px solid #000101;
-  border-radius: 8px;
-  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border-radius: var(--number-form-border-radius);
   background: var(--color-b);
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
   cursor: pointer;
   animate: 0.2s;
 }
@@ -109,9 +109,9 @@ input[type='range']::-moz-range-thumb {
   width: 16px;
   height: 16px;
   border: 0px solid #000000;
-  border-radius: 8px;
-  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border-radius: var(--number-form-border-radius);
   background: var(--color-a);
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
   cursor: pointer;
 }
 
@@ -128,14 +128,14 @@ input[type='range']::-ms-track {
 
 input[type='range']::-ms-fill-lower {
   border: 0px solid #000101;
-  border-radius: 8px;
+  border-radius: var(--number-form-border-radius);
   box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
   background: var(--color-b);
 }
 
 input[type='range']::-ms-fill-upper {
   border: 0px solid #000101;
-  border-radius: 8px;
+  border-radius: var(--number-form-border-radius);
   box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
   background: var(--color-b);
 }
@@ -144,9 +144,9 @@ input[type='range']::-ms-thumb {
   width: 16px;
   height: 16px;
   border: 0px solid #000000;
-  border-radius: 8px;
-  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border-radius: var(--number-form-border-radius);
   background: var(--color-a);
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
   cursor: pointer;
 }
 

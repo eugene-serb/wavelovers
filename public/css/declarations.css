@@ -6,6 +6,12 @@
   /* Base numbers */
   --number-border-radius: 8px;
   --number-border-size: 2px;
+  /* Components sizes */
+  --number-form-border-size: var(--number-border-size);
+  --number-form-border-radius: var(--number-border-radius);
+  --number-header-focus-border-size: var(--number-border-size);
+  --number-content-border-size: var(--number-border-size);
+  --number-content-border-radius: var(--number-border-radius);
 }
 
 :root {

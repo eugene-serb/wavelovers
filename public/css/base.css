@@ -28,11 +28,11 @@ body {
 }
 
 :focus {
-  border-bottom: 2px solid var(--color-selection);
+  border-bottom: var(--number-border-size) solid var(--color-selection);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-selection);
+  outline: var(--number-border-size) solid var(--color-selection);
   border-color: transparent;
 }
 
@@ -52,24 +52,31 @@ h6 {
 h1 {
   font-size: 2em;
 }
+
 h2 {
   font-size: 1.5em;
 }
+
 h3 {
   font-size: 1.17em;
 }
+
 h4 {
   font-size: 1em;
 }
+
 h5 {
   font-size: 0.83em;
 }
+
 h6 {
   font-size: 0.67em;
 }
+
 big {
   font-size: larger;
 }
+
 small {
   font-size: smaller;
 }
@@ -93,14 +100,14 @@ ul {
 
 a {
   background-color: transparent;
-  border-bottom: 2px solid transparent;
+  border-bottom: var(--number-border-size) solid transparent;
   font-weight: 500;
   color: var(--color-link);
   text-decoration: none;
 }
 
 a:hover {
-  border-bottom: 2px solid var(--color-link-hover);
+  border-bottom: var(--number-border-size) solid var(--color-link-hover);
   color: var(--color-link-hover);
   transition: all 0.5s ease;
   text-decoration: none;
