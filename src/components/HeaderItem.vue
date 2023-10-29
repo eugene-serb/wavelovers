@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header-wrapper container">
       <div class="logo-wrapper">
-        <span class="logo-wrapper__logo" translate="no">Wavelovers</span>
+        <a class="logo-wrapper__logo" translate="no">Wavelovers</a>
       </div>
       <nav class="menu-wrapper">
         <ul class="navigation">
@@ -43,11 +43,12 @@ export default defineComponent({
 }
 
 .header :focus {
-  border-bottom: 2px solid var(--color-header-navigation-link-hover);
+  border-bottom: var(--number-header-focus-border-size) solid
+    var(--color-header-navigation-link-hover);
 }
 
 .header :focus-visible {
-  outline: 2px solid var(--color-header-navigation-link-hover);
+  outline: var(--number-header-focus-border-size) solid var(--color-header-navigation-link-hover);
   border-color: transparent;
 }
 
@@ -65,6 +66,18 @@ export default defineComponent({
   font-weight: 500;
   color: var(--color-header-logo);
   cursor: default;
+}
+
+.logo-wrapper a {
+  border-color: transparent;
+  color: var(--color-header-navigation-link);
+  cursor: pointer;
+}
+
+.logo-wrapper a:hover {
+  border: none;
+  border-color: var(--color-header-navigation-link-hover);
+  color: var(--color-header-navigation-link-hover);
 }
 
 .menu-wrapper {

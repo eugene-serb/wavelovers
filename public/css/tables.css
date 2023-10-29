@@ -1,0 +1,33 @@
+@charset 'UTF-8';
+
+table,
+th,
+td {
+  width: 100%;
+  padding: 8px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-weight: 400;
+}
+
+.table_pink thead {
+  border-bottom: 4px solid var(--color-table-item);
+}
+
+.table_pink thead > tr {
+  background-color: var(--color-table-header-background);
+  color: var(--color-table-header-text);
+}
+
+.table_pink thead > tr > th {
+  font-weight: 500;
+}
+
+.table_pink tbody > tr:nth-child(even) {
+  background-color: var(--color-table-item);
+  color: var(--color-white);
+}
+
+.table_pink tfoot {
+  border-top: 4px solid var(--color-table-header-background);
+}

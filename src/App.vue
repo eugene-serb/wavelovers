@@ -44,3 +44,18 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.page {
+  flex-grow: 1;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+@media only screen and (min-width: 540px) {
+  .page {
+    margin-top: 64px;
+    margin-bottom: 64px;
+  }
+}
+</style>
