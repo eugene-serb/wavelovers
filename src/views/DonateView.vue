@@ -17,11 +17,11 @@
       <br />
       <span>Bitcoin: </span>
       <a
-        href="bitcoin:bc1qspzgj7xrf099s2ej8f5zmm52xu0wkfurpezny5"
+        href="bitcoin:bc1qe53gsp0t5ehlvtgsxc952ujmxtvp6zj9zyh29d"
         target="_blank"
         class="link_hash"
       >
-        bc1qspzgj7xrf099s2ej8f5zmm52xu0wkfurpezny5
+        bc1qe53gsp0t5ehlvtgsxc952ujmxtvp6zj9zyh29d
       </a>
       <br />
     </article>
