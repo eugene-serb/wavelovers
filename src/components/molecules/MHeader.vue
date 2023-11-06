@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { RouterLink } from 'vue-router'
+import { RouterLink } from 'vue-router';
 
 export default defineComponent({
   name: 'MHeader',
@@ -16,7 +16,7 @@ export default defineComponent({
       <div class="logo-wrapper">
         <a class="logo-wrapper__logo" translate="no">Wavelovers</a>
       </div>
-      
+
       <nav class="menu-wrapper">
         <ul class="navigation">
           <li class="navigation__item">
