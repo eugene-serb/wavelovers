@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils';
 
 import { createRouter, createWebHistory } from 'vue-router';
 import routes from '@/router/assets/routes';
-import HeaderItem from '@/components/HeaderItem.vue';
+import HeaderItem from '@/components/molecules/MHeader.vue';
 
 const router = createRouter({
   history: createWebHistory(),
