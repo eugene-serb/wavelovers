@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils';
 
 import MFooter from '@/components/molecules/MFooter.vue';
 
-describe('FooterItem.vue', () => {
+describe('MFooter.vue', () => {
   it('renders slots when passed', () => {
     const wrapper = mount(MFooter);
     expect(wrapper.html()).toContain('Wavelovers');
