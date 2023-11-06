@@ -12,7 +12,7 @@ export type TVibrator = {
   vibrate(pattern: TPatternUnit): void;
   reset(): void;
   sleep(ms: number): Promise<number>;
-}
+};
 
 export interface IVibrator {
   unit: IGamepad;

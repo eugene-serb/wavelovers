@@ -18,7 +18,7 @@ export default defineComponent({
 
 <template>
   <MToolsNav />
-  
+
   <div v-if="gamepads.length > 0" class="content-item">
     <MDiagnosticItem
       v-for="gamepad in gamepads"
@@ -27,7 +27,7 @@ export default defineComponent({
       :timestamp="timestamp"
     />
   </div>
-  
+
   <MGamepadList v-if="gamepads.length > 0" :gamepads="gamepads" />
   <AMessage v-else>Press any gamepad button or connect a new gamepad to vibrate.</AMessage>
 </template>

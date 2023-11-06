@@ -152,7 +152,7 @@ export default defineComponent({
       </div>
     </div>
   </div>
-  
+
   <MGamepadList v-if="gamepads.length > 0" :gamepads="gamepads" />
   <AMessage v-else>Press any gamepad button or connect a new gamepad to vibrate.</AMessage>
 </template>
