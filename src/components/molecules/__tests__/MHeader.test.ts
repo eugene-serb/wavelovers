@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils';
 
 import { createRouter, createWebHistory } from 'vue-router';
 import routes from '@/router/assets/routes';
-import HeaderItem from '@/components/molecules/MHeader.vue';
+import MHeader from '@/components/molecules/MHeader.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -12,7 +12,7 @@ const router = createRouter({
 
 describe('HeaderItem.vue', () => {
   it('renders slots when passed', () => {
-    const wrapper = mount(HeaderItem, {
+    const wrapper = mount(MHeader, {
       global: {
         plugins: [router],
       },
