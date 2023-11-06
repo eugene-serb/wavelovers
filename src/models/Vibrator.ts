@@ -1,8 +1,8 @@
-import TPatternUnit from '@/models/TPatternUnit';
-import IGamepad from '@/models/IGamepad';
-import IVibrator from '@/models/IVibrator';
+import type { TPatternUnit } from '@/models/TPatternUnit';
+import type { IGamepad } from '@/models/IGamepad';
+import type { IVibrator } from '@/models/IVibrator';
 
-class Vibrator implements IVibrator {
+export class Vibrator implements IVibrator {
   unit: IGamepad;
   readonly id: number;
   readonly canVibrate: boolean;

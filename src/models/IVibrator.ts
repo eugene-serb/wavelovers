@@ -1,7 +1,7 @@
-import TPatternUnit from '@/models/TPatternUnit';
-import IGamepad from '@/models/IGamepad';
+import type { TPatternUnit } from '@/models/TPatternUnit';
+import type { IGamepad } from '@/models/IGamepad';
 
-interface IVibrator {
+export interface IVibrator {
   unit: IGamepad;
   readonly id: number;
   readonly canVibrate: boolean;
@@ -13,5 +13,3 @@ interface IVibrator {
   reset(): void;
   sleep(ms: number): Promise<number>;
 }
-
-export default IVibrator;

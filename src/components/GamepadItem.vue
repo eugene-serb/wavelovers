@@ -1,5 +1,7 @@
 <template>
-  <div class="list-item" />
+  <div class="list-item">
+    <slot name="default" />
+  </div>
 </template>
 
 <script lang="ts">

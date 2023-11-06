@@ -1,4 +1,6 @@
-﻿import { shallowMount } from '@vue/test-utils';
+﻿import { describe, it, expect } from 'vitest';
+import { mount } from '@vue/test-utils';
+
 import { createRouter, createWebHistory } from 'vue-router';
 import routes from '@/router/assets/routes';
 import HeaderItem from '@/components/HeaderItem.vue';
@@ -10,7 +12,7 @@ const router = createRouter({
 
 describe('HeaderItem.vue', () => {
   it('renders slots when passed', () => {
-    const wrapper = shallowMount(HeaderItem, {
+    const wrapper = mount(HeaderItem, {
       global: {
         plugins: [router],
       },

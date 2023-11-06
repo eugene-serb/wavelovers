@@ -20,18 +20,18 @@
       <ol class="list">
         <li>Reduces the risk of stroke.</li>
         <li>Headaches and migraines are reduced.</li>
-        <li> Pain syndromes accompanying osteochondrosis and muscle pain are reduced. </li>
+        <li>Pain syndromes accompanying osteochondrosis and muscle pain are reduced.</li>
         <li>Noise in the ears and numbness of the fingers pass.</li>
         <li>Memory and vision improve, emotional state normalizes.</li>
-        <li> The work of muscles and blood vessels is normalized, blood circulation improves. </li>
+        <li>The work of muscles and blood vessels is normalized, blood circulation improves.</li>
         <li>Meteorological dependence decreases.</li>
         <li>Improves overall well-being and sleep, increases efficiency.</li>
         <li>The ability to jump to the height of one's own height.</li>
-        <li> After training, the ability to fly and breathe underwater for up to an hour. </li>
+        <li>After training, the ability to fly and breathe underwater for up to an hour.</li>
         <li>
           Gradual transformation into a superman. Walking through walls, cat vision, regeneration.
         </li>
-        <li> The ability to see the future and travel through time and to other galaxies. </li>
+        <li>The ability to see the future and travel through time and to other galaxies.</li>
       </ol>
       <span>
         P.S. The list is based on reviews, has not been verified by experts, and may not reflect

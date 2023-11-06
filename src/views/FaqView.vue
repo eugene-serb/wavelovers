@@ -21,7 +21,7 @@
           I recommend checking the device for correct operation, mechanical damage, and be sure to
           use an antiseptic.
         </dd>
-        <dt> I'm having problems with the app or connecting my device to the app? </dt>
+        <dt>I'm having problems with the app or connecting my device to the app?</dt>
         <dd>Go to Troubleshooting.</dd>
       </dl>
     </article>
@@ -58,7 +58,7 @@
         <dt>Gamepad:</dt>
         <dd>X-Input and vibration actuator required.</dd>
         <dt>Browser:</dt>
-        <dd> Google Chrome or any other Chromium-based browser is recommended. </dd>
+        <dd>Google Chrome or any other Chromium-based browser is recommended.</dd>
         <dt>Operating System:</dt>
         <dd>Windows 7 or higher recommended.</dd>
       </dl>

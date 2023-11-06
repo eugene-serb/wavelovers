@@ -1,9 +1,7 @@
-import TPatternUnit from '@/models/TPatternUnit';
+import type { TPatternUnit } from '@/models/TPatternUnit';
 
-interface IVibrationActuator {
+export interface IVibrationActuator {
   readonly type: string;
   reset(): void;
   playEffect(mode: string, pattern: TPatternUnit): void;
 }
-
-export default IVibrationActuator;

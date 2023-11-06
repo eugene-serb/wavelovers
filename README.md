@@ -16,12 +16,11 @@ This is Wavelovers, a gamepad vibration test tool that can also turn a gamepad i
 ![](https://img.shields.io/badge/Vue.js-informational?style=flat-square&logo=vue.js&logoColor=FFFFFF&color=42B983)
 ![](https://img.shields.io/badge/Vue%20Router-informational?style=flat-square&logo=vue.js&logoColor=FFFFFF&color=42B983)
 ![](https://img.shields.io/badge/Vuex-informational?style=flat-square&logo=vue.js&logoColor=FFFFFF&color=42B983)
+![](https://img.shields.io/badge/Vite-informational?style=flat-square&logo=vite&logoColor=FFFFFF&color=42B983)
+![](https://img.shields.io/badge/Vitest-informational?style=flat-square&logo=vitest&logoColor=FFFFFF&color=42B983)
 ![](https://img.shields.io/badge/Node.JS-informational?style=flat-square&logo=node.js&logoColor=FFFFFF&color=3C873A)
-![](https://img.shields.io/badge/Webpack-informational?style=flat-square&logo=webpack&logoColor=62B1D8&color=2B3A42)
-![](https://img.shields.io/badge/Babel-informational?style=flat-square&logo=babel&logoColor=323330&color=F5DA55)
 ![](https://img.shields.io/badge/ESLint-informational?style=flat-square&logo=eslint&logoColor=FFFFFF&color=8181F2)
 ![](https://img.shields.io/badge/Prettier-informational?style=flat-square&logo=prettier&logoColor=FFFFFF&color=1A2B34)
-![](https://img.shields.io/badge/Jest-informational?style=flat-square&logo=jest&logoColor=FFFFFF&color=15C213)
 ![](https://img.shields.io/badge/📝-JSDoc-informational?style=flat-square&logo=jsdoc&logoColor=FFFFFF&color=006FBB&labelColor=006FBB)
 ![](https://img.shields.io/badge/npm-informational?style=flat-square&logo=npm&logoColor=FFFFFF&color=CB0000)
 ![](https://img.shields.io/badge/Git-informational?style=flat-square&logo=git&logoColor=FFFFFF&color=BC4420)
@@ -30,9 +29,12 @@ This is Wavelovers, a gamepad vibration test tool that can also turn a gamepad i
 
 ## Commands:
 
-- npm run serve — run dev server
+- npm run dev — run dev server
 - npm run build — build in production mode,
+- npm run preview — run build in preview mode,
+- npm run type-check — run type check,
 - npm run lint — run lint check,
+- npm run lint:fix — run lint fix,
 - npm run format — run prettier check,
 - npm run format:fix — run prettier fix all,
 - npm run format:fix:src — run prettier fix source folder,

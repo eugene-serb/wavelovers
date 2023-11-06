@@ -1,4 +1,3 @@
-import IRouteMeta from 'vue-meta-tag-updater/src/types/IRouteMeta';
 import metaPatterns from '@/router/assets/metas/Patterns';
 import metaCustom from '@/router/assets/metas/Custom';
 import metaManual from '@/router/assets/metas/Manual';
@@ -7,6 +6,8 @@ import metaFaq from '@/router/assets/metas/Faq';
 import metaAbout from '@/router/assets/metas/About';
 import metaDonate from '@/router/assets/metas/Donate';
 import meta404 from '@/router/assets/metas/404';
+
+import type IRouteMeta from 'vue-meta-tag-updater/src/types/IRouteMeta';
 
 const metas: Array<IRouteMeta> = [
   {
