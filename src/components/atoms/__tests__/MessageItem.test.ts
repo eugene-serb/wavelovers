@@ -1,12 +1,12 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
 
-import MessageItem from '@/components/MessageItem.vue';
+import AMessage from '@/components/atoms/AMessage.vue';
 
-describe('MessageItem.vue', () => {
+describe('AMessage.vue', () => {
   it('renders slots when passed', () => {
     const msg = 'new message';
-    const wrapper = mount(MessageItem, {
+    const wrapper = mount(AMessage, {
       slots: {
         default: msg,
       },

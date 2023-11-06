@@ -1,3 +1,11 @@
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'AboutView',
+});
+</script>
+
 <template>
   <h1 class="visually-hidden">Wavelovers — About</h1>
   <div>
@@ -58,14 +66,6 @@
     </article>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'AboutView',
-});
-</script>
 
 <style>
 .list > li {

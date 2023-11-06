@@ -1,16 +1,16 @@
-<template>
-  <h1 class="visually-hidden">Wavelovers</h1>
-  <AppPatterns />
-</template>
-
 <script lang="ts">
 import { defineComponent } from 'vue';
-import AppPatterns from '@/components/AppPatterns.vue';
+import { OPatterns } from '@/components/organisms';
 
 export default defineComponent({
   name: 'PatternsView',
   components: {
-    AppPatterns: AppPatterns,
+    OPatterns,
   },
 });
 </script>
+
+<template>
+  <h1 class="visually-hidden">Wavelovers</h1>
+  <OPatterns />
+</template>

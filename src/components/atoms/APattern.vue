@@ -1,33 +1,27 @@
-<template>
-  <div
-    @click="change(index)"
-    :class="['pattern-item', index === mode && isActive === true ? 'pattern-item_selected' : '']"
-  >
-    <span class="pattern-item__icon" v-text="pattern.icon" />
-    <div class="pattern-item__info-container">
-      <span class="pattern-item__name" v-text="pattern.name" />
-      <span class="pattern-item__type" v-text="pattern.type" />
-    </div>
-  </div>
-</template>
-
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import type { PropType } from 'vue';
+import type { TPattern } from '@/models';
+
 export default defineComponent({
-  name: 'PatternItem',
+  name: 'APattern',
   props: {
     pattern: {
-      type: Object,
+      type: Object as PropType<TPattern>,
+      required: true,
     },
     index: {
       type: Number,
+      required: true,
     },
     mode: {
       type: Number,
+      required: true,
     },
     isActive: {
       type: Boolean,
+      required: true,
     },
   },
   methods: {
@@ -37,6 +31,20 @@ export default defineComponent({
   },
 });
 </script>
+
+<template>
+  <div
+    @click="change(index)"
+    class="pattern-item"
+    :class="index === mode && isActive === true ? 'pattern-item_selected' : ''"
+  >
+    <span class="pattern-item__icon">{{ pattern.icon }}</span>
+    <div class="pattern-item__info-container">
+      <span class="pattern-item__name">{{ pattern.name }}</span>
+      <span class="pattern-item__type">{{ pattern.type }}</span>
+    </div>
+  </div>
+</template>
 
 <style lang="scss">
 .pattern-item {
@@ -94,3 +102,4 @@ export default defineComponent({
   color: var(--color-pattern-text);
 }
 </style>
+@/models/Pattern

@@ -1,3 +1,11 @@
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'NotFoundView',
+});
+</script>
+
 <template>
   <h1 class="visually-hidden">Wavelovers — 404</h1>
   <div class="content-item">
@@ -6,11 +14,3 @@
     </center>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'NotFoundView',
-});
-</script>

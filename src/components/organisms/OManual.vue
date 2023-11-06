@@ -1,75 +1,20 @@
-﻿<template>
-  <NavigationList />
-  <div class="content-item app-manual">
-    <label class="manual-form__input">
-      <span>Weak Magnitude</span>
-      <input
-        v-model="weakMagnitude"
-        type="range"
-        required
-        disabled
-        min="0.0"
-        max="1.0"
-        step="0.01"
-      />
-    </label>
-    <label class="manual-form__input">
-      <span>Strong Magnitude</span>
-      <input
-        v-model="strongMagnitude"
-        type="range"
-        required
-        disabled
-        min="0.0"
-        max="1.0"
-        step="0.01"
-      />
-    </label>
-    <div class="manual-controls">
-      <div>
-        <kbd>RT</kbd>
-        <span> — Vibrate</span>
-      </div>
-      <div>
-        <kbd>A</kbd>
-        <span> — Combined Mode</span>
-      </div>
-      <div>
-        <kbd>X</kbd>
-        <span> — Strong Mode</span>
-      </div>
-      <div>
-        <kbd>Y</kbd>
-        <span> — Light Mode</span>
-      </div>
-      <div>
-        <kbd>B</kbd>
-        <span> — Lock Intensity</span>
-      </div>
-    </div>
-  </div>
-  <GamepadList v-if="gamepads.length > 0" :gamepads="gamepads" />
-  <MessageItem v-else>Press any gamepad button or connect a new gamepad to vibrate.</MessageItem>
-</template>
-
-<script lang="ts">
+﻿<script lang="ts">
 import { defineComponent } from 'vue';
 import store from '@/store/index';
-import NavigationList from '@/components/NavigationList.vue';
-import GamepadList from '@/components/GamepadList.vue';
-import MessageItem from '@/components/MessageItem.vue';
+import { AMessage } from '@/components/atoms';
+import { MToolsNav, MGamepadList } from '@/components/molecules';
 import ComputedGamepads from '@/mixins/ComputedGamepads.vue';
-import Vibrator from '@/models/Vibrator';
-import TPatternUnit from '@/models/TPatternUnit';
 import PatternUnit from '@/models/PatternUnit';
 
+import type { TPatternUnit, TVibrator } from '@/models';
+
 export default defineComponent({
-  name: 'AppCustom',
+  name: 'OManual',
   mixins: [ComputedGamepads],
   components: {
-    NavigationList: NavigationList,
-    GamepadList: GamepadList,
-    MessageItem: MessageItem,
+    AMessage,
+    MToolsNav,
+    MGamepadList,
   },
   data: () => {
     return {
@@ -140,7 +85,7 @@ export default defineComponent({
     },
     handle: function (): void {
       if (this.gamepads.length > 0) {
-        this.gamepads.forEach((gamepad: Vibrator) => {
+        this.gamepads.forEach((gamepad: TVibrator) => {
           if (gamepad.unit.buttons[7].value > 0 || this.lock === true) {
             this.start();
           } else {
@@ -155,6 +100,62 @@ export default defineComponent({
   },
 });
 </script>
+
+<template>
+  <MToolsNav />
+
+  <div class="content-item app-manual">
+    <label class="manual-form__input">
+      <span>Weak Magnitude</span>
+      <input
+        v-model="weakMagnitude"
+        type="range"
+        required
+        disabled
+        min="0.0"
+        max="1.0"
+        step="0.01"
+      />
+    </label>
+    <label class="manual-form__input">
+      <span>Strong Magnitude</span>
+      <input
+        v-model="strongMagnitude"
+        type="range"
+        required
+        disabled
+        min="0.0"
+        max="1.0"
+        step="0.01"
+      />
+    </label>
+    <div class="manual-controls">
+      <div>
+        <kbd>RT</kbd>
+        <span> — Vibrate</span>
+      </div>
+      <div>
+        <kbd>A</kbd>
+        <span> — Combined Mode</span>
+      </div>
+      <div>
+        <kbd>X</kbd>
+        <span> — Strong Mode</span>
+      </div>
+      <div>
+        <kbd>Y</kbd>
+        <span> — Light Mode</span>
+      </div>
+      <div>
+        <kbd>B</kbd>
+        <span> — Lock Intensity</span>
+      </div>
+    </div>
+  </div>
+
+  <MGamepadList v-if="gamepads.length > 0" :gamepads="gamepads" />
+  <AMessage v-else>Press any gamepad button or connect a new gamepad to vibrate.</AMessage>
+</template>
 
 <style lang="scss">
 .app-manual {

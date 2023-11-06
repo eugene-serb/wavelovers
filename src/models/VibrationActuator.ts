@@ -1,4 +1,4 @@
-import type { TPatternUnit } from '@/models/TPatternUnit';
+import type { TPatternUnit } from '@/models/PatternUnit';
 
 export interface IVibrationActuator {
   readonly type: string;

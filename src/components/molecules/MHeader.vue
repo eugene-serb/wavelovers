@@ -1,36 +1,41 @@
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { RouterLink } from 'vue-router';
+
+export default defineComponent({
+  name: 'MHeader',
+  components: {
+    RouterLink,
+  },
+});
+</script>
+
 <template>
   <header class="header">
     <div class="header-wrapper container">
       <div class="logo-wrapper">
         <a class="logo-wrapper__logo" translate="no">Wavelovers</a>
       </div>
+
       <nav class="menu-wrapper">
         <ul class="navigation">
           <li class="navigation__item">
-            <router-link to="/">Home</router-link>
+            <RouterLink to="/">Home</RouterLink>
           </li>
           <li class="navigation__item">
-            <router-link to="/faq">FAQ</router-link>
+            <RouterLink to="/faq">FAQ</RouterLink>
           </li>
           <li class="navigation__item">
-            <router-link to="/about">About</router-link>
+            <RouterLink to="/about">About</RouterLink>
           </li>
           <li class="navigation__item">
-            <router-link to="/donate">Donate</router-link>
+            <RouterLink to="/donate">Donate</RouterLink>
           </li>
         </ul>
       </nav>
     </div>
   </header>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'HeaderItem',
-});
-</script>
 
 <style lang="scss">
 .header {

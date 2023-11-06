@@ -1,16 +1,16 @@
-<template>
-  <h1 class="visually-hidden">Wavelovers — Manual</h1>
-  <AppManual />
-</template>
-
 <script lang="ts">
 import { defineComponent } from 'vue';
-import AppManual from '@/components/AppManual.vue';
+import { OManual } from '@/components/organisms';
 
 export default defineComponent({
   name: 'ManualView',
   components: {
-    AppManual: AppManual,
+    OManual,
   },
 });
 </script>
+
+<template>
+  <h1 class="visually-hidden">Wavelovers — Manual</h1>
+  <OManual />
+</template>

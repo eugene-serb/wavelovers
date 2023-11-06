@@ -1,18 +1,18 @@
-<template>
-  <div class="content-item message">
-    <span>
-      <slot />
-    </span>
-  </div>
-</template>
-
 <script lang="ts">
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'MessageItem',
+  name: 'AMessage',
 });
 </script>
+
+<template>
+  <div class="content-item message">
+    <span>
+      <slot name="default" />
+    </span>
+  </div>
+</template>
 
 <style lang="scss">
 .message {

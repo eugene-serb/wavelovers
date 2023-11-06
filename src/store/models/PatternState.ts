@@ -1,4 +1,4 @@
-import type { TPattern } from '@/models/TPattern';
+import type { TPattern } from '@/models';
 
 export interface IPatternState {
   patterns: TPattern[];

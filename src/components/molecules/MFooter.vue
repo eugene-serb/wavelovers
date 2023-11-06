@@ -1,3 +1,11 @@
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'MFooter',
+});
+</script>
+
 <template>
   <footer class="footer">
     <div class="footer-wrapper container">
@@ -22,14 +30,6 @@
     </div>
   </footer>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'FooterItem',
-});
-</script>
 
 <style lang="scss">
 .footer {

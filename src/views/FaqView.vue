@@ -1,3 +1,11 @@
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'FaqView',
+});
+</script>
+
 <template>
   <h1 class="visually-hidden">Wavelovers — FAQ</h1>
   <div>
@@ -65,11 +73,3 @@
     </article>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'FaqView',
-});
-</script>

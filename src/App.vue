@@ -1,24 +1,14 @@
-<template>
-  <HeaderItem />
-  <main class="page container">
-    <div class="wavelovers">
-      <router-view />
-    </div>
-  </main>
-  <FooterItem />
-</template>
-
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { RouterView } from 'vue-router';
 import store from '@/store/index';
-import HeaderItem from '@/components/HeaderItem.vue';
-import FooterItem from '@/components/FooterItem.vue';
+import LDefault from '@/layouts/LDefault.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-    HeaderItem: HeaderItem,
-    FooterItem: FooterItem,
+    LDefault,
+    RouterView,
   },
   methods: {
     addGamepad: function (event: GamepadEvent): void {
@@ -45,17 +35,8 @@ export default defineComponent({
 });
 </script>
 
-<style>
-.page {
-  flex-grow: 1;
-  margin-top: 32px;
-  margin-bottom: 32px;
-}
-
-@media only screen and (min-width: 540px) {
-  .page {
-    margin-top: 64px;
-    margin-bottom: 64px;
-  }
-}
-</style>
+<template>
+  <LDefault>
+    <RouterView />
+  </LDefault>
+</template>

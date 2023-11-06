@@ -1,11 +1,11 @@
-import metaPatterns from '@/router/assets/metas/Patterns';
-import metaCustom from '@/router/assets/metas/Custom';
-import metaManual from '@/router/assets/metas/Manual';
-import metaDiagnostic from '@/router/assets/metas/Diagnostic';
-import metaFaq from '@/router/assets/metas/Faq';
-import metaAbout from '@/router/assets/metas/About';
-import metaDonate from '@/router/assets/metas/Donate';
-import meta404 from '@/router/assets/metas/404';
+import metaPatterns from '@/router/assets/meta/Patterns';
+import metaCustom from '@/router/assets/meta/Custom';
+import metaManual from '@/router/assets/meta/Manual';
+import metaDiagnostic from '@/router/assets/meta/Diagnostic';
+import metaFaq from '@/router/assets/meta/Faq';
+import metaAbout from '@/router/assets/meta/About';
+import metaDonate from '@/router/assets/meta/Donate';
+import meta404 from '@/router/assets/meta/404';
 
 import type IRouteMeta from 'vue-meta-tag-updater/src/types/IRouteMeta';
 
