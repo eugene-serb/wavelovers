@@ -1,4 +1,16 @@
-import type { IPatternUnit } from '@/models/IPatternUnit';
+export type TPatternUnit = {
+  startDelay: number;
+  duration: number;
+  weakMagnitude: number;
+  strongMagnitude: number;
+};
+
+export interface IPatternUnit {
+  startDelay: number;
+  duration: number;
+  weakMagnitude: number;
+  strongMagnitude: number;
+}
 
 export class PatternUnit implements IPatternUnit {
   startDelay: number;

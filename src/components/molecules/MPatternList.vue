@@ -3,7 +3,7 @@ import { defineComponent } from 'vue';
 import { APattern } from '@/components/atoms';
 
 import type { PropType } from 'vue';
-import type { TPattern } from '@/models/TPattern';
+import type { TPattern } from '@/models';
 
 export default defineComponent({
   name: 'MPatternList',
@@ -62,3 +62,4 @@ export default defineComponent({
   }
 }
 </style>
+@/models/Pattern

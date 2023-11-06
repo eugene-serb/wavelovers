@@ -3,8 +3,8 @@ import MGamepads from '@/store/modules/MGamepads';
 import MPatterns from '@/store/modules/MPatterns';
 
 import type { Store } from 'vuex';
-import type { IRootState } from '@/store/models/IRootState';
-import type { TPatternUnit } from '@/models/TPatternUnit';
+import type { IRootState } from '@/store/models';
+import type { TPatternUnit } from '@/models';
 
 const store: Store<IRootState> = createStore({
   state: () => ({
@@ -56,8 +56,8 @@ const store: Store<IRootState> = createStore({
     },
   },
   modules: {
-    MGamepads: MGamepads,
-    MPatterns: MPatterns,
+    MGamepads,
+    MPatterns,
   },
 });
 

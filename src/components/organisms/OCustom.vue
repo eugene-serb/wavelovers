@@ -5,8 +5,7 @@ import { AMessage } from '@/components/atoms';
 import { MToolsNav, MGamepadList } from '@/components/molecules';
 import PatternUnit from '@/models/PatternUnit';
 
-import type { TPatternUnit } from '@/models/TPatternUnit';
-import type { IVibrator } from '@/models/IVibrator';
+import type { TPatternUnit, TVibrator } from '@/models';
 
 export default defineComponent({
   name: 'OCustom',
@@ -24,8 +23,8 @@ export default defineComponent({
     };
   },
   computed: {
-    gamepads: function (): IVibrator[] {
-      return store.getters.gamepads as IVibrator[];
+    gamepads: function (): TVibrator[] {
+      return store.getters.gamepads as TVibrator[];
     },
   },
   methods: {

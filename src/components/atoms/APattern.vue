@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue';
 
 import type { PropType } from 'vue';
-import type { TPattern } from '@/models/TPattern';
+import type { TPattern } from '@/models';
 
 export default defineComponent({
   name: 'APattern',
@@ -102,3 +102,4 @@ export default defineComponent({
   color: var(--color-pattern-text);
 }
 </style>
+@/models/Pattern

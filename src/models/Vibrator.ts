@@ -1,6 +1,31 @@
-import type { TPatternUnit } from '@/models/TPatternUnit';
-import type { IGamepad } from '@/models/IGamepad';
-import type { IVibrator } from '@/models/IVibrator';
+import type { TPatternUnit } from '@/models/PatternUnit';
+import type { IGamepad } from '@/models/Gamepad';
+
+export type TVibrator = {
+  unit: IGamepad;
+  readonly id: number;
+  readonly canVibrate: boolean;
+  isVibrating: boolean;
+  interval: number;
+  update(): void;
+  loop(pattern: TPatternUnit[]): Promise<void>;
+  vibrate(pattern: TPatternUnit): void;
+  reset(): void;
+  sleep(ms: number): Promise<number>;
+}
+
+export interface IVibrator {
+  unit: IGamepad;
+  readonly id: number;
+  readonly canVibrate: boolean;
+  isVibrating: boolean;
+  interval: number;
+  update(): void;
+  loop(pattern: TPatternUnit[]): Promise<void>;
+  vibrate(pattern: TPatternUnit): void;
+  reset(): void;
+  sleep(ms: number): Promise<number>;
+}
 
 export class Vibrator implements IVibrator {
   unit: IGamepad;

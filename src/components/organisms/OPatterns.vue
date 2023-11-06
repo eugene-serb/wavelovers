@@ -4,8 +4,7 @@ import store from '@/store/index';
 import { AMessage } from '@/components/atoms';
 import { MToolsNav, MGamepadList, MPatternList } from '@/components/molecules';
 
-import type { IVibrator } from '@/models/IVibrator';
-import type { TPattern } from '@/models/TPattern';
+import type { TPattern, TVibrator } from '@/models';
 
 export default defineComponent({
   name: 'OPatterns',
@@ -16,8 +15,8 @@ export default defineComponent({
     MGamepadList,
   },
   computed: {
-    gamepads: function (): IVibrator[] {
-      return store.getters.gamepads as IVibrator[];
+    gamepads: function (): TVibrator[] {
+      return store.getters.gamepads as TVibrator[];
     },
     patterns: function (): TPattern[] {
       return store.getters.patterns as TPattern[];
@@ -57,3 +56,4 @@ export default defineComponent({
   <MGamepadList v-if="gamepads.length > 0" :gamepads="gamepads" />
   <AMessage v-else>Press any gamepad button or connect a new gamepad to vibrate.</AMessage>
 </template>
+@/models/Pattern

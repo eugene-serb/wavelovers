@@ -2,13 +2,13 @@
 import { defineComponent } from 'vue';
 
 import type { PropType } from 'vue';
-import type { IVibrator } from '@/models/IVibrator';
+import type { TVibrator } from '@/models';
 
 export default defineComponent({
   name: 'MDiagnosticItem',
   props: {
     gamepad: {
-      type: Object as PropType<IVibrator>,
+      type: Object as PropType<TVibrator>,
       required: true,
     },
     timestamp: {

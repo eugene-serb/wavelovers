@@ -1,7 +1,6 @@
 import type { ActionContext, Module } from 'vuex';
-import type { IRootState } from '@/store/models/IRootState';
-import type { IPatternState } from '@/store/models/IPatternState';
-import type { TPattern } from '@/models/TPattern';
+import type { IRootState, IPatternState } from '@/store/models';
+import type { TPattern } from '@/models';
 
 const MPatterns: Module<IPatternState, IRootState> = {
   state: () => ({

@@ -1,4 +1,4 @@
-import type { IGamepad } from '@/models/IGamepad';
+import type { IGamepad } from '@/models/Gamepad';
 
 export interface IGamepadEvent {
   readonly gamepad: IGamepad;

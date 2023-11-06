@@ -3,7 +3,7 @@ import { defineComponent } from 'vue';
 import { AGamepad } from '@/components/atoms';
 
 import type { PropType } from 'vue';
-import type { IVibrator } from '@/models/IVibrator';
+import type { TVibrator } from '@/models';
 
 export default defineComponent({
   name: 'MGamepadList',
@@ -12,7 +12,7 @@ export default defineComponent({
   },
   props: {
     gamepads: {
-      type: Array as PropType<IVibrator[]>,
+      type: Array as PropType<TVibrator[]>,
       required: true,
     },
   },

@@ -6,8 +6,7 @@ import { MToolsNav, MGamepadList } from '@/components/molecules';
 import ComputedGamepads from '@/mixins/ComputedGamepads.vue';
 import PatternUnit from '@/models/PatternUnit';
 
-import type { IVibrator } from '@/models/IVibrator';
-import type { TPatternUnit } from '@/models/TPatternUnit';
+import type { TPatternUnit, TVibrator } from '@/models';
 
 export default defineComponent({
   name: 'OManual',
@@ -86,7 +85,7 @@ export default defineComponent({
     },
     handle: function (): void {
       if (this.gamepads.length > 0) {
-        this.gamepads.forEach((gamepad: IVibrator) => {
+        this.gamepads.forEach((gamepad: TVibrator) => {
           if (gamepad.unit.buttons[7].value > 0 || this.lock === true) {
             this.start();
           } else {

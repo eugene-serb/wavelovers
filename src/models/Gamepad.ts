@@ -1,5 +1,5 @@
-import type { IVibrationActuator } from '@/models/IVibrationActuator';
-import type { IGamepadButton } from '@/models/IGamepadButton';
+import type { IVibrationActuator } from '@/models/VibrationActuator';
+import type { IGamepadButton } from '@/models/GamepadButton';
 
 export interface IGamepad {
   readonly id: string;
