@@ -1,4 +1,25 @@
-﻿<template>
+﻿<script lang="ts">
+import { defineComponent } from 'vue';
+
+import type { PropType } from 'vue';
+import type { IVibrator } from '@/models/IVibrator';
+
+export default defineComponent({
+  name: 'MDiagnosticItem',
+  props: {
+    gamepad: {
+      type: Object as PropType<IVibrator>,
+      required: true,
+    },
+    timestamp: {
+      type: Number,
+      required: true,
+    },
+  },
+});
+</script>
+
+<template>
   <div class="output-gamepad">
     <h3>#{{ gamepad.unit.index + 1 }}. {{ gamepad.unit.id }}</h3>
     <div class="gamepad-group">
@@ -76,22 +97,6 @@
     <span>Vibration Actuator: {{ gamepad.unit.vibrationActuator ? 'Available' : 'missing' }}</span>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'DiagnosticItem',
-  props: {
-    gamepad: {
-      type: Object,
-    },
-    timestamp: {
-      type: Number,
-    },
-  },
-});
-</script>
 
 <style lang="scss">
 .output-gamepad {

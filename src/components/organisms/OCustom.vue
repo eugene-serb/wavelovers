@@ -1,5 +1,50 @@
-﻿<template>
-  <NavigationList />
+﻿<script lang="ts">
+import { defineComponent } from 'vue';
+import store from '@/store/index';
+import { AMessage } from '@/components/atoms';
+import { MToolsNav, MGamepadList } from '@/components/molecules';
+import PatternUnit from '@/models/PatternUnit';
+
+import type { TPatternUnit } from '@/models/TPatternUnit';
+import type { IVibrator } from '@/models/IVibrator';
+
+export default defineComponent({
+  name: 'OCustom',
+  components: {
+    AMessage,
+    MToolsNav,
+    MGamepadList,
+  },
+  data: () => {
+    return {
+      startDelay: 250 as number,
+      duration: 250 as number,
+      weakMagnitude: 1 as number,
+      strongMagnitude: 1 as number,
+    };
+  },
+  computed: {
+    gamepads: function (): IVibrator[] {
+      return store.getters.gamepads as IVibrator[];
+    },
+  },
+  methods: {
+    start: function (): void {
+      const patterns: TPatternUnit[] = [
+        new PatternUnit(this.startDelay, this.duration, this.weakMagnitude, this.strongMagnitude),
+      ];
+      store.dispatch('startCustom', patterns);
+    },
+    stop: function (): void {
+      store.dispatch('reset');
+    },
+  },
+});
+</script>
+
+<template>
+  <MToolsNav />
+
   <div class="content-item app-custom">
     <fieldset class="custom-form">
       <label class="custom-form__input">
@@ -40,53 +85,10 @@
       </div>
     </fieldset>
   </div>
-  <GamepadList v-if="gamepads.length > 0" :gamepads="gamepads" />
-  <MessageItem v-else>Press any gamepad button or connect a new gamepad to vibrate.</MessageItem>
+
+  <MGamepadList v-if="gamepads.length > 0" :gamepads="gamepads" />
+  <AMessage v-else>Press any gamepad button or connect a new gamepad to vibrate.</AMessage>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-import store from '@/store/index';
-import NavigationList from '@/components/NavigationList.vue';
-import GamepadList from '@/components/GamepadList.vue';
-import MessageItem from '@/components/MessageItem.vue';
-import Vibrator from '@/models/Vibrator';
-import TPatternUnit from '@/models/TPatternUnit';
-import PatternUnit from '@/models/PatternUnit';
-
-export default defineComponent({
-  name: 'AppCustom',
-  components: {
-    NavigationList: NavigationList,
-    GamepadList: GamepadList,
-    MessageItem: MessageItem,
-  },
-  data: () => {
-    return {
-      startDelay: 250 as number,
-      duration: 250 as number,
-      weakMagnitude: 1 as number,
-      strongMagnitude: 1 as number,
-    };
-  },
-  computed: {
-    gamepads: function (): Vibrator[] {
-      return store.getters.gamepads as Vibrator[];
-    },
-  },
-  methods: {
-    start: function (): void {
-      const patterns: TPatternUnit[] = [
-        new PatternUnit(this.startDelay, this.duration, this.weakMagnitude, this.strongMagnitude),
-      ];
-      store.dispatch('startCustom', patterns);
-    },
-    stop: function (): void {
-      store.dispatch('reset');
-    },
-  },
-});
-</script>
 
 <style lang="scss">
 .custom-form {

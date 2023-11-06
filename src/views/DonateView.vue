@@ -1,3 +1,11 @@
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'DonateView',
+});
+</script>
+
 <template>
   <h1 class="visually-hidden">Wavelovers — Donate</h1>
   <div>
@@ -27,14 +35,6 @@
     </article>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'DonateView',
-});
-</script>
 
 <style>
 .link_hash {

@@ -1,16 +1,16 @@
-<template>
-  <h1 class="visually-hidden">Wavelovers — Diagnostic</h1>
-  <AppDiagnostic />
-</template>
-
 <script lang="ts">
 import { defineComponent } from 'vue';
-import AppDiagnostic from '@/components/AppDiagnostic.vue';
+import { ODiagnostic } from '@/components/organisms';
 
 export default defineComponent({
   name: 'DiagnosticView',
   components: {
-    AppDiagnostic: AppDiagnostic,
+    ODiagnostic,
   },
 });
 </script>
+
+<template>
+  <h1 class="visually-hidden">Wavelovers — Diagnostic</h1>
+  <ODiagnostic />
+</template>

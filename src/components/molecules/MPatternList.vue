@@ -1,6 +1,40 @@
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { APattern } from '@/components/atoms';
+
+import type { PropType } from 'vue';
+import type { TPattern } from '@/models/TPattern';
+
+export default defineComponent({
+  name: 'MPatternList',
+  components: {
+    APattern,
+  },
+  props: {
+    patterns: {
+      type: Array as PropType<TPattern[]>,
+      required: true,
+    },
+    mode: {
+      type: Number,
+      required: true,
+    },
+    isActive: {
+      type: Boolean,
+      required: true,
+    },
+  },
+  methods: {
+    change: function (index: number): void {
+      this.$emit('change', index as number);
+    },
+  },
+});
+</script>
+
 <template>
   <div class="content-item pattern-list">
-    <PatternItem
+    <APattern
       v-for="(pattern, index) in patterns"
       :key="pattern.name"
       :pattern="pattern"
@@ -11,34 +45,6 @@
     />
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-import PatternItem from '@/components/PatternItem.vue';
-
-export default defineComponent({
-  name: 'PatternList',
-  props: {
-    patterns: {
-      type: Array,
-    },
-    mode: {
-      type: Number,
-    },
-    isActive: {
-      type: Boolean,
-    },
-  },
-  components: {
-    PatternItem: PatternItem,
-  },
-  methods: {
-    change: function (index: number): void {
-      this.$emit('change', index as number);
-    },
-  },
-});
-</script>
 
 <style lang="scss">
 .pattern-list {

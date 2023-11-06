@@ -1,16 +1,16 @@
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'AGamepad',
+});
+</script>
+
 <template>
   <div class="list-item">
     <slot name="default" />
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'GamepadItem',
-});
-</script>
 
 <style lang="scss">
 .list-item {
