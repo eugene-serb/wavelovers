@@ -1,8 +1,10 @@
-import { createStore, Store } from 'vuex';
-import IRootState from '@/store/models/IRootState';
+import { createStore } from 'vuex';
 import MGamepads from '@/store/modules/MGamepads';
 import MPatterns from '@/store/modules/MPatterns';
-import TPatternUnit from '@/models/TPatternUnit';
+
+import type { Store } from 'vuex';
+import type { IRootState } from '@/store/models/IRootState';
+import type { TPatternUnit } from '@/models/TPatternUnit';
 
 const store: Store<IRootState> = createStore({
   state: () => ({

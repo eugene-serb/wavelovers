@@ -1,7 +1,5 @@
-import TPattern from '@/models/TPattern';
+import type { TPattern } from '@/models/TPattern';
 
-interface IPatternState {
+export interface IPatternState {
   patterns: TPattern[];
 }
-
-export default IPatternState;

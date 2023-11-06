@@ -1,7 +1,7 @@
-import IVibrationActuator from '@/models/IVibrationActuator';
-import IGamepadButton from '@/models/IGamepadButton';
+import type { IVibrationActuator } from '@/models/IVibrationActuator';
+import type { IGamepadButton } from '@/models/IGamepadButton';
 
-interface IGamepad {
+export interface IGamepad {
   readonly id: string;
   readonly index: number;
   readonly timestamp: number;
@@ -11,5 +11,3 @@ interface IGamepad {
   readonly buttons: IGamepadButton[];
   readonly vibrationActuator: IVibrationActuator;
 }
-
-export default IGamepad;

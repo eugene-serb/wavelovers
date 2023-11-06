@@ -1,6 +1,10 @@
 <template>
   <div class="content-item device-list">
-    <GamepadItem v-for="gamepad in gamepads" :key="gamepad.id" v-text="gamepad.unit.id" />
+    <GamepadItem v-for="gamepad in gamepads" :key="gamepad.id">
+      <template #default>
+        {{ gamepad.unit.id }}
+      </template>
+    </GamepadItem>
   </div>
 </template>
 

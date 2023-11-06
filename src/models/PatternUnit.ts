@@ -1,6 +1,6 @@
-import IPatternUnit from '@/models/IPatternUnit';
+import type { IPatternUnit } from '@/models/IPatternUnit';
 
-class PatternUnit implements IPatternUnit {
+export class PatternUnit implements IPatternUnit {
   startDelay: number;
   duration: number;
   weakMagnitude: number;

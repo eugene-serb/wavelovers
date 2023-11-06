@@ -1,10 +1,11 @@
-import { ActionContext, Module } from 'vuex';
-import IRootState from '@/store/models/IRootState';
-import IGamepadsState from '@/store/models/IGamepadsState';
 import Vibrator from '@/models/Vibrator';
-import IGamepad from '@/models/IGamepad';
-import IGamepadEvent from '@/models/IGamepadEvent';
-import TPatternUnit from '@/models/TPatternUnit';
+
+import type { ActionContext, Module } from 'vuex';
+import type { IRootState } from '@/store/models/IRootState';
+import type { IGamepadsState } from '@/store/models/IGamepadsState';
+import type { IGamepad } from '@/models/IGamepad';
+import type { IGamepadEvent } from '@/models/IGamepadEvent';
+import type { TPatternUnit } from '@/models/TPatternUnit';
 
 const MGamepads: Module<IGamepadsState, IRootState> = {
   state: () => ({

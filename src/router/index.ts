@@ -1,15 +1,12 @@
-import {
-  createRouter,
-  createWebHistory,
-  NavigationGuardNext,
-  RouteLocationNormalized,
-} from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import MetaTagUpdater from 'vue-meta-tag-updater';
 import routes from '@/router/assets/routes';
 import metas from '@/router/assets/metas';
 
+import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router';
+
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
 
