@@ -28,7 +28,7 @@ export default defineComponent({
     },
   },
   mounted() {
-    this.interval = setInterval(this.updateComputed, 1);
+    this.interval = window.setInterval(this.updateComputed, 1);
   },
   unmounted() {
     clearInterval(this.interval);

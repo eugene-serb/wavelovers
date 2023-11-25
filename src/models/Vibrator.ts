@@ -40,7 +40,7 @@ export class Vibrator implements IVibrator {
     this.canVibrate = this.unit.vibrationActuator ? true : false;
     this.isVibrating = false;
     this.update = this.update.bind(this);
-    this.interval = setInterval(this.update, 1);
+    this.interval = window.setInterval(this.update, 1);
   }
 
   update(): void {

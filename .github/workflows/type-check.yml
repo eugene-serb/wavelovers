@@ -1,0 +1,35 @@
+name: Type-Check
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+      - dev
+  workflow_dispatch:
+
+jobs:
+  type-check:
+    strategy:
+      matrix:
+        node-version: [20]
+        os: [ubuntu-22.04]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      
+      - name: Install and check types
+        run: |
+          npm ci
+          npm run type-check

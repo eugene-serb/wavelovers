@@ -5,3 +5,4 @@ export * from './GamepadButton';
 export * from './Gamepad';
 export * from './GamepadEvent';
 export * from './Vibrator';
+export * from './Router';
