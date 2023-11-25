@@ -31,7 +31,10 @@ const store: Store<IRootState> = createStore({
     setMode: function (context: ActionContext<IRootState, IRootState>, index: number): void {
       context.commit('setMode', index as number);
     },
-    setIsActive: function (context: ActionContext<IRootState, IRootState>, isActive: boolean): void {
+    setIsActive: function (
+      context: ActionContext<IRootState, IRootState>,
+      isActive: boolean,
+    ): void {
       context.commit('setIsActive', isActive as boolean);
     },
     change: function (context: ActionContext<IRootState, IRootState>, index: number): void {
@@ -48,7 +51,10 @@ const store: Store<IRootState> = createStore({
         context.dispatch('reset');
       }
     },
-    startCustom: function (context: ActionContext<IRootState, IRootState>, pattern: TPatternUnit[]): void {
+    startCustom: function (
+      context: ActionContext<IRootState, IRootState>,
+      pattern: TPatternUnit[],
+    ): void {
       context.dispatch('setIsActive', false);
       context.dispatch('setMode', 0);
       context.dispatch('reset');
