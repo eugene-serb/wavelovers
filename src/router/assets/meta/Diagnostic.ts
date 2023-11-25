@@ -1,4 +1,4 @@
-import type { IMeta } from 'vue-meta-tag-updater/src/types/IMeta';
+import type { IMeta } from '@/models';
 
 const meta: IMeta = {
   title: 'Wavelovers — Diagnostic',

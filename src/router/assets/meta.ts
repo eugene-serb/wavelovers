@@ -7,7 +7,7 @@ import metaAbout from '@/router/assets/meta/About';
 import metaDonate from '@/router/assets/meta/Donate';
 import meta404 from '@/router/assets/meta/404';
 
-import type { IRouteMeta } from 'vue-meta-tag-updater/src/types/IRouteMeta';
+import type { IRouteMeta } from '@/models';
 
 const metas: Array<IRouteMeta> = [
   {
