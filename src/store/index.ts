@@ -2,7 +2,7 @@ import { createStore } from 'vuex';
 import MGamepads from '@/store/modules/MGamepads';
 import MPatterns from '@/store/modules/MPatterns';
 
-import type { Store } from 'vuex';
+import type { ActionContext, Store } from 'vuex';
 import type { IRootState } from '@/store/models';
 import type { TPatternUnit } from '@/models';
 
@@ -28,13 +28,13 @@ const store: Store<IRootState> = createStore({
     },
   },
   actions: {
-    setMode: function (context, index: number): void {
+    setMode: function (context: ActionContext<IRootState, IRootState>, index: number): void {
       context.commit('setMode', index as number);
     },
-    setIsActive: function (context, isActive: boolean): void {
+    setIsActive: function (context: ActionContext<IRootState, IRootState>, isActive: boolean): void {
       context.commit('setIsActive', isActive as boolean);
     },
-    change: function (context, index: number): void {
+    change: function (context: ActionContext<IRootState, IRootState>, index: number): void {
       if (context.getters.mode === index) {
         context.dispatch('setIsActive', !context.getters.isActive);
       } else {
@@ -48,7 +48,7 @@ const store: Store<IRootState> = createStore({
         context.dispatch('reset');
       }
     },
-    startCustom: function (context, pattern: TPatternUnit[]): void {
+    startCustom: function (context: ActionContext<IRootState, IRootState>, pattern: TPatternUnit[]): void {
       context.dispatch('setIsActive', false);
       context.dispatch('setMode', 0);
       context.dispatch('reset');

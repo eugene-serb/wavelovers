@@ -96,7 +96,7 @@ export default defineComponent({
     },
   },
   mounted() {
-    this.interval = setInterval(this.eventLoop, 250);
+    this.interval = window.setInterval(this.eventLoop, 250);
   },
 });
 </script>

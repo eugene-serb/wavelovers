@@ -1,4 +1,4 @@
-import type IMeta from 'vue-meta-tag-updater/src/types/IMeta';
+import type { IMeta } from 'vue-meta-tag-updater/src/types/IMeta';
 
 const meta: IMeta = {
   title: 'Wavelovers — Manual',
