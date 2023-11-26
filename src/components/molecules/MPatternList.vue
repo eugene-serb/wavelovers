@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { APattern } from '@/components/atoms';
+import MPattern from '@/components/molecules/MPattern.vue';
 
 import type { PropType } from 'vue';
 import type { TPattern } from '@/models';
@@ -8,7 +8,7 @@ import type { TPattern } from '@/models';
 export default defineComponent({
   name: 'MPatternList',
   components: {
-    APattern,
+    MPattern,
   },
   props: {
     patterns: {
@@ -24,9 +24,14 @@ export default defineComponent({
       required: true,
     },
   },
+  emits: {
+    change(index: number): boolean {
+      return index >= 0;
+    },
+  },
   methods: {
     change: function (index: number): void {
-      this.$emit('change', index as number);
+      this.$emit('change', index);
     },
   },
 });
@@ -34,7 +39,7 @@ export default defineComponent({
 
 <template>
   <div class="content-item pattern-list">
-    <APattern
+    <MPattern
       v-for="(pattern, index) in patterns"
       :key="pattern.name"
       :pattern="pattern"
@@ -62,4 +67,3 @@ export default defineComponent({
   }
 }
 </style>
-@/models/Pattern

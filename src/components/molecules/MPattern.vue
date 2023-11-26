@@ -5,7 +5,7 @@ import type { PropType } from 'vue';
 import type { TPattern } from '@/models';
 
 export default defineComponent({
-  name: 'APattern',
+  name: 'MPattern',
   props: {
     pattern: {
       type: Object as PropType<TPattern>,
@@ -24,9 +24,14 @@ export default defineComponent({
       required: true,
     },
   },
+  emits: {
+    change(index: number): boolean {
+      return index >= 0;
+    },
+  },
   methods: {
     change: function (index: number): void {
-      this.$emit('change', index as number);
+      this.$emit('change', index);
     },
   },
 });
@@ -102,4 +107,3 @@ export default defineComponent({
   color: var(--color-pattern-text);
 }
 </style>
-@/models/Pattern
