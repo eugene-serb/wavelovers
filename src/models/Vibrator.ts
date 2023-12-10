@@ -1,61 +1,201 @@
-import type { TPatternUnit } from '@/models/PatternUnit';
-import type { IGamepad } from '@/models/Gamepad';
+import { sleep } from '@/utils';
 
+/**
+ * Тип TVibrator.
+ */
 export type TVibrator = {
-  unit: IGamepad;
+  /**
+   * Устройство.
+   */
+  device: Gamepad;
+
+  /**
+   * ID устройства.
+   */
   readonly id: number;
+
+  /**
+   * Может ли устройство вибрировать.
+   */
   readonly canVibrate: boolean;
+
+  /**
+   * Вибрирует ли оно в данный момент?
+   */
   isVibrating: boolean;
+
+  /**
+   * Интервал.
+   */
   interval: number;
+
+  /**
+   * Обновить информацию об устройстве.
+   *
+   * @returns {void}
+   */
   update(): void;
-  loop(pattern: TPatternUnit[]): Promise<void>;
-  vibrate(pattern: TPatternUnit): void;
+
+  /**
+   * Воспроизвести и повторять дорожку вибрации.
+   *
+   * @param {GamepadEffectParameters[]} track Дорожка вибрации.
+   * @returns {Promise<void>}
+   */
+  loop(track: GamepadEffectParameters[]): Promise<void>;
+
+  /**
+   * Воспроизвести вибрацию.
+   *
+   * @param {GamepadEffectParameters} params Шаблон вибрации
+   * @returns {void}
+   */
+  vibrate(params: GamepadEffectParameters): void;
+
+  /**
+   * Отключить вибрацию устройства.
+   *
+   * @returns {void}
+   */
   reset(): void;
-  sleep(ms: number): Promise<number>;
 };
 
+/**
+ * Интерфейс IVibrator.
+ */
 export interface IVibrator {
-  unit: IGamepad;
+  /**
+   * Устройство.
+   */
+  device: Gamepad;
+
+  /**
+   * ID устройства.
+   */
   readonly id: number;
+
+  /**
+   * Может ли устройство вибрировать.
+   */
   readonly canVibrate: boolean;
+
+  /**
+   * Вибрирует ли оно в данный момент?
+   */
   isVibrating: boolean;
+
+  /**
+   * Интервал.
+   */
   interval: number;
+
+  /**
+   * Обновить информацию об устройстве.
+   *
+   * @returns {void}
+   */
   update(): void;
-  loop(pattern: TPatternUnit[]): Promise<void>;
-  vibrate(pattern: TPatternUnit): void;
+
+  /**
+   * Воспроизвести и повторять дорожку вибрации.
+   *
+   * @param {GamepadEffectParameters[]} track Дорожка вибрации.
+   * @returns {Promise<void>}
+   */
+  loop(track: GamepadEffectParameters[]): Promise<void>;
+
+  /**
+   * Воспроизвести вибрацию.
+   *
+   * @param {GamepadEffectParameters} params Шаблон вибрации
+   * @returns {void}
+   */
+  vibrate(params: GamepadEffectParameters): void;
+
+  /**
+   * Отключить вибрацию устройства.
+   *
+   * @returns {void}
+   */
   reset(): void;
-  sleep(ms: number): Promise<number>;
 }
 
+/**
+ * Отрицательный временной сдвиг между запуском шаблонов.
+ *
+ * @description Чтобы при воспроизведении дорожки вибрации не было
+ * затухания перед выполнением новой вибрации, нужно из суммарной
+ * продолжительности выполнения шаблона вибрации вычесть
+ * немного времени, которое задаётся в этой константе.
+ *
+ * @constant
+ */
+const NEGATIVE_OFFSET_TIME = 10;
+
+/**
+ * Класс Vibrator.
+ *
+ * @class
+ */
 export class Vibrator implements IVibrator {
-  unit: IGamepad;
+  device: Gamepad;
   readonly id: number;
   readonly canVibrate: boolean;
   isVibrating: boolean;
   interval: number;
 
-  constructor(unit: IGamepad) {
-    this.unit = unit;
+  /**
+   * Конструктор класса Vibrator.
+   *
+   * @param {Gamepad} device Устройство, которое будет использоваться
+   * для воспроизведения вибрации или диагностики.
+   * @constructor
+   */
+  constructor(device: Gamepad) {
+    this.device = device;
     this.id = Date.now();
-    this.canVibrate = this.unit.vibrationActuator ? true : false;
+    this.canVibrate = this.device.vibrationActuator ? true : false;
     this.isVibrating = false;
     this.update = this.update.bind(this);
     this.interval = window.setInterval(this.update, 1);
   }
 
+  /**
+   * Обновить информацию об устройстве.
+   *
+   * @returns {void}
+   */
   update(): void {
     const gamepads = navigator.getGamepads();
-    this.unit = gamepads[this.unit.index] as unknown as IGamepad;
+
+    const gamepad = gamepads.find((gamepad) => gamepad?.index === this.device.index);
+
+    if (!gamepad) {
+      this.reset();
+      return;
+    }
+
+    this.device = gamepad;
   }
 
-  async loop(pattern: TPatternUnit[]): Promise<void> {
+  /**
+   * Воспроизвести и повторять вибрацию на устройстве по последовательности шаблонов.
+   *
+   * @param {GamepadEffectParameters[]} track Последовательность шаблонов параметров вибрации.
+   * @returns {Promise<void>}
+   */
+  async loop(track: GamepadEffectParameters[]): Promise<void> {
     this.isVibrating = true;
-    const offsetTime = 10;
-    while (this.isVibrating === true) {
-      for (let i = 0; i < pattern.length; i++) {
-        if (this.isVibrating === true) {
-          this.vibrate(pattern[i]);
-          await this.sleep(pattern[i].startDelay + pattern[i].duration - offsetTime);
+
+    while (this.isVibrating) {
+      for (let i = 0; i < track.length; i++) {
+        if (this.isVibrating) {
+          this.vibrate(track[i]);
+
+          const startDelay = track[i].startDelay || 0;
+          const duration = track[i].duration || 0;
+
+          await sleep(startDelay + duration - NEGATIVE_OFFSET_TIME);
         } else {
           return;
         }
@@ -63,17 +203,33 @@ export class Vibrator implements IVibrator {
     }
   }
 
-  vibrate(pattern: TPatternUnit): void {
-    this.unit.vibrationActuator.playEffect('dual-rumble', pattern);
+  /**
+   * Воспроизвести вибрацию на устройстве по шаблону.
+   *
+   * @param {GamepadEffectParameters} params Шаблон параметров вибрации.
+   * @returns {void}
+   */
+  vibrate(params: GamepadEffectParameters): void {
+    if (!this.device.vibrationActuator) {
+      return;
+    }
+
+    this.device.vibrationActuator.playEffect('dual-rumble', params);
   }
 
+  /**
+   * Отключить вибрацию устройства.
+   *
+   * @returns {void}
+   */
   reset(): void {
     this.isVibrating = false;
-    this.unit.vibrationActuator.reset();
-  }
 
-  sleep(ms: number): Promise<number> {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+    if (!this.device.vibrationActuator) {
+      return;
+    }
+
+    this.device.vibrationActuator.reset();
   }
 }
 

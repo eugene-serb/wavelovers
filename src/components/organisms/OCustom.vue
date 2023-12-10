@@ -3,9 +3,8 @@ import { defineComponent } from 'vue';
 import store from '@/store/index';
 import { AMessage } from '@/components/atoms';
 import { MToolsNav, MGamepadList } from '@/components/molecules';
-import PatternUnit from '@/models/PatternUnit';
 
-import type { TPatternUnit, TVibrator } from '@/models';
+import type { TVibrator } from '@/models';
 
 export default defineComponent({
   name: 'OCustom',
@@ -16,22 +15,28 @@ export default defineComponent({
   },
   data: () => {
     return {
-      startDelay: 250 as number,
-      duration: 250 as number,
-      weakMagnitude: 1 as number,
-      strongMagnitude: 1 as number,
+      startDelay: 250,
+      duration: 250,
+      weakMagnitude: 1,
+      strongMagnitude: 1,
     };
   },
   computed: {
     gamepads: function (): TVibrator[] {
-      return store.getters.gamepads as TVibrator[];
+      return store.getters.gamepads;
     },
   },
   methods: {
     start: function (): void {
-      const patterns: TPatternUnit[] = [
-        new PatternUnit(this.startDelay, this.duration, this.weakMagnitude, this.strongMagnitude),
+      const patterns: GamepadEffectParameters[] = [
+        {
+          startDelay: this.startDelay,
+          duration: this.duration, 
+          weakMagnitude: this.weakMagnitude,
+          strongMagnitude: this.strongMagnitude,
+        },
       ];
+      
       store.dispatch('startCustom', patterns);
     },
     stop: function (): void {

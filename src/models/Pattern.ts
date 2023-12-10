@@ -1,8 +1,24 @@
-import type { TPatternUnit } from '@/models/PatternUnit';
-
+/**
+ * Тип TPattern.
+ */
 export type TPattern = {
+  /**
+   * Название дорожки вибрации.
+   */
   name: string;
+
+  /**
+   * Тип дорожки.
+   */
   type: string;
+
+  /**
+   * Иконка дорожки.
+   */
   icon: string;
-  pattern: TPatternUnit[];
+
+  /**
+   * Дорожка вибрации.
+   */
+  pattern: GamepadEffectParameters[];
 };

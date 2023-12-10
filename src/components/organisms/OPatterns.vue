@@ -16,21 +16,21 @@ export default defineComponent({
   },
   computed: {
     gamepads: function (): TVibrator[] {
-      return store.getters.gamepads as TVibrator[];
+      return store.getters.gamepads;
     },
     patterns: function (): TPattern[] {
-      return store.getters.patterns as TPattern[];
+      return store.getters.patterns;
     },
     mode: function (): number {
-      return store.getters.mode as number;
+      return store.getters.mode;
     },
     isActive: function (): boolean {
-      return store.getters.isActive as boolean;
+      return store.getters.isActive;
     },
   },
   methods: {
     change(index: number): void {
-      store.dispatch('change', index as number);
+      store.dispatch('change', index);
     },
   },
   mounted() {

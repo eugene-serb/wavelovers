@@ -8,18 +8,20 @@ export default defineComponent({
   name: 'ComputedGamepads',
   data: () => {
     return {
-      timestamp: 0 as number,
-      interval: 0 as number,
+      timestamp: 0,
+      interval: 0,
     };
   },
   computed: {
     gamepads: function (): TVibrator[] {
       const timestamp: number = this.timestamp;
-      const result: TVibrator[] = store.getters.gamepads as TVibrator[];
-      result.forEach((item) => {
-        item.interval = timestamp;
+      const gamepads: TVibrator[] = store.getters.gamepads;
+
+      gamepads.forEach((gamepad) => {
+        gamepad.interval = timestamp;
       });
-      return result;
+
+      return gamepads;
     },
   },
   methods: {

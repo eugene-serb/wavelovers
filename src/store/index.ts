@@ -4,38 +4,37 @@ import MPatterns from '@/store/modules/MPatterns';
 
 import type { ActionContext, Store } from 'vuex';
 import type { IRootState } from '@/store/models';
-import type { TPatternUnit } from '@/models';
 
 const store: Store<IRootState> = createStore({
   state: () => ({
-    mode: 0 as number,
-    isActive: false as boolean,
+    mode: 0,
+    isActive: false,
   }),
   getters: {
     mode: function (state: IRootState): number {
-      return state.mode as number;
+      return state.mode;
     },
     isActive: function (state: IRootState): boolean {
-      return state.isActive as boolean;
+      return state.isActive;
     },
   },
   mutations: {
     setMode: function (state: IRootState, mode: number): void {
-      state.mode = mode as number;
+      state.mode = mode;
     },
     setIsActive: function (state: IRootState, isActive: boolean): void {
-      state.isActive = isActive as boolean;
+      state.isActive = isActive;
     },
   },
   actions: {
     setMode: function (context: ActionContext<IRootState, IRootState>, index: number): void {
-      context.commit('setMode', index as number);
+      context.commit('setMode', index);
     },
     setIsActive: function (
       context: ActionContext<IRootState, IRootState>,
       isActive: boolean,
     ): void {
-      context.commit('setIsActive', isActive as boolean);
+      context.commit('setIsActive', isActive);
     },
     change: function (context: ActionContext<IRootState, IRootState>, index: number): void {
       if (context.getters.mode === index) {
@@ -44,7 +43,8 @@ const store: Store<IRootState> = createStore({
         context.dispatch('setIsActive', true);
         context.dispatch('setMode', index);
       }
-      if (context.getters.isActive === true) {
+      
+      if (context.getters.isActive) {
         context.dispatch('reset');
         context.dispatch('loop', context.getters.patterns[context.getters.mode].pattern);
       } else {
@@ -53,7 +53,7 @@ const store: Store<IRootState> = createStore({
     },
     startCustom: function (
       context: ActionContext<IRootState, IRootState>,
-      pattern: TPatternUnit[],
+      pattern: GamepadEffectParameters[],
     ): void {
       context.dispatch('setIsActive', false);
       context.dispatch('setMode', 0);
