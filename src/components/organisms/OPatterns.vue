@@ -33,9 +33,6 @@ export default defineComponent({
       store.dispatch('change', index);
     },
   },
-  mounted() {
-    store.dispatch('loadPatterns');
-  },
 });
 </script>
 
