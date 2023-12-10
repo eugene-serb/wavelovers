@@ -1,14 +1,16 @@
 import { createStore } from 'vuex';
-import MGamepads from '@/store/modules/MGamepads';
-import MPatterns from '@/store/modules/MPatterns';
+import useGamepads from '@/store/useGamepads';
+import patterns from '@/assets/patterns.json';
 
 import type { ActionContext, Store } from 'vuex';
-import type { IRootState } from '@/store/models';
+import type { IRootState } from '@/store/types';
+import type { TPattern } from '@/models';
 
 const store: Store<IRootState> = createStore({
   state: () => ({
     mode: 0,
     isActive: false,
+    patterns: patterns,
   }),
   getters: {
     mode: function (state: IRootState): number {
@@ -16,6 +18,9 @@ const store: Store<IRootState> = createStore({
     },
     isActive: function (state: IRootState): boolean {
       return state.isActive;
+    },
+    patterns: function (state: IRootState): TPattern[] {
+      return state.patterns;
     },
   },
   mutations: {
@@ -62,8 +67,7 @@ const store: Store<IRootState> = createStore({
     },
   },
   modules: {
-    MGamepads,
-    MPatterns,
+    useGamepads,
   },
 });
 

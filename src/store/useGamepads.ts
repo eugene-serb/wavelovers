@@ -1,9 +1,9 @@
 import Vibrator from '@/models/Vibrator';
 
 import type { ActionContext, Module } from 'vuex';
-import type { IRootState, IGamepadsState } from '@/store/models';
+import type { IRootState, IGamepadsState } from '@/store/types';
 
-const MGamepads: Module<IGamepadsState, IRootState> = {
+const useGamepads: Module<IGamepadsState, IRootState> = {
   state: () => ({
     gamepads: [],
   }),
@@ -65,4 +65,4 @@ const MGamepads: Module<IGamepadsState, IRootState> = {
   },
 };
 
-export default MGamepads;
+export default useGamepads;
