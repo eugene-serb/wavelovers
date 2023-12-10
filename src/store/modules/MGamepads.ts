@@ -2,20 +2,19 @@ import Vibrator from '@/models/Vibrator';
 
 import type { ActionContext, Module } from 'vuex';
 import type { IRootState, IGamepadsState } from '@/store/models';
-import type { TPatternUnit, IGamepadEvent, IGamepad } from '@/models';
 
 const MGamepads: Module<IGamepadsState, IRootState> = {
   state: () => ({
-    gamepads: [] as Vibrator[],
+    gamepads: [],
   }),
   getters: {
     gamepads: function (state: IGamepadsState): Vibrator[] {
-      return state.gamepads as Vibrator[];
+      return state.gamepads;
     },
   },
   mutations: {
     addGamepad: function (state: IGamepadsState, gamepad: Vibrator): void {
-      state.gamepads.push(gamepad as Vibrator);
+      state.gamepads.push(gamepad);
     },
     deleteGamepad: function (state: IGamepadsState, index: number): void {
       state.gamepads.splice(index, 1);
@@ -26,11 +25,10 @@ const MGamepads: Module<IGamepadsState, IRootState> = {
       context: ActionContext<IGamepadsState, IRootState>,
       event: GamepadEvent,
     ): void {
-      const iEvent: IGamepadEvent = event as unknown as IGamepadEvent;
       if (context.getters.gamepads.length >= 1) {
         return;
       } else {
-        context.commit('addGamepad', new Vibrator(iEvent.gamepad as IGamepad));
+        context.commit('addGamepad', new Vibrator(event.gamepad));
       }
     },
     deleteGamepad: function (
@@ -38,14 +36,14 @@ const MGamepads: Module<IGamepadsState, IRootState> = {
       event: GamepadEvent,
     ): void {
       context.getters.gamepads.forEach((gamepad: Vibrator, index: number) => {
-        if (gamepad.unit.id === event.gamepad.id) {
-          context.commit('deleteGamepad', index as number);
+        if (gamepad.device.id === event.gamepad.id) {
+          context.commit('deleteGamepad', index);
         }
       });
     },
     loop: function (
       context: ActionContext<IGamepadsState, IRootState>,
-      pattern: TPatternUnit[],
+      pattern: GamepadEffectParameters[],
     ): void {
       context.getters.gamepads.forEach((gamepad: Vibrator) => {
         gamepad.loop(pattern);
@@ -53,7 +51,7 @@ const MGamepads: Module<IGamepadsState, IRootState> = {
     },
     vibrate: function (
       context: ActionContext<IGamepadsState, IRootState>,
-      pattern: TPatternUnit,
+      pattern: GamepadEffectParameters,
     ): void {
       context.getters.gamepads.forEach((gamepad: Vibrator) => {
         gamepad.vibrate(pattern);

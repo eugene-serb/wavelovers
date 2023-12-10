@@ -4,9 +4,8 @@ import store from '@/store/index';
 import { AMessage } from '@/components/atoms';
 import { MToolsNav, MGamepadList } from '@/components/molecules';
 import ComputedGamepads from '@/mixins/ComputedGamepads.vue';
-import PatternUnit from '@/models/PatternUnit';
 
-import type { TPatternUnit, TVibrator } from '@/models';
+import type { TVibrator } from '@/models';
 
 export default defineComponent({
   name: 'OManual',
@@ -18,22 +17,23 @@ export default defineComponent({
   },
   data: () => {
     return {
-      mode: 0 as number,
-      lock: false as boolean,
-      startDelay: 0 as number,
-      duration: 260 as number,
-      weakMagnitude: 0 as number,
-      strongMagnitude: 0 as number,
+      mode: 0,
+      lock: false,
+      startDelay: 0,
+      duration: 260,
+      weakMagnitude: 0,
+      strongMagnitude: 0,
     };
   },
   methods: {
     start: function (): void {
-      const pattern: TPatternUnit = new PatternUnit(
-        this.startDelay,
-        this.duration,
-        this.weakMagnitude,
-        this.strongMagnitude,
-      );
+      const pattern: GamepadEffectParameters = {
+        startDelay: this.startDelay,
+        duration: this.duration,
+        weakMagnitude: this.weakMagnitude,
+        strongMagnitude: this.strongMagnitude,
+      };
+
       store.dispatch('vibrate', pattern);
     },
     stop: function (): void {
@@ -49,17 +49,20 @@ export default defineComponent({
     },
     updateMode: function (): void {
       if (this.gamepads.length > 0) {
-        if (this.gamepads[0].unit.buttons[1].pressed === true) {
+        if (this.gamepads[0].device.buttons[1].pressed) {
           this.lock = !this.lock;
         }
+
         if (this.lock === false) {
-          if (this.gamepads[0].unit.buttons[0].pressed === true) {
+          if (this.gamepads[0].device.buttons[0].pressed) {
             this.mode = 0;
           }
-          if (this.gamepads[0].unit.buttons[2].pressed === true) {
+
+          if (this.gamepads[0].device.buttons[2].pressed) {
             this.mode = 1;
           }
-          if (this.gamepads[0].unit.buttons[3].pressed === true) {
+
+          if (this.gamepads[0].device.buttons[3].pressed) {
             this.mode = 2;
           }
         }
@@ -69,15 +72,17 @@ export default defineComponent({
       if (this.gamepads.length > 0) {
         if (this.lock === false) {
           if (this.mode === 0) {
-            this.weakMagnitude = this.gamepads[0].unit.buttons[7].value;
-            this.strongMagnitude = this.gamepads[0].unit.buttons[7].value;
+            this.weakMagnitude = this.gamepads[0].device.buttons[7].value;
+            this.strongMagnitude = this.gamepads[0].device.buttons[7].value;
           }
+
           if (this.mode === 1) {
             this.weakMagnitude = 0;
-            this.strongMagnitude = this.gamepads[0].unit.buttons[7].value;
+            this.strongMagnitude = this.gamepads[0].device.buttons[7].value;
           }
+
           if (this.mode === 2) {
-            this.weakMagnitude = this.gamepads[0].unit.buttons[7].value;
+            this.weakMagnitude = this.gamepads[0].device.buttons[7].value;
             this.strongMagnitude = 0;
           }
         }
@@ -86,7 +91,7 @@ export default defineComponent({
     handle: function (): void {
       if (this.gamepads.length > 0) {
         this.gamepads.forEach((gamepad: TVibrator) => {
-          if (gamepad.unit.buttons[7].value > 0 || this.lock === true) {
+          if (gamepad.device.buttons[7].value > 0 || this.lock) {
             this.start();
           } else {
             this.stop();

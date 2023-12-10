@@ -21,80 +21,84 @@ export default defineComponent({
 
 <template>
   <div class="output-gamepad">
-    <h3>#{{ gamepad.unit.index + 1 }}. {{ gamepad.unit.id }}</h3>
+    <h3>#{{ gamepad.device.index + 1 }}. {{ gamepad.device.id }}</h3>
     <div class="gamepad-group">
       <div>
-        <span :class="[gamepad.unit.buttons[0].value === 1 ? 'pressed' : '']">
-          A: {{ gamepad.unit.buttons[0].value.toFixed(2) }}
+        <span :class="[gamepad.device.buttons[0].value === 1 ? 'pressed' : '']">
+          A: {{ gamepad.device.buttons[0].value.toFixed(2) }}
         </span>
-        <span :class="[gamepad.unit.buttons[1].value === 1 ? 'pressed' : '']">
-          B: {{ gamepad.unit.buttons[1].value.toFixed(2) }}
+        <span :class="[gamepad.device.buttons[1].value === 1 ? 'pressed' : '']">
+          B: {{ gamepad.device.buttons[1].value.toFixed(2) }}
         </span>
-        <span :class="[gamepad.unit.buttons[2].value === 1 ? 'pressed' : '']">
-          X: {{ gamepad.unit.buttons[2].value.toFixed(2) }}
+        <span :class="[gamepad.device.buttons[2].value === 1 ? 'pressed' : '']">
+          X: {{ gamepad.device.buttons[2].value.toFixed(2) }}
         </span>
-        <span :class="[gamepad.unit.buttons[3].value === 1 ? 'pressed' : '']">
-          Y: {{ gamepad.unit.buttons[3].value.toFixed(2) }}
-        </span>
-      </div>
-      <div>
-        <span :class="[gamepad.unit.buttons[4].value === 1 ? 'pressed' : '']">
-          LB: {{ gamepad.unit.buttons[4].value.toFixed(2) }}
-        </span>
-        <span :class="[gamepad.unit.buttons[5].value === 1 ? 'pressed' : '']">
-          RB: {{ gamepad.unit.buttons[5].value.toFixed(2) }}
-        </span>
-        <span :class="[gamepad.unit.buttons[6].value === 1 ? 'pressed' : '']">
-          LT: {{ gamepad.unit.buttons[6].value.toFixed(2) }}
-        </span>
-        <span :class="[gamepad.unit.buttons[7].value === 1 ? 'pressed' : '']">
-          RT: {{ gamepad.unit.buttons[7].value.toFixed(2) }}
+        <span :class="[gamepad.device.buttons[3].value === 1 ? 'pressed' : '']">
+          Y: {{ gamepad.device.buttons[3].value.toFixed(2) }}
         </span>
       </div>
       <div>
-        <span :class="[gamepad.unit.buttons[8].value === 1 ? 'pressed' : '']">
-          Back: {{ gamepad.unit.buttons[8].value.toFixed(2) }}
+        <span :class="[gamepad.device.buttons[4].value === 1 ? 'pressed' : '']">
+          LB: {{ gamepad.device.buttons[4].value.toFixed(2) }}
         </span>
-        <span :class="[gamepad.unit.buttons[9].value === 1 ? 'pressed' : '']">
-          Start: {{ gamepad.unit.buttons[9].value.toFixed(2) }}
+        <span :class="[gamepad.device.buttons[5].value === 1 ? 'pressed' : '']">
+          RB: {{ gamepad.device.buttons[5].value.toFixed(2) }}
         </span>
-        <span :class="[gamepad.unit.buttons[10].value === 1 ? 'pressed' : '']">
-          Left Stick: {{ gamepad.unit.buttons[10].value.toFixed(2) }}
+        <span :class="[gamepad.device.buttons[6].value === 1 ? 'pressed' : '']">
+          LT: {{ gamepad.device.buttons[6].value.toFixed(2) }}
         </span>
-        <span :class="[gamepad.unit.buttons[11].value === 1 ? 'pressed' : '']">
-          Right Stick: {{ gamepad.unit.buttons[11].value.toFixed(2) }}
+        <span :class="[gamepad.device.buttons[7].value === 1 ? 'pressed' : '']">
+          RT: {{ gamepad.device.buttons[7].value.toFixed(2) }}
         </span>
       </div>
       <div>
-        <span :class="[gamepad.unit.buttons[12].value === 1 ? 'pressed' : '']">
-          Forward: {{ gamepad.unit.buttons[12].value.toFixed(2) }}
+        <span :class="[gamepad.device.buttons[8].value === 1 ? 'pressed' : '']">
+          Back: {{ gamepad.device.buttons[8].value.toFixed(2) }}
         </span>
-        <span :class="[gamepad.unit.buttons[13].value === 1 ? 'pressed' : '']">
-          Backward: {{ gamepad.unit.buttons[13].value.toFixed(2) }}
+        <span :class="[gamepad.device.buttons[9].value === 1 ? 'pressed' : '']">
+          Start: {{ gamepad.device.buttons[9].value.toFixed(2) }}
         </span>
-        <span :class="[gamepad.unit.buttons[14].value === 1 ? 'pressed' : '']">
-          Left: {{ gamepad.unit.buttons[14].value.toFixed(2) }}
+        <span :class="[gamepad.device.buttons[10].value === 1 ? 'pressed' : '']">
+          Left Stick: {{ gamepad.device.buttons[10].value.toFixed(2) }}
         </span>
-        <span :class="[gamepad.unit.buttons[15].value === 1 ? 'pressed' : '']">
-          Right: {{ gamepad.unit.buttons[15].value.toFixed(2) }}
+        <span :class="[gamepad.device.buttons[11].value === 1 ? 'pressed' : '']">
+          Right Stick: {{ gamepad.device.buttons[11].value.toFixed(2) }}
+        </span>
+      </div>
+      <div>
+        <span :class="[gamepad.device.buttons[12].value === 1 ? 'pressed' : '']">
+          Forward: {{ gamepad.device.buttons[12].value.toFixed(2) }}
+        </span>
+        <span :class="[gamepad.device.buttons[13].value === 1 ? 'pressed' : '']">
+          Backward: {{ gamepad.device.buttons[13].value.toFixed(2) }}
+        </span>
+        <span :class="[gamepad.device.buttons[14].value === 1 ? 'pressed' : '']">
+          Left: {{ gamepad.device.buttons[14].value.toFixed(2) }}
+        </span>
+        <span :class="[gamepad.device.buttons[15].value === 1 ? 'pressed' : '']">
+          Right: {{ gamepad.device.buttons[15].value.toFixed(2) }}
         </span>
       </div>
       <div>
         <span>
-          Left Stick X: {{ gamepad.unit.axes[0] ? gamepad.unit.axes[0].toFixed(2) : 'missing' }}
+          Left Stick X: {{ gamepad.device.axes[0] ? gamepad.device.axes[0].toFixed(2) : 'missing' }}
         </span>
         <span>
-          Left Stick Y: {{ gamepad.unit.axes[1] ? gamepad.unit.axes[1].toFixed(2) : 'missing' }}
+          Left Stick Y: {{ gamepad.device.axes[1] ? gamepad.device.axes[1].toFixed(2) : 'missing' }}
         </span>
         <span>
-          Right Stick X: {{ gamepad.unit.axes[2] ? gamepad.unit.axes[2].toFixed(2) : 'missing' }}
+          Right Stick X:
+          {{ gamepad.device.axes[2] ? gamepad.device.axes[2].toFixed(2) : 'missing' }}
         </span>
         <span>
-          Right Stick Y: {{ gamepad.unit.axes[3] ? gamepad.unit.axes[3].toFixed(2) : 'missing' }}
+          Right Stick Y:
+          {{ gamepad.device.axes[3] ? gamepad.device.axes[3].toFixed(2) : 'missing' }}
         </span>
       </div>
     </div>
-    <span>Vibration Actuator: {{ gamepad.unit.vibrationActuator ? 'Available' : 'missing' }}</span>
+    <span>
+      Vibration Actuator: {{ gamepad.device.vibrationActuator ? 'Available' : 'Missing' }}
+    </span>
   </div>
 </template>
 

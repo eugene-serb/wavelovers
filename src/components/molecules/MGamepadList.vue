@@ -23,7 +23,7 @@ export default defineComponent({
   <div class="content-item device-list">
     <AGamepad v-for="gamepad in gamepads" :key="gamepad.id">
       <template #default>
-        {{ gamepad.unit.id }}
+        {{ gamepad.device.id }}
       </template>
     </AGamepad>
   </div>
