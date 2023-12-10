@@ -26,7 +26,7 @@ const MPatterns: Module<IPatternState, IRootState> = {
 
       try {
         const response: Response = await fetch(url);
-        
+
         if (response.ok) {
           const patterns: TPattern[] = await response.json();
           context.commit('setPatterns', patterns);

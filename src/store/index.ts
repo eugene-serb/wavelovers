@@ -43,7 +43,7 @@ const store: Store<IRootState> = createStore({
         context.dispatch('setIsActive', true);
         context.dispatch('setMode', index);
       }
-      
+
       if (context.getters.isActive) {
         context.dispatch('reset');
         context.dispatch('loop', context.getters.patterns[context.getters.mode].pattern);

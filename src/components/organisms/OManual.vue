@@ -75,7 +75,7 @@ export default defineComponent({
             this.weakMagnitude = this.gamepads[0].device.buttons[7].value;
             this.strongMagnitude = this.gamepads[0].device.buttons[7].value;
           }
-          
+
           if (this.mode === 1) {
             this.weakMagnitude = 0;
             this.strongMagnitude = this.gamepads[0].device.buttons[7].value;

@@ -31,12 +31,12 @@ export default defineComponent({
       const patterns: GamepadEffectParameters[] = [
         {
           startDelay: this.startDelay,
-          duration: this.duration, 
+          duration: this.duration,
           weakMagnitude: this.weakMagnitude,
           strongMagnitude: this.strongMagnitude,
         },
       ];
-      
+
       store.dispatch('startCustom', patterns);
     },
     stop: function (): void {

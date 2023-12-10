@@ -87,14 +87,18 @@ export default defineComponent({
           Left Stick Y: {{ gamepad.device.axes[1] ? gamepad.device.axes[1].toFixed(2) : 'missing' }}
         </span>
         <span>
-          Right Stick X: {{ gamepad.device.axes[2] ? gamepad.device.axes[2].toFixed(2) : 'missing' }}
+          Right Stick X:
+          {{ gamepad.device.axes[2] ? gamepad.device.axes[2].toFixed(2) : 'missing' }}
         </span>
         <span>
-          Right Stick Y: {{ gamepad.device.axes[3] ? gamepad.device.axes[3].toFixed(2) : 'missing' }}
+          Right Stick Y:
+          {{ gamepad.device.axes[3] ? gamepad.device.axes[3].toFixed(2) : 'missing' }}
         </span>
       </div>
     </div>
-    <span>Vibration Actuator: {{ gamepad.device.vibrationActuator ? 'Available' : 'Missing' }}</span>
+    <span>
+      Vibration Actuator: {{ gamepad.device.vibrationActuator ? 'Available' : 'Missing' }}
+    </span>
   </div>
 </template>
 
