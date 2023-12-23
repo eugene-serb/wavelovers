@@ -39,7 +39,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits({
+const emits = defineEmits({
   click(index: number): boolean {
     return index >= 0;
   },
@@ -56,7 +56,7 @@ const isSelected = computed<boolean>(() => props.index === props.mode && props.i
  * @param index Индекс элемента.
  */
 function onClick(index: number): void {
-  emit('click', index);
+  emits('click', index);
 }
 </script>
 
