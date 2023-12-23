@@ -21,24 +21,24 @@ export const useGamepads = defineStore('gamepads', () => {
 
   /**
    * Временная метка.
-   * 
+   *
    * @description Нужна для обновления состояния геймпадов, т.к. сами они это не делают.
    */
   const timestamp = ref<number>(0);
 
   /**
    * Геймпады.
-   * 
+   *
    * @description Просто массив с геймпадами. Нужен для того,
    * чтобы на его основе получить обновлённый список геймпадов.
    * @see gamepads
    * @private
    */
-    const _gamepads = ref<TVibrator[]>([]);
+  const _gamepads = ref<TVibrator[]>([]);
 
   /**
    * Интервал.
-   * 
+   *
    * @private
    */
   const _interval = ref<number>(0);
@@ -131,7 +131,7 @@ export const useGamepads = defineStore('gamepads', () => {
     timestamp.value = Date.now();
   }
 
-  onMounted(() => _interval.value = window.setInterval(updateTimestamp, 1));
+  onMounted(() => (_interval.value = window.setInterval(updateTimestamp, 1)));
   onUnmounted(() => clearInterval(_interval.value));
 
   return {

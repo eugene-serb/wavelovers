@@ -17,7 +17,7 @@ const { vibrate, reset } = store;
 
 /**
  * Интервал, необходимый для запуска цикла событий.
- * 
+ *
  * @see eventLoop
  */
 const interval = ref<number>(0);
@@ -77,7 +77,7 @@ function stop(): void {
 
 /**
  * Запустить или остановить вибрацию.
- * 
+ *
  * @description Останавливает вибрацию, если нет блокировки интенсивности,
  * иначе продолжает вибрировать до следующей проверки.
  */
@@ -151,7 +151,7 @@ function eventLoop(): void {
   handle();
 }
 
-onMounted(() => interval.value = window.setInterval(eventLoop, 250));
+onMounted(() => (interval.value = window.setInterval(eventLoop, 250)));
 onUnmounted(() => clearInterval(interval.value));
 </script>
 

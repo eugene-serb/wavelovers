@@ -33,7 +33,7 @@ const props = defineProps({
   /**
    * Индекс шаблона.
    */
-   index: {
+  index: {
     type: Number,
     required: true,
   },
@@ -52,7 +52,7 @@ const isSelected = computed<boolean>(() => props.index === props.mode && props.i
 
 /**
  * Событие выполняемое при клике кнопки мыши.
- * 
+ *
  * @param index Индекс элемента.
  */
 function onClick(index: number): void {
