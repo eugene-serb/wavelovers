@@ -1,40 +1,33 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { defineComponent, onMounted, onUnmounted } from 'vue';
 import { RouterView } from 'vue-router';
 import { useGamepads } from '@/store/useGamepads';
 import LDefault from '@/layouts/LDefault.vue';
 
-export default defineComponent({
+defineComponent({
   name: 'App',
-  components: {
-    LDefault,
-    RouterView,
-  },
-  setup() {
-    const { addGamepad, deleteGamepad } = useGamepads();
-
-    return {
-      addGamepad,
-      deleteGamepad,
-    };
-  },
-  methods: {
-    addEventListeners: function (): void {
-      window.addEventListener('gamepadconnected', this.addGamepad);
-      window.addEventListener('gamepaddisconnected', this.deleteGamepad);
-    },
-    removeEventListeners: function (): void {
-      window.removeEventListener('gamepadconnected', this.addGamepad);
-      window.removeEventListener('gamepaddisconnected', this.deleteGamepad);
-    },
-  },
-  mounted() {
-    this.addEventListeners();
-  },
-  unmounted() {
-    this.removeEventListeners();
-  },
 });
+
+const { addGamepad, deleteGamepad } = useGamepads();
+
+/**
+ * Добавить слушатели событий.
+ */
+function addEventListeners(): void {
+  window.addEventListener('gamepadconnected', addGamepad);
+  window.addEventListener('gamepaddisconnected', deleteGamepad);
+}
+
+/**
+ * Убрать слушатели событий.
+ */
+function removeEventListeners(): void {
+  window.removeEventListener('gamepadconnected', addGamepad);
+  window.removeEventListener('gamepaddisconnected', deleteGamepad);
+}
+
+onMounted(() => addEventListeners());
+onUnmounted(() => removeEventListeners());
 </script>
 
 <template>

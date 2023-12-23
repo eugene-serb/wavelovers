@@ -1,40 +1,52 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { defineComponent, defineProps, defineEmits } from 'vue';
 import MPattern from '@/components/molecules/MPattern.vue';
 
 import type { PropType } from 'vue';
 import type { TPattern } from '@/models';
 
-export default defineComponent({
+defineComponent({
   name: 'MPatternList',
-  components: {
-    MPattern,
+});
+
+defineProps({
+  /**
+   * Шаблоны вибрации.
+   */
+  patterns: {
+    type: Array as PropType<TPattern[]>,
+    required: true,
   },
-  props: {
-    patterns: {
-      type: Array as PropType<TPattern[]>,
-      required: true,
-    },
-    mode: {
-      type: Number,
-      required: true,
-    },
-    isActive: {
-      type: Boolean,
-      required: true,
-    },
+  /**
+   * Текущая вибрация.
+   */
+  mode: {
+    type: Number,
+    required: true,
   },
-  emits: {
-    change(index: number): boolean {
-      return index >= 0;
-    },
-  },
-  methods: {
-    change: function (index: number): void {
-      this.$emit('change', index);
-    },
+  /**
+   * Включена ли вибрация сейчас?
+   */
+  isActive: {
+    type: Boolean,
+    required: true,
   },
 });
+
+const emits = defineEmits({
+  click(index: number): boolean {
+    return index >= 0;
+  },
+});
+
+/**
+ * Событие выполняемое при клике кнопки мыши.
+ * 
+ * @param index Индекс элемента.
+ */
+function onClick(index: number): void {
+  emits('click', index);
+}
 </script>
 
 <template>
@@ -46,7 +58,7 @@ export default defineComponent({
       :index="index"
       :mode="mode"
       :isActive="isActive"
-      @change="change"
+      @click="onClick"
     />
   </div>
 </template>

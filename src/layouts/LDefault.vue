@@ -1,13 +1,9 @@
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent } from 'vue';
 import { MHeader, MFooter } from '@/components/molecules';
 
-export default defineComponent({
+defineComponent({
   name: 'LDefault',
-  components: {
-    MHeader,
-    MFooter,
-  },
 });
 </script>
 
