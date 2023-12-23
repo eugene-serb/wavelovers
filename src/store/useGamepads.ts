@@ -1,68 +1,106 @@
-import Vibrator from '@/models/Vibrator';
+import { ref } from 'vue';
+import { defineStore } from 'pinia';
+import { Vibrator } from '@/models';
+import patterns from '@/assets/patterns.json';
 
-import type { ActionContext, Module } from 'vuex';
-import type { IRootState, IGamepadsState } from '@/store/types';
+import type { TVibrator } from '@/models';
 
-const useGamepads: Module<IGamepadsState, IRootState> = {
-  state: () => ({
-    gamepads: [],
-  }),
-  getters: {
-    gamepads: function (state: IGamepadsState): Vibrator[] {
-      return state.gamepads;
-    },
-  },
-  mutations: {
-    addGamepad: function (state: IGamepadsState, gamepad: Vibrator): void {
-      state.gamepads.push(gamepad);
-    },
-    deleteGamepad: function (state: IGamepadsState, index: number): void {
-      state.gamepads.splice(index, 1);
-    },
-  },
-  actions: {
-    addGamepad: function (
-      context: ActionContext<IGamepadsState, IRootState>,
-      event: GamepadEvent,
-    ): void {
-      if (context.getters.gamepads.length >= 1) {
-        return;
-      } else {
-        context.commit('addGamepad', new Vibrator(event.gamepad));
-      }
-    },
-    deleteGamepad: function (
-      context: ActionContext<IGamepadsState, IRootState>,
-      event: GamepadEvent,
-    ): void {
-      context.getters.gamepads.forEach((gamepad: Vibrator, index: number) => {
-        if (gamepad.device.id === event.gamepad.id) {
-          context.commit('deleteGamepad', index);
-        }
-      });
-    },
-    loop: function (
-      context: ActionContext<IGamepadsState, IRootState>,
-      pattern: GamepadEffectParameters[],
-    ): void {
-      context.getters.gamepads.forEach((gamepad: Vibrator) => {
-        gamepad.loop(pattern);
-      });
-    },
-    vibrate: function (
-      context: ActionContext<IGamepadsState, IRootState>,
-      pattern: GamepadEffectParameters,
-    ): void {
-      context.getters.gamepads.forEach((gamepad: Vibrator) => {
-        gamepad.vibrate(pattern);
-      });
-    },
-    reset: function (context: ActionContext<IGamepadsState, IRootState>): void {
-      context.getters.gamepads.forEach((gamepad: Vibrator) => {
-        gamepad.reset();
-      });
-    },
-  },
-};
+/**
+ * Стор геймпадов.
+ */
+export const useGamepads = defineStore('gamepads', () => {
+  /**
+   * Номер шаблона вибрации.
+   */
+  const mode = ref<number>(0);
 
-export default useGamepads;
+  /**
+   * Активна вибрация?
+   */
+  const isActive = ref<boolean>(false);
+
+  /**
+   * Геймпады.
+   */
+  const gamepads = ref<TVibrator[]>([]);
+
+  /**
+   * Сменить вибрацию.
+   *
+   * @param index Номер вибрации.
+   */
+  function change(index: number): void {
+    if (mode.value === index) {
+      isActive.value = !isActive.value;
+    } else {
+      isActive.value = true;
+      mode.value = index;
+    }
+
+    reset();
+
+    if (isActive.value) {
+      loop(patterns[mode.value].pattern);
+    }
+  }
+
+  /**
+   * Добавить геймпад.
+   *
+   * @param event Событие геймпада.
+   */
+  function addGamepad(event: GamepadEvent): void {
+    if (gamepads.value.length >= 1) {
+      return;
+    }
+
+    gamepads.value.push(new Vibrator(event.gamepad));
+  }
+
+  /**
+   * Удалить геймпад.
+   *
+   * @param event Событие геймпада.
+   */
+  function deleteGamepad(event: GamepadEvent): void {
+    gamepads.value = gamepads.value.filter((gamepad) => gamepad.device.id !== event.gamepad.id);
+  }
+
+  /**
+   * Воспроизвести дорожку вибрации.
+   *
+   * @param pattern Дорожка шаблонов вибраций.
+   */
+  function loop(pattern: GamepadEffectParameters[]): void {
+    gamepads.value.forEach((gamepad) => gamepad.loop(pattern));
+  }
+
+  /**
+   * Запустить вибрацию.
+   *
+   * @param pattern Шаблон вибрации.
+   */
+  function vibrate(pattern: GamepadEffectParameters): void {
+    gamepads.value.forEach((gamepad) => gamepad.vibrate(pattern));
+  }
+
+  /**
+   * Отключить вибрацию.
+   */
+  function reset(): void {
+    gamepads.value.forEach((gamepad) => gamepad.reset());
+  }
+
+  return {
+    mode,
+    loop,
+    reset,
+    change,
+    vibrate,
+    gamepads,
+    isActive,
+    patterns,
+    addGamepad,
+    deleteGamepad,
+  };
+});

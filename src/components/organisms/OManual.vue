@@ -1,6 +1,7 @@
 ﻿<script lang="ts">
 import { defineComponent } from 'vue';
-import store from '@/store/index';
+import { storeToRefs } from 'pinia';
+import { useGamepads } from '@/store/useGamepads';
 import { AMessage } from '@/components/atoms';
 import { MToolsNav, MGamepadList } from '@/components/molecules';
 import ComputedGamepads from '@/mixins/ComputedGamepads.vue';
@@ -14,6 +15,14 @@ export default defineComponent({
     AMessage,
     MToolsNav,
     MGamepadList,
+  },
+  setup() {
+    const store = useGamepads();
+
+    const { isActive, mode: patternMode } = storeToRefs(store);
+    const { vibrate, reset } = store;
+
+    return { isActive, patternMode, vibrate, reset };
   },
   data: () => {
     return {
@@ -34,12 +43,12 @@ export default defineComponent({
         strongMagnitude: this.strongMagnitude,
       };
 
-      store.dispatch('vibrate', pattern);
+      this.vibrate(pattern);
     },
     stop: function (): void {
-      store.dispatch('setIsActive', false);
-      store.dispatch('setMode', 0);
-      store.dispatch('reset');
+      this.reset();
+      this.isActive = false;
+      this.patternMode = 0;
     },
     eventLoop: function (): void {
       this.updateComputed();
@@ -48,12 +57,12 @@ export default defineComponent({
       this.handle();
     },
     updateMode: function (): void {
-      if (this.gamepads.length > 0) {
+      if (this.gamepads.length) {
         if (this.gamepads[0].device.buttons[1].pressed) {
           this.lock = !this.lock;
         }
 
-        if (this.lock === false) {
+        if (!this.lock) {
           if (this.gamepads[0].device.buttons[0].pressed) {
             this.mode = 0;
           }
@@ -69,8 +78,8 @@ export default defineComponent({
       }
     },
     updatePattern: function (): void {
-      if (this.gamepads.length > 0) {
-        if (this.lock === false) {
+      if (this.gamepads.length) {
+        if (!this.lock) {
           if (this.mode === 0) {
             this.weakMagnitude = this.gamepads[0].device.buttons[7].value;
             this.strongMagnitude = this.gamepads[0].device.buttons[7].value;
@@ -89,9 +98,9 @@ export default defineComponent({
       }
     },
     handle: function (): void {
-      if (this.gamepads.length > 0) {
+      if (this.gamepads.length) {
         this.gamepads.forEach((gamepad: TVibrator) => {
-          if (gamepad.device.buttons[7].value > 0 || this.lock) {
+          if (gamepad.device.buttons[7].value || this.lock) {
             this.start();
           } else {
             this.stop();

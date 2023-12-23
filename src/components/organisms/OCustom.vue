@@ -1,10 +1,9 @@
 ﻿<script lang="ts">
 import { defineComponent } from 'vue';
-import store from '@/store/index';
+import { storeToRefs } from 'pinia';
+import { useGamepads } from '@/store/useGamepads';
 import { AMessage } from '@/components/atoms';
 import { MToolsNav, MGamepadList } from '@/components/molecules';
-
-import type { TVibrator } from '@/models';
 
 export default defineComponent({
   name: 'OCustom',
@@ -13,6 +12,14 @@ export default defineComponent({
     MToolsNav,
     MGamepadList,
   },
+  setup() {
+    const store = useGamepads();
+
+    const { reset, loop } = store;
+    const { gamepads } = storeToRefs(store);
+
+    return { gamepads, reset, loop };
+  },
   data: () => {
     return {
       startDelay: 250,
@@ -20,11 +27,6 @@ export default defineComponent({
       weakMagnitude: 1,
       strongMagnitude: 1,
     };
-  },
-  computed: {
-    gamepads: function (): TVibrator[] {
-      return store.getters.gamepads;
-    },
   },
   methods: {
     start: function (): void {
@@ -37,10 +39,11 @@ export default defineComponent({
         },
       ];
 
-      store.dispatch('startCustom', patterns);
+      this.reset();
+      this.loop(patterns);
     },
     stop: function (): void {
-      store.dispatch('reset');
+      this.reset();
     },
   },
 });

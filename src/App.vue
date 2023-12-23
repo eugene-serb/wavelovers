@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { RouterView } from 'vue-router';
-import store from '@/store/index';
+import { useGamepads } from '@/store/useGamepads';
 import LDefault from '@/layouts/LDefault.vue';
 
 export default defineComponent({
@@ -10,13 +10,15 @@ export default defineComponent({
     LDefault,
     RouterView,
   },
+  setup() {
+    const { addGamepad, deleteGamepad } = useGamepads();
+
+    return {
+      addGamepad,
+      deleteGamepad,
+    };
+  },
   methods: {
-    addGamepad: function (event: GamepadEvent): void {
-      store.dispatch('addGamepad', event);
-    },
-    deleteGamepad: function (event: GamepadEvent): void {
-      store.dispatch('deleteGamepad', event);
-    },
     addEventListeners: function (): void {
       window.addEventListener('gamepadconnected', this.addGamepad);
       window.addEventListener('gamepaddisconnected', this.deleteGamepad);
