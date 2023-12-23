@@ -16,6 +16,12 @@ defineProps({
     type: Object as PropType<TVibrator>,
     required: true,
   },
+  /**
+   * Временная метка.
+   *
+   * @description Нужна для обновления состояния геймпадов и компонента,
+   * т.к. сами они это не делают.
+   */
   timestamp: {
     type: Number,
     required: true,
