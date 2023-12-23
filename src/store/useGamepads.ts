@@ -26,7 +26,7 @@ export const useGamepads = defineStore('gamepads', () => {
 
   /**
    * Сменить вибрацию.
-   * 
+   *
    * @param index Номер вибрации.
    */
   function change(index: number): void {
@@ -46,7 +46,7 @@ export const useGamepads = defineStore('gamepads', () => {
 
   /**
    * Добавить геймпад.
-   * 
+   *
    * @param event Событие геймпада.
    */
   function addGamepad(event: GamepadEvent): void {
@@ -59,7 +59,7 @@ export const useGamepads = defineStore('gamepads', () => {
 
   /**
    * Удалить геймпад.
-   * 
+   *
    * @param event Событие геймпада.
    */
   function deleteGamepad(event: GamepadEvent): void {
@@ -68,7 +68,7 @@ export const useGamepads = defineStore('gamepads', () => {
 
   /**
    * Воспроизвести дорожку вибрации.
-   * 
+   *
    * @param pattern Дорожка шаблонов вибраций.
    */
   function loop(pattern: GamepadEffectParameters[]): void {
@@ -77,7 +77,7 @@ export const useGamepads = defineStore('gamepads', () => {
 
   /**
    * Запустить вибрацию.
-   * 
+   *
    * @param pattern Шаблон вибрации.
    */
   function vibrate(pattern: GamepadEffectParameters): void {
