@@ -1,8 +1,10 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import store from '@/store/index';
+import { useGamepads } from '@/store/useGamepads';
 
 import type { TVibrator } from '@/models';
+
+const { gamepads: storeGamepads } = useGamepads();
 
 export default defineComponent({
   name: 'ComputedGamepads',
@@ -15,7 +17,7 @@ export default defineComponent({
   computed: {
     gamepads: function (): TVibrator[] {
       const timestamp: number = this.timestamp;
-      const gamepads: TVibrator[] = store.getters.gamepads;
+      const gamepads: TVibrator[] = storeGamepads;
 
       gamepads.forEach((gamepad) => {
         gamepad.interval = timestamp;

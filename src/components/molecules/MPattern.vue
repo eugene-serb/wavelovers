@@ -41,7 +41,7 @@ export default defineComponent({
   <div
     @click="change(index)"
     class="pattern-item"
-    :class="index === mode && isActive === true ? 'pattern-item_selected' : ''"
+    :class="index === mode && isActive ? 'pattern-item_selected' : ''"
   >
     <span class="pattern-item__icon">{{ pattern.icon }}</span>
     <div class="pattern-item__info-container">

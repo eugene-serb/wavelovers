@@ -1,10 +1,9 @@
 ﻿<script lang="ts">
 import { defineComponent } from 'vue';
-import store from '@/store/index';
+import { storeToRefs } from 'pinia';
+import { useGamepads } from '@/store/useGamepads';
 import { AMessage } from '@/components/atoms';
 import { MToolsNav, MGamepadList, MPatternList } from '@/components/molecules';
-
-import type { TPattern, TVibrator } from '@/models';
 
 export default defineComponent({
   name: 'OPatterns',
@@ -14,23 +13,23 @@ export default defineComponent({
     MPatternList,
     MGamepadList,
   },
-  computed: {
-    gamepads: function (): TVibrator[] {
-      return store.getters.gamepads;
-    },
-    patterns: function (): TPattern[] {
-      return store.getters.patterns;
-    },
-    mode: function (): number {
-      return store.getters.mode;
-    },
-    isActive: function (): boolean {
-      return store.getters.isActive;
-    },
+  setup() {
+    const store = useGamepads();
+
+    const { gamepads, mode, isActive } = storeToRefs(store);
+    const { change: changeMode, patterns } = store;
+
+    return {
+      mode,
+      gamepads,
+      patterns,
+      isActive,
+      changeMode,
+    };
   },
   methods: {
     change(index: number): void {
-      store.dispatch('change', index);
+      this.changeMode(index);
     },
   },
 });
@@ -41,7 +40,7 @@ export default defineComponent({
 
   <div class="app-patterns">
     <MPatternList
-      v-if="patterns.length > 0"
+      v-if="patterns.length"
       :patterns="patterns"
       :mode="mode"
       :isActive="isActive"
