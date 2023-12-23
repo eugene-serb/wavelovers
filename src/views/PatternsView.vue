@@ -1,12 +1,9 @@
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent } from 'vue';
 import { OPatterns } from '@/components/organisms';
 
-export default defineComponent({
+defineComponent({
   name: 'PatternsView',
-  components: {
-    OPatterns,
-  },
 });
 </script>
 

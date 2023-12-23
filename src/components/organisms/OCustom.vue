@@ -1,52 +1,54 @@
-﻿<script lang="ts">
-import { defineComponent } from 'vue';
+﻿<script setup lang="ts">
+import { defineComponent, ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useGamepads } from '@/store/useGamepads';
 import { AMessage } from '@/components/atoms';
 import { MToolsNav, MGamepadList } from '@/components/molecules';
 
-export default defineComponent({
+defineComponent({
   name: 'OCustom',
-  components: {
-    AMessage,
-    MToolsNav,
-    MGamepadList,
-  },
-  setup() {
-    const store = useGamepads();
-
-    const { reset, loop } = store;
-    const { gamepads } = storeToRefs(store);
-
-    return { gamepads, reset, loop };
-  },
-  data: () => {
-    return {
-      startDelay: 250,
-      duration: 250,
-      weakMagnitude: 1,
-      strongMagnitude: 1,
-    };
-  },
-  methods: {
-    start: function (): void {
-      const patterns: GamepadEffectParameters[] = [
-        {
-          startDelay: this.startDelay,
-          duration: this.duration,
-          weakMagnitude: this.weakMagnitude,
-          strongMagnitude: this.strongMagnitude,
-        },
-      ];
-
-      this.reset();
-      this.loop(patterns);
-    },
-    stop: function (): void {
-      this.reset();
-    },
-  },
 });
+
+const store = useGamepads();
+const { gamepads } = storeToRefs(store);
+const { reset, loop } = store;
+
+/**
+ * Пауза перед стартом вибрации.
+ */
+const startDelay = ref<number>(250);
+
+/**
+ * Продолжительность вибрации.
+ */
+const duration = ref<number>(250);
+
+/**
+ * Интенсивность слабого вибропривода.
+ */
+const weakMagnitude = ref<number>(1);
+
+/**
+ * Интенсивность сильного вибропривода.
+ */
+const strongMagnitude = ref<number>(1);
+
+/**
+ * Воспроизвести вибрации.
+ */
+function start(): void {
+  const patterns: GamepadEffectParameters[] = [
+    {
+      startDelay: startDelay.value,
+      duration: duration.value,
+      weakMagnitude: weakMagnitude.value,
+      strongMagnitude: strongMagnitude.value,
+    },
+  ];
+
+  reset();
+  loop(patterns);
+}
 </script>
 
 <template>
@@ -88,12 +90,12 @@ export default defineComponent({
       </label>
       <div class="custom-form__buttons">
         <button @click="start" class="custom-form__button">Start</button>
-        <button @click="stop" class="custom-form__button">Stop</button>
+        <button @click="reset" class="custom-form__button">Stop</button>
       </div>
     </fieldset>
   </div>
 
-  <MGamepadList v-if="gamepads.length > 0" :gamepads="gamepads" />
+  <MGamepadList v-if="gamepads.length" :gamepads="gamepads" />
   <AMessage v-else>Press any gamepad button or connect a new gamepad to vibrate.</AMessage>
 </template>
 

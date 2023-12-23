@@ -1,118 +1,158 @@
-﻿<script lang="ts">
-import { defineComponent } from 'vue';
+﻿<script setup lang="ts">
+import { defineComponent, ref, onMounted, onUnmounted } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useGamepads } from '@/store/useGamepads';
 import { AMessage } from '@/components/atoms';
 import { MToolsNav, MGamepadList } from '@/components/molecules';
-import ComputedGamepads from '@/mixins/ComputedGamepads.vue';
 
 import type { TVibrator } from '@/models';
 
-export default defineComponent({
+defineComponent({
   name: 'OManual',
-  mixins: [ComputedGamepads],
-  components: {
-    AMessage,
-    MToolsNav,
-    MGamepadList,
-  },
-  setup() {
-    const store = useGamepads();
-
-    const { isActive, mode: patternMode } = storeToRefs(store);
-    const { vibrate, reset } = store;
-
-    return { isActive, patternMode, vibrate, reset };
-  },
-  data: () => {
-    return {
-      mode: 0,
-      lock: false,
-      startDelay: 0,
-      duration: 260,
-      weakMagnitude: 0,
-      strongMagnitude: 0,
-    };
-  },
-  methods: {
-    start: function (): void {
-      const pattern: GamepadEffectParameters = {
-        startDelay: this.startDelay,
-        duration: this.duration,
-        weakMagnitude: this.weakMagnitude,
-        strongMagnitude: this.strongMagnitude,
-      };
-
-      this.vibrate(pattern);
-    },
-    stop: function (): void {
-      this.reset();
-      this.isActive = false;
-      this.patternMode = 0;
-    },
-    eventLoop: function (): void {
-      this.updateComputed();
-      this.updateMode();
-      this.updatePattern();
-      this.handle();
-    },
-    updateMode: function (): void {
-      if (this.gamepads.length) {
-        if (this.gamepads[0].device.buttons[1].pressed) {
-          this.lock = !this.lock;
-        }
-
-        if (!this.lock) {
-          if (this.gamepads[0].device.buttons[0].pressed) {
-            this.mode = 0;
-          }
-
-          if (this.gamepads[0].device.buttons[2].pressed) {
-            this.mode = 1;
-          }
-
-          if (this.gamepads[0].device.buttons[3].pressed) {
-            this.mode = 2;
-          }
-        }
-      }
-    },
-    updatePattern: function (): void {
-      if (this.gamepads.length) {
-        if (!this.lock) {
-          if (this.mode === 0) {
-            this.weakMagnitude = this.gamepads[0].device.buttons[7].value;
-            this.strongMagnitude = this.gamepads[0].device.buttons[7].value;
-          }
-
-          if (this.mode === 1) {
-            this.weakMagnitude = 0;
-            this.strongMagnitude = this.gamepads[0].device.buttons[7].value;
-          }
-
-          if (this.mode === 2) {
-            this.weakMagnitude = this.gamepads[0].device.buttons[7].value;
-            this.strongMagnitude = 0;
-          }
-        }
-      }
-    },
-    handle: function (): void {
-      if (this.gamepads.length) {
-        this.gamepads.forEach((gamepad: TVibrator) => {
-          if (gamepad.device.buttons[7].value || this.lock) {
-            this.start();
-          } else {
-            this.stop();
-          }
-        });
-      }
-    },
-  },
-  mounted() {
-    this.interval = window.setInterval(this.eventLoop, 250);
-  },
 });
+
+const store = useGamepads();
+const { gamepads, isActive, patternMode } = storeToRefs(store);
+const { vibrate, reset } = store;
+
+/**
+ * Интервал, необходимый для запуска цикла событий.
+ *
+ * @see eventLoop
+ */
+const interval = ref<number>(0);
+
+/**
+ * Режим работы вибратора.
+ */
+const mode = ref<number>(0);
+
+/**
+ * Заблокирована ли интенсивность?
+ */
+const lock = ref<boolean>(false);
+
+/**
+ * Пауза перед стартом вибрации.
+ */
+const startDelay = ref<number>(0);
+
+/**
+ * Продолжительность вибрации.
+ */
+const duration = ref<number>(260);
+
+/**
+ * Интенсивность слабого вибропривода.
+ */
+const weakMagnitude = ref<number>(0);
+
+/**
+ * Интенсивность сильного вибропривода.
+ */
+const strongMagnitude = ref<number>(0);
+
+/**
+ * Воспроизвести вибрации.
+ */
+function start(): void {
+  const pattern: GamepadEffectParameters = {
+    startDelay: startDelay.value,
+    duration: duration.value,
+    weakMagnitude: weakMagnitude.value,
+    strongMagnitude: strongMagnitude.value,
+  };
+
+  vibrate(pattern);
+}
+
+/**
+ * Остановить вибрации.
+ */
+function stop(): void {
+  reset();
+  isActive.value = false;
+  patternMode.value = 0;
+}
+
+/**
+ * Запустить или остановить вибрацию.
+ *
+ * @description Останавливает вибрацию, если нет блокировки интенсивности,
+ * иначе продолжает вибрировать до следующей проверки.
+ */
+function handle(): void {
+  if (gamepads.value.length) {
+    gamepads.value.forEach((gamepad: TVibrator) => {
+      if (gamepad.device.buttons[7].value || lock.value) {
+        start();
+      } else {
+        stop();
+      }
+    });
+  }
+}
+
+/**
+ * Обновить шаблон вибрации.
+ */
+function updatePattern(): void {
+  if (gamepads.value.length) {
+    if (!lock.value) {
+      if (mode.value === 0) {
+        weakMagnitude.value = gamepads.value[0].device.buttons[7].value;
+        strongMagnitude.value = gamepads.value[0].device.buttons[7].value;
+      }
+
+      if (mode.value === 1) {
+        weakMagnitude.value = 0;
+        strongMagnitude.value = gamepads.value[0].device.buttons[7].value;
+      }
+
+      if (mode.value === 2) {
+        weakMagnitude.value = gamepads.value[0].device.buttons[7].value;
+        strongMagnitude.value = 0;
+      }
+    }
+  }
+}
+
+/**
+ * Обновить режим вибрации.
+ */
+function updateMode(): void {
+  if (gamepads.value.length) {
+    if (gamepads.value[0].device.buttons[1].pressed) {
+      lock.value = !lock.value;
+    }
+
+    if (!lock.value) {
+      if (gamepads.value[0].device.buttons[0].pressed) {
+        mode.value = 0;
+      }
+
+      if (gamepads.value[0].device.buttons[2].pressed) {
+        mode.value = 1;
+      }
+
+      if (gamepads.value[0].device.buttons[3].pressed) {
+        mode.value = 2;
+      }
+    }
+  }
+}
+
+/**
+ * Цикл событий.
+ */
+function eventLoop(): void {
+  updateMode();
+  updatePattern();
+  handle();
+}
+
+onMounted(() => (interval.value = window.setInterval(eventLoop, 250)));
+onUnmounted(() => clearInterval(interval.value));
 </script>
 
 <template>
@@ -167,7 +207,7 @@ export default defineComponent({
     </div>
   </div>
 
-  <MGamepadList v-if="gamepads.length > 0" :gamepads="gamepads" />
+  <MGamepadList v-if="gamepads.length" :gamepads="gamepads" />
   <AMessage v-else>Press any gamepad button or connect a new gamepad to vibrate.</AMessage>
 </template>
 

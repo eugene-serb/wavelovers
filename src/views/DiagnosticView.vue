@@ -1,12 +1,9 @@
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent } from 'vue';
 import { ODiagnostic } from '@/components/organisms';
 
-export default defineComponent({
+defineComponent({
   name: 'DiagnosticView',
-  components: {
-    ODiagnostic,
-  },
 });
 </script>
 

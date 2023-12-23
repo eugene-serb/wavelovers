@@ -1,38 +1,17 @@
-﻿<script lang="ts">
+﻿<script setup lang="ts">
 import { defineComponent } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useGamepads } from '@/store/useGamepads';
 import { AMessage } from '@/components/atoms';
 import { MToolsNav, MGamepadList, MPatternList } from '@/components/molecules';
 
-export default defineComponent({
+defineComponent({
   name: 'OPatterns',
-  components: {
-    AMessage,
-    MToolsNav,
-    MPatternList,
-    MGamepadList,
-  },
-  setup() {
-    const store = useGamepads();
-
-    const { gamepads, mode, isActive } = storeToRefs(store);
-    const { change: changeMode, patterns } = store;
-
-    return {
-      mode,
-      gamepads,
-      patterns,
-      isActive,
-      changeMode,
-    };
-  },
-  methods: {
-    change(index: number): void {
-      this.changeMode(index);
-    },
-  },
 });
+
+const store = useGamepads();
+const { gamepads, patternMode, isActive } = storeToRefs(store);
+const { change, patterns } = store;
 </script>
 
 <template>
@@ -42,13 +21,13 @@ export default defineComponent({
     <MPatternList
       v-if="patterns.length"
       :patterns="patterns"
-      :mode="mode"
+      :mode="patternMode"
       :isActive="isActive"
-      @change="change"
+      @click="change"
     />
     <AMessage v-else>Loading...</AMessage>
   </div>
 
-  <MGamepadList v-if="gamepads.length > 0" :gamepads="gamepads" />
+  <MGamepadList v-if="gamepads.length" :gamepads="gamepads" />
   <AMessage v-else>Press any gamepad button or connect a new gamepad to vibrate.</AMessage>
 </template>

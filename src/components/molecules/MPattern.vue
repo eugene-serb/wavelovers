@@ -1,47 +1,70 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { defineComponent, defineProps, defineEmits, computed } from 'vue';
 
 import type { PropType } from 'vue';
 import type { TPattern } from '@/models';
 
-export default defineComponent({
+defineComponent({
   name: 'MPattern',
-  props: {
-    pattern: {
-      type: Object as PropType<TPattern>,
-      required: true,
-    },
-    index: {
-      type: Number,
-      required: true,
-    },
-    mode: {
-      type: Number,
-      required: true,
-    },
-    isActive: {
-      type: Boolean,
-      required: true,
-    },
+});
+
+const props = defineProps({
+  /**
+   * Шаблон вибрации.
+   */
+  pattern: {
+    type: Object as PropType<TPattern>,
+    required: true,
   },
-  emits: {
-    change(index: number): boolean {
-      return index >= 0;
-    },
+  /**
+   * Текущая вибрация.
+   */
+  mode: {
+    type: Number,
+    required: true,
   },
-  methods: {
-    change: function (index: number): void {
-      this.$emit('change', index);
-    },
+  /**
+   * Включена ли вибрация сейчас?
+   */
+  isActive: {
+    type: Boolean,
+    required: true,
+  },
+  /**
+   * Индекс шаблона.
+   */
+  index: {
+    type: Number,
+    required: true,
   },
 });
+
+const emits = defineEmits({
+  click(index: number): boolean {
+    return index >= 0;
+  },
+});
+
+/**
+ * Отражает состояние, выбран ли шаблон или нет.
+ */
+const isSelected = computed<boolean>(() => props.index === props.mode && props.isActive);
+
+/**
+ * Событие выполняемое при клике кнопки мыши.
+ *
+ * @param index Индекс элемента.
+ */
+function onClick(index: number): void {
+  emits('click', index);
+}
 </script>
 
 <template>
   <div
-    @click="change(index)"
     class="pattern-item"
-    :class="index === mode && isActive ? 'pattern-item_selected' : ''"
+    :class="{ 'pattern-item_selected': isSelected }"
+    @click="onClick(index)"
   >
     <span class="pattern-item__icon">{{ pattern.icon }}</span>
     <div class="pattern-item__info-container">
