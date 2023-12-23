@@ -15,7 +15,7 @@ This is Wavelovers, a gamepad vibration test tool that can also turn a gamepad i
 ![](https://img.shields.io/badge/TypeScript-informational?style=flat-square&logo=typescript&logoColor=FFFFFF&color=007ACC)
 ![](https://img.shields.io/badge/Vue.js-informational?style=flat-square&logo=vue.js&logoColor=FFFFFF&color=42B983)
 ![](https://img.shields.io/badge/Vue%20Router-informational?style=flat-square&logo=vue.js&logoColor=FFFFFF&color=42B983)
-![](https://img.shields.io/badge/Vuex-informational?style=flat-square&logo=vue.js&logoColor=FFFFFF&color=42B983)
+![](https://img.shields.io/badge/🍍-Pinia-informational?style=flat-square&logo=pinia&logoColor=FFFFFF&color=42B983&labelColor=42B983)
 ![](https://img.shields.io/badge/Vite-informational?style=flat-square&logo=vite&logoColor=FFFFFF&color=42B983)
 ![](https://img.shields.io/badge/Vitest-informational?style=flat-square&logo=vitest&logoColor=FFFFFF&color=42B983)
 ![](https://img.shields.io/badge/Node.JS-informational?style=flat-square&logo=node.js&logoColor=FFFFFF&color=3C873A)
