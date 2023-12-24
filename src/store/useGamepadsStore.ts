@@ -1,4 +1,4 @@
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
 import { Vibrator } from '@/models';
 import patterns from '@/assets/patterns.json';
@@ -27,6 +27,13 @@ export const useGamepadsStore = defineStore('gamepads', () => {
   const timestamp = ref<number>(0);
 
   /**
+   * Интервал.
+   *
+   * @private
+   */
+  const _interval = ref<number>(0);
+
+  /**
    * Геймпады.
    *
    * @description Просто массив с геймпадами. Нужен для того,
@@ -35,13 +42,6 @@ export const useGamepadsStore = defineStore('gamepads', () => {
    * @private
    */
   const _gamepads = ref<TVibrator[]>([]);
-
-  /**
-   * Интервал.
-   *
-   * @private
-   */
-  const _interval = ref<number>(0);
 
   /**
    * Геймпады.
@@ -78,28 +78,6 @@ export const useGamepadsStore = defineStore('gamepads', () => {
   }
 
   /**
-   * Добавить геймпад.
-   *
-   * @param event Событие геймпада.
-   */
-  function addGamepad(event: GamepadEvent): void {
-    if (_gamepads.value.length >= 1) {
-      return;
-    }
-
-    _gamepads.value.push(new Vibrator(event.gamepad));
-  }
-
-  /**
-   * Удалить геймпад.
-   *
-   * @param event Событие геймпада.
-   */
-  function deleteGamepad(event: GamepadEvent): void {
-    _gamepads.value = _gamepads.value.filter((gamepad) => gamepad.device.id !== event.gamepad.id);
-  }
-
-  /**
    * Воспроизвести дорожку вибрации.
    *
    * @param pattern Дорожка шаблонов вибраций.
@@ -126,26 +104,91 @@ export const useGamepadsStore = defineStore('gamepads', () => {
 
   /**
    * Обновить временную метку.
+   *
+   * @private
    */
-  function updateTimestamp(): void {
+  function _updateTimestamp(): void {
     timestamp.value = Date.now();
   }
 
-  onMounted(() => (_interval.value = window.setInterval(updateTimestamp, 1)));
-  onUnmounted(() => clearInterval(_interval.value));
+  /**
+   * Добавить геймпад.
+   *
+   * @private
+   * @param event Событие геймпада.
+   */
+  function _addGamepad(event: GamepadEvent): void {
+    if (_gamepads.value.length >= 1) {
+      return;
+    }
+
+    _gamepads.value.push(new Vibrator(event.gamepad));
+  }
+
+  /**
+   * Удалить геймпад.
+   *
+   * @private
+   * @param event Событие геймпада.
+   */
+  function _deleteGamepad(event: GamepadEvent): void {
+    _gamepads.value = _gamepads.value.filter((gamepad) => gamepad.device.id !== event.gamepad.id);
+  }
+
+  /**
+   * Добавить слушатели событий.
+   *
+   * @private
+   */
+  function _addEventListeners(): void {
+    window.addEventListener('gamepadconnected', _addGamepad);
+    window.addEventListener('gamepaddisconnected', _deleteGamepad);
+  }
+
+  /**
+   * Убрать слушатели событий.
+   *
+   * @private
+   */
+  function _removeEventListeners(): void {
+    window.removeEventListener('gamepadconnected', _addGamepad);
+    window.removeEventListener('gamepaddisconnected', _deleteGamepad);
+  }
+
+  /**
+   * Запустить работу приложения.
+   *
+   * @description Запускает слушатели событий для добавления и удаления геймпадов,
+   * а также, их обновления.
+   */
+  function initialize() {
+    _addEventListeners();
+    _interval.value = window.setInterval(_updateTimestamp, 1);
+  }
+
+  /**
+   * Завершить работу приложения.
+   *
+   * @description Удаляет слушатели событий для добавления и удаления геймпадов,
+   * а также, их обновления.
+   */
+  function terminate() {
+    _removeEventListeners();
+    _interval.value = window.setInterval(_updateTimestamp, 1);
+  }
 
   return {
+    gamepads,
+    patterns,
+    isActive,
+    timestamp,
+    patternMode,
     loop,
-    reset,
     change,
     vibrate,
-    gamepads,
-    isActive,
-    patterns,
-    timestamp,
-    addGamepad,
-    patternMode,
-    deleteGamepad,
+    reset,
+    terminate,
+    initialize,
   };
 });
 
