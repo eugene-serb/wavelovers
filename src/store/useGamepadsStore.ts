@@ -104,7 +104,7 @@ export const useGamepadsStore = defineStore('gamepads', () => {
 
   /**
    * Обновить временную метку.
-   * 
+   *
    * @private
    */
   function _updateTimestamp(): void {
@@ -137,7 +137,7 @@ export const useGamepadsStore = defineStore('gamepads', () => {
 
   /**
    * Добавить слушатели событий.
-   * 
+   *
    * @private
    */
   function _addEventListeners(): void {
@@ -147,7 +147,7 @@ export const useGamepadsStore = defineStore('gamepads', () => {
 
   /**
    * Убрать слушатели событий.
-   * 
+   *
    * @private
    */
   function _removeEventListeners(): void {
@@ -157,7 +157,7 @@ export const useGamepadsStore = defineStore('gamepads', () => {
 
   /**
    * Запустить работу приложения.
-   * 
+   *
    * @description Запускает слушатели событий для добавления и удаления геймпадов,
    * а также, их обновления.
    */
@@ -168,7 +168,7 @@ export const useGamepadsStore = defineStore('gamepads', () => {
 
   /**
    * Завершить работу приложения.
-   * 
+   *
    * @description Удаляет слушатели событий для добавления и удаления геймпадов,
    * а также, их обновления.
    */
