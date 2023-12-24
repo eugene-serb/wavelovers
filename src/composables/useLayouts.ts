@@ -5,12 +5,27 @@ import LGamepad from '@/layouts/LGamepad.vue';
 
 import type { Component } from 'vue';
 
-const layouts: { [index: string]: Component } = {
+/**
+ * Лейауты.
+ */
+type Layouts = {
+  [index: string]: Component;
+};
+
+/**
+ * Лейауты.
+ */
+const layouts: Layouts = {
   DEFAULT: LDefault,
   GAMEPAD: LGamepad,
 };
 
-export function useLayouts() {
+/**
+ * Композабл для получения соответствующего лейаута маршруту.
+ *
+ * @returns Лейаут.
+ */
+export function useLayouts(): Component {
   const route = useRoute();
 
   const layout = computed<Component>(() => {
