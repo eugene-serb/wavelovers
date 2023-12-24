@@ -13,6 +13,13 @@ type Layouts = {
 };
 
 /**
+ * Результат работы композабла лейатов.
+ */
+type LayoutsComposable = {
+  layout: Component;
+};
+
+/**
  * Лейауты.
  */
 const layouts: Layouts = {
@@ -25,7 +32,7 @@ const layouts: Layouts = {
  *
  * @returns Лейаут.
  */
-export function useLayouts(): Component {
+export function useLayouts(): LayoutsComposable {
   const route = useRoute();
 
   const layout = computed<Component>(() => {
