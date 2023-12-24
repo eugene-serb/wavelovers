@@ -1,12 +1,12 @@
 ﻿<script setup lang="ts">
 import { defineComponent, ref } from 'vue';
-import { useGamepads } from '@/store/useGamepads';
+import { useGamepadsStore } from '@/store/useGamepadsStore';
 
 defineComponent({
   name: 'OCustom',
 });
 
-const { reset, loop } = useGamepads();
+const { reset, loop } = useGamepadsStore();
 
 /**
  * Пауза перед стартом вибрации.

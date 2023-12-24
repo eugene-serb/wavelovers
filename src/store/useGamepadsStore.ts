@@ -8,7 +8,7 @@ import type { TVibrator } from '@/models';
 /**
  * Стор геймпадов.
  */
-export const useGamepads = defineStore('gamepads', () => {
+export const useGamepadsStore = defineStore('gamepads', () => {
   /**
    * Номер шаблона вибрации.
    */
@@ -148,3 +148,5 @@ export const useGamepads = defineStore('gamepads', () => {
     deleteGamepad,
   };
 });
+
+export default useGamepadsStore;

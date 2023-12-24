@@ -1,7 +1,7 @@
 ﻿<script setup lang="ts">
 import { defineComponent } from 'vue';
 import { storeToRefs } from 'pinia';
-import { useGamepads } from '@/store/useGamepads';
+import { useGamepadsStore } from '@/store/useGamepadsStore';
 import { AMessage } from '@/components/atoms';
 import { MPatternList } from '@/components/molecules';
 
@@ -9,7 +9,7 @@ defineComponent({
   name: 'OPatterns',
 });
 
-const store = useGamepads();
+const store = useGamepadsStore();
 const { patternMode, isActive } = storeToRefs(store);
 const { change, patterns } = store;
 </script>

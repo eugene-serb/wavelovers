@@ -1,7 +1,7 @@
 ﻿<script setup lang="ts">
 import { defineComponent, ref, onMounted, onUnmounted } from 'vue';
 import { storeToRefs } from 'pinia';
-import { useGamepads } from '@/store/useGamepads';
+import { useGamepadsStore } from '@/store/useGamepadsStore';
 
 import type { TVibrator } from '@/models';
 
@@ -9,7 +9,7 @@ defineComponent({
   name: 'OManual',
 });
 
-const store = useGamepads();
+const store = useGamepadsStore();
 const { gamepads, isActive, patternMode } = storeToRefs(store);
 const { vibrate, reset } = store;
 

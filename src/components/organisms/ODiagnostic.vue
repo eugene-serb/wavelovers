@@ -1,14 +1,14 @@
 ﻿<script setup lang="ts">
 import { defineComponent } from 'vue';
 import { storeToRefs } from 'pinia';
-import { useGamepads } from '@/store/useGamepads';
+import { useGamepadsStore } from '@/store/useGamepadsStore';
 import { MDiagnosticItem } from '@/components/molecules';
 
 defineComponent({
   name: 'ODiagnostic',
 });
 
-const store = useGamepads();
+const store = useGamepadsStore();
 const { gamepads, timestamp } = storeToRefs(store);
 </script>
 

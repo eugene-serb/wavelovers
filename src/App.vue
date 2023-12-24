@@ -2,14 +2,14 @@
 import { defineComponent, onMounted, onUnmounted } from 'vue';
 import { RouterView } from 'vue-router';
 import { useLayouts } from '@/composables/useLayouts';
-import { useGamepads } from '@/store/useGamepads';
+import { useGamepadsStore } from '@/store/useGamepadsStore';
 
 defineComponent({
   name: 'App',
 });
 
 const { layout } = useLayouts();
-const { addGamepad, deleteGamepad } = useGamepads();
+const { addGamepad, deleteGamepad } = useGamepadsStore();
 
 /**
  * Добавить слушатели событий.
