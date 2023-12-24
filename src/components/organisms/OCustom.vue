@@ -1,17 +1,12 @@
 ﻿<script setup lang="ts">
 import { defineComponent, ref } from 'vue';
-import { storeToRefs } from 'pinia';
 import { useGamepads } from '@/store/useGamepads';
-import { AMessage } from '@/components/atoms';
-import { MToolsNav, MGamepadList } from '@/components/molecules';
 
 defineComponent({
   name: 'OCustom',
 });
 
-const store = useGamepads();
-const { gamepads } = storeToRefs(store);
-const { reset, loop } = store;
+const { reset, loop } = useGamepads();
 
 /**
  * Пауза перед стартом вибрации.
@@ -52,8 +47,6 @@ function start(): void {
 </script>
 
 <template>
-  <MToolsNav />
-
   <div class="content-item app-custom">
     <fieldset class="custom-form">
       <label class="custom-form__input">
@@ -94,9 +87,6 @@ function start(): void {
       </div>
     </fieldset>
   </div>
-
-  <MGamepadList v-if="gamepads.length" :gamepads="gamepads" />
-  <AMessage v-else>Press any gamepad button or connect a new gamepad to vibrate.</AMessage>
 </template>
 
 <style lang="scss">

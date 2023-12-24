@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { defineComponent, onMounted, onUnmounted } from 'vue';
 import { RouterView } from 'vue-router';
+import { useLayouts } from '@/composables/useLayouts';
 import { useGamepads } from '@/store/useGamepads';
-import LDefault from '@/layouts/LDefault.vue';
 
 defineComponent({
   name: 'App',
 });
 
+const { layout } = useLayouts();
 const { addGamepad, deleteGamepad } = useGamepads();
 
 /**
@@ -31,7 +32,7 @@ onUnmounted(() => removeEventListeners());
 </script>
 
 <template>
-  <LDefault>
+  <Component :is="layout">
     <RouterView />
-  </LDefault>
+  </Component>
 </template>
