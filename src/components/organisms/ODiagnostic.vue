@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useGamepads } from '@/store/useGamepads';
-import {  MDiagnosticItem } from '@/components/molecules';
+import { MDiagnosticItem } from '@/components/molecules';
 
 defineComponent({
   name: 'ODiagnostic',

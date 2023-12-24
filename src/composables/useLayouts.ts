@@ -16,9 +16,7 @@ export function useLayouts() {
   const layout = computed<Component>(() => {
     const routeLayout = route?.meta?.layout;
 
-    return routeLayout && typeof routeLayout === 'string'
-      ? layouts[routeLayout]
-      : layouts.DEFAULT;
+    return routeLayout && typeof routeLayout === 'string' ? layouts[routeLayout] : layouts.DEFAULT;
   });
 
   return {
