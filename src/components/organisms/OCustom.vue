@@ -1,6 +1,6 @@
 ﻿<script setup lang="ts">
 import { defineComponent, ref } from 'vue';
-import { useGamepadsStore } from '@/store/useGamepadsStore';
+import { useGamepadsStore } from '@/store';
 
 defineComponent({
   name: 'OCustom',

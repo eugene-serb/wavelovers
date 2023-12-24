@@ -1,34 +1,18 @@
 <script setup lang="ts">
 import { defineComponent, onMounted, onUnmounted } from 'vue';
 import { RouterView } from 'vue-router';
-import { useLayouts } from '@/composables/useLayouts';
-import { useGamepadsStore } from '@/store/useGamepadsStore';
+import { useLayouts } from '@/composables';
+import { useGamepadsStore } from '@/store';
 
 defineComponent({
   name: 'App',
 });
 
 const { layout } = useLayouts();
-const { addGamepad, deleteGamepad } = useGamepadsStore();
+const { initialize, terminate } = useGamepadsStore();
 
-/**
- * Добавить слушатели событий.
- */
-function addEventListeners(): void {
-  window.addEventListener('gamepadconnected', addGamepad);
-  window.addEventListener('gamepaddisconnected', deleteGamepad);
-}
-
-/**
- * Убрать слушатели событий.
- */
-function removeEventListeners(): void {
-  window.removeEventListener('gamepadconnected', addGamepad);
-  window.removeEventListener('gamepaddisconnected', deleteGamepad);
-}
-
-onMounted(() => addEventListeners());
-onUnmounted(() => removeEventListeners());
+onMounted(() => initialize());
+onUnmounted(() => terminate());
 </script>
 
 <template>
