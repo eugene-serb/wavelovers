@@ -1,9 +1,7 @@
 ﻿<script setup lang="ts">
 import { defineComponent, ref, onMounted, onUnmounted } from 'vue';
 import { storeToRefs } from 'pinia';
-import { useGamepads } from '@/store/useGamepads';
-import { AMessage } from '@/components/atoms';
-import { MToolsNav, MGamepadList } from '@/components/molecules';
+import { useGamepadsStore } from '@/store/useGamepadsStore';
 
 import type { TVibrator } from '@/models';
 
@@ -11,7 +9,7 @@ defineComponent({
   name: 'OManual',
 });
 
-const store = useGamepads();
+const store = useGamepadsStore();
 const { gamepads, isActive, patternMode } = storeToRefs(store);
 const { vibrate, reset } = store;
 
@@ -156,8 +154,6 @@ onUnmounted(() => clearInterval(interval.value));
 </script>
 
 <template>
-  <MToolsNav />
-
   <div class="content-item app-manual">
     <label class="manual-form__input">
       <span>Weak Magnitude</span>
@@ -206,9 +202,6 @@ onUnmounted(() => clearInterval(interval.value));
       </div>
     </div>
   </div>
-
-  <MGamepadList v-if="gamepads.length" :gamepads="gamepads" />
-  <AMessage v-else>Press any gamepad button or connect a new gamepad to vibrate.</AMessage>
 </template>
 
 <style lang="scss">

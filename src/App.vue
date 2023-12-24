@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { defineComponent, onMounted, onUnmounted } from 'vue';
 import { RouterView } from 'vue-router';
-import { useGamepads } from '@/store/useGamepads';
-import LDefault from '@/layouts/LDefault.vue';
+import { useLayouts } from '@/composables/useLayouts';
+import { useGamepadsStore } from '@/store/useGamepadsStore';
 
 defineComponent({
   name: 'App',
 });
 
-const { addGamepad, deleteGamepad } = useGamepads();
+const { layout } = useLayouts();
+const { addGamepad, deleteGamepad } = useGamepadsStore();
 
 /**
  * Добавить слушатели событий.
@@ -31,7 +32,7 @@ onUnmounted(() => removeEventListeners());
 </script>
 
 <template>
-  <LDefault>
+  <Component :is="layout">
     <RouterView />
-  </LDefault>
+  </Component>
 </template>
