@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
 
 defineComponent({
   name: 'MFooter',
 });
+
+/**
+ * Текущий год.
+ */
+const currentYear = computed<number>(() => new Date().getFullYear());
 </script>
 
 <template>
@@ -11,7 +16,7 @@ defineComponent({
     <div class="footer-wrapper container">
       <div class="annotation">
         <span class="annotation__text">
-          © 2023
+          © 2022 — {{ currentYear  }}
           <a href="/" target="_blank" translate="no">Wavelovers</a>. Content licensed under
         </span>
         <a href="https://wavelovers.ru/LICENSE.md" target="_blank">
@@ -34,31 +39,31 @@ defineComponent({
 <style lang="scss">
 .footer {
   border-top: 4px solid var(--color-footer-borderline);
-}
 
-.footer span {
-  color: var(--color-footer-text);
-}
+  span {
+    color: var(--color-footer-text);
+  }
 
-.footer-wrapper {
-  padding-top: 32px;
-  padding-bottom: 32px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 32px;
-}
+  > .footer-wrapper {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 32px;
 
-.created-by {
-  align-self: flex-end;
-}
+    > .created-by {
+      align-self: flex-end;
 
-.created-by > span {
-  padding-right: 8px;
-}
+      > span {
+        padding-right: 8px;
+      }
 
-.created-by > a {
-  font-size: 32px;
+      > a {
+        font-size: 32px;
+      }
+    }
+  }
 }
 </style>
