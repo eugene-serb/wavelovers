@@ -33,6 +33,9 @@ defineProps({
   },
 });
 
+/**
+ * События, которые может сгенерировать компонент.
+ */
 const emits = defineEmits({
   click(index: number): boolean {
     return index >= 0;
