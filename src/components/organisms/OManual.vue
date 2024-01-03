@@ -9,6 +9,9 @@ defineComponent({
   name: 'OManual',
 });
 
+/**
+ * Хранилище геймпадов.
+ */
 const store = useGamepadsStore();
 const { gamepads, isActive, patternMode } = storeToRefs(store);
 const { vibrate, reset } = store;

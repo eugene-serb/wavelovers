@@ -9,6 +9,9 @@ defineComponent({
   name: 'OPatterns',
 });
 
+/**
+ * Хранилище геймпадов.
+ */
 const store = useGamepadsStore();
 const { patternMode, isActive } = storeToRefs(store);
 const { change, patterns } = store;

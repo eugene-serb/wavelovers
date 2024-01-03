@@ -9,6 +9,9 @@ defineComponent({
   name: 'LGamepad',
 });
 
+/**
+ * Хранилище геймпадов.
+ */
 const store = useGamepadsStore();
 const { gamepads } = storeToRefs(store);
 </script>

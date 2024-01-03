@@ -8,6 +8,9 @@ defineComponent({
   name: 'MPattern',
 });
 
+/**
+ * Входные параметры компонента.
+ */
 const props = defineProps({
   /**
    * Шаблон вибрации.
@@ -39,6 +42,9 @@ const props = defineProps({
   },
 });
 
+/**
+ * События, которые может сгенерировать компонент.
+ */
 const emits = defineEmits({
   click(index: number): boolean {
     return index >= 0;
