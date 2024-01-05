@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
 import { RouterLink } from 'vue-router';
+import { ATextLogo } from '@/components/atoms';
 
 defineComponent({
   name: 'MHeader',
@@ -11,7 +12,7 @@ defineComponent({
   <header class="header">
     <div class="header-wrapper container">
       <div class="logo-wrapper">
-        <a class="logo-wrapper__logo" translate="no">Wavelovers</a>
+        <ATextLogo text="Wavelovers" />
       </div>
 
       <nav class="menu-wrapper">
@@ -44,20 +45,6 @@ defineComponent({
     background: var(--color-header-background);
   }
 
-  ::selection {
-    background: var(--color-header-selection);
-  }
-
-  :focus {
-    border-bottom: var(--number-header-focus-border-size) solid
-      var(--color-header-navigation-link-hover);
-  }
-
-  :focus-visible {
-    outline: var(--number-header-focus-border-size) solid var(--color-header-navigation-link-hover);
-    border-color: transparent;
-  }
-
   .header-wrapper {
     padding-top: 32px;
     padding-bottom: 16px;
@@ -82,34 +69,25 @@ defineComponent({
         width: 50%;
         text-align: left;
       }
-
-      .logo-wrapper__logo {
-        font-size: 48px;
-        font-weight: 500;
-        color: var(--color-header-logo);
-        cursor: default;
-
-        @media only screen and (min-width: 1024px) {
-          font-size: 64px;
-        }
-      }
-
-      a {
-        border-color: transparent;
-        color: var(--color-header-navigation-link);
-        cursor: pointer;
-
-        &:hover {
-          border: none;
-          border-color: var(--color-header-navigation-link-hover);
-          color: var(--color-header-navigation-link-hover);
-        }
-      }
     }
 
     .menu-wrapper {
       margin-top: 16px;
       align-self: center;
+
+      ::selection {
+        background: var(--color-header-selection);
+      }
+
+      :focus {
+        border-bottom: var(--number-header-focus-border-size) solid
+          var(--color-header-navigation-link-hover);
+      }
+
+      :focus-visible {
+        outline: var(--number-header-focus-border-size) solid var(--color-header-navigation-link-hover);
+        border-color: transparent;
+      }
 
       @media only screen and (min-width: 540px) {
         margin-top: 32px;
