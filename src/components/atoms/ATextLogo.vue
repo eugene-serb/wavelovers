@@ -3,7 +3,7 @@ import { defineComponent, defineProps } from 'vue';
 import { RouterLink } from 'vue-router';
 
 import type { PropType } from 'vue';
-import type { LINK_TARGET } from '@/models';
+import type { LinkTarget } from '@/models';
 
 defineComponent({
   name: 'ATextLogo',
@@ -28,7 +28,7 @@ defineProps({
    * Как переходить по ссылке.
    */
   target: {
-    type: String as PropType<LINK_TARGET>,
+    type: String as PropType<LinkTarget>,
     default: '_self',
   },
   /**
