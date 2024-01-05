@@ -22,10 +22,8 @@ defineComponent({
   justify-content: center;
   text-align: center;
   font-size: 16px;
-}
 
-@media only screen and (min-width: 540px) {
-  .message {
+  @media only screen and (min-width: 540px) {
     font-size: 24px;
   }
 }
