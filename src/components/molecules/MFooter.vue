@@ -20,7 +20,7 @@ const currentYear = computed<number>(() => new Date().getFullYear());
           © 2022 — {{ currentYear }} <a href="/" target="_blank" translate="no">Wavelovers</a>.
           Content licensed under
         </span>
-        <a href="https://wavelovers.ru/LICENSE.txt" target="_blank">
+        <a href="/LICENSE.txt" target="_blank">
           GNU General Public License v3.0
         </a>
         <br />
