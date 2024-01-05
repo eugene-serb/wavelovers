@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineComponent, computed } from 'vue';
+import { PERSONAL_PAGE } from '@/constants';
 
 defineComponent({
   name: 'MFooter',
@@ -30,7 +31,7 @@ const currentYear = computed<number>(() => new Date().getFullYear());
       </div>
       <div class="annotation created-by">
         <span class="annotation__text">Created by</span>
-        <a href="https://eugene-serb.github.io/" target="_blank" translate="no">Eugene Serb</a>
+        <a :href="PERSONAL_PAGE.link" target="_blank" translate="no">Eugene Serb</a>
       </div>
     </div>
   </footer>

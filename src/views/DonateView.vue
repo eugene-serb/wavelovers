@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
+import { BITCOIN_ADDRESS } from '@/constants';
 
 defineComponent({
   name: 'DonateView',
@@ -24,12 +25,8 @@ defineComponent({
       </p>
       <br />
       <span>Bitcoin: </span>
-      <a
-        href="bitcoin:bc1qe53gsp0t5ehlvtgsxc952ujmxtvp6zj9zyh29d"
-        target="_blank"
-        class="link_hash"
-      >
-        bc1qe53gsp0t5ehlvtgsxc952ujmxtvp6zj9zyh29d
+      <a :href="BITCOIN_ADDRESS.link" target="_blank" class="link_hash">
+        {{ BITCOIN_ADDRESS.text }}
       </a>
       <br />
     </article>
