@@ -183,7 +183,7 @@ onUnmounted(() => clearInterval(interval.value));
         step="0.01"
       />
     </label>
-    
+
     <div class="manual-controls">
       <div>
         <kbd>RT</kbd>
