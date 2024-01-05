@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
-import { RouterLink } from 'vue-router';
+import { ATextLogo } from '@/components/atoms';
+import MHeaderMenu from '@/components/molecules/MHeaderMenu.vue';
+import { URL_TO_HOME } from '@/constants';
 
 defineComponent({
   name: 'MHeader',
@@ -11,24 +13,11 @@ defineComponent({
   <header class="header">
     <div class="header-wrapper container">
       <div class="logo-wrapper">
-        <a class="logo-wrapper__logo" translate="no">Wavelovers</a>
+        <ATextLogo :link="URL_TO_HOME" text="Wavelovers" />
       </div>
 
       <nav class="menu-wrapper">
-        <ul class="navigation">
-          <li class="navigation__item">
-            <RouterLink to="/">Home</RouterLink>
-          </li>
-          <li class="navigation__item">
-            <RouterLink to="/faq">FAQ</RouterLink>
-          </li>
-          <li class="navigation__item">
-            <RouterLink to="/about">About</RouterLink>
-          </li>
-          <li class="navigation__item">
-            <RouterLink to="/donate">Donate</RouterLink>
-          </li>
-        </ul>
+        <MHeaderMenu />
       </nav>
     </div>
   </header>
@@ -42,20 +31,6 @@ defineComponent({
   @media only screen and (min-width: 540px) {
     border-bottom: 32px solid var(--color-header-borderline);
     background: var(--color-header-background);
-  }
-
-  ::selection {
-    background: var(--color-header-selection);
-  }
-
-  :focus {
-    border-bottom: var(--number-header-focus-border-size) solid
-      var(--color-header-navigation-link-hover);
-  }
-
-  :focus-visible {
-    outline: var(--number-header-focus-border-size) solid var(--color-header-navigation-link-hover);
-    border-color: transparent;
   }
 
   .header-wrapper {
@@ -82,29 +57,6 @@ defineComponent({
         width: 50%;
         text-align: left;
       }
-
-      .logo-wrapper__logo {
-        font-size: 48px;
-        font-weight: 500;
-        color: var(--color-header-logo);
-        cursor: default;
-
-        @media only screen and (min-width: 1024px) {
-          font-size: 64px;
-        }
-      }
-
-      a {
-        border-color: transparent;
-        color: var(--color-header-navigation-link);
-        cursor: pointer;
-
-        &:hover {
-          border: none;
-          border-color: var(--color-header-navigation-link-hover);
-          color: var(--color-header-navigation-link-hover);
-        }
-      }
     }
 
     .menu-wrapper {
@@ -120,31 +72,6 @@ defineComponent({
         width: 50%;
         margin-top: 0px;
         align-self: flex-end;
-      }
-
-      .navigation {
-        padding: 0;
-        list-style-type: none;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 8px;
-
-        .navigation__item {
-          font-size: 16px;
-          text-transform: uppercase;
-
-          a {
-            border-color: transparent;
-            color: var(--color-header-navigation-link);
-
-            &:hover {
-              border-color: var(--color-header-navigation-link-hover);
-              color: var(--color-header-navigation-link-hover);
-            }
-          }
-        }
       }
     }
   }

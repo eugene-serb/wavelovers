@@ -3,7 +3,8 @@ import { defineComponent } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useGamepadsStore } from '@/store';
 import { AMessage } from '@/components/atoms';
-import { MHeader, MFooter, MToolsNavbar, MGamepadList } from '@/components/molecules';
+import { MToolsMenu, MGamepadList } from '@/components/molecules';
+import LDefault from '@/layouts/LDefault.vue';
 
 defineComponent({
   name: 'LGamepad',
@@ -17,32 +18,11 @@ const { gamepads } = storeToRefs(store);
 </script>
 
 <template>
-  <MHeader />
+  <LDefault>
+    <MToolsMenu />
+    <slot name="default" />
 
-  <main class="page container">
-    <div class="wavelovers">
-      <MToolsNavbar />
-      <slot name="default" />
-
-      <MGamepadList v-if="gamepads.length" :gamepads="gamepads" />
-      <AMessage v-else>Press any gamepad button or connect a new gamepad to vibrate.</AMessage>
-    </div>
-  </main>
-
-  <MFooter />
+    <MGamepadList v-if="gamepads.length" :gamepads="gamepads" />
+    <AMessage v-else>Press any gamepad button or connect a new gamepad to vibrate.</AMessage>
+  </LDefault>
 </template>
-
-<style lang="scss">
-.page {
-  flex-grow: 1;
-  margin-top: 32px;
-  margin-bottom: 32px;
-}
-
-@media only screen and (min-width: 540px) {
-  .page {
-    margin-top: 64px;
-    margin-bottom: 64px;
-  }
-}
-</style>

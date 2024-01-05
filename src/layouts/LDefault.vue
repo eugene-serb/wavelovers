@@ -11,9 +11,7 @@ defineComponent({
   <MHeader />
 
   <main class="page container">
-    <div class="wavelovers">
-      <slot name="default" />
-    </div>
+    <slot name="default" />
   </main>
 
   <MFooter />
@@ -24,10 +22,8 @@ defineComponent({
   flex-grow: 1;
   margin-top: 32px;
   margin-bottom: 32px;
-}
 
-@media only screen and (min-width: 540px) {
-  .page {
+  @media only screen and (min-width: 540px) {
     margin-top: 64px;
     margin-bottom: 64px;
   }
