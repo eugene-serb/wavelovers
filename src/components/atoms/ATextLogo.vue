@@ -42,12 +42,7 @@ defineProps({
 </script>
 
 <template>
-  <RouterLink
-      :to="link"
-      :target="target"
-      :translate="translate ? 'yes' : 'no'"
-      class="text-logo"
-    >
+  <RouterLink :to="link" :target="target" :translate="translate ? 'yes' : 'no'" class="text-logo">
     {{ text }}
   </RouterLink>
 </template>

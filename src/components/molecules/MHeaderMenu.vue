@@ -31,12 +31,7 @@ const links = [
 
 <template>
   <nav class="navigation">
-    <RouterLink
-      v-for="link in links"
-      :key="link.text"
-      :to="link.to"
-      class="navigation__link"
-    >
+    <RouterLink v-for="link in links" :key="link.text" :to="link.to" class="navigation__link">
       {{ link.text }}
     </RouterLink>
   </nav>
@@ -66,7 +61,8 @@ const links = [
     }
 
     &:focus-visible {
-      outline: var(--number-header-focus-border-size) solid var(--color-header-navigation-link-hover);
+      outline: var(--number-header-focus-border-size) solid
+        var(--color-header-navigation-link-hover);
       border-color: transparent;
     }
 
