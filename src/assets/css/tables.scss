@@ -10,24 +10,26 @@ td {
   font-weight: 400;
 }
 
-.table_pink thead {
-  border-bottom: 4px solid var(--color-table-item);
-}
+.table_pink {
+  thead {
+    border-bottom: 4px solid var(--color-table-item);
 
-.table_pink thead > tr {
-  background-color: var(--color-table-header-background);
-  color: var(--color-table-header-text);
-}
+    > tr {
+      background-color: var(--color-table-header-background);
+      color: var(--color-table-header-text);
 
-.table_pink thead > tr > th {
-  font-weight: 500;
-}
+      &:nth-child(even) {
+        background-color: var(--color-table-item);
+        color: var(--color-white);
+      }
 
-.table_pink tbody > tr:nth-child(even) {
-  background-color: var(--color-table-item);
-  color: var(--color-white);
-}
+      > th {
+        font-weight: 500;
+      }
+    }
+  }
 
-.table_pink tfoot {
-  border-top: 4px solid var(--color-table-header-background);
+  tfoot {
+    border-top: 4px solid var(--color-table-header-background);
+  }
 }
