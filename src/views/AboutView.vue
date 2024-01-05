@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
+import { PUBLIC_EMAIL, PERSONAL_PAGE } from '@/constants';
 
 defineComponent({
   name: 'AboutView',
@@ -54,15 +55,15 @@ defineComponent({
       </p>
       <br />
       <span>Write me: </span>
-      <a href="mailto:eugene.serb@gmail.com" target="_blank">eugene.serb@gmail.com</a>
+      <a :href="PUBLIC_EMAIL.link" target="_blank" translate="no">{{ PUBLIC_EMAIL.text }}</a>
       <br />
       <span>Visit my homepage: </span>
-      <a href="https://eugene-serb.github.io/" target="_blank">eugene-serb.github.io</a>
+      <a :href="PERSONAL_PAGE.link" target="_blank" translate="no">{{ PERSONAL_PAGE.text }}</a>
     </article>
     <article class="content-item">
       <h2 class="content-item__header">Advertising</h2>
       <span>If you have advertising suggestions, please mail me: </span>
-      <a href="mailto:eugene.serb@gmail.com" target="_blank">eugene.serb@gmail.com</a>
+      <a :href="PUBLIC_EMAIL.link" target="_blank" translate="no">{{ PUBLIC_EMAIL.text }}</a>
     </article>
   </div>
 </template>

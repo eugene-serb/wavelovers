@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
+import { PUBLIC_EMAIL } from '@/constants';
 
 defineComponent({
   name: 'FaqView',
@@ -38,7 +39,9 @@ defineComponent({
       <span>
         If you are having difficulty detecting a gamepad by the browser, you can use the utility
       </span>
-      <a href="https://wavelovers.ru/diagnostic" target="_blank">Wavelovers Diagnostic</a>
+      <a href="https://wavelovers.ru/diagnostic" target="_blank" translate="no">
+        Wavelovers Diagnostic
+      </a>
       <br /><br />
       <dl>
         <dt>The app does not see my device.</dt>
@@ -56,7 +59,7 @@ defineComponent({
         <dt>My question is not here.</dt>
         <dd>
           Write me
-          <a href="mailto:eugene.serb@gmail.com" target="_blank">eugene.serb@gmail.com</a>
+          <a :href="PUBLIC_EMAIL.link" target="_blank" translate="no">{{ PUBLIC_EMAIL.text }}</a>
         </dd>
       </dl>
     </article>

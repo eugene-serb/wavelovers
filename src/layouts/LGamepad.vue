@@ -3,7 +3,7 @@ import { defineComponent } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useGamepadsStore } from '@/store';
 import { AMessage } from '@/components/atoms';
-import { MHeader, MFooter, MToolsNav, MGamepadList } from '@/components/molecules';
+import { MHeader, MFooter, MToolsNavbar, MGamepadList } from '@/components/molecules';
 
 defineComponent({
   name: 'LGamepad',
@@ -21,7 +21,7 @@ const { gamepads } = storeToRefs(store);
 
   <main class="page container">
     <div class="wavelovers">
-      <MToolsNav />
+      <MToolsNavbar />
       <slot name="default" />
 
       <MGamepadList v-if="gamepads.length" :gamepads="gamepads" />
