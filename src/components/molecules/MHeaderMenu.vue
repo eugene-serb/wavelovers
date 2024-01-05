@@ -34,13 +34,13 @@ const links = [
 </script>
 
 <template>
-  <nav class="navigation">
+  <nav class="header-menu">
     <RouterLink
       v-for="link in links"
       :key="link.text"
       :to="link.to"
       :target="link.target"
-      class="navigation__link"
+      class="header-menu__link"
     >
       {{ link.text }}
     </RouterLink>
@@ -48,7 +48,7 @@ const links = [
 </template>
 
 <style lang="scss">
-.navigation {
+.header-menu {
   padding: 0;
   list-style-type: none;
   display: flex;
@@ -57,7 +57,7 @@ const links = [
   justify-content: space-between;
   gap: 8px;
 
-  .navigation__link {
+  .header-menu__link {
     font-size: 16px;
     text-transform: uppercase;
 
