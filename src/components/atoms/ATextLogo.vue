@@ -22,7 +22,7 @@ defineProps({
    */
   link: {
     type: String,
-    default: '/',
+    required: true,
   },
   /**
    * Как переходить по ссылке.

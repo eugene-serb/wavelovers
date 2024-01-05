@@ -2,6 +2,7 @@
 import { defineComponent } from 'vue';
 import { ATextLogo } from '@/components/atoms';
 import MHeaderMenu from '@/components/molecules/MHeaderMenu.vue';
+import { URL_TO_HOME } from '@/constants';
 
 defineComponent({
   name: 'MHeader',
@@ -12,7 +13,7 @@ defineComponent({
   <header class="header">
     <div class="header-wrapper container">
       <div class="logo-wrapper">
-        <ATextLogo text="Wavelovers" />
+        <ATextLogo :link="URL_TO_HOME" text="Wavelovers" />
       </div>
 
       <nav class="menu-wrapper">

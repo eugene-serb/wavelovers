@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
 import { RouterLink } from 'vue-router';
+import { URL_TO_HOME, URL_TO_FAQ, URL_TO_ABOUT, URL_TO_DONATE } from '@/constants';
 
 defineComponent({
   name: 'MHeaderMenu',
@@ -12,22 +13,22 @@ defineComponent({
 const links = [
   {
     text: 'Home',
-    to: '/',
+    to: URL_TO_HOME,
     target: '_self',
   },
   {
     text: 'FAQ',
-    to: '/faq',
+    to: URL_TO_FAQ,
     target: '_self',
   },
   {
     text: 'About',
-    to: '/about',
+    to: URL_TO_ABOUT,
     target: '_self',
   },
   {
     text: 'Donate',
-    to: '/donate',
+    to: URL_TO_DONATE,
     target: '_self',
   },
 ];

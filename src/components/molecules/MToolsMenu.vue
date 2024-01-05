@@ -1,6 +1,7 @@
 ﻿<script setup lang="ts">
 import { defineComponent } from 'vue';
 import { RouterLink } from 'vue-router';
+import { URL_TO_HOME } from '@/constants';
 
 defineComponent({
   name: 'MToolsMenu',
@@ -12,7 +13,7 @@ defineComponent({
 const links = [
   {
     text: 'Patterns',
-    to: '/',
+    to: URL_TO_HOME,
     target: '_self',
   },
   {
