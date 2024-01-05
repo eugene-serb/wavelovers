@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useGamepadsStore } from '@/store';
-import { MDiagnosticItem } from '@/components/molecules';
+import { MDiagnosticPanel } from '@/components/molecules';
 
 defineComponent({
   name: 'ODiagnostic',
@@ -18,7 +18,7 @@ const { gamepads, timestamp } = storeToRefs(store);
 <template>
   <div class="content-item">
     <template v-if="gamepads.length">
-      <MDiagnosticItem
+      <MDiagnosticPanel
         v-for="gamepad in gamepads"
         :key="gamepad.id"
         :gamepad="gamepad.device"
@@ -26,7 +26,7 @@ const { gamepads, timestamp } = storeToRefs(store);
       />
     </template>
     <template v-else>
-      <MDiagnosticItem :timestamp="timestamp" />
+      <MDiagnosticPanel :timestamp="timestamp" />
     </template>
   </div>
 </template>

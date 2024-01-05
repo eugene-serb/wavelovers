@@ -4,7 +4,7 @@ import { defineComponent, defineProps, computed } from 'vue';
 import type { PropType } from 'vue';
 
 defineComponent({
-  name: 'MDiagnosticItem',
+  name: 'MDiagnosticPanel',
 });
 
 /**
