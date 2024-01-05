@@ -170,6 +170,7 @@ onUnmounted(() => clearInterval(interval.value));
         step="0.01"
       />
     </label>
+
     <label class="manual-form__input">
       <span>Strong Magnitude</span>
       <input
@@ -182,6 +183,7 @@ onUnmounted(() => clearInterval(interval.value));
         step="0.01"
       />
     </label>
+
     <div class="manual-controls">
       <div>
         <kbd>RT</kbd>
@@ -213,31 +215,29 @@ onUnmounted(() => clearInterval(interval.value));
   flex-direction: column;
   justify-content: space-between;
   gap: 32px;
-}
 
-.manual-form__input {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-}
-
-.manual-controls {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-self: center;
-}
-
-@media only screen and (min-width: 540px) {
-  .manual-form__input {
+  > .manual-form__input {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    align-items: center;
+
+    @media only screen and (min-width: 540px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
-  .manual-controls {
+  > .manual-controls {
     display: flex;
-    flex-direction: row;
-    align-self: stretch;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: center;
+
+    @media only screen and (min-width: 540px) {
+      display: flex;
+      flex-direction: row;
+      align-self: stretch;
+    }
   }
 }
 </style>

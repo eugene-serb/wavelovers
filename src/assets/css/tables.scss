@@ -1,0 +1,35 @@
+@charset 'UTF-8';
+
+table,
+th,
+td {
+  width: 100%;
+  padding: 8px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-weight: 400;
+}
+
+.table_pink {
+  thead {
+    border-bottom: 4px solid var(--color-table-item);
+
+    > tr {
+      background-color: var(--color-table-header-background);
+      color: var(--color-table-header-text);
+
+      &:nth-child(even) {
+        background-color: var(--color-table-item);
+        color: var(--color-white);
+      }
+
+      > th {
+        font-weight: 500;
+      }
+    }
+  }
+
+  tfoot {
+    border-top: 4px solid var(--color-table-header-background);
+  }
+}

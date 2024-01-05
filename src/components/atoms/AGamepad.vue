@@ -22,14 +22,4 @@ defineComponent({
   flex-direction: column;
   justify-content: space-between;
 }
-
-.list-item__info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.list-item_selected .list-item__info span {
-  color: var(--color-white);
-}
 </style>

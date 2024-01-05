@@ -73,10 +73,8 @@ function onClick(index: number): void {
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 16px;
-}
 
-@media only screen and (min-width: 540px) {
-  .pattern-list {
+  @media only screen and (min-width: 540px) {
     display: flex;
     gap: 32px;
   }

@@ -95,44 +95,42 @@ function onClick(index: number): void {
   text-align: center;
   overflow: hidden;
   cursor: pointer;
-}
 
-@media only screen and (min-width: 540px) {
-  .pattern-item {
+  @media only screen and (min-width: 540px) {
     width: 200px;
   }
-}
 
-.pattern-item ::selection {
-  background-color: transparent;
-}
+  ::selection {
+    background-color: transparent;
+  }
 
-.pattern-item_selected {
-  background: var(--color-b);
-}
+  &.pattern-item_selected {
+    background: var(--color-b);
+  }
 
-.pattern-item__icon {
-  font-size: 24px;
-}
+  > .pattern-item__icon {
+    font-size: 24px;
+  }
 
-.pattern-item__info-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: left;
-}
+  > .pattern-item__info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
 
-.pattern-item__name {
-  font-size: 16px;
-  white-space: nowrap;
-  overflow: hidden;
-  color: var(--color-pattern-text);
-}
+    > .pattern-item__name {
+      font-size: 16px;
+      white-space: nowrap;
+      overflow: hidden;
+      color: var(--color-pattern-text);
+    }
 
-.pattern-item__type {
-  font-size: 12px;
-  white-space: nowrap;
-  overflow: hidden;
-  color: var(--color-pattern-text);
+    > .pattern-item__type {
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      color: var(--color-pattern-text);
+    }
+  }
 }
 </style>
