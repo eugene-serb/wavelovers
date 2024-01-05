@@ -5,25 +5,56 @@ import { RouterLink } from 'vue-router';
 defineComponent({
   name: 'MToolsNavbar',
 });
+
+/**
+ * Ссылки.
+ */
+const links = [
+  {
+    text: 'Patterns',
+    to: '/',
+    target: '_self',
+  },
+  {
+    text: 'Custom',
+    to: '/custom',
+    target: '_self',
+  },
+  {
+    text: 'Manual',
+    to: '/manual',
+    target: '_self',
+  },
+  {
+    text: 'Diagnostic',
+    to: '/diagnostic',
+    target: '_self',
+  },
+];
 </script>
 
 <template>
-  <div class="content-item navigation-list">
-    <RouterLink to="/" class="navigation-list__link">Patterns</RouterLink>
-    <RouterLink to="/custom" class="navigation-list__link">Custom</RouterLink>
-    <RouterLink to="/manual" class="navigation-list__link">Manual</RouterLink>
-    <RouterLink to="/diagnostic" class="navigation-list__link">Diagnostic</RouterLink>
-  </div>
+  <nav class="content-item tools-menu">
+    <RouterLink
+      v-for="link in links"
+      :key="link.text"
+      :to="link.to"
+      :target="link.target"
+      class="tools-menu__link"
+    >
+      {{ link.text }}
+    </RouterLink>
+  </nav>
 </template>
 
 <style lang="scss">
-.navigation-list {
+.tools-menu {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   gap: 16px;
 
-  .navigation-list__link {
+  > .tools-menu__link {
     &.router-link-active,
     &.router-link-exact-active {
       border-bottom: 2px solid var(--color-link-hover);
