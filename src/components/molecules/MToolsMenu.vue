@@ -3,7 +3,7 @@ import { defineComponent } from 'vue';
 import { RouterLink } from 'vue-router';
 
 defineComponent({
-  name: 'MToolsNavbar',
+  name: 'MToolsMenu',
 });
 
 /**
