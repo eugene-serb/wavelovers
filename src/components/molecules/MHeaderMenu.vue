@@ -13,25 +13,35 @@ const links = [
   {
     text: 'Home',
     to: '/',
+    target: '_self',
   },
   {
     text: 'FAQ',
     to: '/faq',
+    target: '_self',
   },
   {
     text: 'About',
     to: '/about',
+    target: '_self',
   },
   {
     text: 'Donate',
     to: '/donate',
+    target: '_self',
   },
 ];
 </script>
 
 <template>
   <nav class="navigation">
-    <RouterLink v-for="link in links" :key="link.text" :to="link.to" class="navigation__link">
+    <RouterLink
+      v-for="link in links"
+      :key="link.text"
+      :to="link.to"
+      :target="link.target"
+      class="navigation__link"
+    >
       {{ link.text }}
     </RouterLink>
   </nav>
