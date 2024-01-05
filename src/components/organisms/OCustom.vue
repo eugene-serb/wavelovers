@@ -90,40 +90,40 @@ function start(): void {
 </template>
 
 <style lang="scss">
-.custom-form {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.custom-form__input {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-}
-
-.custom-form__buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 32px;
-}
-
-.custom-form__button {
-  width: 100%;
-}
-
-@media only screen and (min-width: 540px) {
+.app-custom {
   .custom-form {
     display: flex;
-    flex-direction: column;
-    gap: 32px;
-  }
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    gap: 16px;
 
-  .custom-form__input {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    @media only screen and (min-width: 540px) {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    > .custom-form__input {
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+
+      @media only screen and (min-width: 540px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    > .custom-form__buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 32px;
+
+      > .custom-form__button {
+        width: 100%;
+      }
+    }
   }
 }
 </style>
