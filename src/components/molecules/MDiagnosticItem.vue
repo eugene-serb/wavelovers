@@ -31,6 +31,21 @@ const props = defineProps({
 });
 
 /**
+ * Статус отражающий доступность.
+ */
+const STATUS_AVAILABLE = 'Available';
+
+/**
+ * Статус отражающий недоступность.
+ */
+const STATUS_MISSING = 'Missing';
+
+/**
+ * Класс отражающий нажатие.
+ */
+const CLASS_PRESSED = 'pressed';
+
+/**
  * Индекс геймпада.
  */
 const gamepadIndex = computed<string>(() =>
@@ -40,7 +55,7 @@ const gamepadIndex = computed<string>(() =>
 /**
  * ID геймпада.
  */
-const gamepadId = computed<string>(() => (props.gamepad ? props.gamepad.id : 'Missing'));
+const gamepadId = computed<string>(() => (props.gamepad ? props.gamepad.id : 'Gamepad is missing'));
 
 /**
  * Кнопка "A".
@@ -186,7 +201,7 @@ const rightStickY = computed<number>(() =>
  * Наличие вибропривода.
  */
 const vibrationActuator = computed<string>(() =>
-  props.gamepad && props.gamepad.vibrationActuator ? 'Available' : 'Missing',
+  props.gamepad && props.gamepad.vibrationActuator ? STATUS_AVAILABLE : STATUS_MISSING,
 );
 </script>
 
@@ -195,47 +210,57 @@ const vibrationActuator = computed<string>(() =>
     <h3>#{{ gamepadIndex }}. {{ gamepadId }}</h3>
     <div class="gamepad-group">
       <div>
-        <span :class="[aButton ? 'pressed' : '']">A: {{ aButton.toFixed(2) }}</span>
-        <span :class="[bButton ? 'pressed' : '']">B: {{ bButton.toFixed(2) }}</span>
-        <span :class="[xButton ? 'pressed' : '']">X: {{ xButton.toFixed(2) }}</span>
-        <span :class="[yButton ? 'pressed' : '']">Y: {{ yButton.toFixed(2) }}</span>
+        <span :class="[aButton ? CLASS_PRESSED : '']">A: {{ aButton.toFixed(2) }}</span>
+        <span :class="[bButton ? CLASS_PRESSED : '']">B: {{ bButton.toFixed(2) }}</span>
+        <span :class="[xButton ? CLASS_PRESSED : '']">X: {{ xButton.toFixed(2) }}</span>
+        <span :class="[yButton ? CLASS_PRESSED : '']">Y: {{ yButton.toFixed(2) }}</span>
       </div>
       <div>
-        <span :class="[lbButton ? 'pressed' : '']">LB: {{ lbButton.toFixed(2) }}</span>
-        <span :class="[rbButton ? 'pressed' : '']">RB: {{ rbButton.toFixed(2) }}</span>
-        <span :class="[ltButton ? 'pressed' : '']">LT: {{ ltButton.toFixed(2) }}</span>
-        <span :class="[rtButton ? 'pressed' : '']">RT: {{ rtButton.toFixed(2) }}</span>
+        <span :class="[lbButton ? CLASS_PRESSED : '']">LB: {{ lbButton.toFixed(2) }}</span>
+        <span :class="[rbButton ? CLASS_PRESSED : '']">RB: {{ rbButton.toFixed(2) }}</span>
+        <span :class="[ltButton ? CLASS_PRESSED : '']">LT: {{ ltButton.toFixed(2) }}</span>
+        <span :class="[rtButton ? CLASS_PRESSED : '']">RT: {{ rtButton.toFixed(2) }}</span>
       </div>
       <div>
-        <span :class="[backButton ? 'pressed' : '']">Back: {{ backButton.toFixed(2) }}</span>
-        <span :class="[startButton ? 'pressed' : '']">Start: {{ startButton.toFixed(2) }}</span>
-        <span :class="[leftStickButton ? 'pressed' : '']">
+        <span :class="[backButton ? CLASS_PRESSED : '']">Back: {{ backButton.toFixed(2) }}</span>
+        <span :class="[startButton ? CLASS_PRESSED : '']">Start: {{ startButton.toFixed(2) }}</span>
+        <span :class="[leftStickButton ? CLASS_PRESSED : '']">
           Left Stick: {{ leftStickButton.toFixed(2) }}
         </span>
-        <span :class="[rightStickButton ? 'pressed' : '']">
+        <span :class="[rightStickButton ? CLASS_PRESSED : '']">
           Right Stick: {{ rightStickButton.toFixed(2) }}
         </span>
       </div>
       <div>
-        <span :class="[forwardButton ? 'pressed' : '']">
+        <span :class="[forwardButton ? CLASS_PRESSED : '']">
           Forward: {{ forwardButton.toFixed(2) }}
         </span>
-        <span :class="[backwardButton ? 'pressed' : '']">
+        <span :class="[backwardButton ? CLASS_PRESSED : '']">
           Backward: {{ backwardButton.toFixed(2) }}
         </span>
-        <span :class="[leftButton ? 'pressed' : '']">Left: {{ leftButton.toFixed(2) }}</span>
-        <span :class="[rightButton ? 'pressed' : '']">Right: {{ rightButton.toFixed(2) }}</span>
+        <span :class="[leftButton ? CLASS_PRESSED : '']">Left: {{ leftButton.toFixed(2) }}</span>
+        <span :class="[rightButton ? CLASS_PRESSED : '']">Right: {{ rightButton.toFixed(2) }}</span>
       </div>
       <div>
-        <span>Left Stick X: {{ leftStickX ? leftStickX.toFixed(2) : 'Missing' }}</span>
-        <span>Left Stick Y: {{ leftStickY ? leftStickY.toFixed(2) : 'Missing' }}</span>
+        <span>
+          Left Stick X:
+          {{ typeof leftStickX === 'number' || !gamepad ? leftStickX.toFixed(2) : STATUS_MISSING }}
+        </span>
+        <span>
+          Left Stick Y:
+          {{ typeof leftStickY === 'number' || !gamepad ? leftStickY.toFixed(2) : STATUS_MISSING }}
+        </span>
         <span>
           Right Stick X:
-          {{ rightStickX ? rightStickX.toFixed(2) : 'Missing' }}
+          {{
+            typeof rightStickX === 'number' || !gamepad ? rightStickX.toFixed(2) : STATUS_MISSING
+          }}
         </span>
         <span>
           Right Stick Y:
-          {{ rightStickY ? rightStickY.toFixed(2) : 'Missing' }}
+          {{
+            typeof rightStickY === 'number' || !gamepad ? rightStickY.toFixed(2) : STATUS_MISSING
+          }}
         </span>
       </div>
     </div>
