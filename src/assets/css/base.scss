@@ -104,30 +104,32 @@ a {
   font-weight: 500;
   color: var(--color-link);
   text-decoration: none;
+
+  &:hover {
+    border-bottom: var(--number-border-size) solid var(--color-link-hover);
+    color: var(--color-link-hover);
+    transition: all 0.5s ease;
+    text-decoration: none;
+  }
 }
 
-a:hover {
-  border-bottom: var(--number-border-size) solid var(--color-link-hover);
-  color: var(--color-link-hover);
-  transition: all 0.5s ease;
-  text-decoration: none;
-}
+dl {
+  dt {
+    margin-bottom: 4px;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: oblique;
+  }
+  
+  dd {
+    margin-bottom: 16px;
+    padding-left: 16px;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
 
-dl dd:last-child {
-  margin-bottom: 0;
-}
-
-dt {
-  margin-bottom: 4px;
-  font-size: 18px;
-  font-weight: 500;
-  font-style: oblique;
-}
-
-dd {
-  margin-bottom: 16px;
-  padding-left: 16px;
-  font-size: 16px;
-  font-weight: 300;
-  font-style: normal;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
