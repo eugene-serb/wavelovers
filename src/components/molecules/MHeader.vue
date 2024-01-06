@@ -16,9 +16,9 @@ defineComponent({
         <ATextLogo :link="URL_TO_HOME" text="Wavelovers" />
       </div>
 
-      <nav class="menu-wrapper">
+      <div class="menu-wrapper">
         <MHeaderMenu />
-      </nav>
+      </div>
     </div>
   </header>
 </template>
