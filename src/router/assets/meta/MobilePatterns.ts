@@ -36,7 +36,7 @@ const meta: IMeta = {
   linkTags: [
     {
       rel: 'canonical',
-      href: 'https://wavelovers.ru/',
+      href: 'https://wavelovers.ru/mobile',
     },
   ],
 };

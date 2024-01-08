@@ -8,6 +8,6 @@ defineComponent({
 </script>
 
 <template>
-  <h1 class="visually-hidden">Wavelovers — Mobile</h1>
+  <h1 class="visually-hidden">Wavelovers — Mobile Patterns</h1>
   <OMobile />
 </template>

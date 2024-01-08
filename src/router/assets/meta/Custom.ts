@@ -11,7 +11,7 @@ const meta: IMeta = {
     {
       name: 'description',
       content:
-        'Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad. Custom mode.',
+        'Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad or mobile. Custom mode.',
     },
     {
       name: 'og:title',
@@ -20,7 +20,7 @@ const meta: IMeta = {
     {
       name: 'og:description',
       content:
-        'Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad. Custom mode.',
+        'Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad or mobile. Custom mode.',
     },
     {
       name: 'og:url',
@@ -33,7 +33,7 @@ const meta: IMeta = {
     {
       name: 'twitter:description',
       content:
-        'Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad. Custom mode.',
+        'Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad or mobile. Custom mode.',
     },
   ],
   linkTags: [
