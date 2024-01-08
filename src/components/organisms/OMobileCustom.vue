@@ -21,14 +21,19 @@ const {
  */
 const pauseDuration = ref<number>(250);
 
+/**
+ * Запустить вибрацию.
+ */
 function start() {
-  stopVibrate();
-
   const pattern = [vibrationDuration.value, pauseDuration.value];
 
+  stopVibrate();
   startVibrateLoop(pattern);
 }
 
+/**
+ * Остановить вибрацию.
+ */
 function stop() {
   stopVibrate();
 }
