@@ -10,15 +10,15 @@ export type Link = {
   /**
    * Текст ссылки.
    */
-  text: string,
+  text: string;
 
   /**
    * Куда ведёт ссылка.
    */
-  to: string,
+  to: string;
 
   /**
    * Как открывать ссылку.
    */
-  target: LinkTarget,
-}
+  target: LinkTarget;
+};

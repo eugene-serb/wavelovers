@@ -9,11 +9,7 @@ defineComponent({
   name: 'OMobile',
 });
 
-const {
-  startVibrateLoop,
-  stopVibrate,
-  isActive,
-} = useMobileVibration();
+const { startVibrateLoop, stopVibrate, isActive } = useMobileVibration();
 
 let patternMode: number = -1;
 

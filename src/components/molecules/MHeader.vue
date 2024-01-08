@@ -13,7 +13,7 @@ defineComponent({
 /**
  * Ссылки.
  */
- const links: Link[] = [
+const links: Link[] = [
   {
     text: 'Gamepad',
     to: URL_TO_HOME,

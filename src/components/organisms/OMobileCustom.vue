@@ -6,15 +6,12 @@ defineComponent({
   name: 'OMobileCustom',
 });
 
-const {
-  startVibrateLoop,
-  stopVibrate,
-} = useMobileVibration();
+const { startVibrateLoop, stopVibrate } = useMobileVibration();
 
 /**
  * Продолжительность вибрации.
  */
- const vibrationDuration = ref<number>(250);
+const vibrationDuration = ref<number>(250);
 
 /**
  * Пауза перед стартом вибрации.

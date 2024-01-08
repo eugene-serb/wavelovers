@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { ref } from 'vue';
 
 export function useMobileVibration() {
   /**
@@ -10,10 +10,10 @@ export function useMobileVibration() {
    * Вибрация активна?
    */
   const isActive = ref<boolean>(false);
-  
+
   /**
    * Запустить вибрацию.
-   * 
+   *
    * @param pattern Шаблон вибрации.
    */
   function _startVibrate(pattern: number | number[]): void {
@@ -22,7 +22,7 @@ export function useMobileVibration() {
 
   /**
    * Запустить интервал с вибрацией.
-   * 
+   *
    * @param pattern Шаблон вибрации.
    * @param duration Продолжительность вибрации.
    */
@@ -46,7 +46,7 @@ export function useMobileVibration() {
 
   /**
    * Запустить вибрацию.
-   * 
+   *
    * @param pattern Шаблон вибрации.
    */
   function startVibrateLoop(pattern: number | number[]): void {
@@ -57,13 +57,13 @@ export function useMobileVibration() {
     }
 
     if (Array.isArray(pattern)) {
-      duration = pattern.reduce<number>((acc, entity) => acc += entity, 0);
+      duration = pattern.reduce<number>((acc, entity) => (acc += entity), 0);
     }
 
     _startPersistentVibrate(pattern, duration);
     isActive.value = true;
   }
-  
+
   return {
     startVibrateLoop,
     stopVibrate,
