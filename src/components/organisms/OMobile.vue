@@ -11,18 +11,26 @@ defineComponent({
 
 const { startVibrateLoop, stopVibrate, isActive } = useMobileVibration();
 
-let patternMode: number = -1;
+/**
+ * Текущий индекс шаблона.
+ */
+let patternIndex: number = -1;
 
-function change(value: number) {
-  if (value === patternMode) {
-    patternMode = -1;
+/**
+ * Сменить шаблон.
+ *
+ * @param index Номер шаблона.
+ */
+function change(index: number) {
+  if (index === patternIndex) {
+    patternIndex = -1;
     stopVibrate();
     return;
   }
 
   stopVibrate();
-  patternMode = value;
-  startVibrateLoop(patterns[value].pattern);
+  patternIndex = index;
+  startVibrateLoop(patterns[index].pattern);
 }
 </script>
 
@@ -31,7 +39,7 @@ function change(value: number) {
     <MPatternList
       v-if="patterns.length"
       :patterns="patterns"
-      :mode="patternMode"
+      :mode="patternIndex"
       :isActive="isActive"
       @click="change"
     />

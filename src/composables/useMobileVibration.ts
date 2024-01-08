@@ -1,6 +1,22 @@
 import { ref } from 'vue';
 
-export function useMobileVibration() {
+import type { Ref } from 'vue';
+
+/**
+ * Результат работы композабла управления вибрацией телефона.
+ */
+type MobileVibrationComposable = {
+  startVibrateLoop: (pattern: number | number[]) => void;
+  stopVibrate: () => void;
+  isActive: Ref<boolean>;
+};
+
+/**
+ * Композабл для управления вибрацией телефона.
+ *
+ * @returns MobileVibrationComposable
+ */
+export function useMobileVibration(): MobileVibrationComposable {
   /**
    * Интервал.
    */

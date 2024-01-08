@@ -12,7 +12,7 @@ type Layouts = {
 };
 
 /**
- * Результат работы композабла лейатов.
+ * Результат работы композабла лейаутов.
  */
 type LayoutsComposable = {
   layout: Component;
