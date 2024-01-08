@@ -23,6 +23,8 @@ export default defineConfig({
         faq: resolve(__dirname, 'faq.html'),
         about: resolve(__dirname, 'about.html'),
         donate: resolve(__dirname, 'donate.html'),
+        mobile: resolve(__dirname, 'mobile.html'),
+        'mobile-custom': resolve(__dirname, 'mobile-custom.html'),
       },
       output: {
         format: 'es',
