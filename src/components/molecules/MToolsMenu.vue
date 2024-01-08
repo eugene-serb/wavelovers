@@ -1,37 +1,23 @@
 ﻿<script setup lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, defineProps } from 'vue';
 import { RouterLink } from 'vue-router';
-import { URL_TO_HOME } from '@/constants';
+
+import type { PropType } from 'vue';
+import type { Link } from '@/models';
 
 defineComponent({
   name: 'MToolsMenu',
 });
 
-/**
- * Ссылки.
- */
-const links = [
-  {
-    text: 'Patterns',
-    to: URL_TO_HOME,
-    target: '_self',
+defineProps({
+  /**
+   * Ссылки.
+   */
+  links: {
+    type: Array as PropType<Link[]>,
+    default: () => [],
   },
-  {
-    text: 'Custom',
-    to: '/custom',
-    target: '_self',
-  },
-  {
-    text: 'Manual',
-    to: '/manual',
-    target: '_self',
-  },
-  {
-    text: 'Diagnostic',
-    to: '/diagnostic',
-    target: '_self',
-  },
-];
+});
 </script>
 
 <template>

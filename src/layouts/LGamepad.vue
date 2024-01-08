@@ -5,10 +5,39 @@ import { useGamepadsStore } from '@/store';
 import { AMessage } from '@/components/atoms';
 import { MToolsMenu, MGamepadList } from '@/components/molecules';
 import LDefault from '@/layouts/LDefault.vue';
+import { URL_TO_HOME } from '@/constants';
+
+import type { Link } from '@/models';
 
 defineComponent({
   name: 'LGamepad',
 });
+
+/**
+ * Ссылки.
+ */
+ const links: Link[] = [
+  {
+    text: 'Patterns',
+    to: URL_TO_HOME,
+    target: '_self',
+  },
+  {
+    text: 'Custom',
+    to: '/custom',
+    target: '_self',
+  },
+  {
+    text: 'Manual',
+    to: '/manual',
+    target: '_self',
+  },
+  {
+    text: 'Diagnostic',
+    to: '/diagnostic',
+    target: '_self',
+  },
+];
 
 /**
  * Хранилище геймпадов.
@@ -19,7 +48,7 @@ const { gamepads } = storeToRefs(store);
 
 <template>
   <LDefault>
-    <MToolsMenu />
+    <MToolsMenu :links="links" />
     <slot name="default" />
 
     <MGamepadList v-if="gamepads.length" :gamepads="gamepads" />
