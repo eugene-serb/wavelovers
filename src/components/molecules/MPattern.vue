@@ -2,7 +2,7 @@
 import { defineComponent, defineProps, defineEmits, computed } from 'vue';
 
 import type { PropType } from 'vue';
-import type { TPattern } from '@/models';
+import type { TCommonPattern } from '@/models';
 
 defineComponent({
   name: 'MPattern',
@@ -16,7 +16,7 @@ const props = defineProps({
    * Шаблон вибрации.
    */
   pattern: {
-    type: Object as PropType<TPattern>,
+    type: Object as PropType<TCommonPattern>,
     required: true,
   },
   /**
