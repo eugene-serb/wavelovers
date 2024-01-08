@@ -32,3 +32,8 @@ export const URL_TO_MANUAL = '/manual';
  * Путь на страницу Diagnostic.
  */
 export const URL_TO_DIAGNOSTIC = '/diagnostic';
+
+/**
+ * Путь на страницу Mobile.
+ */
+export const URL_TO_MOBILE = '/mobile';
