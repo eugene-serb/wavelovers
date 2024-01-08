@@ -1,7 +1,6 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import LDefault from '@/layouts/LDefault.vue';
-import LGamepad from '@/layouts/LGamepad.vue';
+import { LDefault, LGamepad, LMobile } from '@/layouts';
 
 import type { Component } from 'vue';
 
@@ -25,6 +24,7 @@ type LayoutsComposable = {
 const layouts: Layouts = {
   DEFAULT: LDefault,
   GAMEPAD: LGamepad,
+  MOBILE: LMobile,
 };
 
 /**
