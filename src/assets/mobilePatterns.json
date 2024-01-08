@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Constant",
+    "type": "Simple",
+    "icon": "😏",
+    "pattern": [1000]
+  },
+  {
+    "name": "Pattern A",
+    "type": "Simple",
+    "icon": "🤩",
+    "pattern": [100, 50, 100, 50, 250, 50]
+  },
+  {
+    "name": "Pattern B",
+    "type": "Simple",
+    "icon": "😍",
+    "pattern": [100, 50, 50, 50, 250, 50, 250, 50]
+  },
+  {
+    "name": "Pattern C",
+    "type": "Simple",
+    "icon": "😵",
+    "pattern": [100, 50, 50, 50, 500, 50, 250, 50]
+  },
+  {
+    "name": "Long Dashed x1",
+    "type": "Simple",
+    "icon": "😋",
+    "pattern": [1000, 500]
+  },
+  {
+    "name": "Long Dashed x2",
+    "type": "Simple",
+    "icon": "😜",
+    "pattern": [500, 500]
+  },
+  {
+    "name": "Long Dashed x3",
+    "type": "Simple",
+    "icon": "🤪",
+    "pattern": [250, 500]
+  },
+  {
+    "name": "Long Dashed x4",
+    "type": "Simple",
+    "icon": "😝",
+    "pattern": [250, 250]
+  },
+  {
+    "name": "Dashed x1",
+    "type": "Simple",
+    "icon": "🙂",
+    "pattern": [1000, 250]
+  },
+  {
+    "name": "Dashed x2",
+    "type": "Simple",
+    "icon": "😇",
+    "pattern": [500, 250]
+  },
+  {
+    "name": "Dashed x3",
+    "type": "Simple",
+    "icon": "😊",
+    "pattern": [250, 250]
+  },
+  {
+    "name": "Dashed x4",
+    "type": "Simple",
+    "icon": "🤤",
+    "pattern": [150, 250]
+  },
+  {
+    "name": "Dotted x1",
+    "type": "Simple",
+    "icon": "😌",
+    "pattern": [100, 200]
+  },
+  {
+    "name": "Dotted x2",
+    "type": "Simple",
+    "icon": "😉",
+    "pattern": [100, 100]
+  },
+  {
+    "name": "Dotted x3",
+    "type": "Simple",
+    "icon": "🙃",
+    "pattern": [50, 100]
+  },
+  {
+    "name": "Dotted x4",
+    "type": "Simple",
+    "icon": "🤨",
+    "pattern": [50, 50]
+  }
+]

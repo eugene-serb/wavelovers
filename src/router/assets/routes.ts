@@ -34,6 +34,22 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    path: '/mobile',
+    name: 'mobile-view',
+    component: () => import('@/views/MobileView.vue'),
+    meta: {
+      layout: 'MOBILE',
+    },
+  },
+  {
+    path: '/mobile-custom',
+    name: 'mobile-custom-view',
+    component: () => import('@/views/MobileCustomView.vue'),
+    meta: {
+      layout: 'MOBILE',
+    },
+  },
+  {
     path: '/faq',
     name: 'faq-view',
     component: () => import('@/views/FaqView.vue'),

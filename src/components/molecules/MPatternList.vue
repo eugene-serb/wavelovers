@@ -3,7 +3,7 @@ import { defineComponent, defineProps, defineEmits } from 'vue';
 import MPattern from '@/components/molecules/MPattern.vue';
 
 import type { PropType } from 'vue';
-import type { TPattern } from '@/models';
+import type { TCommonPattern } from '@/models';
 
 defineComponent({
   name: 'MPatternList',
@@ -14,7 +14,7 @@ defineProps({
    * Шаблоны вибрации.
    */
   patterns: {
-    type: Array as PropType<TPattern[]>,
+    type: Array as PropType<TCommonPattern[]>,
     required: true,
   },
   /**

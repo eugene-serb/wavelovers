@@ -1,37 +1,23 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, defineProps } from 'vue';
 import { RouterLink } from 'vue-router';
-import { URL_TO_HOME, URL_TO_FAQ, URL_TO_ABOUT, URL_TO_DONATE } from '@/constants';
+
+import type { PropType } from 'vue';
+import type { Link } from '@/models';
 
 defineComponent({
   name: 'MHeaderMenu',
 });
 
-/**
- * Ссылки.
- */
-const links = [
-  {
-    text: 'Home',
-    to: URL_TO_HOME,
-    target: '_self',
+defineProps({
+  /**
+   * Ссылки.
+   */
+  links: {
+    type: Array as PropType<Link[]>,
+    default: () => [],
   },
-  {
-    text: 'FAQ',
-    to: URL_TO_FAQ,
-    target: '_self',
-  },
-  {
-    text: 'About',
-    to: URL_TO_ABOUT,
-    target: '_self',
-  },
-  {
-    text: 'Donate',
-    to: URL_TO_DONATE,
-    target: '_self',
-  },
-];
+});
 </script>
 
 <template>
