@@ -2,11 +2,44 @@
 import { defineComponent } from 'vue';
 import { ATextLogo } from '@/components/atoms';
 import MHeaderMenu from '@/components/molecules/MHeaderMenu.vue';
-import { URL_TO_HOME } from '@/constants';
+import { URL_TO_HOME, URL_TO_FAQ, URL_TO_ABOUT, URL_TO_DONATE, URL_TO_MOBILE } from '@/constants';
+
+import type { Link } from '@/models';
 
 defineComponent({
   name: 'MHeader',
 });
+
+/**
+ * Ссылки.
+ */
+ const links: Link[] = [
+  {
+    text: 'Gamepad',
+    to: URL_TO_HOME,
+    target: '_self',
+  },
+  {
+    text: 'Mobile',
+    to: URL_TO_MOBILE,
+    target: '_self',
+  },
+  {
+    text: 'FAQ',
+    to: URL_TO_FAQ,
+    target: '_self',
+  },
+  {
+    text: 'About',
+    to: URL_TO_ABOUT,
+    target: '_self',
+  },
+  {
+    text: 'Donate',
+    to: URL_TO_DONATE,
+    target: '_self',
+  },
+];
 </script>
 
 <template>
@@ -17,7 +50,7 @@ defineComponent({
       </div>
 
       <div class="menu-wrapper">
-        <MHeaderMenu />
+        <MHeaderMenu :links="links" />
       </div>
     </div>
   </header>
