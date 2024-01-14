@@ -1,6 +1,6 @@
 import type { IMeta } from '@/models';
 
-const meta: IMeta = {
+export const metaNotFound: IMeta = {
   title: 'Wavelovers — Page not found',
   metaTags: [
     {
@@ -20,4 +20,4 @@ const meta: IMeta = {
   ],
 };
 
-export default meta;
+export default metaNotFound;

@@ -1,26 +1,26 @@
 import type { IMeta } from '@/models';
 
-const meta: IMeta = {
-  title: 'Wavelovers — Manual',
+export const metaManual: IMeta = {
+  title: 'Wavelovers — Gamepad Manual',
   metaTags: [
     {
       name: 'keywords',
       content:
-        'Wavelovers, Wave Lovers, Wavemaster, Wave Master, Vibration Master, Vibration, Gamepad, Gamepad Vibration, Gamepad Massager, Vibrate Gamepad, Phone Vibration, Gamepad Tester, Phone Vibration Tester, Vibration Tester, Massager, Vibrator, Satisfyer, Womanizer, Relax, геймпад, джойстик, вибратор, вибромассажер, вибро, вибромассажёр из геймпада, тестер вибрации геймпада, тестер вибрации телефона, Manual mode',
+        'Wavelovers, Wave Lovers, Wavemaster, Wave Master, Vibration Master, Vibration, Gamepad, Gamepad Vibration, Gamepad Massager, Vibrate Gamepad, Mobile Vibration, Phone Vibration, Gamepad Tester, Phone Vibration Tester, Gamepad Vibration Tester, Vibration Tester, Massager, Vibrator, Satisfyer, Womanizer, Relax, Геймпад, Джойстик, Вибратор, Вибромассажер, Вибро, Вибромассажёр из геймпада, Тестер вибрации геймпада, Тестер вибрации телефона',
     },
     {
       name: 'description',
       content:
-        'Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad or mobile. Manual mode.',
+        'Wavelovers gamepad manual mode. Wavelovers is a vibration test tool for gamepads and mobile devices that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode.',
     },
     {
       name: 'og:title',
-      content: 'Wavelovers — Manual',
+      content: 'Wavelovers — Gamepad Manual',
     },
     {
       name: 'og:description',
       content:
-        'Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad or mobile. Manual mode.',
+        'Wavelovers gamepad manual mode. Wavelovers is a vibration test tool for gamepads and mobile devices that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode.',
     },
     {
       name: 'og:url',
@@ -28,12 +28,12 @@ const meta: IMeta = {
     },
     {
       name: 'twitter:title',
-      content: 'Wavelovers — Manual',
+      content: 'Wavelovers — Gamepad Manual',
     },
     {
       name: 'twitter:description',
       content:
-        'Wavelovers. Use your device vibration correctly. Make a massager out of a gamepad or mobile. Manual mode.',
+        'Wavelovers gamepad manual mode. Wavelovers is a vibration test tool for gamepads and mobile devices that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode.',
     },
   ],
   linkTags: [
@@ -44,4 +44,4 @@ const meta: IMeta = {
   ],
 };
 
-export default meta;
+export default metaManual;

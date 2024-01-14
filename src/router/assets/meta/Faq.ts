@@ -1,16 +1,16 @@
 import type { IMeta } from '@/models';
 
-const meta: IMeta = {
+export const metaFaq: IMeta = {
   title: 'Wavelovers — FAQ',
   metaTags: [
     {
       name: 'keywords',
       content:
-        'Wavelovers, Wave Lovers, Wavemaster, Wave Master, Vibration Master, Vibration, Gamepad, Gamepad Vibration, Gamepad Massager, Vibrate Gamepad, Phone Vibration, Gamepad Tester, Phone Vibration Tester, Vibration Tester, Massager, Vibrator, Satisfyer, Womanizer, Relax, FAQ, геймпад, джойстик, вибратор, вибромассажер, вибро, вибромассажёр из геймпада, тестер вибрации геймпада, тестер вибрации телефона, часто задаваемые вопросы',
+        'Wavelovers, Wave Lovers, Wavemaster, Wave Master, Vibration Master, Vibration, Gamepad, Gamepad Vibration, Gamepad Massager, Vibrate Gamepad, Mobile Vibration, Phone Vibration, Gamepad Tester, Phone Vibration Tester, Gamepad Vibration Tester, Vibration Tester, Massager, Vibrator, Satisfyer, Womanizer, Relax, FAQ, Frequently Asked Questions, Геймпад, Джойстик, Вибратор, Вибромассажер, Вибро, Вибромассажёр из геймпада, Тестер вибрации геймпада, Тестер вибрации телефона, Часто Задаваемые Вопросы',
     },
     {
       name: 'description',
-      content: 'Wavelovers. Frequently asked questions page.',
+      content: 'Wavelovers. Frequently asked questions.',
     },
     {
       name: 'og:title',
@@ -18,7 +18,7 @@ const meta: IMeta = {
     },
     {
       name: 'og:description',
-      content: 'Wavelovers. Frequently asked questions page.',
+      content: 'Wavelovers. Frequently asked questions.',
     },
     {
       name: 'og:url',
@@ -30,7 +30,7 @@ const meta: IMeta = {
     },
     {
       name: 'twitter:description',
-      content: 'Wavelovers. Frequently asked questions page.',
+      content: 'Wavelovers. Frequently asked questions.',
     },
   ],
   linkTags: [
@@ -41,4 +41,4 @@ const meta: IMeta = {
   ],
 };
 
-export default meta;
+export default metaFaq;

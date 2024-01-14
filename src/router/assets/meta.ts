@@ -7,7 +7,7 @@ import metaMobileCustom from '@/router/assets/meta/MobileCustom';
 import metaFaq from '@/router/assets/meta/Faq';
 import metaAbout from '@/router/assets/meta/About';
 import metaDonate from '@/router/assets/meta/Donate';
-import meta404 from '@/router/assets/meta/404';
+import metaNotFound from '@/router/assets/meta/404';
 
 import type { IRouteMeta } from '@/models';
 
@@ -50,7 +50,7 @@ const metas: Array<IRouteMeta> = [
   },
   {
     path: '/404',
-    meta: meta404,
+    meta: metaNotFound,
   },
 ];
 
