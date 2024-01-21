@@ -49,8 +49,8 @@ defineComponent({
         <li>The ability to see the future and travel through time and to other galaxies.</li>
       </ol>
       <span>
-        The list is based on reviews, has not been verified by experts, and may not reflect
-        reality. Don't take it for granted.
+        The list is based on reviews, has not been verified by experts, and may not reflect reality.
+        Don't take it for granted.
       </span>
     </article>
     <article class="content-item">
