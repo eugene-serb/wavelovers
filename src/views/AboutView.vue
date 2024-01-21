@@ -13,14 +13,20 @@ defineComponent({
     <article class="content-item">
       <h2 class="content-item__header">Wavelovers</h2>
       <p>
-        Wavelovers is an assistant in relaxation, elimination of muscle pain and other relaxing,
-        wellness procedures, or simply a tester of the performance of the gamepad, its buttons and
-        vibration.
+        Wavelovers will turn your gamepad or phone with vibration function into the best assistant
+        on the path to relaxation and wellness. It is ideal for those who lead an active lifestyle
+        and feel a constant need to recuperate. With Wavelovers, your life will become more
+        comfortable and healthy, and you will be more energetic and full of strength to achieve new
+        heights.
       </p>
       <br />
       <p>
-        Wavelovers is free to use worldwide, in every corner of the planet, all you need is a
-        gamepad with vibration.
+        Wavelovers offers comprehensive solutions for managing and diagnosing your equipment. Our
+        product comes with free vibration patterns that allow you to customize your device to suit
+        your preferences. You can also use manual mode to control vibration using the device
+        buttons. Additionally, Wavelovers' diagnostic feature allows you to check the health of your
+        device. This is especially useful for gamers who want to make sure their hardware is fully
+        functional before playing.
       </p>
     </article>
     <article class="content-item">
@@ -43,9 +49,14 @@ defineComponent({
         <li>The ability to see the future and travel through time and to other galaxies.</li>
       </ol>
       <span>
-        P.S. The list is based on reviews, has not been verified by experts, and may not reflect
+        The list is based on reviews, has not been verified by experts, and may not reflect
         reality. Don't take it for granted.
       </span>
+    </article>
+    <article class="content-item">
+      <h2 class="content-item__header">Advertising</h2>
+      <span>If you have advertising suggestions, please mail me: </span>
+      <a :href="PUBLIC_EMAIL.link" target="_blank" translate="no">{{ PUBLIC_EMAIL.text }}</a>
     </article>
     <article class="content-item">
       <h2 class="content-item__header">Author</h2>
@@ -59,11 +70,6 @@ defineComponent({
       <br />
       <span>Visit my homepage: </span>
       <a :href="PERSONAL_PAGE.link" target="_blank" translate="no">{{ PERSONAL_PAGE.text }}</a>
-    </article>
-    <article class="content-item">
-      <h2 class="content-item__header">Advertising</h2>
-      <span>If you have advertising suggestions, please mail me: </span>
-      <a :href="PUBLIC_EMAIL.link" target="_blank" translate="no">{{ PUBLIC_EMAIL.text }}</a>
     </article>
   </div>
 </template>
