@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
-import { MHeader, MFooter } from '@/components/molecules';
+import { MHeader, MFooter, MAnnouncement } from '@/components/molecules';
+import announcements from '@/assets/announcements.json';
 
 defineComponent({
   name: 'LDefault',
@@ -11,6 +12,7 @@ defineComponent({
   <MHeader />
 
   <main class="page container">
+    <MAnnouncement :announcements="announcements" />
     <slot name="default" />
   </main>
 
@@ -24,7 +26,6 @@ defineComponent({
   margin-bottom: 32px;
 
   @media only screen and (min-width: 540px) {
-    margin-top: 64px;
     margin-bottom: 64px;
   }
 }
