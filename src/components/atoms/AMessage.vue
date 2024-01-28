@@ -7,7 +7,7 @@ defineComponent({
 </script>
 
 <template>
-  <div class="content-item message">
+  <div class="content-item a-message">
     <span>
       <slot name="default" />
     </span>
@@ -15,7 +15,7 @@ defineComponent({
 </template>
 
 <style lang="scss">
-.message {
+.a-message {
   width: 100%;
   display: flex;
   flex-direction: column;
