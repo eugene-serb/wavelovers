@@ -7,9 +7,9 @@ import type { Announcement, AnnouncementSavedData } from '@/models';
  * Результат работы композабла управления анонсами.
  */
 type AnnouncementComposable = {
-  announcements: Ref<Announcement[]>,
-  resetAnnouncements: () => void,
-}
+  announcements: Ref<Announcement[]>;
+  resetAnnouncements: () => void;
+};
 
 /**
  * Композабл для получения соответствующего маршруту списка анонсов.

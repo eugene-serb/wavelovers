@@ -40,4 +40,4 @@ export type AnnouncementSavedData = {
    * Включён ли анонс.
    */
   enabled: boolean;
-}
+};
