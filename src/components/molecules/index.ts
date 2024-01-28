@@ -1,6 +1,7 @@
 export { default as MHeader } from './MHeader.vue';
 export { default as MFooter } from './MFooter.vue';
 export { default as MPattern } from './MPattern.vue';
+export { default as MAnnounce } from './MAnnounce.vue';
 export { default as MToolsMenu } from './MToolsMenu.vue';
 export { default as MHeaderMenu } from './MHeaderMenu.vue';
 export { default as MGamepadList } from './MGamepadList.vue';
