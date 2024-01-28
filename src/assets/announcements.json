@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "id": "mobileVibrationRelease",
+    "message": "✅ Now you can enjoy vibration not only on&nbsp;your gamepad, but also on&nbsp;your phone! <a href=\"/mobile\" target=\"_self\">Try it</a>.",
+    "enabled": true,
+    "excludeRoutes": ["/mobile"]
+  }
+]
