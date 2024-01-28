@@ -39,6 +39,10 @@ defineProps({
   justify-content: space-between;
   text-align: start;
   font-size: 16px;
-  padding: 16px 32px;
+  padding: 16px 16px;
+
+  @media only screen and (min-width: 540px) {
+    padding: 16px 32px;
+  }
 }
 </style>
