@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
-import { MHeader, MFooter, MAnnounce } from '@/components/molecules';
-import announces from '@/assets/announces.json';
+import { MHeader, MFooter, MAnnouncement } from '@/components/molecules';
+import announcements from '@/assets/announcements.json';
 
 defineComponent({
   name: 'LDefault',
@@ -12,7 +12,7 @@ defineComponent({
   <MHeader />
 
   <main class="page container">
-    <MAnnounce :announces="announces" />
+    <MAnnouncement :announcements="announcements" />
     <slot name="default" />
   </main>
 

@@ -1,7 +1,7 @@
 /**
  * Анонс.
  */
-export type Announce = {
+export type Announcement = {
   /**
    * Идентификатор анонса.
    */

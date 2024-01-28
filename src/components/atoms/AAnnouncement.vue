@@ -2,7 +2,7 @@
 import { defineComponent, defineProps } from 'vue';
 
 defineComponent({
-  name: 'AAnnounce',
+  name: 'AAnnouncement',
 });
 
 defineProps({
@@ -24,7 +24,7 @@ defineProps({
 </script>
 
 <template>
-  <div v-if="enabled" class="content-item a-announce">
+  <div v-if="enabled" class="content-item a-announcement">
     <span class="text">
       <slot name="default" />
     </span>
@@ -32,7 +32,7 @@ defineProps({
 </template>
 
 <style lang="scss">
-.a-announce {
+.a-announcement {
   width: 100%;
   display: flex;
   flex-direction: row;

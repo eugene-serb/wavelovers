@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { defineComponent, defineProps, computed } from 'vue';
 import { useRouter } from 'vue-router';
-import { AAnnounce } from '@/components/atoms';
+import { AAnnouncement } from '@/components/atoms';
 
 import type { PropType } from 'vue';
-import type { Announce } from '@/models';
+import type { Announcement } from '@/models';
 
 defineComponent({
-  name: 'MAnnounce',
+  name: 'MAnnouncement',
 });
 
 /**
@@ -17,8 +17,8 @@ const props = defineProps({
   /**
    * Анонсы.
    */
-  announces: {
-    type: Array as PropType<Announce[]>,
+   announcements: {
+    type: Array as PropType<Announcement[]>,
     default: () => [],
   },
 });
@@ -28,11 +28,11 @@ const { currentRoute } = useRouter();
 /**
  * Уведомления которые будут показаны, если они включены и маршрут удовлетворяет условиям, если они указаны.
  */
-const shownAnnounces = computed<Announce[]>(() => {
+const shownAnnounces = computed<Announcement[]>(() => {
   const { path } = currentRoute.value;
 
-  return props.announces.filter((announce) => {
-    const { excludeRoutes, enabled, routes } = announce;
+  return props.announcements.filter((announcement) => {
+    const { excludeRoutes, enabled, routes } = announcement;
 
     if (excludeRoutes && excludeRoutes.length) {
       const exist = excludeRoutes.every((route) => new RegExp(route).test(path));
@@ -52,14 +52,14 @@ const shownAnnounces = computed<Announce[]>(() => {
 </script>
 
 <template>
-  <div class="m-announce">
-    <AAnnounce
+  <div class="m-announcement">
+    <AAnnouncement
       v-for="announce in shownAnnounces"
       :key="announce.id"
       :id="announce.id"
       :enabled="announce.enabled"
     >
       <span v-html="announce.message" />
-    </AAnnounce>
+    </AAnnouncement>
   </div>
 </template>
