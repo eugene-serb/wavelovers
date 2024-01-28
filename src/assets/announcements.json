@@ -3,12 +3,14 @@
     "id": "mobileVibrationRelease",
     "message": "✅ Now you can enjoy vibration not only on&nbsp;your gamepad, but also on&nbsp;your phone! <a href=\"/mobile\" target=\"_self\">Try it</a>.",
     "enabled": true,
+    "closable": true,
     "excludeRoutes": ["/mobile"]
   },
   {
     "id": "silentAlert",
     "message": "⚠️ On&nbsp;some systems, vibration may not work when silent mode is&nbsp;turned&nbsp;on. To&nbsp;make your phone vibrate work, turn off silent mode.",
     "enabled": true,
+    "closable": true,
     "routes": ["/mobile"]
   }
 ]
