@@ -17,7 +17,7 @@ const props = defineProps({
   /**
    * Анонсы.
    */
-   announcements: {
+  announcements: {
     type: Array as PropType<Announcement[]>,
     default: () => [],
   },
@@ -43,7 +43,7 @@ const shownAnnounces = computed<Announcement[]>(() => {
     }
 
     if (routes && routes.length) {
-      return enabled && routes.find((route) => new RegExp(route).test(path));
+      return enabled && Boolean(routes.find((route) => new RegExp(route).test(path)));
     }
 
     return enabled;
