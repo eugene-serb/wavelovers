@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { defineComponent, defineProps, computed } from 'vue';
+import { defineComponent, defineProps, computed, ref, toRefs } from 'vue';
 import { useRouter } from 'vue-router';
 import { AAnnouncement } from '@/components/atoms';
+import useAnnouncements from '@/composables/useAnnouncements';
 
 import type { PropType } from 'vue';
 import type { Announcement } from '@/models';
@@ -25,13 +26,17 @@ const props = defineProps({
 
 const { currentRoute } = useRouter();
 
+const { announcements } = toRefs(props);
+const storageKey = ref<string>('announcements');
+const { announcements: actualAnnouncements } = useAnnouncements(storageKey, announcements);
+
 /**
  * Уведомления которые будут показаны, если они включены и маршрут удовлетворяет условиям, если они указаны.
  */
 const shownAnnounces = computed<Announcement[]>(() => {
   const { path } = currentRoute.value;
 
-  return props.announcements.filter((announcement) => {
+  return actualAnnouncements.value.filter((announcement) => {
     const { excludeRoutes, enabled, routes } = announcement;
 
     if (excludeRoutes && excludeRoutes.length) {
@@ -49,6 +54,14 @@ const shownAnnounces = computed<Announcement[]>(() => {
     return enabled;
   });
 });
+
+function close(id: string) {
+  actualAnnouncements.value.find((item) => {
+    if (item.id === id) {
+      item.enabled = false;
+    }
+  });
+}
 </script>
 
 <template>
@@ -58,6 +71,8 @@ const shownAnnounces = computed<Announcement[]>(() => {
       :key="announce.id"
       :id="announce.id"
       :enabled="announce.enabled"
+      :closable="announce.closable"
+      @close="close"
     >
       <span v-html="announce.message" />
     </AAnnouncement>
