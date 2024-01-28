@@ -3,12 +3,31 @@ import { ref, watch } from 'vue';
 import type { Ref } from 'vue';
 import type { Announcement, AnnouncementSavedData } from '@/models';
 
+/**
+ * Результат работы композабла управления анонсами.
+ */
+type AnnouncementComposable = {
+  announcements: Ref<Announcement[]>,
+  resetAnnouncements: () => void,
+}
+
+/**
+ * Композабл для получения соответствующего маршруту списка анонсов.
+ *
+ * @returns AnnouncementComposable.
+ */
 export function useAnnouncements(
   storageKey: Ref<string>,
   originAnnouncements: Ref<Announcement[]>,
-) {
+): AnnouncementComposable {
+  /**
+   * Копия сохранённой конфигурации анонсов.
+   */
   const _announcementSavedData = ref<AnnouncementSavedData[]>(_getDataFromStorage());
 
+  /**
+   * Анонсы.
+   */
   const announcements = ref<Announcement[]>(_getMergedAnnouncements());
 
   watch(
