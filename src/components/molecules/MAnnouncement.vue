@@ -2,7 +2,7 @@
 import { defineComponent, defineProps, computed, ref, toRefs } from 'vue';
 import { useRouter } from 'vue-router';
 import { AAnnouncement } from '@/components/atoms';
-import useAnnouncements from '@/composables/useAnnouncements';
+import { useAnnouncements } from '@/composables';
 
 import type { PropType } from 'vue';
 import type { Announcement } from '@/models';
@@ -27,7 +27,12 @@ const props = defineProps({
 const { currentRoute } = useRouter();
 
 const { announcements } = toRefs(props);
+
+/**
+ * Ключ хранилища анонсов.
+ */
 const storageKey = ref<string>('announcements');
+
 const { announcements: actualAnnouncements } = useAnnouncements(storageKey, announcements);
 
 /**
@@ -55,10 +60,15 @@ const shownAnnounces = computed<Announcement[]>(() => {
   });
 });
 
-function close(id: string) {
-  actualAnnouncements.value.find((item) => {
-    if (item.id === id) {
-      item.enabled = false;
+/**
+ * Закрыть анонс.
+ * 
+ * @param id Идентификатор анонса.
+ */
+function close(id: string): void {
+  actualAnnouncements.value.find((announce) => {
+    if (announce.id === id) {
+      announce.enabled = false;
     }
   });
 }
