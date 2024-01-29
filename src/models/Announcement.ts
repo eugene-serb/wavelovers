@@ -15,6 +15,10 @@ export type Announcement = {
    */
   message: string;
   /**
+   * Можно ли закрыть.
+   */
+  closable?: boolean;
+  /**
    * Маршруты, по которым показывать анонс.
    */
   routes?: string[];
@@ -22,4 +26,18 @@ export type Announcement = {
    * Маршруты, которые следует исключить из показа.
    */
   excludeRoutes?: string[];
+};
+
+/**
+ * Состояние анонса.
+ */
+export type AnnouncementSavedData = {
+  /**
+   * Идентификатор анонса.
+   */
+  id: string;
+  /**
+   * Включён ли анонс.
+   */
+  enabled: boolean;
 };

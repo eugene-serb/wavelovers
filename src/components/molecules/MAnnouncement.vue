@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { defineComponent, defineProps, computed } from 'vue';
+import { defineComponent, defineProps, computed, ref, toRefs } from 'vue';
 import { useRouter } from 'vue-router';
 import { AAnnouncement } from '@/components/atoms';
+import { useAnnouncements } from '@/composables';
 
 import type { PropType } from 'vue';
 import type { Announcement } from '@/models';
@@ -24,14 +25,22 @@ const props = defineProps({
 });
 
 const { currentRoute } = useRouter();
+const { path } = currentRoute.value;
+
+const { announcements } = toRefs(props);
+
+/**
+ * Ключ хранилища анонсов.
+ */
+const storageKey = ref<string>('announcements');
+
+const { announcements: actualAnnouncements } = useAnnouncements(storageKey, announcements);
 
 /**
  * Уведомления которые будут показаны, если они включены и маршрут удовлетворяет условиям, если они указаны.
  */
-const shownAnnounces = computed<Announcement[]>(() => {
-  const { path } = currentRoute.value;
-
-  return props.announcements.filter((announcement) => {
+const shownAnnouncements = computed<Announcement[]>(() => {
+  return actualAnnouncements.value.filter((announcement) => {
     const { excludeRoutes, enabled, routes } = announcement;
 
     if (excludeRoutes && excludeRoutes.length) {
@@ -49,15 +58,30 @@ const shownAnnounces = computed<Announcement[]>(() => {
     return enabled;
   });
 });
+
+/**
+ * Закрыть анонс.
+ *
+ * @param id Идентификатор анонса.
+ */
+function close(id: string): void {
+  actualAnnouncements.value.find((announce) => {
+    if (announce.id === id) {
+      announce.enabled = false;
+    }
+  });
+}
 </script>
 
 <template>
   <div class="m-announcement">
     <AAnnouncement
-      v-for="announce in shownAnnounces"
+      v-for="announce in shownAnnouncements"
       :key="announce.id"
       :id="announce.id"
       :enabled="announce.enabled"
+      :closable="announce.closable"
+      @close="close"
     >
       <span v-html="announce.message" />
     </AAnnouncement>
