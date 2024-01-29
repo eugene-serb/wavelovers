@@ -25,6 +25,7 @@ const props = defineProps({
 });
 
 const { currentRoute } = useRouter();
+const { path } = currentRoute.value;
 
 const { announcements } = toRefs(props);
 
@@ -38,9 +39,7 @@ const { announcements: actualAnnouncements } = useAnnouncements(storageKey, anno
 /**
  * Уведомления которые будут показаны, если они включены и маршрут удовлетворяет условиям, если они указаны.
  */
-const shownAnnounces = computed<Announcement[]>(() => {
-  const { path } = currentRoute.value;
-
+const shownAnnouncements = computed<Announcement[]>(() => {
   return actualAnnouncements.value.filter((announcement) => {
     const { excludeRoutes, enabled, routes } = announcement;
 
@@ -77,7 +76,7 @@ function close(id: string): void {
 <template>
   <div class="m-announcement">
     <AAnnouncement
-      v-for="announce in shownAnnounces"
+      v-for="announce in shownAnnouncements"
       :key="announce.id"
       :id="announce.id"
       :enabled="announce.enabled"
