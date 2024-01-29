@@ -24,7 +24,7 @@ export function useAnnouncements(
 ): AnnouncementComposable {
   /**
    * Копия сохранённой конфигурации анонсов.
-   * 
+   *
    * @private
    */
   const _announcementSavedData = ref<AnnouncementSavedData[]>(_getDataFromStorage());
