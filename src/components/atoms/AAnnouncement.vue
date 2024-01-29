@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { defineComponent, defineProps } from 'vue';
+import { defineComponent, defineProps, defineEmits } from 'vue';
 
 defineComponent({
   name: 'AAnnouncement',
 });
 
-defineProps({
+/**
+ * Входные параметры компонента.
+ */
+const props = defineProps({
   /**
    * Идентификатор анонса.
    */
@@ -20,7 +23,30 @@ defineProps({
     type: Boolean,
     required: true,
   },
+  /**
+   * Можно ли закрыть.
+   */
+  closable: {
+    type: Boolean,
+    default: false,
+  },
 });
+
+/**
+ * События, которые может сгенерировать компонент.
+ */
+const emits = defineEmits({
+  close(id: string): boolean {
+    return typeof id === 'string' && id.length > 0;
+  },
+});
+
+/**
+ * Закрыть анонс.
+ */
+function close() {
+  emits('close', props.id);
+}
 </script>
 
 <template>
@@ -28,6 +54,8 @@ defineProps({
     <span class="text">
       <slot name="default" />
     </span>
+
+    <div v-if="closable" class="close" @click="close">×</div>
   </div>
 </template>
 
@@ -43,6 +71,17 @@ defineProps({
 
   @media only screen and (min-width: 540px) {
     padding: 16px 32px;
+  }
+
+  > .close {
+    font-size: 20px;
+    margin-left: 16px;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
   }
 }
 </style>

@@ -30,7 +30,7 @@ const layouts: Layouts = {
 /**
  * Композабл для получения соответствующего лейаута маршруту.
  *
- * @returns Лейаут.
+ * @returns LayoutsComposable.
  */
 export function useLayouts(): LayoutsComposable {
   const route = useRoute();
