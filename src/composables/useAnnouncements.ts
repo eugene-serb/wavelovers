@@ -14,6 +14,8 @@ type AnnouncementComposable = {
 /**
  * Композабл для получения соответствующего маршруту списка анонсов.
  *
+ * @param storageKey Ключ для хранилища.
+ * @param originAnnouncements Анонсы.
  * @returns AnnouncementComposable.
  */
 export function useAnnouncements(
@@ -22,13 +24,17 @@ export function useAnnouncements(
 ): AnnouncementComposable {
   /**
    * Копия сохранённой конфигурации анонсов.
+   * 
+   * @private
    */
   const _announcementSavedData = ref<AnnouncementSavedData[]>(_getDataFromStorage());
 
   /**
    * Анонсы.
    */
-  const announcements = ref<Announcement[]>(_getMergedAnnouncements());
+  const announcements = ref<Announcement[]>(
+    _getMergedAnnouncements(originAnnouncements.value, _announcementSavedData.value),
+  );
 
   watch(
     announcements,
@@ -49,15 +55,20 @@ export function useAnnouncements(
    * Получить объединённую конфигурацию анонсов.
    *
    * @private
+   * @param announcements Анонсы.
+   * @param savedData Сохранённые данные анонсов.
    * @returns Объединённая конфигурация анонсов.
    */
-  function _getMergedAnnouncements(): Announcement[] {
-    return originAnnouncements.value.map((announce) => {
-      const state = _announcementSavedData.value.find((state) => state.id === announce.id);
+  function _getMergedAnnouncements(
+    announcements: Announcement[],
+    savedData: AnnouncementSavedData[],
+  ): Announcement[] {
+    return announcements.map((announcement) => {
+      const state = savedData.find((state) => state.id === announcement.id);
 
       return {
-        ...announce,
-        enabled: state?.enabled ?? announce?.enabled ?? true,
+        ...announcement,
+        enabled: state?.enabled ?? announcement?.enabled ?? true,
       };
     });
   }
@@ -70,9 +81,9 @@ export function useAnnouncements(
    * @returns Сохранение конфигурации анонсов.
    */
   function _createAnnouncementSavedData(announcements: Announcement[]): AnnouncementSavedData[] {
-    return announcements.map((announce) => ({
-      id: announce.id,
-      enabled: announce?.enabled ?? true,
+    return announcements.map((announcement) => ({
+      id: announcement.id,
+      enabled: announcement?.enabled ?? true,
     }));
   }
 
@@ -114,10 +125,10 @@ export function useAnnouncements(
    * Сохранить данные в localStorage
    *
    * @private
-   * @param data Данные, которые надо поместить в localStorage.
+   * @param announcements Данные, которые надо поместить в localStorage.
    */
-  function _setDataIntoStorage(data: Announcement[]): void {
-    const save = _createAnnouncementSavedData(data);
+  function _setDataIntoStorage(announcements: Announcement[]): void {
+    const save = _createAnnouncementSavedData(announcements);
     const dto = JSON.stringify(save);
 
     window.localStorage.setItem(storageKey.value, dto);
