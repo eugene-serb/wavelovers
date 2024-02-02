@@ -1,15 +1,49 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
 import { MHeader, MFooter, MAnnouncement } from '@/components/molecules';
+import { URL_TO_HOME, URL_TO_FAQ, URL_TO_ABOUT, URL_TO_DONATE, URL_TO_MOBILE } from '@/constants';
 import announcements from '@/assets/announcements.json';
+
+import type { Link } from '@/models';
 
 defineComponent({
   name: 'LDefault',
 });
+
+/**
+ * Ссылки.
+ */
+const links: Link[] = [
+  {
+    text: 'Gamepad',
+    to: URL_TO_HOME,
+    target: '_self',
+  },
+  {
+    text: 'Mobile',
+    to: URL_TO_MOBILE,
+    target: '_self',
+  },
+  {
+    text: 'FAQ',
+    to: URL_TO_FAQ,
+    target: '_self',
+  },
+  {
+    text: 'About',
+    to: URL_TO_ABOUT,
+    target: '_self',
+  },
+  {
+    text: 'Donate',
+    to: URL_TO_DONATE,
+    target: '_self',
+  },
+];
 </script>
 
 <template>
-  <MHeader />
+  <MHeader :links="links" />
 
   <main class="page container">
     <MAnnouncement :announcements="announcements" />
