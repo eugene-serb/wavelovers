@@ -1,4 +1,5 @@
 import { ref, watch } from 'vue';
+import { storage } from '@/storage';
 
 import type { Ref } from 'vue';
 import type { Announcement, AnnouncementSavedData } from '@/models';
@@ -27,7 +28,7 @@ export function useAnnouncements(
    *
    * @private
    */
-  const _announcementSavedData = ref<AnnouncementSavedData[]>(_getDataFromStorage());
+  const _announcementSavedData = ref<AnnouncementSavedData[]>(_getSavedData());
 
   /**
    * Анонсы.
@@ -39,7 +40,7 @@ export function useAnnouncements(
   watch(
     announcements,
     () => {
-      _setDataIntoStorage(announcements.value);
+      _setSavedData(announcements.value);
     },
     { deep: true },
   );
@@ -88,50 +89,14 @@ export function useAnnouncements(
   }
 
   /**
-   * Десериализовать DTO AnnouncementSavedData.
-   *
-   * @private
-   * @param dto DTO сохранённой конфигурации анонсов.
-   * @returns Сохранённая конфигурация анонсов.
-   */
-  function _deserialize(dto: string): AnnouncementSavedData[] {
-    const raw = JSON.parse(dto);
-
-    if (!Array.isArray(raw)) {
-      return [];
-    }
-
-    const filtered = raw.filter((entity) => {
-      const { id, enabled } = entity;
-
-      if (!(id && typeof id === 'string')) {
-        return false;
-      }
-
-      if (!(typeof enabled === 'boolean')) {
-        return false;
-      }
-
-      return true;
-    });
-
-    return filtered.map((entity) => ({
-      id: entity.id,
-      enabled: entity.enabled,
-    }));
-  }
-
-  /**
    * Сохранить данные в localStorage
    *
    * @private
    * @param announcements Данные, которые надо поместить в localStorage.
    */
-  function _setDataIntoStorage(announcements: Announcement[]): void {
-    const save = _createAnnouncementSavedData(announcements);
-    const dto = JSON.stringify(save);
-
-    window.localStorage.setItem(storageKey.value, dto);
+  function _setSavedData(announcements: Announcement[]): void {
+    const savedData = _createAnnouncementSavedData(announcements);
+    storage.announcements.set(savedData);
   }
 
   /**
@@ -140,14 +105,8 @@ export function useAnnouncements(
    * @private
    * @returns Сохранённое состояние анонсов.
    */
-  function _getDataFromStorage(): AnnouncementSavedData[] {
-    const dto = window.localStorage.getItem(storageKey.value);
-
-    if (!dto) {
-      return [];
-    }
-
-    return _deserialize(dto);
+  function _getSavedData(): AnnouncementSavedData[] {
+    return storage.announcements.get();
   }
 
   return {
