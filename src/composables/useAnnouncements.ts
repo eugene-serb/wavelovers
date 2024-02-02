@@ -15,14 +15,10 @@ type AnnouncementComposable = {
 /**
  * Композабл для получения соответствующего маршруту списка анонсов.
  *
- * @param storageKey Ключ для хранилища.
  * @param originAnnouncements Анонсы.
  * @returns AnnouncementComposable.
  */
-export function useAnnouncements(
-  storageKey: Ref<string>,
-  originAnnouncements: Ref<Announcement[]>,
-): AnnouncementComposable {
+export function useAnnouncements(originAnnouncements: Ref<Announcement[]>): AnnouncementComposable {
   /**
    * Копия сохранённой конфигурации анонсов.
    *
@@ -89,7 +85,7 @@ export function useAnnouncements(
   }
 
   /**
-   * Сохранить данные в localStorage
+   * Сохранить данные в localStorage.
    *
    * @private
    * @param announcements Данные, которые надо поместить в localStorage.
