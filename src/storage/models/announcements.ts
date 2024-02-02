@@ -1,12 +1,32 @@
 import type { CommonStorageModel } from '../core/types';
 import type { AnnouncementSavedData } from '@/models';
 
+/**
+ * Модель данных хранилища Announcements.
+ *
+ * @returns
+ */
 export function announcementStorage(): CommonStorageModel<AnnouncementSavedData[]> {
   return {
+    /**
+     * Идентификатор хранилища. Служит ключом при записи данных.
+     */
     id: 'announcements',
-    serializer: (object: AnnouncementSavedData[]) => {
-      return JSON.stringify(object);
+    /**
+     * Сериализатор данных.
+     *
+     * @param data Данные.
+     * @returns DTO
+     */
+    serializer: (data: AnnouncementSavedData[]) => {
+      return JSON.stringify(data);
     },
+    /**
+     * Десериализатор данных.
+     *
+     * @param dto Транспортный объект данных.
+     * @returns Данные.
+     */
     deserializer: (dto: string | null) => {
       if (!dto || typeof dto !== 'string') {
         return [];
