@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineComponent, defineProps, computed, ref, toRefs } from 'vue';
+import { defineComponent, defineProps, computed, toRefs } from 'vue';
 import { useRouter } from 'vue-router';
 import { AAnnouncement } from '@/components/atoms';
 import { useAnnouncements } from '@/composables';
@@ -29,12 +29,7 @@ const { path } = currentRoute.value;
 
 const { announcements } = toRefs(props);
 
-/**
- * Ключ хранилища анонсов.
- */
-const storageKey = ref<string>('announcements');
-
-const { announcements: actualAnnouncements } = useAnnouncements(storageKey, announcements);
+const { announcements: actualAnnouncements } = useAnnouncements(announcements);
 
 /**
  * Уведомления которые будут показаны, если они включены и маршрут удовлетворяет условиям, если они указаны.
