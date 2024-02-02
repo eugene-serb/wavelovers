@@ -8,4 +8,4 @@ export interface CommonStorageController<T> {
   get: () => T;
   set: (data: T) => void;
   remove: () => void;
-};
+}
