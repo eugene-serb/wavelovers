@@ -38,10 +38,8 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "npx prettier --check src",
-    "format:fix": "npm run format:fix:src && npm run format:fix:public",
-    "format:fix:src": "npx prettier --write --ignore-unknown src",
-    "format:fix:public": "npx prettier --write --ignore-unknown public",
+    "format": "npx prettier --check src && npx prettier --check public",
+    "format:fix": "npx prettier --write --ignore-unknown src && npx prettier --write --ignore-unknown public",
     "test": "npm run test:unit",
     "test:unit": "vitest"
   },
