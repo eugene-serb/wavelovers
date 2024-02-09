@@ -37,7 +37,5 @@ Wavelovers is a vibration test tool for gamepads and mobile devices that can als
 - npm run lint:fix — run lint fix,
 - npm run format — run prettier check,
 - npm run format:fix — run prettier fix all,
-- npm run format:fix:src — run prettier fix source folder,
-- npm run format:fix:public — run prettier fix public folder,
 - npm run test — run all tests
 - npm run test:unit — run unit tests
