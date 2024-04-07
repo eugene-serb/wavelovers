@@ -60,7 +60,7 @@ export const useGamepadsStore = defineStore('gamepads', () => {
   /**
    * Сменить вибрацию.
    *
-   * @param index Номер вибрации.
+   * @param index - Номер вибрации.
    */
   function change(index: number): void {
     if (patternMode.value === index) {
@@ -80,7 +80,7 @@ export const useGamepadsStore = defineStore('gamepads', () => {
   /**
    * Воспроизвести дорожку вибрации.
    *
-   * @param pattern Дорожка шаблонов вибраций.
+   * @param pattern - Дорожка шаблонов вибраций.
    */
   function loop(pattern: GamepadEffectParameters[]): void {
     _gamepads.value.forEach((gamepad) => gamepad.loop(pattern));
@@ -89,7 +89,7 @@ export const useGamepadsStore = defineStore('gamepads', () => {
   /**
    * Запустить вибрацию.
    *
-   * @param pattern Шаблон вибрации.
+   * @param pattern - Шаблон вибрации.
    */
   function vibrate(pattern: GamepadEffectParameters): void {
     _gamepads.value.forEach((gamepad) => gamepad.vibrate(pattern));
@@ -115,7 +115,7 @@ export const useGamepadsStore = defineStore('gamepads', () => {
    * Добавить геймпад.
    *
    * @private
-   * @param event Событие геймпада.
+   * @param event - Событие геймпада.
    */
   function _addGamepad(event: GamepadEvent): void {
     if (_gamepads.value.length >= 1) {
@@ -129,7 +129,7 @@ export const useGamepadsStore = defineStore('gamepads', () => {
    * Удалить геймпад.
    *
    * @private
-   * @param event Событие геймпада.
+   * @param event - Событие геймпада.
    */
   function _deleteGamepad(event: GamepadEvent): void {
     _gamepads.value = _gamepads.value.filter((gamepad) => gamepad.device.id !== event.gamepad.id);

@@ -3,7 +3,8 @@ import type { CommonStorageModel, Fetcher } from './types';
 /**
  * Извлечь данные.
  *
- * @param store Модель данных хранилища.
+ * @template T - Модель данных.
+ * @param store - Модель данных хранилища.
  * @returns Данные.
  */
 function get<T>(store: CommonStorageModel<T>): T {
@@ -14,8 +15,9 @@ function get<T>(store: CommonStorageModel<T>): T {
 /**
  * Записать данные.
  *
- * @param data Данные.
- * @param store Модель данных хранилища.
+ * @template T - Модель данных.
+ * @param data - Данные.
+ * @param store - Модель данных хранилища.
  */
 function set<T>(data: T, store: CommonStorageModel<T>): void {
   localStorage.setItem(store.id, store.serializer(data));
@@ -24,7 +26,8 @@ function set<T>(data: T, store: CommonStorageModel<T>): void {
 /**
  * Удалить данные.
  *
- * @param store Модель данных хранилища.
+ * @template T - Модель данных.
+ * @param store - Модель данных хранилища.
  */
 function remove<T>(store: CommonStorageModel<T>): void {
   localStorage.removeItem(store.id);

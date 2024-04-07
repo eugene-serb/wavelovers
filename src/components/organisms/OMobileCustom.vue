@@ -21,7 +21,7 @@ const pauseDuration = ref<number>(250);
 /**
  * Запустить вибрацию.
  */
-function start() {
+function start(): void {
   const pattern = [vibrationDuration.value, pauseDuration.value];
 
   stopVibrate();
@@ -31,7 +31,7 @@ function start() {
 /**
  * Остановить вибрацию.
  */
-function stop() {
+function stop(): void {
   stopVibrate();
 }
 </script>

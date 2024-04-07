@@ -44,7 +44,7 @@ const emits = defineEmits({
 /**
  * Закрыть анонс.
  */
-function close() {
+function close(): void {
   emits('close', props.id);
 }
 </script>

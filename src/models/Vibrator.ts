@@ -32,30 +32,30 @@ export type TVibrator = {
   /**
    * Обновить информацию об устройстве.
    *
-   * @returns {void}
+   * @returns
    */
   update(): void;
 
   /**
    * Воспроизвести и повторять дорожку вибрации.
    *
-   * @param {GamepadEffectParameters[]} track Дорожка вибрации.
-   * @returns {Promise<void>}
+   * @param track - Дорожка вибрации.
+   * @returns
    */
   loop(track: GamepadEffectParameters[]): Promise<void>;
 
   /**
    * Воспроизвести вибрацию.
    *
-   * @param {GamepadEffectParameters} params Шаблон вибрации
-   * @returns {void}
+   * @param params - Шаблон вибрации
+   * @returns
    */
   vibrate(params: GamepadEffectParameters): void;
 
   /**
    * Отключить вибрацию устройства.
    *
-   * @returns {void}
+   * @returns
    */
   reset(): void;
 };
@@ -92,30 +92,30 @@ export interface IVibrator {
   /**
    * Обновить информацию об устройстве.
    *
-   * @returns {void}
+   * @returns
    */
   update(): void;
 
   /**
    * Воспроизвести и повторять дорожку вибрации.
    *
-   * @param {GamepadEffectParameters[]} track Дорожка вибрации.
-   * @returns {Promise<void>}
+   * @param track - Дорожка вибрации.
+   * @returns
    */
   loop(track: GamepadEffectParameters[]): Promise<void>;
 
   /**
    * Воспроизвести вибрацию.
    *
-   * @param {GamepadEffectParameters} params Шаблон вибрации
-   * @returns {void}
+   * @param params - Шаблон вибрации
+   * @returns
    */
   vibrate(params: GamepadEffectParameters): void;
 
   /**
    * Отключить вибрацию устройства.
    *
-   * @returns {void}
+   * @returns
    */
   reset(): void;
 }
@@ -147,7 +147,7 @@ export class Vibrator implements IVibrator {
   /**
    * Конструктор класса Vibrator.
    *
-   * @param {Gamepad} device Устройство, которое будет использоваться
+   * @param device - Устройство, которое будет использоваться
    * для воспроизведения вибрации или диагностики.
    * @constructor
    */
@@ -163,7 +163,7 @@ export class Vibrator implements IVibrator {
   /**
    * Обновить информацию об устройстве.
    *
-   * @returns {void}
+   * @returns
    */
   update(): void {
     const gamepads = navigator.getGamepads();
@@ -181,8 +181,8 @@ export class Vibrator implements IVibrator {
   /**
    * Воспроизвести и повторять вибрацию на устройстве по последовательности шаблонов.
    *
-   * @param {GamepadEffectParameters[]} track Последовательность шаблонов параметров вибрации.
-   * @returns {Promise<void>}
+   * @param track - Последовательность шаблонов параметров вибрации.
+   * @returns
    */
   async loop(track: GamepadEffectParameters[]): Promise<void> {
     this.isVibrating = true;
@@ -206,8 +206,8 @@ export class Vibrator implements IVibrator {
   /**
    * Воспроизвести вибрацию на устройстве по шаблону.
    *
-   * @param {GamepadEffectParameters} params Шаблон параметров вибрации.
-   * @returns {void}
+   * @param params - Шаблон параметров вибрации.
+   * @returns
    */
   vibrate(params: GamepadEffectParameters): void {
     if (!this.device.vibrationActuator) {
@@ -220,7 +220,7 @@ export class Vibrator implements IVibrator {
   /**
    * Отключить вибрацию устройства.
    *
-   * @returns {void}
+   * @returns
    */
   reset(): void {
     this.isVibrating = false;
