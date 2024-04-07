@@ -19,9 +19,9 @@ let patternIndex: number = -1;
 /**
  * Сменить шаблон.
  *
- * @param index Номер шаблона.
+ * @param index - Номер шаблона.
  */
-function change(index: number) {
+function change(index: number): void {
   if (index === patternIndex) {
     patternIndex = -1;
     stopVibrate();

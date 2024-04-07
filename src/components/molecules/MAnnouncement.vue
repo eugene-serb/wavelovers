@@ -57,7 +57,7 @@ const shownAnnouncements = computed<Announcement[]>(() => {
 /**
  * Закрыть анонс.
  *
- * @param id Идентификатор анонса.
+ * @param id - Идентификатор анонса.
  */
 function close(id: string): void {
   actualAnnouncements.value.find((announce) => {

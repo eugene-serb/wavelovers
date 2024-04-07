@@ -1,5 +1,7 @@
 /**
  * Общий интерфейс модели данных хранилища.
+ *
+ * @template T - Модель данных.
  */
 export interface CommonStorageModel<T> {
   /**
@@ -9,14 +11,14 @@ export interface CommonStorageModel<T> {
   /**
    * Сериализатор данных.
    *
-   * @param data Данные.
+   * @param data - Данные.
    * @returns DTO
    */
   serializer: (data: T) => string;
   /**
    * Десериализатор данных.
    *
-   * @param dto Транспортный объект данных.
+   * @param dto - Транспортный объект данных.
    * @returns Данные.
    */
   deserializer: (dto: string | null) => T;
@@ -24,6 +26,8 @@ export interface CommonStorageModel<T> {
 
 /**
  * Общий интерфейс контроллера хранилища данных.
+ *
+ * @template T - Модель данных.
  */
 export interface CommonStorageController<T> {
   /**
@@ -35,7 +39,7 @@ export interface CommonStorageController<T> {
   /**
    * Записать данные.
    *
-   * @param data Данные.
+   * @param data - Данные.
    */
   set: (data: T) => void;
   /**
@@ -51,21 +55,21 @@ export interface Fetcher {
   /**
    * Извлечь данные.
    *
-   * @param store Модель данных хранилища.
+   * @param store - Модель данных хранилища.
    * @returns Данные.
    */
   get: <T>(store: CommonStorageModel<T>) => T;
   /**
    * Записать данные.
    *
-   * @param data Данные.
-   * @param store Модель данных хранилища.
+   * @param data - Данные.
+   * @param store - Модель данных хранилища.
    */
   set: <T>(data: T, store: CommonStorageModel<T>) => void;
   /**
    * Удалить данные.
    *
-   * @param store Модель данных хранилища.
+   * @param store - Модель данных хранилища.
    */
   remove: <T>(store: CommonStorageModel<T>) => void;
   /**

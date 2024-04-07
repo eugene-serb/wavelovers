@@ -30,7 +30,7 @@ export function useMobileVibration(): MobileVibrationComposable {
   /**
    * Запустить вибрацию.
    *
-   * @param pattern Шаблон вибрации.
+   * @param pattern - Шаблон вибрации.
    */
   function _startVibrate(pattern: number | number[]): void {
     window.navigator.vibrate(pattern);
@@ -39,8 +39,8 @@ export function useMobileVibration(): MobileVibrationComposable {
   /**
    * Запустить интервал с вибрацией.
    *
-   * @param pattern Шаблон вибрации.
-   * @param duration Продолжительность вибрации.
+   * @param pattern - Шаблон вибрации.
+   * @param duration - Продолжительность вибрации.
    */
   function _startPersistentVibrate(pattern: number | number[], duration: number): void {
     _vibrateInterval = window.setInterval(() => {
@@ -63,7 +63,7 @@ export function useMobileVibration(): MobileVibrationComposable {
   /**
    * Запустить вибрацию.
    *
-   * @param pattern Шаблон вибрации.
+   * @param pattern - Шаблон вибрации.
    */
   function startVibrateLoop(pattern: number | number[]): void {
     let duration = 0;

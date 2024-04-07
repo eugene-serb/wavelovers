@@ -16,7 +16,7 @@ function get(): AnnouncementSavedData[] {
 /**
  * Записать данные.
  *
- * @param data Данные.
+ * @param data - Данные.
  */
 function set(data: AnnouncementSavedData[]): void {
   fetcher.set<AnnouncementSavedData[]>(data, announcementStorage());

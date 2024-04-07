@@ -45,7 +45,7 @@ const emits = defineEmits({
 /**
  * Событие выполняемое при клике кнопки мыши.
  *
- * @param index Индекс элемента.
+ * @param index - Индекс элемента.
  */
 function onClick(index: number): void {
   emits('click', index);

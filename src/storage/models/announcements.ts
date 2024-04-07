@@ -15,19 +15,19 @@ export function announcementStorage(): CommonStorageModel<AnnouncementSavedData[
     /**
      * Сериализатор данных.
      *
-     * @param data Данные.
+     * @param data - Данные.
      * @returns DTO
      */
-    serializer: (data: AnnouncementSavedData[]) => {
+    serializer: function (data: AnnouncementSavedData[]): string {
       return JSON.stringify(data);
     },
     /**
      * Десериализатор данных.
      *
-     * @param dto Транспортный объект данных.
+     * @param dto - Транспортный объект данных.
      * @returns Данные.
      */
-    deserializer: (dto: string | null) => {
+    deserializer: function (dto: string | null): AnnouncementSavedData[] {
       if (!dto || typeof dto !== 'string') {
         return [];
       }

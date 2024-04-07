@@ -15,7 +15,7 @@ type AnnouncementComposable = {
 /**
  * Композабл для получения соответствующего маршруту списка анонсов.
  *
- * @param originAnnouncements Анонсы.
+ * @param originAnnouncements - Анонсы.
  * @returns AnnouncementComposable.
  */
 export function useAnnouncements(originAnnouncements: Ref<Announcement[]>): AnnouncementComposable {
@@ -52,8 +52,8 @@ export function useAnnouncements(originAnnouncements: Ref<Announcement[]>): Anno
    * Получить объединённую конфигурацию анонсов.
    *
    * @private
-   * @param announcements Анонсы.
-   * @param savedData Сохранённые данные анонсов.
+   * @param announcements - Анонсы.
+   * @param savedData - Сохранённые данные анонсов.
    * @returns Объединённая конфигурация анонсов.
    */
   function _getMergedAnnouncements(
@@ -74,7 +74,7 @@ export function useAnnouncements(originAnnouncements: Ref<Announcement[]>): Anno
    * Сделать копию сохранений конфигурации анонсов.
    *
    * @private
-   * @param announcements Конфигурация анонсов.
+   * @param announcements - Конфигурация анонсов.
    * @returns Сохранение конфигурации анонсов.
    */
   function _createAnnouncementSavedData(announcements: Announcement[]): AnnouncementSavedData[] {
@@ -88,7 +88,7 @@ export function useAnnouncements(originAnnouncements: Ref<Announcement[]>): Anno
    * Сохранить данные в localStorage.
    *
    * @private
-   * @param announcements Данные, которые надо поместить в localStorage.
+   * @param announcements - Данные, которые надо поместить в localStorage.
    */
   function _setSavedData(announcements: Announcement[]): void {
     const savedData = _createAnnouncementSavedData(announcements);
