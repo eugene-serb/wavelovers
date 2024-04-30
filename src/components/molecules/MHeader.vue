@@ -36,11 +36,11 @@ defineProps({
 <style lang="scss">
 .header {
   border-bottom: 8px solid var(--color-header-borderline);
-  background: var(--color-header-background);
+  background-color: var(--color-header-background);
 
   @media only screen and (min-width: 540px) {
     border-bottom: 32px solid var(--color-header-borderline);
-    background: var(--color-header-background);
+    background-color: var(--color-header-background);
   }
 
   .header-wrapper {

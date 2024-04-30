@@ -23,7 +23,7 @@ input {
   padding: 4px 8px;
   border: var(--number-form-border-size) solid var(--color-link);
   border-radius: var(--number-form-border-radius);
-  background: var(--color-milk);
+  background-color: var(--color-milk);
   color: var(--color-text);
   font-size: 16px;
   line-height: 1.382em;
@@ -39,7 +39,7 @@ select:hover {
 }
 
 option {
-  background: var(--color-background);
+  background-color: var(--color-background);
   color: var(--color-text);
   font-size: 16px;
   line-height: 1.382em;
@@ -66,7 +66,7 @@ input {
       &::-webkit-slider-runnable-track,
       &::-ms-fill-lower,
       &::-ms-fill-upper {
-        background: var(--color-b);
+        background-color: var(--color-b);
       }
     }
 
@@ -81,7 +81,7 @@ input {
       box-shadow:
         0px 0px 0px #000000,
         0px 0px 0px #0d0d0d;
-      background: var(--color-b);
+      background-color: var(--color-b);
       border: 0px solid #000101;
       border-radius: var(--number-form-border-radius);
     }
@@ -93,7 +93,7 @@ input {
       margin-top: -4px;
       border: 0px solid #000000;
       border-radius: var(--number-form-border-radius);
-      background: var(--color-a);
+      background-color: var(--color-a);
       box-shadow:
         0px 0px 0px #000000,
         0px 0px 0px #0d0d0d;
@@ -105,7 +105,7 @@ input {
       height: 8px;
       border: 0px solid #000101;
       border-radius: var(--number-form-border-radius);
-      background: var(--color-b);
+      background-color: var(--color-b);
       box-shadow:
         0px 0px 0px #000000,
         0px 0px 0px #0d0d0d;
@@ -118,7 +118,7 @@ input {
       height: 16px;
       border: 0px solid #000000;
       border-radius: var(--number-form-border-radius);
-      background: var(--color-a);
+      background-color: var(--color-a);
       box-shadow:
         0px 0px 0px #000000,
         0px 0px 0px #0d0d0d;
@@ -130,7 +130,7 @@ input {
       height: 8px;
       border-width: 8px 0;
       border-color: transparent;
-      background: transparent;
+      background-color: transparent;
       color: transparent;
       cursor: pointer;
       animate: 0.2s;
@@ -142,7 +142,7 @@ input {
       box-shadow:
         0px 0px 0px #000000,
         0px 0px 0px #0d0d0d;
-      background: var(--color-b);
+      background-color: var(--color-b);
     }
 
     &::-ms-fill-upper {
@@ -151,7 +151,7 @@ input {
       box-shadow:
         0px 0px 0px #000000,
         0px 0px 0px #0d0d0d;
-      background: var(--color-b);
+      background-color: var(--color-b);
     }
 
     &::-ms-thumb {
@@ -159,7 +159,7 @@ input {
       height: 16px;
       border: 0px solid #000000;
       border-radius: var(--number-form-border-radius);
-      background: var(--color-a);
+      background-color: var(--color-a);
       box-shadow:
         0px 0px 0px #000000,
         0px 0px 0px #0d0d0d;
