@@ -86,7 +86,7 @@ function onClick(index: number): void {
   height: 50px;
   padding: 8px;
   border-radius: var(--number-border-radius);
-  background: var(--color-pattern-button);
+  background-color: var(--color-pattern-button);
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

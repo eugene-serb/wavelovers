@@ -161,7 +161,7 @@ export const useGamepadsStore = defineStore('gamepads', () => {
    * @description Запускает слушатели событий для добавления и удаления геймпадов,
    * а также, их обновления.
    */
-  function initialize() {
+  function initialize(): void {
     _addEventListeners();
     _interval.value = window.setInterval(_updateTimestamp, 1);
   }
@@ -172,7 +172,7 @@ export const useGamepadsStore = defineStore('gamepads', () => {
    * @description Удаляет слушатели событий для добавления и удаления геймпадов,
    * а также, их обновления.
    */
-  function terminate() {
+  function terminate(): void {
     _removeEventListeners();
     _interval.value = window.setInterval(_updateTimestamp, 1);
   }

@@ -64,7 +64,7 @@ defineProps({
     }
 
     &::selection {
-      background: var(--color-header-selection);
+      background-color: var(--color-header-selection);
     }
   }
 }

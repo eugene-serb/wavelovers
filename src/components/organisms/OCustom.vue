@@ -122,6 +122,12 @@ function start(): void {
 
       > .custom-form__button {
         width: 100%;
+
+        &:hover {
+          transition: all 0.5s ease;
+          background-color: var(--color-link-hover);
+          color: var(--color-white);
+        }
       }
     }
   }

@@ -20,11 +20,11 @@ body {
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-  background: var(--color-background);
+  background-color: var(--color-background);
 }
 
 ::selection {
-  background: var(--color-selection);
+  background-color: var(--color-selection);
 }
 
 :focus {
