@@ -29,13 +29,13 @@ Wavelovers is a vibration test tool for gamepads and mobile devices that can als
 
 ## Commands:
 
-- npm run dev — run dev server
-- npm run build — build in production mode,
-- npm run preview — run build in preview mode,
-- npm run type-check — run type check,
-- npm run lint — run lint check,
-- npm run lint:fix — run lint fix,
-- npm run format — run prettier check,
-- npm run format:fix — run prettier fix all,
-- npm run test — run all tests
-- npm run test:unit — run unit tests
+- `npm run dev` — run dev server
+- `npm run build` — run build in production mode
+- `npm run preview` — run build in preview mode
+- `npm run type-check` — run type check
+- `npm run lint` — run lint check
+- `npm run lint:fix` — run lint fix
+- `npm run format` — run prettier check
+- `npm run format:fix` — run prettier fix all
+- `npm run test` — run all tests
+- `npm run test:unit` — run unit tests
