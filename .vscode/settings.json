@@ -1,0 +1,21 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.words": [
+    "clickmap",
+    "gamepads",
+    "Metrika",
+    "Satisfyer",
+    "Wavelovers",
+    "Wavemaster",
+    "webvisor",
+    "Вибро",
+    "геймпада"
+  ]
+}
