@@ -1,5 +1,7 @@
 /**
  * Публичный Email для связи.
+ *
+ * @constant
  */
 export const PUBLIC_EMAIL = {
   text: 'eugene.serb@gmail.com',
@@ -8,6 +10,8 @@ export const PUBLIC_EMAIL = {
 
 /**
  * Ссылка на персональную страницу.
+ *
+ * @constant
  */
 export const PERSONAL_PAGE = {
   text: 'eugene-serb.github.io',
@@ -16,6 +20,8 @@ export const PERSONAL_PAGE = {
 
 /**
  * Ссылка на Bitcoin кошелёк.
+ *
+ * @constant
  */
 export const BITCOIN_ADDRESS = {
   text: 'bc1qe53gsp0t5ehlvtgsxc952ujmxtvp6zj9zyh29d',

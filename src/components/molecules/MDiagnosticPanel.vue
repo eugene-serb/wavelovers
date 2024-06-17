@@ -17,7 +17,7 @@ const props = defineProps({
   /**
    * Временная метка.
    *
-   * @description Нужна для обновления состояния геймпадов и компонента,
+   * Нужна для обновления состояния геймпадов и компонента,
    * т.к. сами они это не делают.
    */
   timestamp: {
@@ -28,16 +28,22 @@ const props = defineProps({
 
 /**
  * Статус отражающий доступность.
+ *
+ * @constant
  */
 const STATUS_AVAILABLE = 'Available';
 
 /**
  * Статус отражающий недоступность.
+ *
+ * @constant
  */
 const STATUS_MISSING = 'Missing';
 
 /**
  * Класс отражающий нажатие.
+ *
+ * @constant
  */
 const CLASS_PRESSED = 'pressed';
 
