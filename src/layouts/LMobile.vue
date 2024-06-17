@@ -1,14 +1,9 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import { MToolsMenu } from '@/components/molecules';
 import LDefault from '@/layouts/LDefault.vue';
 import { URL_TO_MOBILE, URL_TO_MOBILE_CUSTOM } from '@/constants';
 
 import type { Link } from '@/models';
-
-defineComponent({
-  name: 'LMobile',
-});
 
 /**
  * Ссылки.

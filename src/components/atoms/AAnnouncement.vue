@@ -1,10 +1,4 @@
 <script setup lang="ts">
-import { defineComponent, defineProps, defineEmits } from 'vue';
-
-defineComponent({
-  name: 'AAnnouncement',
-});
-
 /**
  * Входные параметры компонента.
  */

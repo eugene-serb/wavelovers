@@ -1,13 +1,8 @@
 ﻿<script setup lang="ts">
-import { defineComponent } from 'vue';
 import { AMessage } from '@/components/atoms';
 import { MPatternList } from '@/components/molecules';
 import { useMobileVibration } from '@/composables';
 import patterns from '@/assets/mobilePatterns.json';
-
-defineComponent({
-  name: 'OMobile',
-});
 
 const { startVibrateLoop, stopVibrate, isActive } = useMobileVibration();
 

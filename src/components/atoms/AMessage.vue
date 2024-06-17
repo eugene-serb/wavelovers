@@ -1,11 +1,3 @@
-<script setup lang="ts">
-import { defineComponent } from 'vue';
-
-defineComponent({
-  name: 'AMessage',
-});
-</script>
-
 <template>
   <div class="content-item a-message">
     <span>

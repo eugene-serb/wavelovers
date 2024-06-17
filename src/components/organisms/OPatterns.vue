@@ -1,13 +1,8 @@
 ﻿<script setup lang="ts">
-import { defineComponent } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useGamepadsStore } from '@/store';
 import { AMessage } from '@/components/atoms';
 import { MPatternList } from '@/components/molecules';
-
-defineComponent({
-  name: 'OPatterns',
-});
 
 /**
  * Хранилище геймпадов.

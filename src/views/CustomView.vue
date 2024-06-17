@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import { OCustom } from '@/components/organisms';
-
-defineComponent({
-  name: 'CustomView',
-});
 </script>
 
 <template>

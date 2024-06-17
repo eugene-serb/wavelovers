@@ -1,15 +1,11 @@
 <script setup lang="ts">
-import { defineComponent, defineProps, computed, toRefs } from 'vue';
+import { computed, toRefs } from 'vue';
 import { useRouter } from 'vue-router';
 import { AAnnouncement } from '@/components/atoms';
 import { useAnnouncements } from '@/composables';
 
 import type { PropType } from 'vue';
 import type { Announcement } from '@/models';
-
-defineComponent({
-  name: 'MAnnouncement',
-});
 
 /**
  * Входные параметры компонента.

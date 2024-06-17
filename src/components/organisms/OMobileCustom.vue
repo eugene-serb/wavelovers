@@ -1,10 +1,6 @@
 ﻿<script setup lang="ts">
-import { defineComponent, ref } from 'vue';
+import { ref } from 'vue';
 import { useMobileVibration } from '@/composables';
-
-defineComponent({
-  name: 'OMobileCustom',
-});
 
 const { startVibrateLoop, stopVibrate } = useMobileVibration();
 

@@ -1,12 +1,7 @@
 ﻿<script setup lang="ts">
-import { defineComponent } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useGamepadsStore } from '@/store';
 import { MDiagnosticPanel } from '@/components/molecules';
-
-defineComponent({
-  name: 'ODiagnostic',
-});
 
 /**
  * Хранилище геймпадов.

@@ -1,11 +1,3 @@
-<script setup lang="ts">
-import { defineComponent } from 'vue';
-
-defineComponent({
-  name: 'AGamepad',
-});
-</script>
-
 <template>
   <div class="list-item">
     <slot name="default" />

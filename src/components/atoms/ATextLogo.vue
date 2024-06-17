@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import { defineComponent, defineProps } from 'vue';
 import { RouterLink } from 'vue-router';
 
 import type { PropType } from 'vue';
 import type { LinkTarget } from '@/models';
-
-defineComponent({
-  name: 'ATextLogo',
-});
 
 defineProps({
   /**

@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import { OManual } from '@/components/organisms';
-
-defineComponent({
-  name: 'ManualView',
-});
 </script>
 
 <template>

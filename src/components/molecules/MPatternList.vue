@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import { defineComponent, defineProps, defineEmits } from 'vue';
 import MPattern from '@/components/molecules/MPattern.vue';
 
 import type { PropType } from 'vue';
 import type { TCommonPattern } from '@/models';
-
-defineComponent({
-  name: 'MPatternList',
-});
 
 defineProps({
   /**

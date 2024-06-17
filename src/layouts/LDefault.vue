@@ -1,14 +1,9 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import { MHeader, MFooter, MAnnouncement } from '@/components/molecules';
 import { URL_TO_HOME, URL_TO_FAQ, URL_TO_ABOUT, URL_TO_DONATE, URL_TO_MOBILE } from '@/constants';
 import announcements from '@/assets/announcements.json';
 
 import type { Link } from '@/models';
-
-defineComponent({
-  name: 'LDefault',
-});
 
 /**
  * Ссылки.

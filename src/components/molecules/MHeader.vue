@@ -1,15 +1,10 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import { ATextLogo } from '@/components/atoms';
 import MHeaderMenu from '@/components/molecules/MHeaderMenu.vue';
 import { URL_TO_HOME } from '@/constants';
 
 import type { PropType } from 'vue';
 import type { Link } from '@/models';
-
-defineComponent({
-  name: 'MHeader',
-});
 
 defineProps({
   links: {

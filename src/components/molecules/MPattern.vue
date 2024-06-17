@@ -1,12 +1,8 @@
 <script setup lang="ts">
-import { defineComponent, defineProps, defineEmits, computed } from 'vue';
+import { computed } from 'vue';
 
 import type { PropType } from 'vue';
 import type { TCommonPattern } from '@/models';
-
-defineComponent({
-  name: 'MPattern',
-});
 
 /**
  * Входные параметры компонента.

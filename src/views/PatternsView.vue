@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import { OPatterns } from '@/components/organisms';
-
-defineComponent({
-  name: 'PatternsView',
-});
 </script>
 
 <template>

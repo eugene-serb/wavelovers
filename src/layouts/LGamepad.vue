@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useGamepadsStore } from '@/store';
 import { AMessage } from '@/components/atoms';
@@ -8,10 +7,6 @@ import LDefault from '@/layouts/LDefault.vue';
 import { URL_TO_HOME } from '@/constants';
 
 import type { Link } from '@/models';
-
-defineComponent({
-  name: 'LGamepad',
-});
 
 /**
  * Ссылки.
