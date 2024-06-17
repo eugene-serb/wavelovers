@@ -6,8 +6,19 @@ import type { Ref } from 'vue';
  * Результат работы композабла управления вибрацией телефона.
  */
 type MobileVibrationComposable = {
+  /**
+   * Запустить вибрацию телефона по шаблону.
+   *
+   * @param pattern - Шаблон вибрации.
+   */
   startVibrateLoop: (pattern: number | number[]) => void;
+  /**
+   * Остановить вибрацию.
+   */
   stopVibrate: () => void;
+  /**
+   * Вибрация активна?
+   */
   isActive: Ref<boolean>;
 };
 
@@ -19,6 +30,8 @@ type MobileVibrationComposable = {
 export function useMobileVibration(): MobileVibrationComposable {
   /**
    * Интервал.
+   *
+   * @private
    */
   let _vibrateInterval: number = 0;
 
@@ -30,6 +43,7 @@ export function useMobileVibration(): MobileVibrationComposable {
   /**
    * Запустить вибрацию.
    *
+   * @private
    * @param pattern - Шаблон вибрации.
    */
   function _startVibrate(pattern: number | number[]): void {
@@ -39,6 +53,7 @@ export function useMobileVibration(): MobileVibrationComposable {
   /**
    * Запустить интервал с вибрацией.
    *
+   * @private
    * @param pattern - Шаблон вибрации.
    * @param duration - Продолжительность вибрации.
    */
@@ -61,7 +76,7 @@ export function useMobileVibration(): MobileVibrationComposable {
   }
 
   /**
-   * Запустить вибрацию.
+   * Запустить вибрацию телефона по шаблону.
    *
    * @param pattern - Шаблон вибрации.
    */

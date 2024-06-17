@@ -8,46 +8,38 @@ export type TVibrator = {
    * Устройство.
    */
   device: Gamepad;
-
   /**
    * ID устройства.
    */
   readonly id: number;
-
   /**
    * Может ли устройство вибрировать.
    */
   readonly canVibrate: boolean;
-
   /**
    * Вибрирует ли оно в данный момент?
    */
   isVibrating: boolean;
-
   /**
    * Интервал.
    */
   interval: number;
-
   /**
    * Обновить информацию об устройстве.
    */
   update(): void;
-
   /**
    * Воспроизвести и повторять дорожку вибрации.
    *
    * @param track - Дорожка вибрации.
    */
   loop(track: GamepadEffectParameters[]): Promise<void>;
-
   /**
    * Воспроизвести вибрацию.
    *
    * @param params - Шаблон вибрации
    */
   vibrate(params: GamepadEffectParameters): void;
-
   /**
    * Отключить вибрацию устройства.
    */
@@ -62,46 +54,38 @@ export interface IVibrator {
    * Устройство.
    */
   device: Gamepad;
-
   /**
    * ID устройства.
    */
   readonly id: number;
-
   /**
    * Может ли устройство вибрировать.
    */
   readonly canVibrate: boolean;
-
   /**
    * Вибрирует ли оно в данный момент?
    */
   isVibrating: boolean;
-
   /**
    * Интервал.
    */
   interval: number;
-
   /**
    * Обновить информацию об устройстве.
    */
   update(): void;
-
   /**
    * Воспроизвести и повторять дорожку вибрации.
    *
    * @param track - Дорожка вибрации.
    */
   loop(track: GamepadEffectParameters[]): Promise<void>;
-
   /**
    * Воспроизвести вибрацию.
    *
    * @param params - Шаблон вибрации
    */
   vibrate(params: GamepadEffectParameters): void;
-
   /**
    * Отключить вибрацию устройства.
    */
@@ -168,6 +152,7 @@ export class Vibrator implements IVibrator {
    * Воспроизвести и повторять вибрацию на устройстве по последовательности шаблонов.
    *
    * @param track - Последовательность шаблонов параметров вибрации.
+   * @async
    */
   async loop(track: GamepadEffectParameters[]): Promise<void> {
     this.isVibrating = true;
