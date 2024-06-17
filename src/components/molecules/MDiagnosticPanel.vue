@@ -32,16 +32,22 @@ const props = defineProps({
 
 /**
  * Статус отражающий доступность.
+ *
+ * @constant
  */
 const STATUS_AVAILABLE = 'Available';
 
 /**
  * Статус отражающий недоступность.
+ *
+ * @constant
  */
 const STATUS_MISSING = 'Missing';
 
 /**
  * Класс отражающий нажатие.
+ *
+ * @constant
  */
 const CLASS_PRESSED = 'pressed';
 
