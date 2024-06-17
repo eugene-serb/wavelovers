@@ -14,7 +14,7 @@ type MobileVibrationComposable = {
 /**
  * Композабл для управления вибрацией телефона.
  *
- * @returns MobileVibrationComposable
+ * @returns MobileVibrationComposable.
  */
 export function useMobileVibration(): MobileVibrationComposable {
   /**

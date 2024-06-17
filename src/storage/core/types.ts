@@ -12,7 +12,7 @@ export interface CommonStorageModel<T> {
    * Сериализатор данных.
    *
    * @param data - Данные.
-   * @returns DTO
+   * @returns DTO.
    */
   serializer: (data: T) => string;
   /**
