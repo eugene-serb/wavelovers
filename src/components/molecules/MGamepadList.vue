@@ -1,18 +1,19 @@
 <script setup lang="ts">
 import { AGamepad } from '@/components/atoms';
 
-import type { PropType } from 'vue';
 import type { TVibrator } from '@/models';
 
-defineProps({
+/**
+ * Интерфейс входных параметров компонента.
+ */
+interface Props {
   /**
    * Все геймпады.
    */
-  gamepads: {
-    type: Array as PropType<TVibrator[]>,
-    required: true,
-  },
-});
+  gamepads: TVibrator[];
+}
+
+defineProps<Props>();
 </script>
 
 <template>

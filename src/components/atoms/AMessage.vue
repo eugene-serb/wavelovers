@@ -1,3 +1,17 @@
+<script setup lang="ts">
+/**
+ * Интерфейс слотов, который содержит компонент.
+ */
+interface Slots {
+  /**
+   * Слот по умолчанию.
+   */
+  default(): any;
+}
+
+defineSlots<Slots>();
+</script>
+
 <template>
   <div class="content-item a-message">
     <span>

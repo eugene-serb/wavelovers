@@ -3,14 +3,20 @@ import { ATextLogo } from '@/components/atoms';
 import MHeaderMenu from '@/components/molecules/MHeaderMenu.vue';
 import { URL_TO_HOME } from '@/constants';
 
-import type { PropType } from 'vue';
 import type { Link } from '@/models';
 
-defineProps({
-  links: {
-    type: Array as PropType<Link[]>,
-    default: () => [],
-  },
+/**
+ * Интерфейс входных параметров компонента.
+ */
+interface Props {
+  /**
+   * Ссылки.
+   */
+  links: Link[];
+}
+
+withDefaults(defineProps<Props>(), {
+  links: () => [],
 });
 </script>
 

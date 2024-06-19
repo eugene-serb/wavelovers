@@ -1,41 +1,45 @@
 <script setup lang="ts">
 import MPattern from '@/components/molecules/MPattern.vue';
 
-import type { PropType } from 'vue';
 import type { TCommonPattern } from '@/models';
 
-defineProps({
+/**
+ * Интерфейс входных параметров компонента.
+ */
+interface Props {
   /**
    * Шаблоны вибрации.
    */
-  patterns: {
-    type: Array as PropType<TCommonPattern[]>,
-    required: true,
-  },
+  patterns: TCommonPattern[];
   /**
    * Текущая вибрация.
    */
-  mode: {
-    type: Number,
-    required: true,
-  },
+  mode: number;
   /**
    * Включена ли вибрация сейчас?
    */
-  isActive: {
-    type: Boolean,
-    required: true,
-  },
-});
+  isActive: boolean;
+}
+
+/**
+ * Интерфейс событий, которые может сгенерировать компонент.
+ */
+interface Emits {
+  /**
+   * Клик по шаблону.
+   *
+   * @param e - Имя события.
+   * @param index - Номер шаблона.
+   */
+  (e: 'click', index: number): void;
+}
+
+defineProps<Props>();
 
 /**
  * События, которые может сгенерировать компонент.
  */
-const emits = defineEmits({
-  click(index: number): boolean {
-    return index >= 0;
-  },
-});
+const emits = defineEmits<Emits>();
 
 /**
  * Событие выполняемое при клике кнопки мыши.

@@ -4,20 +4,23 @@ import { useRouter } from 'vue-router';
 import { AAnnouncement } from '@/components/atoms';
 import { useAnnouncements } from '@/composables';
 
-import type { PropType } from 'vue';
 import type { Announcement } from '@/models';
+
+/**
+ * Интерфейс входных параметров компонента.
+ */
+interface Props {
+  /**
+   * Анонсы.
+   */
+  announcements?: Announcement[];
+}
 
 /**
  * Входные параметры компонента.
  */
-const props = defineProps({
-  /**
-   * Анонсы.
-   */
-  announcements: {
-    type: Array as PropType<Announcement[]>,
-    default: () => [],
-  },
+const props = withDefaults(defineProps<Props>(), {
+  announcements: () => [],
 });
 
 const { currentRoute } = useRouter();

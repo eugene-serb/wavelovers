@@ -6,6 +6,18 @@ import announcements from '@/assets/announcements.json';
 import type { Link } from '@/models';
 
 /**
+ * Интерфейс слотов, который содержит компонент.
+ */
+interface Slots {
+  /**
+   * Слот по умолчанию.
+   */
+  default(): any;
+}
+
+defineSlots<Slots>();
+
+/**
  * Ссылки.
  */
 const links: Link[] = [

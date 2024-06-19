@@ -1,38 +1,33 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
 
-import type { PropType } from 'vue';
 import type { LinkTarget } from '@/models';
 
-defineProps({
+/**
+ * Интерфейс входных параметров компонента.
+ */
+interface Props {
   /**
    * Текст.
    */
-  text: {
-    type: String,
-    required: true,
-  },
+  text: string;
   /**
    * Ссылка, куда ведёт лого.
    */
-  link: {
-    type: String,
-    required: true,
-  },
+  link: string;
   /**
    * Как переходить по ссылке.
    */
-  target: {
-    type: String as PropType<LinkTarget>,
-    default: '_self',
-  },
+  target?: LinkTarget;
   /**
    * Разрешать переводить текст лого при запросе пользователя?
    */
-  translate: {
-    type: Boolean,
-    default: false,
-  },
+  translate?: boolean;
+}
+
+withDefaults(defineProps<Props>(), {
+  target: '_self',
+  translate: false,
 });
 </script>
 

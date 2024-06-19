@@ -9,6 +9,18 @@ import { URL_TO_HOME } from '@/constants';
 import type { Link } from '@/models';
 
 /**
+ * Интерфейс слотов, который содержит компонент.
+ */
+interface Slots {
+  /**
+   * Слот по умолчанию.
+   */
+  default(): any;
+}
+
+defineSlots<Slots>();
+
+/**
  * Ссылки.
  */
 const links: Link[] = [
