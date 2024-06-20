@@ -8,57 +8,63 @@ import { PUBLIC_EMAIL } from '@/constants';
     <article class="content-item">
       <h2 class="content-item__header">FAQ</h2>
       <dl>
-        <dt>What is the purpose of this software?</dt>
+        <dt>What is&nbsp;the purpose of&nbsp;this software?</dt>
         <dd>
-          Wavelovers is an all-in-one software that can turn your gamepad or smartphone into a
-          vibration massager, providing comfort and relaxation after a long day. But that is not
-          all! Our software can also be used to diagnose the health of your controller, ensuring
-          you're always ready to play. With Wavelovers on your side, you can enjoy quality
-          relaxation and trouble-free operation of your equipment.
+          Wavelovers is&nbsp;an&nbsp;all-in-one software that can turn your gamepad
+          or&nbsp;smartphone into a vibration massager, providing comfort and relaxation after
+          a&nbsp;long day. But that is&nbsp;not all! Our software can also be&nbsp;used
+          to&nbsp;diagnose the health of&nbsp;your controller, ensuring you&rsquo;re always ready
+          to&nbsp;play. With Wavelovers on&nbsp;your side, you can enjoy quality relaxation and
+          trouble-free operation of&nbsp;your equipment.
         </dd>
-        <dt>Can I use this software as a hand massager?</dt>
+        <dt>Can I&nbsp;use this software as&nbsp;a&nbsp;hand massager?</dt>
         <dd>
-          Yes, sure. If you use this as a vibrating massager, I recommend consulting with your
-          doctor before the session.
+          Yes, sure. If&nbsp;you use this as&nbsp;a&nbsp;vibrating massager, I&nbsp;recommend
+          consulting with your doctor before the session.
         </dd>
         <dt>
-          I have a gamepad with vibration, what should I do before using it as a hand massager?
+          I&nbsp;have a&nbsp;gamepad with vibration, what should I&nbsp;do before using
+          it&nbsp;as&nbsp;a&nbsp;hand massager?
         </dt>
         <dd>
-          I recommend checking the device for correct operation, absence of mechanical damage and be
-          sure to use an antiseptic.
+          I&nbsp;recommend checking the device for correct operation, absence of&nbsp;mechanical
+          damage and be sure to&nbsp;use an&nbsp;antiseptic.
         </dd>
-        <dt>I'm having problems with the app or connecting my device to the app?</dt>
-        <dd>Go to Troubleshooting.</dd>
+        <dt>
+          I&rsquo;m having problems with the app or&nbsp;connecting my&nbsp;device to&nbsp;the app?
+        </dt>
+        <dd>Go&nbsp;to&nbsp;Troubleshooting.</dd>
       </dl>
     </article>
     <article class="content-item">
       <h2 class="content-item__header">Troubleshooting</h2>
       <dl>
-        <dt>Vibration does not start on the phone.</dt>
+        <dt>Vibration does not start on&nbsp;the phone.</dt>
         <dd>
-          Make sure you are using the mobile device templates in the «Mobile» section, your phone is
-          not in silent mode, and your hardware and software meet the recommended requirements.
+          Make sure you are using the mobile device templates in&nbsp;the &laquo;Mobile&raquo;
+          section, your phone is not in&nbsp;silent mode, and your hardware and software meet the
+          recommended requirements.
         </dd>
-        <dt>The app does not see my device.</dt>
+        <dt>The app does not see my&nbsp;device.</dt>
         <dd>Make sure your hardware and software meet the recommended requirements.</dd>
         <dt>
-          The application sees the gamepad, but writes that the vibration actuator is missing.
+          The application sees the gamepad, but writes that the vibration actuator is&nbsp;missing.
         </dt>
         <dd>
-          This issue is specific to the Mozilla Firefox browser and the gamepad's d-input mode.
-          Before using the software, check that your software meets the system requirements.
+          This issue is&nbsp;specific to&nbsp;the Mozilla Firefox browser and the gamepad&rsquo;s
+          d-input mode. Before using the software, check that your software meets the system
+          requirements.
         </dd>
         <dt>
           The application sees the gamepad and vibration drive, but vibration does not start.
         </dt>
         <dd>
-          Make sure your device is fully charged and the vibration on your controller is not turned
-          off.
+          Make sure your device is&nbsp;fully charged and the vibration on&nbsp;your controller
+          is&nbsp;not turned off.
         </dd>
-        <dt>My question is not here or the answer did not help.</dt>
+        <dt>My&nbsp;question is&nbsp;not here or&nbsp;the answer did not help.</dt>
         <dd>
-          Write me
+          Write&nbsp;me
           <a :href="PUBLIC_EMAIL.link" target="_blank" translate="no">{{ PUBLIC_EMAIL.text }}</a>
         </dd>
       </dl>
@@ -70,8 +76,8 @@ import { PUBLIC_EMAIL } from '@/constants';
         <dd>X-Input and vibration actuator required.</dd>
         <dt>Browser:</dt>
         <dd>
-          Google Chrome or any other Chromium-based browser is recommended, excluding those in the
-          next paragraph.
+          Google Chrome or&nbsp;any other Chromium-based browser is&nbsp;recommended, excluding
+          those in&nbsp;the next paragraph.
         </dd>
         <dt>Partially supported browsers:</dt>
         <dd>
@@ -79,7 +85,7 @@ import { PUBLIC_EMAIL } from '@/constants';
           Browser (gamepad modes only).
         </dd>
         <dt>Operating System:</dt>
-        <dd>Windows 10 or higher recommended.</dd>
+        <dd>Windows 10&nbsp;or higher recommended.</dd>
       </dl>
     </article>
   </div>

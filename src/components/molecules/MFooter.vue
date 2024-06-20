@@ -13,12 +13,12 @@ const currentYear = computed<number>(() => new Date().getFullYear());
     <div class="footer-wrapper container">
       <div class="annotation">
         <span class="annotation__text">
-          © 2022 — {{ currentYear }} <a href="/" target="_blank" translate="no">Wavelovers</a>.
-          Content licensed under
+          &copy;&nbsp;2022&nbsp;&mdash; {{ currentYear }}
+          <a href="/" target="_blank" translate="no">Wavelovers</a>. Content licensed under
         </span>
         <a href="/LICENSE.txt" target="_blank">GNU General Public License v3.0</a>
         <br />
-        <span class="annotation__text">This site is open source. </span>
+        <span class="annotation__text">This site is&nbsp;open source. </span>
         <a href="https://github.com/eugene-serb/wavelovers/" target="_blank">
           Improve this page.
         </a>
