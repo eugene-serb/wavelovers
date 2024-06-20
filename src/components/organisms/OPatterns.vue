@@ -22,13 +22,7 @@ onUnmounted(() => {
 
 <template>
   <div class="app-patterns">
-    <MPatternList
-      v-if="patterns.length"
-      :patterns="patterns"
-      :mode="patternMode"
-      :isActive="isActive"
-      @click="change"
-    />
+    <MPatternList v-if="patterns.length" :patterns :mode="patternMode" :isActive @click="change" />
     <AMessage v-else>Loading...</AMessage>
   </div>
 </template>
