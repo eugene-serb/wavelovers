@@ -1,4 +1,5 @@
 ﻿<script setup lang="ts">
+import { onUnmounted } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useGamepadsStore } from '@/store';
 import { AMessage } from '@/components/atoms';
@@ -9,7 +10,14 @@ import { MPatternList } from '@/components/molecules';
  */
 const store = useGamepadsStore();
 const { patternMode, isActive } = storeToRefs(store);
-const { change, patterns } = store;
+const { change, patterns, reset } = store;
+
+onUnmounted(() => {
+  patternMode.value = 0;
+  isActive.value = false;
+
+  reset();
+});
 </script>
 
 <template>
