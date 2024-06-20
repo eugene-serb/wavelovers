@@ -1,45 +1,58 @@
 <script setup lang="ts">
-import { defineComponent, defineProps, defineEmits } from 'vue';
+/**
+ * Интерфейс входных параметров компонента.
+ */
+interface Props {
+  /**
+   * Идентификатор анонса.
+   */
+  id: string;
+  /**
+   * Включён ли анонс.
+   */
+  enabled: boolean;
+  /**
+   * Можно ли закрыть.
+   */
+  closable?: boolean;
+}
 
-defineComponent({
-  name: 'AAnnouncement',
-});
+/**
+ * Интерфейс событий, которые может сгенерировать компонент.
+ */
+interface Emits {
+  /**
+   * Закрытие анонса.
+   *
+   * @param e - Имя события.
+   * @param id - ID анонса.
+   */
+  (e: 'close', id: string): void;
+}
+
+/**
+ * Интерфейс слотов, который содержит компонент.
+ */
+interface Slots {
+  /**
+   * Слот по умолчанию.
+   */
+  default(): any;
+}
 
 /**
  * Входные параметры компонента.
  */
-const props = defineProps({
-  /**
-   * Идентификатор анонса.
-   */
-  id: {
-    type: String,
-    required: true,
-  },
-  /**
-   * Включён ли анонс.
-   */
-  enabled: {
-    type: Boolean,
-    required: true,
-  },
-  /**
-   * Можно ли закрыть.
-   */
-  closable: {
-    type: Boolean,
-    default: false,
-  },
+const props = withDefaults(defineProps<Props>(), {
+  closable: false,
 });
 
 /**
  * События, которые может сгенерировать компонент.
  */
-const emits = defineEmits({
-  close(id: string): boolean {
-    return typeof id === 'string' && id.length > 0;
-  },
-});
+const emits = defineEmits<Emits>();
+
+defineSlots<Slots>();
 
 /**
  * Закрыть анонс.

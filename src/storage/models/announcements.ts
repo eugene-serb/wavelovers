@@ -4,7 +4,7 @@ import type { AnnouncementSavedData } from '@/models';
 /**
  * Модель данных хранилища Announcements.
  *
- * @returns
+ * @returns Модель хранилища данных.
  */
 export function announcementStorage(): CommonStorageModel<AnnouncementSavedData[]> {
   return {
@@ -16,7 +16,7 @@ export function announcementStorage(): CommonStorageModel<AnnouncementSavedData[
      * Сериализатор данных.
      *
      * @param data - Данные.
-     * @returns DTO
+     * @returns DTO.
      */
     serializer: function (data: AnnouncementSavedData[]): string {
       return JSON.stringify(data);

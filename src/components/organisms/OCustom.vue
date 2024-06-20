@@ -1,12 +1,11 @@
 ﻿<script setup lang="ts">
-import { defineComponent, ref } from 'vue';
+import { ref, onUnmounted } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useGamepadsStore } from '@/store';
 
-defineComponent({
-  name: 'OCustom',
-});
-
-const { reset, loop } = useGamepadsStore();
+const store = useGamepadsStore();
+const { isActive } = storeToRefs(store);
+const { reset, loop } = store;
 
 /**
  * Пауза перед стартом вибрации.
@@ -29,9 +28,11 @@ const weakMagnitude = ref<number>(1);
 const strongMagnitude = ref<number>(1);
 
 /**
- * Воспроизвести вибрации.
+ * Воспроизвести вибрацию.
  */
 function start(): void {
+  isActive.value = true;
+
   const patterns: GamepadEffectParameters[] = [
     {
       startDelay: startDelay.value,
@@ -44,6 +45,18 @@ function start(): void {
   reset();
   loop(patterns);
 }
+
+/**
+ * Остановить вибрацию.
+ */
+function stop(): void {
+  isActive.value = false;
+  reset();
+}
+
+onUnmounted(() => {
+  stop();
+});
 </script>
 
 <template>
@@ -82,8 +95,8 @@ function start(): void {
         <input v-model="strongMagnitude" type="range" required min="0.0" max="1.0" step="0.01" />
       </label>
       <div class="custom-form__buttons">
-        <button @click="start" class="custom-form__button">Start</button>
-        <button @click="reset" class="custom-form__button">Stop</button>
+        <button v-if="!isActive" @click="start" class="custom-form__button">Start</button>
+        <button v-else @click="stop" class="custom-form__button">Stop</button>
       </div>
     </fieldset>
   </div>

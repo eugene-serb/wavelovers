@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import { BITCOIN_ADDRESS } from '@/constants';
-
-defineComponent({
-  name: 'DonateView',
-});
 </script>
 
 <template>
@@ -12,16 +7,17 @@ defineComponent({
   <div>
     <article class="content-item">
       <h2 class="content-item__header">Donate</h2>
-      <span>If you like this app, you can thank me and donate to me.</span><br /><br />
-      <span>Why should you donate to Wavelovers?</span><br /><br />
+      <span>If&nbsp;you like this app, you can thank me&nbsp;and donate to&nbsp;me.</span>
+      <br /><br />
+      <span>Why should you donate to&nbsp;Wavelovers?</span><br /><br />
       <p>
-        More donation = more money <br />
-        More money allows me buy more coffee <br />
-        More coffee makes me write more code <br />
-        More code means more features <br />
-        More features make you more happiness and productive <br />
-        More happiness and productive so you earn more money <br />
-        More money you earn more donation to me <br />
+        More donation = more money<br />
+        More money allows me&nbsp;buy more coffee<br />
+        More coffee makes me&nbsp;write more code<br />
+        More code means more features<br />
+        More features make you more happiness and productive<br />
+        More happiness and productive so&nbsp;you earn more money<br />
+        More money you earn more donation to&nbsp;me<br />
       </p>
       <br />
       <span>Bitcoin: </span>

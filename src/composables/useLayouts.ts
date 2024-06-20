@@ -8,6 +8,9 @@ import type { Component } from 'vue';
  * Лейауты.
  */
 type Layouts = {
+  /**
+   * Компонент лейаута.
+   */
   [index: string]: Component;
 };
 
@@ -15,6 +18,9 @@ type Layouts = {
  * Результат работы композабла лейаутов.
  */
 type LayoutsComposable = {
+  /**
+   * Компонент лейаута.
+   */
   layout: Component;
 };
 

@@ -12,7 +12,7 @@ export interface CommonStorageModel<T> {
    * Сериализатор данных.
    *
    * @param data - Данные.
-   * @returns DTO
+   * @returns DTO.
    */
   serializer: (data: T) => string;
   /**
@@ -55,6 +55,7 @@ export interface Fetcher {
   /**
    * Извлечь данные.
    *
+   * @template T - Модель данных.
    * @param store - Модель данных хранилища.
    * @returns Данные.
    */
@@ -62,6 +63,7 @@ export interface Fetcher {
   /**
    * Записать данные.
    *
+   * @template T - Модель данных.
    * @param data - Данные.
    * @param store - Модель данных хранилища.
    */
@@ -69,6 +71,7 @@ export interface Fetcher {
   /**
    * Удалить данные.
    *
+   * @template T - Модель данных.
    * @param store - Модель данных хранилища.
    */
   remove: <T>(store: CommonStorageModel<T>) => void;

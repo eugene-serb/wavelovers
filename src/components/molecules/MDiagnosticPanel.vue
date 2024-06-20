@@ -1,47 +1,48 @@
 ﻿<script setup lang="ts">
-import { defineComponent, defineProps, computed } from 'vue';
+import { computed } from 'vue';
 
-import type { PropType } from 'vue';
-
-defineComponent({
-  name: 'MDiagnosticPanel',
-});
+/**
+ * Интерфейс входных параметров компонента.
+ */
+interface Props {
+  /**
+   * Геймпад.
+   */
+  gamepad?: Gamepad | null;
+  /**
+   * Временная метка.
+   *
+   * Нужна для обновления состояния геймпадов и компонента,
+   * т.к. сами они это не делают.
+   */
+  timestamp: number;
+}
 
 /**
  * Входные параметры компонента.
  */
-const props = defineProps({
-  /**
-   * Геймпад.
-   */
-  gamepad: {
-    type: Object as PropType<Gamepad | null>,
-    default: null,
-  },
-  /**
-   * Временная метка.
-   *
-   * @description Нужна для обновления состояния геймпадов и компонента,
-   * т.к. сами они это не делают.
-   */
-  timestamp: {
-    type: Number,
-    required: true,
-  },
+const props = withDefaults(defineProps<Props>(), {
+  gamepad: null,
 });
 
 /**
  * Статус отражающий доступность.
+ *
+ * @constant
  */
 const STATUS_AVAILABLE = 'Available';
 
 /**
  * Статус отражающий недоступность.
+ *
+ * @constant
  */
 const STATUS_MISSING = 'Missing';
 
 /**
  * Класс отражающий нажатие.
+ *
+ * @constant
  */
 const CLASS_PRESSED = 'pressed';
 

@@ -8,54 +8,40 @@ export type TVibrator = {
    * Устройство.
    */
   device: Gamepad;
-
   /**
    * ID устройства.
    */
   readonly id: number;
-
   /**
    * Может ли устройство вибрировать.
    */
   readonly canVibrate: boolean;
-
   /**
    * Вибрирует ли оно в данный момент?
    */
   isVibrating: boolean;
-
   /**
    * Интервал.
    */
   interval: number;
-
   /**
    * Обновить информацию об устройстве.
-   *
-   * @returns
    */
   update(): void;
-
   /**
    * Воспроизвести и повторять дорожку вибрации.
    *
    * @param track - Дорожка вибрации.
-   * @returns
    */
   loop(track: GamepadEffectParameters[]): Promise<void>;
-
   /**
    * Воспроизвести вибрацию.
    *
    * @param params - Шаблон вибрации
-   * @returns
    */
   vibrate(params: GamepadEffectParameters): void;
-
   /**
    * Отключить вибрацию устройства.
-   *
-   * @returns
    */
   reset(): void;
 };
@@ -68,54 +54,40 @@ export interface IVibrator {
    * Устройство.
    */
   device: Gamepad;
-
   /**
    * ID устройства.
    */
   readonly id: number;
-
   /**
    * Может ли устройство вибрировать.
    */
   readonly canVibrate: boolean;
-
   /**
    * Вибрирует ли оно в данный момент?
    */
   isVibrating: boolean;
-
   /**
    * Интервал.
    */
   interval: number;
-
   /**
    * Обновить информацию об устройстве.
-   *
-   * @returns
    */
   update(): void;
-
   /**
    * Воспроизвести и повторять дорожку вибрации.
    *
    * @param track - Дорожка вибрации.
-   * @returns
    */
   loop(track: GamepadEffectParameters[]): Promise<void>;
-
   /**
    * Воспроизвести вибрацию.
    *
    * @param params - Шаблон вибрации
-   * @returns
    */
   vibrate(params: GamepadEffectParameters): void;
-
   /**
    * Отключить вибрацию устройства.
-   *
-   * @returns
    */
   reset(): void;
 }
@@ -123,7 +95,7 @@ export interface IVibrator {
 /**
  * Отрицательный временной сдвиг между запуском шаблонов.
  *
- * @description Чтобы при воспроизведении дорожки вибрации не было
+ * Чтобы при воспроизведении дорожки вибрации не было
  * затухания перед выполнением новой вибрации, нужно из суммарной
  * продолжительности выполнения шаблона вибрации вычесть
  * немного времени, которое задаётся в этой константе.
@@ -162,8 +134,6 @@ export class Vibrator implements IVibrator {
 
   /**
    * Обновить информацию об устройстве.
-   *
-   * @returns
    */
   update(): void {
     const gamepads = navigator.getGamepads();
@@ -182,7 +152,7 @@ export class Vibrator implements IVibrator {
    * Воспроизвести и повторять вибрацию на устройстве по последовательности шаблонов.
    *
    * @param track - Последовательность шаблонов параметров вибрации.
-   * @returns
+   * @async
    */
   async loop(track: GamepadEffectParameters[]): Promise<void> {
     this.isVibrating = true;
@@ -207,7 +177,6 @@ export class Vibrator implements IVibrator {
    * Воспроизвести вибрацию на устройстве по шаблону.
    *
    * @param params - Шаблон параметров вибрации.
-   * @returns
    */
   vibrate(params: GamepadEffectParameters): void {
     if (!this.device.vibrationActuator) {
@@ -219,8 +188,6 @@ export class Vibrator implements IVibrator {
 
   /**
    * Отключить вибрацию устройства.
-   *
-   * @returns
    */
   reset(): void {
     this.isVibrating = false;

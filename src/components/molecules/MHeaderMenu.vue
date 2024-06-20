@@ -1,22 +1,20 @@
 <script setup lang="ts">
-import { defineComponent, defineProps } from 'vue';
 import { RouterLink } from 'vue-router';
 
-import type { PropType } from 'vue';
 import type { Link } from '@/models';
 
-defineComponent({
-  name: 'MHeaderMenu',
-});
-
-defineProps({
+/**
+ * Интерфейс входных параметров компонента.
+ */
+interface Props {
   /**
    * Ссылки.
    */
-  links: {
-    type: Array as PropType<Link[]>,
-    default: () => [],
-  },
+  links: Link[];
+}
+
+withDefaults(defineProps<Props>(), {
+  links: () => [],
 });
 </script>
 

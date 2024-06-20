@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import { ODiagnostic } from '@/components/organisms';
-
-defineComponent({
-  name: 'DiagnosticView',
-});
 </script>
 
 <template>
