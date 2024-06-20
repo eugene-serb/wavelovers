@@ -31,13 +31,7 @@ function change(index: number): void {
 
 <template>
   <div class="app-patterns">
-    <MPatternList
-      v-if="patterns.length"
-      :patterns="patterns"
-      :mode="patternIndex"
-      :isActive="isActive"
-      @click="change"
-    />
+    <MPatternList v-if="patterns.length" :patterns :mode="patternIndex" :isActive @click="change" />
     <AMessage v-else>Loading...</AMessage>
   </div>
 </template>

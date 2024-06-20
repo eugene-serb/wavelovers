@@ -28,7 +28,7 @@ withDefaults(defineProps<Props>(), {
       </div>
 
       <div class="menu-wrapper">
-        <MHeaderMenu :links="links" />
+        <MHeaderMenu :links />
       </div>
     </div>
   </header>

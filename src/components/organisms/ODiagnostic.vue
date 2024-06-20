@@ -17,11 +17,11 @@ const { gamepads, timestamp } = storeToRefs(store);
         v-for="gamepad in gamepads"
         :key="gamepad.id"
         :gamepad="gamepad.device"
-        :timestamp="timestamp"
+        :timestamp
       />
     </template>
     <template v-else>
-      <MDiagnosticPanel :timestamp="timestamp" />
+      <MDiagnosticPanel :timestamp />
     </template>
   </div>
 </template>

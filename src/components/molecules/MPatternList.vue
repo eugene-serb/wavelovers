@@ -56,10 +56,10 @@ function onClick(index: number): void {
     <MPattern
       v-for="(pattern, index) in patterns"
       :key="pattern.name"
-      :pattern="pattern"
-      :index="index"
-      :mode="mode"
-      :isActive="isActive"
+      :pattern
+      :index
+      :mode
+      :isActive
       @click="onClick"
     />
   </div>
