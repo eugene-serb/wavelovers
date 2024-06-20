@@ -6,17 +6,14 @@ export type TGamepadPattern = {
    * Название дорожки вибрации.
    */
   name: string;
-
   /**
    * Тип дорожки.
    */
   type: string;
-
   /**
    * Иконка дорожки.
    */
   icon: string;
-
   /**
    * Дорожка вибрации геймпада.
    */
@@ -31,17 +28,14 @@ export type TMobilePattern = {
    * Название дорожки вибрации.
    */
   name: string;
-
   /**
    * Тип дорожки.
    */
   type: string;
-
   /**
    * Иконка дорожки.
    */
   icon: string;
-
   /**
    * Дорожка вибрации мобильного устройства.
    */

@@ -8,7 +8,13 @@ import type { Announcement, AnnouncementSavedData } from '@/models';
  * Результат работы композабла управления анонсами.
  */
 type AnnouncementComposable = {
+  /**
+   * Анонсы.
+   */
   announcements: Ref<Announcement[]>;
+  /**
+   * Сбросить конфигурацию колонок.
+   */
   resetAnnouncements: () => void;
 };
 
@@ -42,7 +48,7 @@ export function useAnnouncements(originAnnouncements: Ref<Announcement[]>): Anno
   );
 
   /**
-   * Сбросить конфигурацию колонок
+   * Сбросить конфигурацию колонок.
    */
   function resetAnnouncements(): void {
     announcements.value = originAnnouncements.value;

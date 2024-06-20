@@ -1,55 +1,52 @@
 <script setup lang="ts">
-import { defineComponent, defineProps, defineEmits, computed } from 'vue';
+import { computed } from 'vue';
 
-import type { PropType } from 'vue';
 import type { TCommonPattern } from '@/models';
 
-defineComponent({
-  name: 'MPattern',
-});
+/**
+ * Интерфейс входных параметров компонента.
+ */
+interface Props {
+  /**
+   * Шаблон вибрации.
+   */
+  pattern: TCommonPattern;
+  /**
+   * Текущая вибрация.
+   */
+  mode: number;
+  /**
+   * Включена ли вибрация сейчас?
+   */
+  isActive: boolean;
+  /**
+   * Индекс шаблона.
+   */
+  index: number;
+}
+
+/**
+ * Интерфейс событий, которые может сгенерировать компонент.
+ */
+interface Emits {
+  /**
+   * Клик по шаблону.
+   *
+   * @param e - Имя события.
+   * @param index - Номер шаблона.
+   */
+  (e: 'click', index: number): void;
+}
 
 /**
  * Входные параметры компонента.
  */
-const props = defineProps({
-  /**
-   * Шаблон вибрации.
-   */
-  pattern: {
-    type: Object as PropType<TCommonPattern>,
-    required: true,
-  },
-  /**
-   * Текущая вибрация.
-   */
-  mode: {
-    type: Number,
-    required: true,
-  },
-  /**
-   * Включена ли вибрация сейчас?
-   */
-  isActive: {
-    type: Boolean,
-    required: true,
-  },
-  /**
-   * Индекс шаблона.
-   */
-  index: {
-    type: Number,
-    required: true,
-  },
-});
+const props = defineProps<Props>();
 
 /**
  * События, которые может сгенерировать компонент.
  */
-const emits = defineEmits({
-  click(index: number): boolean {
-    return index >= 0;
-  },
-});
+const emits = defineEmits<Emits>();
 
 /**
  * Отражает состояние, выбран ли шаблон или нет.

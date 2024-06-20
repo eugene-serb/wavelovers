@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import { OMobileCustom } from '@/components/organisms';
-
-defineComponent({
-  name: 'MobileView',
-});
 </script>
 
 <template>

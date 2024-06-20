@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import { PUBLIC_EMAIL } from '@/constants';
-
-defineComponent({
-  name: 'FaqView',
-});
 </script>
 
 <template>

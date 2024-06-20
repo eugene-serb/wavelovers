@@ -16,12 +16,10 @@ export interface IMeta {
    * Заголовок страницы.
    */
   title: string;
-
   /**
    * Мета теги meta.
    */
   metaTags: Array<ITag>;
-
   /**
    * Мета теги link.
    */
@@ -36,7 +34,6 @@ export interface IRouteMeta {
    * Путь.
    */
   path: string;
-
   /**
    * Мета информации страницы.
    */

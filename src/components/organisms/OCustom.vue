@@ -1,10 +1,6 @@
 ﻿<script setup lang="ts">
-import { defineComponent, ref } from 'vue';
+import { ref } from 'vue';
 import { useGamepadsStore } from '@/store';
-
-defineComponent({
-  name: 'OCustom',
-});
 
 const { reset, loop } = useGamepadsStore();
 
