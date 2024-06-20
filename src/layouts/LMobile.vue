@@ -2,6 +2,7 @@
 import { MToolsMenu } from '@/components/molecules';
 import LDefault from '@/layouts/LDefault.vue';
 import { URL_TO_MOBILE, URL_TO_MOBILE_CUSTOM } from '@/constants';
+import { LinkTargetVariants } from '@/models';
 
 import type { Link } from '@/models';
 
@@ -24,12 +25,12 @@ const links: Link[] = [
   {
     text: 'Patterns',
     to: URL_TO_MOBILE,
-    target: '_self',
+    target: LinkTargetVariants.SELF,
   },
   {
     text: 'Custom',
     to: URL_TO_MOBILE_CUSTOM,
-    target: '_self',
+    target: LinkTargetVariants.SELF,
   },
 ];
 </script>

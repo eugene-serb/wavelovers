@@ -1,7 +1,21 @@
 /**
  * Варианты значения атрибута target ссылки.
  */
-export type LinkTarget = '_self' | '_blank' | '_parent' | '_top';
+export enum LinkTargetVariants {
+  SELF = '_self',
+  BLANK = '_blank',
+  PARENT = '_parent',
+  TOP = '_top',
+}
+
+/**
+ * Значение атрибута target ссылки.
+ */
+export type LinkTarget =
+  | LinkTargetVariants.SELF
+  | LinkTargetVariants.BLANK
+  | LinkTargetVariants.PARENT
+  | LinkTargetVariants.TOP;
 
 /**
  * Объект данных ссылки для RouterLink.

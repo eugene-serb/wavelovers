@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
+import { LinkTargetVariants } from '@/models';
 
 import type { LinkTarget } from '@/models';
 
@@ -26,7 +27,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  target: '_self',
+  target: LinkTargetVariants.SELF,
   translate: false,
 });
 </script>

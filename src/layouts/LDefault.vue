@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { MHeader, MFooter, MAnnouncement } from '@/components/molecules';
 import { URL_TO_HOME, URL_TO_FAQ, URL_TO_ABOUT, URL_TO_DONATE, URL_TO_MOBILE } from '@/constants';
+import { LinkTargetVariants } from '@/models';
 import announcements from '@/assets/announcements.json';
 
 import type { Link } from '@/models';
@@ -24,27 +25,27 @@ const links: Link[] = [
   {
     text: 'Gamepad',
     to: URL_TO_HOME,
-    target: '_self',
+    target: LinkTargetVariants.SELF,
   },
   {
     text: 'Mobile',
     to: URL_TO_MOBILE,
-    target: '_self',
+    target: LinkTargetVariants.SELF,
   },
   {
     text: 'FAQ',
     to: URL_TO_FAQ,
-    target: '_self',
+    target: LinkTargetVariants.SELF,
   },
   {
     text: 'About',
     to: URL_TO_ABOUT,
-    target: '_self',
+    target: LinkTargetVariants.SELF,
   },
   {
     text: 'Donate',
     to: URL_TO_DONATE,
-    target: '_self',
+    target: LinkTargetVariants.SELF,
   },
 ];
 </script>
