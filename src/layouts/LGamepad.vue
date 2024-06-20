@@ -1,17 +1,25 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useGamepadsStore } from '@/store';
 import { AMessage } from '@/components/atoms';
 import { MToolsMenu, MGamepadList } from '@/components/molecules';
 import LDefault from '@/layouts/LDefault.vue';
 import { URL_TO_HOME } from '@/constants';
+import { LinkTargetVariants } from '@/models';
 
 import type { Link } from '@/models';
 
-defineComponent({
-  name: 'LGamepad',
-});
+/**
+ * Интерфейс слотов, который содержит компонент.
+ */
+interface Slots {
+  /**
+   * Слот по умолчанию.
+   */
+  default(): any;
+}
+
+defineSlots<Slots>();
 
 /**
  * Ссылки.
@@ -20,22 +28,22 @@ const links: Link[] = [
   {
     text: 'Patterns',
     to: URL_TO_HOME,
-    target: '_self',
+    target: LinkTargetVariants.SELF,
   },
   {
     text: 'Custom',
     to: '/custom',
-    target: '_self',
+    target: LinkTargetVariants.SELF,
   },
   {
     text: 'Manual',
     to: '/manual',
-    target: '_self',
+    target: LinkTargetVariants.SELF,
   },
   {
     text: 'Diagnostic',
     to: '/diagnostic',
-    target: '_self',
+    target: LinkTargetVariants.SELF,
   },
 ];
 

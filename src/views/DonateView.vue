@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import { BITCOIN_ADDRESS } from '@/constants';
-
-defineComponent({
-  name: 'DonateView',
-});
 </script>
 
 <template>

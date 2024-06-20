@@ -1,9 +1,15 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
+/**
+ * Интерфейс слотов, который содержит компонент.
+ */
+interface Slots {
+  /**
+   * Слот по умолчанию.
+   */
+  default(): any;
+}
 
-defineComponent({
-  name: 'AGamepad',
-});
+defineSlots<Slots>();
 </script>
 
 <template>

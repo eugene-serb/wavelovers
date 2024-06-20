@@ -1,10 +1,6 @@
 <script setup lang="ts">
-import { defineComponent, computed } from 'vue';
+import { computed } from 'vue';
 import { PERSONAL_PAGE } from '@/constants';
-
-defineComponent({
-  name: 'MFooter',
-});
 
 /**
  * Текущий год.

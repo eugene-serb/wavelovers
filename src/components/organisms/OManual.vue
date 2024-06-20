@@ -1,13 +1,9 @@
 ﻿<script setup lang="ts">
-import { defineComponent, ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useGamepadsStore } from '@/store';
 
 import type { TVibrator } from '@/models';
-
-defineComponent({
-  name: 'OManual',
-});
 
 /**
  * Хранилище геймпадов.

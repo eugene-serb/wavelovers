@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import { PUBLIC_EMAIL, PERSONAL_PAGE } from '@/constants';
-
-defineComponent({
-  name: 'AboutView',
-});
 </script>
 
 <template>
