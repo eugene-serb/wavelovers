@@ -96,9 +96,9 @@ export function useMobileVibration(): MobileVibrationComposable {
   }
 
   return {
-    startVibrateLoop,
-    stopVibrate,
     isActive,
+    stopVibrate,
+    startVibrateLoop,
   };
 }
 

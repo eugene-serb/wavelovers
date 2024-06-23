@@ -1,4 +1,5 @@
 ﻿<script setup lang="ts">
+import { onUnmounted } from 'vue';
 import { AMessage } from '@/components/atoms';
 import { MPatternList } from '@/components/molecules';
 import { useMobileVibration } from '@/composables';
@@ -27,6 +28,10 @@ function change(index: number): void {
   patternIndex = index;
   startVibrateLoop(patterns[index].pattern);
 }
+
+onUnmounted(() => {
+  stopVibrate();
+});
 </script>
 
 <template>

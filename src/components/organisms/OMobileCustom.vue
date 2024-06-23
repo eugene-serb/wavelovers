@@ -1,8 +1,8 @@
 ﻿<script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onUnmounted } from 'vue';
 import { useMobileVibration } from '@/composables';
 
-const { startVibrateLoop, stopVibrate } = useMobileVibration();
+const { isActive, stopVibrate, startVibrateLoop } = useMobileVibration();
 
 /**
  * Продолжительность вибрации.
@@ -24,12 +24,9 @@ function start(): void {
   startVibrateLoop(pattern);
 }
 
-/**
- * Остановить вибрацию.
- */
-function stop(): void {
+onUnmounted(() => {
   stopVibrate();
-}
+});
 </script>
 
 <template>
@@ -60,8 +57,8 @@ function stop(): void {
         />
       </label>
       <div class="custom-form__buttons">
-        <button @click="start" class="custom-form__button">Start</button>
-        <button @click="stop" class="custom-form__button">Stop</button>
+        <button v-if="!isActive" @click="start" class="custom-form__button">Start</button>
+        <button v-else @click="stopVibrate" class="custom-form__button">Stop</button>
       </div>
     </fieldset>
   </div>
