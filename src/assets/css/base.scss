@@ -21,6 +21,7 @@ body {
   justify-content: space-between;
   min-height: 100vh;
   background-color: var(--color-background);
+  overflow-y: scroll;
 }
 
 ::selection {

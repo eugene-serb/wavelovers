@@ -6,11 +6,11 @@ export const metaFaq: IMeta = {
     {
       name: 'keywords',
       content:
-        'Wavelovers, Wave Lovers, Wavemaster, Wave Master, Vibration Master, Vibration, Gamepad, Gamepad Vibration, Gamepad Massager, Vibrate Gamepad, Mobile Vibration, Phone Vibration, Gamepad Tester, Phone Vibration Tester, Gamepad Vibration Tester, Vibration Tester, Massager, Vibrator, Satisfyer, Womanizer, Relax, FAQ, Frequently Asked Questions, Геймпад, Джойстик, Вибратор, Вибромассажер, Вибро, Вибромассажёр из геймпада, Тестер вибрации геймпада, Тестер вибрации телефона, Часто Задаваемые Вопросы',
+        'wavelovers, wavemaster, vibration master, vibration, gamepad, vibrate gamepad, vibrate controller, vibrate phone, vibrate joystick, vibrate wheel, vibration test, gamepad test, joystick test, controller test, wheel test, phone vibration test, gamepad massager, gamepad vibrator, vibration massager, vibrator online, satisfyer, womanizer',
     },
     {
       name: 'description',
-      content: 'Wavelovers. Frequently asked questions.',
+      content: 'Frequently asked questions about the Wavelovers app',
     },
     {
       name: 'og:title',
@@ -18,7 +18,7 @@ export const metaFaq: IMeta = {
     },
     {
       name: 'og:description',
-      content: 'Wavelovers. Frequently asked questions.',
+      content: 'Frequently asked questions about the Wavelovers app',
     },
     {
       name: 'og:url',
@@ -30,7 +30,7 @@ export const metaFaq: IMeta = {
     },
     {
       name: 'twitter:description',
-      content: 'Wavelovers. Frequently asked questions.',
+      content: 'Frequently asked questions about the Wavelovers app',
     },
   ],
   linkTags: [

@@ -60,6 +60,8 @@ const { gamepads } = storeToRefs(store);
     <slot name="default" />
 
     <MGamepadList v-if="gamepads.length" :gamepads="gamepads" />
-    <AMessage v-else>Press any gamepad button or connect a new gamepad to vibrate.</AMessage>
+    <AMessage v-else>
+      Press any gamepad button or&nbsp;connect a&nbsp;new gamepad to&nbsp;vibrate.
+    </AMessage>
   </LDefault>
 </template>

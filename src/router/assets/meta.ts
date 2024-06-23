@@ -11,7 +11,7 @@ import metaNotFound from '@/router/assets/meta/404';
 
 import type { IRouteMeta } from '@/models';
 
-const metas: Array<IRouteMeta> = [
+const meta: Array<IRouteMeta> = [
   {
     path: '/',
     meta: metaPatterns,
@@ -54,4 +54,4 @@ const metas: Array<IRouteMeta> = [
   },
 ];
 
-export default metas;
+export default meta;
