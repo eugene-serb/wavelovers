@@ -6,12 +6,12 @@ export const metaDiagnostic: IMeta = {
     {
       name: 'keywords',
       content:
-        'Wavelovers, Wave Lovers, Wavemaster, Wave Master, Vibration Master, Vibration, Gamepad, Gamepad Vibration, Gamepad Massager, Vibrate Gamepad, Mobile Vibration, Phone Vibration, Gamepad Tester, Phone Vibration Tester, Gamepad Vibration Tester, Vibration Tester, Massager, Vibrator, Satisfyer, Womanizer, Relax, Геймпад, Джойстик, Вибратор, Вибромассажер, Вибро, Вибромассажёр из геймпада, Тестер вибрации геймпада, Тестер вибрации телефона',
+        'wavelovers, wavemaster, vibration master, vibration, gamepad, vibrate gamepad, vibrate controller, vibrate phone, vibrate joystick, vibrate wheel, vibration test, gamepad test, joystick test, controller test, wheel test, phone vibration test, gamepad massager, gamepad vibrator, vibration massager, vibrator online, satisfyer, womanizer',
     },
     {
       name: 'description',
       content:
-        'Wavelovers gamepad diagnostic mode. is a vibration test tool for gamepads and mobile devices that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode.',
+        'Test your gamepad, joystick, steering wheel and other controllers using the Wavelovers diagnostic tool',
     },
     {
       name: 'og:title',
@@ -20,7 +20,7 @@ export const metaDiagnostic: IMeta = {
     {
       name: 'og:description',
       content:
-        'Wavelovers gamepad diagnostic mode. Wavelovers is a vibration test tool for gamepads and mobile devices that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode.',
+        'Test your gamepad, joystick, steering wheel and other controllers using the Wavelovers diagnostic tool',
     },
     {
       name: 'og:url',
@@ -33,7 +33,7 @@ export const metaDiagnostic: IMeta = {
     {
       name: 'twitter:description',
       content:
-        'Wavelovers gamepad diagnostic mode. Wavelovers is a vibration test tool for gamepads and mobile devices that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode.',
+        'Test your gamepad, joystick, steering wheel and other controllers using the Wavelovers diagnostic tool',
     },
   ],
   linkTags: [
