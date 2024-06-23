@@ -6,7 +6,7 @@ import patterns from '@/assets/patterns.json';
 import type { TVibrator } from '@/models';
 
 /**
- * Стор геймпадов.
+ * Хранилище состояний геймпадов.
  */
 export const useGamepadsStore = defineStore('gamepads', () => {
   /**
