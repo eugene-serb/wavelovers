@@ -3,6 +3,6 @@ import { OCustom } from '@/components/organisms';
 </script>
 
 <template>
-  <h1 class="visually-hidden">Wavelovers — Custom</h1>
+  <h1 class="visually-hidden">Wavelovers — Gamepad Custom Pattern</h1>
   <OCustom />
 </template>

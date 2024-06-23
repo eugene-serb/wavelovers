@@ -6,7 +6,7 @@ export const metaDonate: IMeta = {
     {
       name: 'keywords',
       content:
-        'wavelovers, wavemaster, vibration master, vibration, gamepad, vibrate gamepad, vibrate controller, vibrate phone, vibrate joystick, vibrate wheel, vibration test, gamepad test, joystick test, controller test, wheel test, phone vibration test, gamepad massager, gamepad vibrator, vibration massager, vibrator online, satisfyer, womanizer',
+        'wavelovers, wavemaster, vibration master, vibration, gamepad, vibrate gamepad, vibrate controller, vibrate phone, vibrate joystick, vibrate wheel, vibration test, gamepad test, joystick test, controller test, wheel test, phone vibration test, gamepad vibration tester, gamepad massager, gamepad vibrator, vibration massager, vibrator online, satisfyer, womanizer, magic wand',
     },
     {
       name: 'description',

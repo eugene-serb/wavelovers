@@ -3,6 +3,6 @@ import { OManual } from '@/components/organisms';
 </script>
 
 <template>
-  <h1 class="visually-hidden">Wavelovers — Manual</h1>
+  <h1 class="visually-hidden">Wavelovers — Gamepad Manual</h1>
   <OManual />
 </template>
