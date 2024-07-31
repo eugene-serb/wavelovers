@@ -1,8 +1,8 @@
 ﻿<script setup lang="ts">
 import { ref, onUnmounted } from 'vue';
-import { useMobileVibration } from '@/composables';
+import { usePhoneVibration } from '@/composables';
 
-const { isActive, stopVibrate, startVibrateLoop } = useMobileVibration();
+const { isActive, stopVibrate, startVibrateLoop } = usePhoneVibration();
 
 /**
  * Продолжительность вибрации.

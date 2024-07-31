@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { MToolsMenu } from '@/components/molecules';
 import LDefault from '@/layouts/LDefault.vue';
-import { URL_TO_MOBILE, URL_TO_MOBILE_CUSTOM } from '@/constants';
+import { URL_TO_PHONE, URL_TO_PHONE_CUSTOM } from '@/constants';
 import { LinkTargetVariants } from '@/models';
 
 import type { Link } from '@/models';
@@ -24,12 +24,12 @@ defineSlots<Slots>();
 const links: Link[] = [
   {
     text: 'Patterns',
-    to: URL_TO_MOBILE,
+    to: URL_TO_PHONE,
     target: LinkTargetVariants.SELF,
   },
   {
     text: 'Custom',
-    to: URL_TO_MOBILE_CUSTOM,
+    to: URL_TO_PHONE_CUSTOM,
     target: LinkTargetVariants.SELF,
   },
 ];

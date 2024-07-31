@@ -34,6 +34,8 @@ export default defineConfig({
         donate: resolve(ROOT, 'donate.html'),
         mobile: resolve(ROOT, 'mobile.html'),
         'mobile-custom': resolve(ROOT, 'mobile-custom.html'),
+        phone: resolve(ROOT, 'phone.html'),
+        'phone-custom': resolve(ROOT, 'phone-custom.html'),
       },
       output: {
         format: 'es',

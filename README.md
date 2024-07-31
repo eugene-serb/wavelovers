@@ -2,7 +2,7 @@
 
 Wavelovers: **[[rep](https://github.com/eugene-serb/wavelovers/)] [[site](https://wavelovers.ru/)]**
 
-Wavelovers is a vibration test tool for gamepads and mobile devices that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode.
+Wavelovers is a vibration test tool for gamepads and phones that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode.
 
 ## Stack:
 

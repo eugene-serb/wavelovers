@@ -41,7 +41,7 @@ import { PUBLIC_EMAIL } from '@/constants';
       <dl>
         <dt>Vibration does not start on&nbsp;the phone.</dt>
         <dd>
-          Make sure you are using the mobile device templates in&nbsp;the &laquo;Mobile&raquo;
+          Make sure you are using the phone device templates in&nbsp;the &laquo;Phone&raquo;
           section, your phone is not in&nbsp;silent mode, and your hardware and software meet the
           recommended requirements.
         </dd>

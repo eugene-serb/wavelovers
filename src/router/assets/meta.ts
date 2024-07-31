@@ -2,8 +2,8 @@ import metaPatterns from '@/router/assets/meta/Patterns';
 import metaCustom from '@/router/assets/meta/Custom';
 import metaManual from '@/router/assets/meta/Manual';
 import metaDiagnostic from '@/router/assets/meta/Diagnostic';
-import metaMobilePatterns from '@/router/assets/meta/MobilePatterns';
-import metaMobileCustom from '@/router/assets/meta/MobileCustom';
+import metaPhonePatterns from '@/router/assets/meta/PhonePatterns';
+import metaPhoneCustom from '@/router/assets/meta/PhoneCustom';
 import metaFaq from '@/router/assets/meta/Faq';
 import metaAbout from '@/router/assets/meta/About';
 import metaDonate from '@/router/assets/meta/Donate';
@@ -29,12 +29,12 @@ const meta: Array<IRouteMeta> = [
     meta: metaDiagnostic,
   },
   {
-    path: '/mobile',
-    meta: metaMobilePatterns,
+    path: '/phone',
+    meta: metaPhonePatterns,
   },
   {
-    path: '/mobile-custom',
-    meta: metaMobileCustom,
+    path: '/phone-custom',
+    meta: metaPhoneCustom,
   },
   {
     path: '/faq',

@@ -35,18 +35,26 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/mobile',
-    name: 'mobile-view',
-    component: () => import('@/views/MobileView.vue'),
+    redirect: '/phone',
+  },
+  {
+    path: '/phone',
+    name: 'phone-view',
+    component: () => import('@/views/PhoneView.vue'),
     meta: {
-      layout: 'MOBILE',
+      layout: 'PHONE',
     },
   },
   {
     path: '/mobile-custom',
-    name: 'mobile-custom-view',
-    component: () => import('@/views/MobileCustomView.vue'),
+    redirect: '/phone-custom',
+  },
+  {
+    path: '/phone-custom',
+    name: 'phone-custom-view',
+    component: () => import('@/views/PhoneCustomView.vue'),
     meta: {
-      layout: 'MOBILE',
+      layout: 'PHONE',
     },
   },
   {

@@ -48,15 +48,15 @@ export const URL_TO_MANUAL = '/manual';
 export const URL_TO_DIAGNOSTIC = '/diagnostic';
 
 /**
- * Путь на страницу Mobile.
+ * Путь на страницу Phone.
  *
  * @constant
  */
-export const URL_TO_MOBILE = '/mobile';
+export const URL_TO_PHONE = '/phone';
 
 /**
- * Путь на страницу Mobile Custom.
+ * Путь на страницу Phone Custom.
  *
  * @constant
  */
-export const URL_TO_MOBILE_CUSTOM = '/mobile-custom';
+export const URL_TO_PHONE_CUSTOM = '/phone-custom';

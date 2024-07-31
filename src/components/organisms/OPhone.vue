@@ -2,10 +2,10 @@
 import { onUnmounted } from 'vue';
 import { AMessage } from '@/components/atoms';
 import { MPatternList } from '@/components/molecules';
-import { useMobileVibration } from '@/composables';
-import patterns from '@/assets/mobilePatterns.json';
+import { usePhoneVibration } from '@/composables';
+import patterns from '@/assets/phonePatterns.json';
 
-const { startVibrateLoop, stopVibrate, isActive } = useMobileVibration();
+const { startVibrateLoop, stopVibrate, isActive } = usePhoneVibration();
 
 /**
  * Текущий индекс шаблона.
