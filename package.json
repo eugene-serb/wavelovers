@@ -1,6 +1,6 @@
 {
   "name": "wavelovers",
-  "version": "1.35.0",
+  "version": "1.36.0",
   "description": "Wavelovers is a vibration test tool for gamepads and phones that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode.",
   "keywords": [
     "wavelovers",
@@ -45,31 +45,31 @@
     "test:unit": "vitest"
   },
   "dependencies": {
-    "pinia": "^2.1.7",
-    "vue": "^3.4.30",
+    "pinia": "^2.2.0",
+    "vue": "^3.4.35",
     "vue-meta-tag-updater": "^2.2.0",
-    "vue-router": "^4.4.0"
+    "vue-router": "^4.4.1"
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.10.3",
+    "@rushstack/eslint-patch": "^1.10.4",
     "@tsconfig/node20": "^20.1.4",
     "@types/jsdom": "^21.1.7",
-    "@types/node": "^20.14.8",
-    "@vitejs/plugin-vue": "^5.0.5",
+    "@types/node": "^20.14.13",
+    "@vitejs/plugin-vue": "^5.1.1",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/eslint-config-typescript": "^13.0.0",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.5.1",
     "eslint": "^8.57.0",
-    "eslint-plugin-vue": "^9.26.0",
-    "jsdom": "^24.1.0",
-    "npm-run-all2": "^6.2.0",
-    "prettier": "^3.3.2",
-    "sass": "^1.77.6",
-    "typescript": "^5.5.2",
-    "vite": "^5.3.1",
+    "eslint-plugin-vue": "^9.27.0",
+    "jsdom": "^24.1.1",
+    "npm-run-all2": "^6.2.2",
+    "prettier": "^3.3.3",
+    "sass": "^1.77.8",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.5",
     "vitest": "^1.6.0",
-    "vue-tsc": "^2.0.22"
+    "vue-tsc": "^2.0.29"
   }
 }
