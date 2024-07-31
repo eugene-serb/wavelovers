@@ -24,6 +24,18 @@ function start(): void {
   startVibrateLoop(pattern);
 }
 
+/**
+ * Обработчик клика по кнопке.
+ */
+function handleClickButton(): void {
+  if (isActive.value) {
+    stopVibrate();
+    return;
+  }
+
+  start();
+}
+
 onUnmounted(() => {
   stopVibrate();
 });
@@ -57,8 +69,9 @@ onUnmounted(() => {
         />
       </label>
       <div class="custom-form__buttons">
-        <button v-if="!isActive" @click="start" class="custom-form__button">Start</button>
-        <button v-else @click="stopVibrate" class="custom-form__button">Stop</button>
+        <button @click="handleClickButton" class="custom-form__button">
+          {{ isActive ? 'Stop' : 'Start' }}
+        </button>
       </div>
     </fieldset>
   </div>

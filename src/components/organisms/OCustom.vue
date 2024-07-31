@@ -54,6 +54,18 @@ function stop(): void {
   reset();
 }
 
+/**
+ * Обработчик клика по кнопке.
+ */
+function handleClickButton(): void {
+  if (isActive.value) {
+    stop();
+    return;
+  }
+
+  start();
+}
+
 onUnmounted(() => {
   stop();
 });
@@ -95,8 +107,9 @@ onUnmounted(() => {
         <input v-model="strongMagnitude" type="range" required min="0.0" max="1.0" step="0.01" />
       </label>
       <div class="custom-form__buttons">
-        <button v-if="!isActive" @click="start" class="custom-form__button">Start</button>
-        <button v-else @click="stop" class="custom-form__button">Stop</button>
+        <button @click="handleClickButton" class="custom-form__button">
+          {{ isActive ? 'Stop' : 'Start' }}
+        </button>
       </div>
     </fieldset>
   </div>
