@@ -1,7 +1,7 @@
 import type { IMeta } from '@/models';
 
-export const metaMobileCustom: IMeta = {
-  title: 'Wavelovers — Mobile Custom Pattern',
+export const metaPhoneCustom: IMeta = {
+  title: 'Wavelovers — Phone Custom Pattern',
   metaTags: [
     {
       name: 'keywords',
@@ -15,7 +15,7 @@ export const metaMobileCustom: IMeta = {
     },
     {
       name: 'og:title',
-      content: 'Wavelovers — Mobile Custom Pattern',
+      content: 'Wavelovers — Phone Custom Pattern',
     },
     {
       name: 'og:description',
@@ -28,7 +28,7 @@ export const metaMobileCustom: IMeta = {
     },
     {
       name: 'twitter:title',
-      content: 'Wavelovers — Mobile Custom Pattern',
+      content: 'Wavelovers — Phone Custom Pattern',
     },
     {
       name: 'twitter:description',
@@ -39,9 +39,9 @@ export const metaMobileCustom: IMeta = {
   linkTags: [
     {
       rel: 'canonical',
-      href: 'https://wavelovers.ru/mobile',
+      href: 'https://wavelovers.ru/phone-custom',
     },
   ],
 };
 
-export default metaMobileCustom;
+export default metaPhoneCustom;

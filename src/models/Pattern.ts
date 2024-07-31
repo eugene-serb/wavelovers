@@ -21,9 +21,9 @@ export type TGamepadPattern = {
 };
 
 /**
- * Тип TMobilePattern.
+ * Тип TPhonePattern.
  */
-export type TMobilePattern = {
+export type TPhonePattern = {
   /**
    * Название дорожки вибрации.
    */
@@ -45,4 +45,4 @@ export type TMobilePattern = {
 /**
  * Тип TCommonPattern.
  */
-export type TCommonPattern = TGamepadPattern | TMobilePattern;
+export type TCommonPattern = TGamepadPattern | TPhonePattern;

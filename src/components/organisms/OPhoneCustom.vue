@@ -1,8 +1,8 @@
 ﻿<script setup lang="ts">
 import { ref, onUnmounted } from 'vue';
-import { useMobileVibration } from '@/composables';
+import { usePhoneVibration } from '@/composables';
 
-const { isActive, stopVibrate, startVibrateLoop } = useMobileVibration();
+const { isActive, stopVibrate, startVibrateLoop } = usePhoneVibration();
 
 /**
  * Продолжительность вибрации.
@@ -22,6 +22,18 @@ function start(): void {
 
   stopVibrate();
   startVibrateLoop(pattern);
+}
+
+/**
+ * Обработчик клика по кнопке.
+ */
+function handleClickButton(): void {
+  if (isActive.value) {
+    stopVibrate();
+    return;
+  }
+
+  start();
 }
 
 onUnmounted(() => {
@@ -57,8 +69,9 @@ onUnmounted(() => {
         />
       </label>
       <div class="custom-form__buttons">
-        <button v-if="!isActive" @click="start" class="custom-form__button">Start</button>
-        <button v-else @click="stopVibrate" class="custom-form__button">Stop</button>
+        <button @click="handleClickButton" class="custom-form__button">
+          {{ isActive ? 'Stop' : 'Start' }}
+        </button>
       </div>
     </fieldset>
   </div>
