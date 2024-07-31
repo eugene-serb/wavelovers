@@ -135,6 +135,7 @@ onUnmounted(() => {
 
       > .custom-form__button {
         width: 100%;
+        cursor: pointer;
 
         &:hover {
           transition: all 0.5s ease;
