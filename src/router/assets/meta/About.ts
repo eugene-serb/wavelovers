@@ -6,12 +6,12 @@ export const metaAbout: IMeta = {
     {
       name: 'keywords',
       content:
-        'wavelovers, wavemaster, vibration master, vibration, gamepad, vibrate gamepad, vibrate controller, vibrate phone, vibrate joystick, vibrate wheel, vibration test, gamepad test, joystick test, controller test, wheel test, phone vibration test, gamepad vibration tester, gamepad massager, gamepad vibrator, vibration massager, vibrator online, satisfyer, womanizer, magic wand',
+        'wavelovers, wavemaster, vibration master, vibration, gamepad, vibrate gamepad, vibrate controller, vibrate phone, vibrate joystick, vibrate wheel, vibration test, gamepad test, joystick test, controller test, wheel test, phone vibration test, gamepad vibration tester, gamepad massager, gamepad vibrator, vibration massager, vibrator online, satisfyer, womanizer, lovense, magic wand',
     },
     {
       name: 'description',
       content:
-        'Wavelovers is a vibration test tool for gamepads and phones that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode.',
+        'Wavelovers is a vibration test tool for gamepads and phones that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode. Learn about the effects of use.',
     },
     {
       name: 'og:title',
@@ -20,7 +20,7 @@ export const metaAbout: IMeta = {
     {
       name: 'og:description',
       content:
-        'Wavelovers is a vibration test tool for gamepads and phones that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode.',
+        'Wavelovers is a vibration test tool for gamepads and phones that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode. Learn about the effects of use.',
     },
     {
       name: 'og:url',
@@ -33,7 +33,7 @@ export const metaAbout: IMeta = {
     {
       name: 'twitter:description',
       content:
-        'Wavelovers is a vibration test tool for gamepads and phones that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode.',
+        'Wavelovers is a vibration test tool for gamepads and phones that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode. Learn about the effects of use.',
     },
   ],
   linkTags: [
