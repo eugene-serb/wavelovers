@@ -2,6 +2,13 @@
   "name": "Wavelovers",
   "short_name": "Wavelovers",
   "description": "Wavelovers is a vibration test tool for gamepads and phones that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode.",
+  "lang": "en-us",
+  "background_color": "#EA9AB2",
+  "theme_color": "#EA9AB2",
+  "display": "standalone",
+  "orientation": "any",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
       "src": "/img/favicon-16x16.png",
@@ -23,8 +30,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "theme_color": "#EA9AB2",
-  "background_color": "#EA9AB2",
-  "display": "standalone"
+  ]
 }
