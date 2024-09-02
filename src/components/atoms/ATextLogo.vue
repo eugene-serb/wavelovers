@@ -57,5 +57,9 @@ withDefaults(defineProps<Props>(), {
     cursor: pointer;
     color: var(--color-header-logo);
   }
+
+  &::selection {
+    background-color: var(--color-a);
+  }
 }
 </style>

@@ -98,7 +98,7 @@ function onClick(index: number): void {
   }
 
   ::selection {
-    background-color: transparent;
+    background-color: var(--color-b);
   }
 
   &.pattern-item_selected {
