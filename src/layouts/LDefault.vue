@@ -13,7 +13,7 @@ interface Slots {
   /**
    * Слот по умолчанию.
    */
-  default(): any;
+  default(): any; // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 defineSlots<Slots>();
