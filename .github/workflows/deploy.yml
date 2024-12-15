@@ -13,8 +13,8 @@ jobs:
   build-and-deploy:
     strategy:
       matrix:
-        node-version: [20]
-        os: [ubuntu-22.04]
+        node-version: [22]
+        os: [ubuntu-24.04]
 
     concurrency: ci-${{ github.ref }}
 
