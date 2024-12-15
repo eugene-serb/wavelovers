@@ -9,7 +9,7 @@ const ROOT = resolve(__dirname, 'src/pages');
 const PUBLIC_DIR = resolve(__dirname, 'public');
 const OUTPUT_DIR = resolve(__dirname, 'dist');
 
-// https://vitejs.dev/config/
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [vue(), vueDevTools()],
   resolve: {

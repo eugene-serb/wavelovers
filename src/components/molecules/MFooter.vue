@@ -13,8 +13,8 @@ const currentYear = computed<number>(() => new Date().getFullYear());
     <div class="footer-wrapper container">
       <div class="annotation">
         <span class="annotation__text">
-          &copy;&nbsp;2022&nbsp;&mdash; {{ currentYear }}
-          <a href="/" target="_blank" translate="no">Wavelovers</a>. Content licensed under
+          &copy; {{ currentYear }} <a href="/" target="_blank" translate="no">Wavelovers</a>.
+          Content licensed under
         </span>
         <a href="/LICENSE.txt" target="_blank">GNU General Public License v3.0</a>
         <br />

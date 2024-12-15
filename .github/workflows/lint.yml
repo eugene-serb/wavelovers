@@ -14,8 +14,8 @@ jobs:
   lint:
     strategy:
       matrix:
-        node-version: [20]
-        os: [ubuntu-22.04]
+        node-version: [22]
+        os: [ubuntu-24.04]
 
     runs-on: ${{ matrix.os }}
 
