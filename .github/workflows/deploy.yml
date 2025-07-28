@@ -13,7 +13,7 @@ jobs:
   build-and-deploy:
     strategy:
       matrix:
-        node-version: [22]
+        node-version: [24]
         os: [ubuntu-24.04]
 
     concurrency: ci-${{ github.ref }}
@@ -32,4 +32,4 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist
+          folder: build
