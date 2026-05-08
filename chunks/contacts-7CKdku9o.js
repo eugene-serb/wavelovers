@@ -1,0 +1,1 @@
+const e={text:"eugene.serb@gmail.com",link:"mailto:eugene.serb@gmail.com"},t={text:"eugene-serb.github.io",link:"https://eugene-serb.github.io/"},s={text:"bc1qe53gsp0t5ehlvtgsxc952ujmxtvp6zj9zyh29d",link:"bitcoin:bc1qe53gsp0t5ehlvtgsxc952ujmxtvp6zj9zyh29d"};export{s as B,e as P,t as a};
