@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { PERSONAL_PAGE } from '@/constants';
 
 /**
  * Текущий год.
@@ -13,7 +12,7 @@ const currentYear = computed<number>(() => new Date().getFullYear());
     <div class="footer-wrapper container">
       <div class="annotation">
         <span class="annotation__text">
-          &copy; {{ currentYear }} <a href="/" target="_blank" translate="no">Wavelovers</a>.
+          &copy; 2022 — {{ currentYear }} <a href="/" target="_blank" translate="no">Wavelovers</a>.
           Content licensed under
         </span>
         <a href="/LICENSE.txt" target="_blank">GNU General Public License v3.0</a>
@@ -22,10 +21,8 @@ const currentYear = computed<number>(() => new Date().getFullYear());
         <a href="https://github.com/eugene-serb/wavelovers/" target="_blank">
           Improve this page.
         </a>
-      </div>
-      <div class="annotation created-by">
-        <span class="annotation__text">Created by</span>
-        <a :href="PERSONAL_PAGE.link" target="_blank" translate="no">Eugene Serb</a>
+        <br />
+        <span class="annotation__text">This site does not track you or&nbsp;collect any data.</span>
       </div>
     </div>
   </footer>
@@ -47,18 +44,6 @@ const currentYear = computed<number>(() => new Date().getFullYear());
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 32px;
-
-    > .created-by {
-      align-self: flex-end;
-
-      > span {
-        padding-right: 8px;
-      }
-
-      > a {
-        font-size: 32px;
-      }
-    }
   }
 }
 </style>
