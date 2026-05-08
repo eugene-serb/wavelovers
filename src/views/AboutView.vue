@@ -13,6 +13,9 @@ import { PUBLIC_EMAIL, PERSONAL_PAGE } from '@/constants';
         who lead an&nbsp;active lifestyle and feel a&nbsp;constant need to&nbsp;recuperate. With
         Wavelovers, your life will become more comfortable and healthy, and you will be&nbsp;more
         energetic and full of&nbsp;strength to&nbsp;achieve new heights.
+        <strong>
+          There are contraindications. A&nbsp;specialist consultation is&nbsp;required.
+        </strong>
       </p>
       <br />
       <p>
@@ -57,6 +60,9 @@ import { PUBLIC_EMAIL, PERSONAL_PAGE } from '@/constants';
         The list is&nbsp;based on&nbsp;reviews, has not been verified by&nbsp;experts, and may not
         reflect reality. Don&rsquo;t take it&nbsp;for granted.
       </span>
+      <strong>
+        There are contraindications. A&nbsp;specialist consultation is&nbsp;required.
+      </strong>
     </article>
     <article class="content-item">
       <h2 class="content-item__header">Advertising</h2>
