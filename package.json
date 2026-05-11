@@ -1,6 +1,6 @@
 {
   "name": "wavelovers",
-  "version": "1.43.0",
+  "version": "1.43.1",
   "description": "Wavelovers is a vibration test tool for gamepads and phones that can also turn them into vibration massagers. It has free vibration templates, template editor and manual control mode.",
   "keywords": [
     "wavelovers",
@@ -52,7 +52,7 @@
   "dependencies": {
     "pinia": "^3.0.4",
     "vue": "^3.5.18",
-    "vue-meta-tag-updater": "^3.0.0",
+    "vue-meta-tag-updater": "^3.0.1",
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
